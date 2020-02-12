@@ -152,4 +152,5 @@ Assets = {
 	Asset("ANIM", "anim/doydoy_nest.zip"),
 	Asset("ANIM", "anim/icemachine.zip"),
 	Asset("ANIM", "anim/sand_castle.zip"),
+	Asset("ANIM", "anim/piratihatitator.zip"),
 }
