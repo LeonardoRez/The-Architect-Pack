@@ -76,6 +76,7 @@ PrefabFiles = {
 	"k_palmleafhut",
 	"k_doydoy_nest",
 	"k_icemaker",
+	"k_sandcastle"
 }
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddMinimapAtlas("images/minimapimages/kyno_minimap_atlas_sw.xml")
@@ -280,6 +281,9 @@ kyno_shipwreckedtab, TECH.BARQUINHO_ONE, "kyno_doydoy_nest_placer", 1, nil, nil,
 AddRecipe("kyno_icemaker", {Ingredient("heatrock", 1), Ingredient("twigs", 5), Ingredient("transistor", 2)},
 kyno_shipwreckedtab, TECH.BARQUINHO_ONE, "kyno_icemaker_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "icemaker.tex")
 
+
+AddRecipe("kyno_sandcastle", {Ingredient("turf_desertdirt", 2), Ingredient("cutgrass", 4), Ingredient("flint", 3)},
+kyno_shipwreckedtab, TECH.BARQUINHO_ONE, "kyno_sandcastle_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "sand_castle.tex")
 
 AddRecipe("kyno_dragoonden", {Ingredient("cutstone", 2), Ingredient("charcoal", 4), Ingredient("redgem", 2)}, 
 kyno_shipwreckedtab, TECH.BARQUINHO_ONE, "kyno_dragoonden_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "dragoonden.tex")
