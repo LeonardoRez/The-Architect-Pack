@@ -36,9 +36,11 @@ local function spawnice(inst)
     local angle = math.atan2(down.z, down.x) + (math.random()*60)*DEGREES
     local sp = 3 + math.random()
     ice.Physics:SetVel(sp*math.cos(angle), math.random()*2+8, sp*math.sin(angle))
-    -- ice.components.inventoryitem:OnStartFalling()
-	-- ice.components.lootdropper:DropLoot()
-	
+   
+	--[[
+	We need to setup something here to drop the ice.
+	]]--
+   
 	inst.components.fueled:StartConsuming()
 	inst.AnimState:PlayAnimation("idle_on", true)
 end
