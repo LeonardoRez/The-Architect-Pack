@@ -11,16 +11,31 @@ local assets =
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_sw.xml"),
 }
 
-local function dig_up(inst, chopper)
-	inst.components.lootdropper:SpawnLootPrefab("poop")
-	inst.components.lootdropper:SpawnLootPrefab("poop")
-	inst.components.lootdropper:SpawnLootPrefab("houndstooth")
-	inst.components.lootdropper:SpawnLootPrefab("houndstooth")
-	inst:Remove()
-end
+local anims = {"low", "med", "full"}
 
-local function onbuilt(inst)
-	inst.AnimState:PushAnimation("idle_spike")
+local function dig_up(inst, worker, workleft)
+    print("workleft", workleft)
+
+    if workleft == 0 then
+        -- last time
+        -- inst.components.lootdropper:SetLoot({"turf_desertdirt"}) Craftable from Tab.
+
+        -- figure out which side to drop the loot
+        local pt = Vector3(inst.Transform:GetWorldPosition())
+        local hispos = Vector3(worker.Transform:GetWorldPosition())
+
+        local he_right = ((hispos - pt):Dot(TheCamera:GetRightVec()) > 0)
+        
+        if he_right then
+            inst.components.lootdropper:DropLoot(pt - (TheCamera:GetRightVec()*(.5+math.random())))
+        else
+            inst.components.lootdropper:DropLoot(pt + (TheCamera:GetRightVec()*(.5+math.random())))
+        end
+        inst:Remove()
+    else
+        print("PlayAnimation", workleft, anims[workleft])
+        inst.AnimState:PlayAnimation(anims[workleft])
+    end
 end
 
 local function fn()
@@ -30,15 +45,12 @@ local function fn()
     inst.entity:AddAnimState()
     inst.entity:AddSoundEmitter()
 	inst.entity:AddNetwork()
-
-	local minimap = inst.entity:AddMiniMapEntity()
-	minimap:SetIcon("cactus_volcano.png")
 	
-	inst.AnimState:SetBank("cactus_volcano")
-	inst.AnimState:SetBuild("cactus_volcano")
-	inst.AnimState:PlayAnimation("idle_spike", true)
+	inst.AnimState:SetBank("sand_castle")
+	inst.AnimState:SetBuild("sand_castle")
+	inst.AnimState:PlayAnimation(anims[#anims])
 	
-	MakeObstaclePhysics(inst, 1)
+	MakeObstaclePhysics(inst, .4)
 	
 	inst.entity:SetPristine()
 
@@ -47,26 +59,25 @@ local function fn()
     end
 
 	inst:AddComponent("inspectable")
+	inst:AddComponent("lootdropper")
+	
+	inst:AddComponent("sanityaura")
+	inst.components.sanityaura.aura = TUNING.SANITYAURA_SMALL
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
 	
 	inst:AddTag("structure")
-	inst:AddTag("thorny")
-	inst:AddTag("elephantcactus")
-	inst:AddTag("scarytoprey")
-	
-    inst:AddComponent("lootdropper")
+	inst:AddTag("sandcastle")
+	inst:AddTag("sand")
     
 	inst:AddComponent("workable")
 	inst.components.workable:SetWorkAction(ACTIONS.DIG)
-	inst.components.workable:SetOnFinishCallback(dig_up)
-	inst.components.workable:SetWorkLeft(2)
-
-	inst:ListenForEvent("onbuilt", onbuilt)
+	inst.components.workable:SetOnWorkCallback(dig_up)
+	inst.components.workable:SetWorkLeft(#anims)
 
 	return inst
 end
 
-return Prefab("kyno_elephantcactus", fn, assets, prefabs),
-MakePlacer("kyno_elephantcactus_placer", "cactus_volcano", "cactus_volcano", "idle_spike")
+return Prefab("kyno_sandcastle", fn, assets, prefabs),
+MakePlacer("kyno_sandcastle_placer", "sand_castle", "sand_castle", "full")
