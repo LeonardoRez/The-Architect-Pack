@@ -1,4 +1,4 @@
-# Kyno Decorations Pack
+# Kyno's Decorations Pack
  Don't Starve Together Mod for Base Building!
 
 # Content
@@ -13,6 +13,8 @@ This mod is full of content from all Don't Starve DLC, Special Events and some s
 • Hamlet DLC
 
 • DST Exclusive Content
+
+• DS Exclusive Content
 
 # Credits
 People that I wanted to credit for making this mod work!
