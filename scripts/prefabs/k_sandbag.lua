@@ -26,7 +26,6 @@ local function resolveanimtoplay(inst, percent)
 	for i, v in ipairs(anims) do
 		if percent <= v.threshold then
 			if type(v.anim) == "table" then
-				-- get a stable animation, by basing it on world position
 				local x, y, z = inst.Transform:GetWorldPosition()
 				local x = math.floor(x)
 				local z = math.floor(z)
@@ -64,7 +63,7 @@ local function quantizepos(pt)
 	local x, y, z = pt:Get()
 	y = 0
 	
-	if TheWorld().Flooding then
+	if TheWorld() then
 		local px,py,pz = TheWorld().Flooding:GetTileCenterPoint(x,y,z)
 		return Vector3(px,py,pz)
 	else
@@ -83,7 +82,7 @@ local function ondeploy(inst, pt, deployer)
 		wall.Physics:SetCollides(false)
 		wall.Physics:Teleport(pt.x, pt.y, pt.z) 
 		wall.Physics:SetCollides(true)
-		-- wall.SoundEmitter:PlaySound("dontstarve_DLC002/common/sandbag")
+		wall.SoundEmitter:PlaySound("dontstarve/common/place_structure_straw")
 		inst.components.stackable:Get():Remove()
 		makeobstacle(wall)
 	end
@@ -120,14 +119,14 @@ local function onhealthchange(inst, old_percent, new_percent)
 end
 
 local function onhit(inst)
-	-- inst.SoundEmitter:PlaySound("dontstarve_DLC002/common/sandbag")		
+	inst.SoundEmitter:PlaySound("dontstarve/common/destroy_straw")
 	local healthpercent = inst.components.health:GetPercent()
 	local anim_to_play = resolveanimtoplay(inst, healthpercent)
 	inst.AnimState:PlayAnimation(anim_to_play)		
 end
 
 local function onrepaired(inst)
-	-- inst.SoundEmitter:PlaySound("dontstarve_DLC002/common/sandbag")		
+	inst.SoundEmitter:PlaySound("dontstarve/common/place_structure_straw")		
 	makeobstacle(inst)
 end
 
@@ -235,5 +234,50 @@ local function fn()
 	return inst
 end
 
+local function itemfn()
+	local inst = CreateEntity()
+    
+	inst.entity:AddTransform()
+    inst.entity:AddAnimState()
+    inst.entity:AddSoundEmitter()
+	inst.entity:AddNetwork()
+	
+	MakeInventoryPhysics(inst)
+	
+	inst.AnimState:SetBank("sandbag")
+	inst.AnimState:SetBuild("sandbag")
+	inst.AnimState:PlayAnimation("idle")
+	
+	inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
+	
+	inst:AddTag("wallbuilder")
+	
+	inst:AddComponent("repairer")
+	inst.components.repairer.repairmaterial = "kyno_sandbagsmall"
+	inst.components.repairer.healthrepairvalue = 300 / 2
+	
+	inst:AddComponent("stackable")
+	inst.components.stackable.maxsize = TUNING.STACK_SIZE_MEDITEM
+	
+	inst:AddComponent("inspectable")
+	inst:AddComponent("inventoryitem")
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
+	
+	inst:AddComponent("deployable")
+	inst.components.deployable.ondeploy = ondeploy
+	inst.components.deployable.min_spacing = 0
+	inst.components.deployable.test = test_wall
+	inst.components.deployable.placer = "kyno_sandbagsmall_placer"
+	inst.components.deployable:SetQuantizeFunction(quantizepos)
+	inst.components.deployable.deploydistance = 2
+	
+	return inst
+end
+
 return Prefab("kyno_sandbagsmall", fn, assets, prefabs),
-MakePlacer("kyno_sandbagsmall_placer", "sandbag_small", "sandbag_small", "full")
+Prefab("kyno_sandbagsmall_item", itemfn, assets, prefabs),
+MakePlacer("kyno_sandbagsmall_item_placer", "sandbag_small", "sandbag_small", "full", false, false, false, 1.0, true, nil, "eight")
