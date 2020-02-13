@@ -5,8 +5,8 @@ local assets =
 	Asset("ANIM", "anim/sandbag_small.zip"),
 	Asset("ANIM", "anim/sandbag.zip"),
 	
-	Asset("IMAGE", "images/inventoryimages/kyno_inventoryimages_sw.tex"),
-	Asset("ATLAS", "images/inventoryimages/kyno_inventoryimages_sw.xml"),
+	Asset("IMAGE", "images/inventoryimages/kyno_sandbagsmall_item.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_sandbagsmall_item.xml"),
 }
 
 local prefabs =
@@ -72,6 +72,28 @@ local function quantizepos(pt)
 	end
 end
 
+local function IsLand(pt)
+    local ground_tile = TheWorld.Map:GetTileAtPoint(pt.x, pt.y, pt.z)
+    return ground_tile and not ground_tile == GROUND.IMPASSABLE or ground_tile == GROUND.INVALID
+end
+
+local function candeploy(inst, pt)
+    if IsLand(pt) then
+        local ents = TheSim:FindEntities(pt.x,pt.y,pt.z, 1, nil, notags)
+        local min_spacing = inst.components.deployable.min_spacing or 1
+        for k, v in pairs(ents) do
+            print(k, v)
+            if v ~= inst and v:IsValid() and v.entity:IsVisible() and not v.components.placer and v.parent == nil then
+                if distsq( Vector3(v.Transform:GetWorldPosition()), pt) < min_spacing*min_spacing then
+                    return false
+                end
+            end
+        end
+        return true
+    end
+    return false
+end
+
 local function ondeploy(inst, pt, deployer)
 	local wall = SpawnPrefab("kyno_sandbagsmall") 
 	local ground = TheWorld()
@@ -129,40 +151,6 @@ end
 local function onrepaired(inst)
 	inst.SoundEmitter:PlaySound("dontstarve/common/place_structure_straw")		
 	makeobstacle(inst)
-end
-
-local function test_wall(inst, pt)
-	local map = TheWorld().Map
-	local tiletype = GetGroundTypeAtPosition(pt)
-	local ground_OK = tiletype ~= GROUND.IMPASSABLE and not map:IsWater(tiletype)
-	if ground_OK then
-		local ents = TheSim:FindEntities(pt.x,pt.y,pt.z, 2, nil, {"NOBLOCK", "player", "FX", "INLIMBO", "DECOR"}) -- or we could include a flag to the search?
-
-		for k, v in pairs(ents) do
-			if v ~= inst and v:IsValid() and v.entity:IsVisible() and not v.components.placer and v.parent == nil then
-				local dsq = distsq( Vector3(v.Transform:GetWorldPosition()), pt)
-				if v:HasTag("sandbag") then
-					if dsq < .1 then 
-						return false 
-					end
-				else
-					if  dsq< 1 then 
-						return false 
-					end
-				end
-			end
-		end
-
-		local playerPos = GetPlayer():GetPosition()
-		local xDiff = playerPos.x - pt.x 
-		local zDiff = playerPos.z - pt.z 
-		local dsq = xDiff * xDiff + zDiff * zDiff
-		if dsq < 1 then 
-			return false 
-		end 
-		return true
-	end
-	return false	
 end
 
 local function onremoveentity(inst)
@@ -266,15 +254,13 @@ local function itemfn()
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("inventoryitem")
-	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_sandbagsmall_item.xml"
 	
 	inst:AddComponent("deployable")
+	inst.components.deployable:SetDeployMode(DEPLOYMODE.CUSTOM)
+	inst.components.deployable:SetDeploySpacing(DEPLOYSPACING.MEDIUM)
+	inst._custom_candeploy_fn = candeploy
 	inst.components.deployable.ondeploy = ondeploy
-	inst.components.deployable.min_spacing = 0
-	inst.components.deployable.test = test_wall
-	inst.components.deployable.placer = "kyno_sandbagsmall_placer"
-	inst.components.deployable:SetQuantizeFunction(quantizepos)
-	inst.components.deployable.deploydistance = 2
 	
 	return inst
 end

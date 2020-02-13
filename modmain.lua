@@ -293,7 +293,7 @@ kyno_shipwreckedtab, TECH.BARQUINHO_ONE, "kyno_piratihatitator_placer", 1, nil, 
 
 
 AddRecipe("kyno_sandbagsmall_item", {Ingredient("turf_desertdirt", 2), Ingredient("rope", 2)},
-kyno_shipwreckedtab, TECH.BARQUINHO_ONE, nil, nil, nil, 1, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "sandbag_item.tex")
+kyno_shipwreckedtab, TECH.BARQUINHO_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_sandbagsmall_item.xml", "kyno_sandbagsmall_item.tex")
 
 AddRecipe("kyno_dragoonden", {Ingredient("cutstone", 2), Ingredient("charcoal", 4), Ingredient("redgem", 2)}, 
 kyno_shipwreckedtab, TECH.BARQUINHO_ONE, "kyno_dragoonden_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "dragoonden.tex")

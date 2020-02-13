@@ -92,6 +92,9 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_wildbore_head.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_wildbore_head.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_sandbagsmall_item.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_sandbagsmall_item.xml"),
+	
 	-- Unlisted Assets --
 	Asset("ANIM", "anim/mod_turfs.zip"),
 	Asset("ANIM", "anim/kyno_catalogues.zip"),
