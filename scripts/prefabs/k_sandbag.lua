@@ -3,6 +3,7 @@ require "prefabutil"
 local assets =
 {
 	Asset("ANIM", "anim/sandbag_small.zip"),
+	Asset("ANIM", "anim/sandbag.zip"),
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_inventoryimages_sw.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_inventoryimages_sw.xml"),
