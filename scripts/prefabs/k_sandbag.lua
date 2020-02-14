@@ -12,6 +12,7 @@ local assets =
 local prefabs =
 {
 	"gridplacer",
+	"kyno_sandbagsmall_item",
 }
 
 local anims =
@@ -41,86 +42,48 @@ local function resolveanimtoplay(inst, percent)
 	end
 end
 
-local function makeobstacle(inst)
-	inst.Physics:SetCollisionGroup(COLLISION.OBSTACLES)	
-    inst.Physics:ClearCollisionMask()
-	inst.Physics:SetMass(0)
-	inst.Physics:CollidesWith(COLLISION.ITEMS)
-	inst.Physics:CollidesWith(COLLISION.CHARACTERS)
-	inst.Physics:CollidesWith(COLLISION.WAVES)
-	inst.Physics:SetActive(true)
-	
-	local ground = TheWorld()
-	if ground then
-		local pt = Point(inst.Transform:GetWorldPosition())
-		ground.Pathfinder:AddWall(pt.x + 0.5, pt.y, pt.z + 0.5)
-		ground.Pathfinder:AddWall(pt.x + 0.5, pt.y, pt.z - 0.5)
-		ground.Pathfinder:AddWall(pt.x - 0.5, pt.y, pt.z + 0.5)
-		ground.Pathfinder:AddWall(pt.x - 0.5, pt.y, pt.z - 0.5)
-	end
-end
-
-local function quantizepos(pt)
-	local x, y, z = pt:Get()
-	y = 0
-	
-	if TheWorld() then
-		local px,py,pz = TheWorld().Flooding:GetTileCenterPoint(x,y,z)
-		return Vector3(px,py,pz)
-	else
-		return Vector3(x,y,z)
-	end
-end
-
-local function IsLand(pt)
-    local ground_tile = TheWorld.Map:GetTileAtPoint(pt.x, pt.y, pt.z)
-    return ground_tile and not ground_tile == GROUND.IMPASSABLE or ground_tile == GROUND.INVALID
-end
-
-local function candeploy(inst, pt)
-    if IsLand(pt) then
-        local ents = TheSim:FindEntities(pt.x,pt.y,pt.z, 1, nil, notags)
-        local min_spacing = inst.components.deployable.min_spacing or 1
-        for k, v in pairs(ents) do
-            print(k, v)
-            if v ~= inst and v:IsValid() and v.entity:IsVisible() and not v.components.placer and v.parent == nil then
-                if distsq( Vector3(v.Transform:GetWorldPosition()), pt) < min_spacing*min_spacing then
-                    return false
-                end
+local function OnIsPathFindingDirty(inst)    
+    local wall_x, wall_y, wall_z = inst.Transform:GetWorldPosition()
+    if TheWorld.Map:GetPlatformAtPoint(wall_x, wall_z) == nil then        
+        if inst._ispathfinding:value() then
+            if inst._pfpos == nil then
+                inst._pfpos = Point(wall_x, wall_y, wall_z)
+                TheWorld.Pathfinder:AddWall(wall_x, wall_y, wall_z)
             end
+        elseif inst._pfpos ~= nil then
+            TheWorld.Pathfinder:RemoveWall(wall_x, wall_y, wall_z)
+            inst._pfpos = nil
         end
-        return true
     end
-    return false
+end
+
+local function InitializePathFinding(inst)
+    inst:ListenForEvent("onispathfindingdirty", OnIsPathFindingDirty)
+    OnIsPathFindingDirty(inst)
+end
+
+local function makeobstacle(inst)
+    inst.Physics:SetActive(true)
+    inst._ispathfinding:set(true)
+end
+
+local function clearobstacle(inst)
+    inst.Physics:SetActive(false)
+    inst._ispathfinding:set(false)
 end
 
 local function ondeploy(inst, pt, deployer)
 	local wall = SpawnPrefab("kyno_sandbagsmall") 
-	local ground = TheWorld()
-	
-	if wall then
-		
-		pt = quantizepos(pt)
-
+	-- local ground = TheWorld.Map:GetTileAtPoint(x,y,z)
+	if wall ~= nil then 
+		local x = math.floor(pt.x) + .5
+		local z = math.floor(pt.z) + .5
 		wall.Physics:SetCollides(false)
-		wall.Physics:Teleport(pt.x, pt.y, pt.z) 
+		wall.Physics:Teleport(x, 0, z)
 		wall.Physics:SetCollides(true)
 		wall.SoundEmitter:PlaySound("dontstarve/common/place_structure_straw")
 		inst.components.stackable:Get():Remove()
-		makeobstacle(wall)
-	end
-end
-
-local function clearobstacle(inst)
-	inst:DoTaskInTime(2*FRAMES, function() inst.Physics:SetActive(false) end)
-
-	local ground = TheWorld()
-	if ground then
-		local pt = Point(inst.Transform:GetWorldPosition())
-		ground.Pathfinder:RemoveWall(pt.x + 0.5, pt.y, pt.z + 0.5)
-		ground.Pathfinder:RemoveWall(pt.x + 0.5, pt.y, pt.z - 0.5)
-		ground.Pathfinder:RemoveWall(pt.x - 0.5, pt.y, pt.z + 0.5)
-		ground.Pathfinder:RemoveWall(pt.x - 0.5, pt.y, pt.z - 0.5)
+        makeobstacle(wall)    
 	end
 end
 
@@ -155,6 +118,7 @@ end
 
 local function onremoveentity(inst)
 	clearobstacle(inst)
+	inst._ispathfinding:set_local(false)
 end
 
 local function onload(inst, data)
@@ -170,14 +134,23 @@ local function fn()
 	inst.entity:AddTransform()
     inst.entity:AddAnimState()
     inst.entity:AddSoundEmitter()
-	inst.entity:SetEightFaced()
 	inst.entity:AddNetwork()
+	
+	inst.Transform:SetEightFaced()
 	
 	inst.AnimState:SetBank("sandbag_small")
 	inst.AnimState:SetBuild("sandbag_small")
 	inst.AnimState:PlayAnimation("full", false)
 	
-	MakeObstaclePhysics(inst, 1) 
+	MakeObstaclePhysics(inst, 1)
+	inst.Physics:SetDontRemoveOnSleep(true)
+	
+	inst._pfpos = nil
+	inst._ispathfinding = net_bool(inst.GUID, "_ispathfinding", "onispathfindingdirty")
+	makeobstacle(inst)
+	--Delay this because makeobstacle sets pathfinding on by default
+	--but we don't to handle it until after our position is set
+	inst:DoTaskInTime(0, InitializePathFinding)
 	
 	inst.entity:SetPristine()
 
@@ -217,6 +190,12 @@ local function fn()
 	inst.components.workable:SetOnFinishCallback(onhammered)
 	inst.components.workable:SetOnWorkCallback(onhit)
 
+	MakeMediumBurnable(inst)
+	MakeLargePropagator(inst)
+	inst.components.burnable.flammability = .5
+	inst.components.burnable.nocharring = true
+	inst.components.propagator.flashpoint = 30 + math.random() * 10
+	
 	inst.OnLoad = onload
 	inst.OnRemoveEntity = onremoveentity
 
@@ -257,9 +236,9 @@ local function itemfn()
 	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_sandbagsmall_item.xml"
 	
 	inst:AddComponent("deployable")
-	inst.components.deployable:SetDeployMode(DEPLOYMODE.CUSTOM)
-	inst.components.deployable:SetDeploySpacing(DEPLOYSPACING.MEDIUM)
-	inst._custom_candeploy_fn = candeploy
+	inst.components.deployable:SetDeployMode(DEPLOYMODE.WALL)
+	-- inst.components.deployable:SetDeploySpacing(DEPLOYSPACING.MEDIUM)
+	-- inst._custom_candeploy_fn = candeploy
 	inst.components.deployable.ondeploy = ondeploy
 	
 	return inst
@@ -267,4 +246,4 @@ end
 
 return Prefab("kyno_sandbagsmall", fn, assets, prefabs),
 Prefab("kyno_sandbagsmall_item", itemfn, assets, prefabs),
-MakePlacer("kyno_sandbagsmall_item_placer", "sandbag_small", "sandbag_small", "full", false, false, false, 1.0, true, nil, "eight")
+MakePlacer("kyno_sandbagsmall_item_placer", "sandbag_small", "sandbag_small", "full") -- false, false, false, 1.0, true, nil, "eight")
