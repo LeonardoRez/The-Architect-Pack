@@ -1,7 +1,7 @@
 name = " Kyno's Decorations Pack"
 version = "1.0-A"
 
-description = "This mod contains huge amount of decorative structures for Base Building! Remember: They're just replicas, static structures.\n\nThis Mod Includes: Coffee. Yay Speed! Works with Warly's spices too!\n\nThis includes content from: Shipwrecked, Hamlet, The Forge, The Gorge and exclusive DST structures!\n\nMod Version: "..version..""
+description = "This mod contains huge amount of decorative structures for Base Building! Remember: They're just replicas, static structures or not?...\n\nThis Mod Includes some Special Items, gotta craft 'em all! (Mostly decorative/utility items)\n\nThis includes content from: Shipwrecked, Hamlet, The Forge, The Gorge and exclusive DS/DST structures!\n\nMod Version: "..version..""
 author = "Kynoox_"
 
 api_version = 10
@@ -28,4 +28,26 @@ configuration_options =
         },
         default = 0,
     },
+	{
+		name = "ocean_structures",
+		label = "Ocean Structures",
+		hover = "Ocean Structures is not supported at this moment! Test by your own risk.",
+		options =
+		{
+			{description = "Yes", data = 0},
+			{description = "No", data = 1},
+		},
+		default = 1,
+	},
+	{
+		name = "coffee_hack",
+		label = "Coffee",
+		hover = "Yay Coffee! Now Fully working with Warly's Spices!",
+		options =
+		{
+			{description = "Yes", data = 0},
+			{description = "No", data = 1},
+		},
+		default = 1,
+	},
 }

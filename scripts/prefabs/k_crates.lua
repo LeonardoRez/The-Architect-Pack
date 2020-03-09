@@ -84,4 +84,4 @@ local function fn()
 end
 
 return Prefab("kyno_crate", fn, assets, prefabs),
-MakePlacer("kyno_crate_placer", "crate", "crate", "idle6")  
+MakePlacer("kyno_crate_placer", "crates", "crates", "idle6")  

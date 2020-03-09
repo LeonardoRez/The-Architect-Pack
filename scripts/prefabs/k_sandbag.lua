@@ -74,7 +74,6 @@ end
 
 local function ondeploy(inst, pt, deployer)
 	local wall = SpawnPrefab("kyno_sandbagsmall") 
-	-- local ground = TheWorld.Map:GetTileAtPoint(x,y,z)
 	if wall ~= nil then 
 		local x = math.floor(pt.x) + .5
 		local z = math.floor(pt.z) + .5
@@ -91,7 +90,7 @@ local function onhammered(inst, worker)
 	local max_loots = 2
 	local num_loots = math.max(1, math.floor(max_loots*inst.components.health:GetPercent()))
 	for k = 1, num_loots do
-		inst.components.lootdropper:SpawnLootPrefab("turf_desertdirt")
+		inst.components.lootdropper:SpawnLootPrefab("turf_beach")
 	end
 	SpawnPrefab("collapse_small").Transform:SetPosition(inst.Transform:GetWorldPosition())
 	inst:Remove()
@@ -168,7 +167,7 @@ local function fn()
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("repairable")
-	inst.components.repairable.repairmaterial = "kyno_sandbagsmall"
+	inst.components.repairable.repairmaterial = "kyno_sandbagsmall_item"
 	inst.components.repairable.onrepaired = onrepaired
 	
 	inst:AddComponent("hauntable")
@@ -225,7 +224,7 @@ local function itemfn()
 	inst:AddTag("wallbuilder")
 	
 	inst:AddComponent("repairer")
-	inst.components.repairer.repairmaterial = "kyno_sandbagsmall"
+	inst.components.repairer.repairmaterial = "kyno_sandbagsmall_item"
 	inst.components.repairer.healthrepairvalue = 300 / 2
 	
 	inst:AddComponent("stackable")

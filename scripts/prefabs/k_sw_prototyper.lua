@@ -9,6 +9,9 @@ local assets =
     
 	Asset("IMAGE", "images/inventoryimages/kyno_inventoryimages_sw.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_inventoryimages_sw.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_sw.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_sw.xml"),
 }
 
 local prefabs = 

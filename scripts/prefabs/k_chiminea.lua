@@ -173,7 +173,7 @@ local function fn()
     end
 
     inst:AddComponent("burnable")
-    inst.components.burnable:AddBurnFX("kyno_chimineafire", Vector3())
+    inst.components.burnable:AddBurnFX("kyno_chimineafire", Vector3(0, 0, 0))
     inst:ListenForEvent("onextinguish", onextinguish)
 
     inst:AddComponent("lootdropper")

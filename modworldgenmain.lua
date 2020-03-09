@@ -7,6 +7,7 @@ local run_marble = "dontstarve/movement/run_marble"
 local run_sand = "dontstarve/movement/run_sand"
 local run_tallgrass = "dontstarve/movement/run_tallgrass"
 local run_woods = "dontstarve/movement/run_woods"
+local run_marsh = "dontstarve/movement/run_marsh"
 
 local walk_carpet = "dontstarve/movement/walk_carpet"
 local walk_grass = "dontstarve/movement/walk_grass"
@@ -14,50 +15,10 @@ local walk_marble = "dontstarve/movement/walk_marble"
 local walk_sand = "dontstarve/movement/walk_sand"
 local walk_tallgrass = "dontstarve/movement/walk_tallgrass"
 local walk_woods = "dontstarve/movement/walk_woods"
+local walk_marsh = "dontstarve/movement/walk_marsh"
 
 local run_snow = "dontstarve/movement/run_snow"
 
-AddTile(70, "volcano_rock", "mod_turfs", nil,
-    {
-        name = "rocky",
-        noise_texture = "levels/textures/ground_volcano_noise.tex",
-    },
-	{
-        noise_texture = "levels/textures/mini_ground_volcano_noise.tex"
-    }
-, true)
-
-AddTile(71, "volcano", "mod_turfs", nil,
-    {
-        name = "cave",
-        noise_texture = "levels/textures/ground_lava_rock.tex",
-    },
-	{
-        noise_texture = "levels/textures/mini_ground_lava_rock.tex"
-    }
-, true)
-
-AddTile(72, "ash", "mod_turfs", nil,
-    {
-        name = "cave",
-        noise_texture = "levels/textures/ground_ash.tex",
-    },
-	{
-        noise_texture = "levels/textures/mini_ash.tex"
-    }
-, true)
-
-AddTile(73, "magmafield", "mod_turfs", nil,
-    {
-        name = "cave",
-        noise_texture = "levels/textures/Ground_noise_magmafield.tex",
-    },
-	{
-        noise_texture = "levels/textures/mini_magmafield_noise.tex"
-    }
-, true)
-
---[[
 AddTile(70, "beach", "mod_turfs", nil,
     {
         name = "beach",
@@ -67,6 +28,40 @@ AddTile(70, "beach", "mod_turfs", nil,
         snowsound = run_snow,
     },{
         noise_texture = "levels/textures/mini_beach_noise.tex"
+    }
+)
+
+AddTile(71, "volcano_rock", "mod_turfs", nil,
+    {
+        name = "rocky",
+        noise_texture = "levels/textures/ground_volcano_noise.tex",
+    },
+	{
+        noise_texture = "levels/textures/mini_ground_volcano_noise.tex"
+    }
+, true)
+
+AddTile(72, "tidalmarsh", "kyno_turfs", nil,
+    {
+        name = "tidalmarsh",
+        noise_texture = "levels/textures/Ground_noise_tidalmarsh.tex",
+        runsound = run_marsh,
+        walksound = walk_marsh,
+        snowsound = run_snow,
+    },{
+        noise_texture = "levels/textures/mini_tidalmarsh_noise.tex"
+    }
+, true)
+
+AddTile(73, "meadow", "mod_turfs", nil,
+    {
+        name = "jungle",
+        noise_texture = "levels/textures/Ground_noise_savannah_detail.tex",
+        runsound = run_tallgrass,
+        walksound = walk_tallgrass,
+        snowsound = run_snow,
+    },{
+        noise_texture = "levels/textures/mini_savannah_noise.tex"
     }
 )
 
@@ -82,19 +77,37 @@ AddTile(74, "jungle", "mod_turfs", nil,
     }
 )
 
-AddTile(76, "meadow", "mod_turfs", nil,
+AddTile(75, "volcano", "mod_turfs", nil,
     {
-        name = "jungle",
-        noise_texture = "levels/textures/Ground_noise_savannah_detail.tex",
-        runsound = run_tallgrass,
-        walksound = walk_tallgrass,
-        snowsound = run_snow,
-    },{
-        noise_texture = "levels/textures/mini_savannah_noise.tex"
+        name = "cave",
+        noise_texture = "levels/textures/ground_lava_rock.tex",
+    },
+	{
+        noise_texture = "levels/textures/mini_ground_lava_rock.tex"
     }
-)
+, true)
 
-AddTile(77, "snakeskinfloor", "mod_turfs", "snakeskin",
+AddTile(76, "ash", "mod_turfs", nil,
+    {
+        name = "cave",
+        noise_texture = "levels/textures/ground_ash.tex",
+    },
+	{
+        noise_texture = "levels/textures/mini_ash.tex"
+    }
+, true)
+
+AddTile(77, "magmafield", "mod_turfs", nil,
+    {
+        name = "cave",
+        noise_texture = "levels/textures/Ground_noise_magmafield.tex",
+    },
+	{
+        noise_texture = "levels/textures/mini_magmafield_noise.tex"
+    }
+, true)
+
+AddTile(78, "snakeskinfloor", "mod_turfs", "snakeskin",
     {
         name = "carpet",
         noise_texture = "levels/textures/noise_snakeskinfloor.tex",
@@ -106,6 +119,7 @@ AddTile(77, "snakeskinfloor", "mod_turfs", "snakeskin",
     }
 , true)
 
+--[[
 AddTile(78, "forge", "mod_turfs", nil,
     {
         name = "cave",
@@ -117,6 +131,7 @@ AddTile(78, "forge", "mod_turfs", nil,
         noise_texture = "levels/textures/lavaarena_floor_mini.tex"
     }
 , true)
+
 
 AddTile(79, "cobbleroad", "mod_turfs", nil,
     {
@@ -171,8 +186,12 @@ AddTile(83, "lawn", "mod_turfs", nil,
     }
 )
 ]]--
-
-ChangeTileTypeRenderOrder(GROUND.VOLCANO_ROCK, GROUND.DIRT, true)
-ChangeTileTypeRenderOrder(GROUND.VOLCANO, GROUND.VOLCANO_ROCK, true)
+ChangeTileTypeRenderOrder(GROUND.BEACH, GROUND.ROAD, true)
+ChangeTileTypeRenderOrder(GROUND.VOLCANO_ROCK, GROUND.BEACH, true)
+ChangeTileTypeRenderOrder(GROUND.TIDALMARSH, GROUND.MARSH, true)
+ChangeTileTypeRenderOrder(GROUND.MEADOW, GROUND.DIRT, true)
+ChangeTileTypeRenderOrder(GROUND.JUNGLE, GROUND.MEADOW, true)
+ChangeTileTypeRenderOrder(GROUND.VOLCANO, GROUND.DESERT_DIRT, true)
 ChangeTileTypeRenderOrder(GROUND.ASH, GROUND.VOLCANO, true)
 ChangeTileTypeRenderOrder(GROUND.MAGMAFIELD, GROUND.ASH, true)
+ChangeTileTypeRenderOrder(GROUND.SNAKESKINFLOOR, GROUND.CARPET, true)
