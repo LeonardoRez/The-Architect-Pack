@@ -86,10 +86,12 @@ local function fn()
     inst.components.playerprox:SetOnPlayerNear(onnear)
     inst.components.playerprox:SetOnPlayerFar(onfar)
 	
+	inst:AddComponent("savedrotation")
+	
     inst:ListenForEvent("onbuilt", onbuilt)
 
 	return inst
 end
 
 return Prefab("kyno_bermudatriangle", fn, assets, prefabs),
-MakePlacer("kyno_bermudatriangle_placer", "bermudatriangle", "bermudatriangle", "idle_loop")  
+MakePlacer("kyno_bermudatriangle_placer", "bermudatriangle", "bermudatriangle", "idle_loop", true, nil, nil, nil, 90, nil)

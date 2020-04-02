@@ -24,7 +24,7 @@ end
 local function onfinish_obsidian(inst, worker)
 	local pt = Point(inst.Transform:GetWorldPosition())
 	--SpawnPrefab("collapse_small").Transform:SetPosition(inst.Transform:GetWorldPosition())
-	--inst.SoundEmitter:PlaySound("dontstarve/common/destroy_stone")
+	inst.SoundEmitter:PlaySound("dontstarve/common/destroy_stone")
 	inst.components.lootdropper:DropLoot(pt)
 	inst:Remove()
 end

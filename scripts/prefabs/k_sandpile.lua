@@ -35,7 +35,6 @@ local function dig_up(inst, worker, workleft)
     end
 end
 
-
 local function fn()
 	local inst = CreateEntity()
     
@@ -68,7 +67,7 @@ local function fn()
 	inst.components.workable:SetWorkAction(ACTIONS.DIG)
 	inst.components.workable:SetOnWorkCallback(dig_up)
 	inst.components.workable:SetWorkLeft(#anims)
-
+	
 	return inst
 end
 

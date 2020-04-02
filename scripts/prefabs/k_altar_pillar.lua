@@ -11,9 +11,19 @@ local assets =
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_sw.xml"),
 }
 
-local function onhammered(inst, worker)
-	inst.components.lootdropper:DropLoot()
-	SpawnPrefab("collapse_small").Transform:SetPosition(inst.Transform:GetWorldPosition())
+local function onwork(inst, worker, workleft)
+	if workleft < TUNING.ROCKS_MINE*(1/3) then
+		inst.AnimState:PlayAnimation("idle", true)
+	elseif workleft < TUNING.ROCKS_MINE*(2/3) then
+		inst.AnimState:PlayAnimation("idle", true)
+	else
+		inst.AnimState:PlayAnimation("idle", true)
+	end
+end
+
+local function onfinish(inst, worker)
+	local pt = Point(inst.Transform:GetWorldPosition())
+	inst.components.lootdropper:DropLoot(pt)
 	inst.SoundEmitter:PlaySound("dontstarve/common/destroy_stone")
 	inst:Remove()
 end
@@ -59,8 +69,8 @@ local function fn()
     inst:AddComponent("lootdropper")
     inst:AddComponent("workable")
     inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
-	inst.components.workable:SetOnFinishCallback(onhammered)
-	inst.components.workable:SetOnWorkCallback(onhit)
+	inst.components.workable:SetOnFinishCallback(onfinish)
+	inst.components.workable:SetOnWorkCallback(onwork)
 	inst.components.workable:SetWorkLeft(3)
 
 	inst:ListenForEvent("onbuilt", onbuilt)
@@ -69,4 +79,4 @@ local function fn()
 end
 
 return Prefab("kyno_altar_pillar", fn, assets, prefabs),
-MakePlacer("kyno_altar_pillar_placer", "altar_pillar", "altar_pillar", "idle")  
+MakePlacer("kyno_altar_pillar_placer", "altar_pillar", "altar_pillar", "idle")

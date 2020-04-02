@@ -41,7 +41,7 @@ AddTile(71, "volcano_rock", "mod_turfs", nil,
     }
 , true)
 
-AddTile(72, "tidalmarsh", "kyno_turfs", nil,
+AddTile(72, "tidalmarsh", "kyno_turfs2", nil,
     {
         name = "tidalmarsh",
         noise_texture = "levels/textures/Ground_noise_tidalmarsh.tex",
@@ -131,7 +131,7 @@ AddTile(78, "forge", "mod_turfs", nil,
         noise_texture = "levels/textures/lavaarena_floor_mini.tex"
     }
 , true)
-
+]]--
 
 AddTile(79, "cobbleroad", "mod_turfs", nil,
     {
@@ -184,8 +184,92 @@ AddTile(83, "lawn", "mod_turfs", nil,
     },{
         noise_texture = "levels/textures/mini_grasslawn_noise.tex"
     }
+, true)
+
+AddTile(84, "rainforest", "kyno_turfs2", nil,
+	{
+        name = "rain_forest",
+        noise_texture = "levels/textures/Ground_noise_rainforest.tex",
+        runsound = run_grass,
+        walksound = walk_grass,
+        snowsound = run_snow,
+    },{
+        noise_texture = "levels/textures/mini_noise_rainforest.tex"
+    }
 )
-]]--
+
+AddTile(85, "plains", "kyno_turfs2", nil,
+	{
+		name = "jungle",
+		noise_texture = "levels/textures/Ground_plains.tex",
+		runsound = run_grass,
+		walksound = walk_grass,
+		snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/mini_plains_noise.tex",
+	}
+)
+	
+AddTile(86, "deepjungle", "kyno_turfs2", nil,
+	{
+	name = "jungle_deep",
+	noise_texture = "levels/textures/Ground_noise_jungle_deep.tex",
+	runsound = run_grass,
+	walksound = walk_grass,
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/mini_noise_jungle_deep.tex",
+	}
+)
+
+AddTile(87, "bog", "kyno_turfs2", nil,
+	{
+	name = "cave",
+	noise_texture = "levels/textures/Ground_bog.tex",
+	runsound = run_sand,
+	walksound = walk_sand,
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/mini_noise_bog.tex",
+	}
+)
+
+AddTile(88, "mossy_blossom", "kyno_turfs2", nil,
+	{
+	name = "desert_dirt",
+	noise_texture = "levels/textures/noise_mossy_blossom.tex",
+	runsound = run_marsh,
+	walksound = walk_marsh,
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/mini_noise_mossy_blossom.tex",
+	}
+)
+	
+AddTile(89, "gasjungle", "kyno_turfs2", nil,
+	{
+	name = "jungle_deep",
+	noise_texture = "levels/textures/Ground_noise_gasbiome.tex",
+	runsound = run_grass,
+	walksound = walk_grass,
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/mini_gasbiome_noise.tex",
+	}
+)
+
+AddTile(90, "beard_hair", "kyno_turfs2", nil,
+	{
+	name = "carpet",
+	noise_texture = "levels/textures/Ground_beard_hair.tex",
+	runsound = run_carpet,
+	walksound = walk_carpet,
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/mini_battlegrounds_noise.tex",
+	}
+)	
+	
 ChangeTileTypeRenderOrder(GROUND.BEACH, GROUND.ROAD, true)
 ChangeTileTypeRenderOrder(GROUND.VOLCANO_ROCK, GROUND.BEACH, true)
 ChangeTileTypeRenderOrder(GROUND.TIDALMARSH, GROUND.MARSH, true)
@@ -194,4 +278,16 @@ ChangeTileTypeRenderOrder(GROUND.JUNGLE, GROUND.MEADOW, true)
 ChangeTileTypeRenderOrder(GROUND.VOLCANO, GROUND.DESERT_DIRT, true)
 ChangeTileTypeRenderOrder(GROUND.ASH, GROUND.VOLCANO, true)
 ChangeTileTypeRenderOrder(GROUND.MAGMAFIELD, GROUND.ASH, true)
-ChangeTileTypeRenderOrder(GROUND.SNAKESKINFLOOR, GROUND.CARPET, true)
+ChangeTileTypeRenderOrder(GROUND.SNAKESKINFLOOR, GROUND.LAWN, true)
+ChangeTileTypeRenderOrder(GROUND.PIGRUINS, GROUND.VOLCANO, true)
+ChangeTileTypeRenderOrder(GROUND.BOG, GROUND.PIGRUINS, true)
+ChangeTileTypeRenderOrder(GROUND.PLAINS, GROUND.BOG, true)
+ChangeTileTypeRenderOrder(GROUND.RAINFOREST, GROUND.PLAINS, true)
+ChangeTileTypeRenderOrder(GROUND.FIELDS, GROUND.RAINFOREST, true)
+ChangeTileTypeRenderOrder(GROUND.MOSSY_BLOSSOM, GROUND.FIELDS, true)
+ChangeTileTypeRenderOrder(GROUND.DEEPJUNGLE, GROUND.MOSSY_BLOSSOM, true)
+ChangeTileTypeRenderOrder(GROUND.GASJUNGLE, GROUND.DEEPJUNGLE, true)
+ChangeTileTypeRenderOrder(GROUND.FOUNDATION, GROUND.GASJUNGLE, true)
+ChangeTileTypeRenderOrder(GROUND.BEARD_HAIR, GROUND.SNAKESKINFLOOR, true)
+ChangeTileTypeRenderOrder(GROUND.LAWN, GROUND.CARPET, true)
+ChangeTileTypeRenderOrder(GROUND.COBBLEROAD, GROUND.BEARD_HAIR, true)

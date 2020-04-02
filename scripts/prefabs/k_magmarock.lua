@@ -43,6 +43,7 @@ local function dig_up_magma(inst, worker, workleft)
         else
             inst.components.lootdropper:DropLoot(pt + (TheCamera:GetRightVec()*(.5+math.random())))
         end
+		inst.SoundEmitter:PlaySound("dontstarve/common/destroy_stone")
         inst:Remove()
     else
         print("PlayAnimation", workleft, anims_magma[workleft])
@@ -68,6 +69,7 @@ local function dig_up_magma_gold(inst, worker, workleft)
         else
             inst.components.lootdropper:DropLoot(pt + (TheCamera:GetRightVec()*(.5+math.random())))
         end
+		inst.SoundEmitter:PlaySound("dontstarve/common/destroy_stone")
         inst:Remove()
     else
         print("PlayAnimation", workleft, anims_magma_gold[workleft])

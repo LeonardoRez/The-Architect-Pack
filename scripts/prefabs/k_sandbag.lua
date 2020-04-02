@@ -245,4 +245,4 @@ end
 
 return Prefab("kyno_sandbagsmall", fn, assets, prefabs),
 Prefab("kyno_sandbagsmall_item", itemfn, assets, prefabs),
-MakePlacer("kyno_sandbagsmall_item_placer", "sandbag_small", "sandbag_small", "full") -- false, false, false, 1.0, true, nil, "eight")
+MakePlacer("kyno_sandbagsmall_item_placer", "sandbag_small", "sandbag_small", "full", false, false, true, nil, nil, nil, nil, nil, nil)

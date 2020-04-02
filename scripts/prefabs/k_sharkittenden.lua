@@ -11,11 +11,13 @@ local assets =
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_sw.xml"),
 }
 
-local function dig_up(inst, chopper)
-	inst.components.lootdropper:SpawnLootPrefab("turf_desertdirt")
-	inst.components.lootdropper:SpawnLootPrefab("turf_desertdirt")
+local anims = {"idle_active", "idle_inactive"}
+
+local function dig_up(inst, worker, workleft)
 	inst.components.lootdropper:SpawnLootPrefab("spoiled_fish")
 	inst.components.lootdropper:SpawnLootPrefab("spoiled_fish_small")
+	inst.components.lootdropper:SpawnLootPrefab("turf_beach")
+	inst.components.lootdropper:SpawnLootPrefab("turf_beach")
 	inst:Remove()
 end
 
