@@ -1,8 +1,9 @@
-# Kyno's Decorations Pack
- Don't Starve Together Mod for Base Building!
+﻿# The Architect Pack
+ Don't Starve Together Mod for Base Building! Made for people who enjoy building and feel the game has not many options for decorations.
 
 # Content
-This mod is full of content from all Don't Starve DLC, Special Events and some special content.
+This mod contains huge amount of decorative structures for Base Building! Remember: They're just replicas, static structures or not?...
+Also Includes some Special Items, gotta craft 'em all! (Mostly decorative/utility items)
 
 • The Forge
 
