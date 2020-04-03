@@ -25,6 +25,8 @@ People that I wanted to credit for making this mod work!
 
 • Adai: Helping with Codes and functions.
 
+• ogait87: Fixing File Names for Linux users.
+
 • YOU: For downloading the mod!
 
 Thank you guys!

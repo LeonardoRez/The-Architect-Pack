@@ -81,18 +81,20 @@ local function dig_up_stump(inst, chopper)
 end
 
 local function chop_down_burnt_tree(inst, chopper)
-	inst:RemoveComponent("workable")
-	inst.SoundEmitter:PlaySound("dontstarve/forest/treeCrumble")
-	inst.SoundEmitter:PlaySound("dontstarve/wilson/use_axe_tree")
-	inst.AnimState:PlayAnimation(inst.anims.chop_burnt)
-	RemovePhysicsColliders(inst)
-	inst:ListenForEvent("animover", function() inst:Remove() end)
-	inst.components.lootdropper:SpawnLootPrefab("charcoal")
-	inst.components.lootdropper:DropLoot()
-	if inst.pineconetask then
-		inst.pineconetask:Cancel()
-		inst.pineconetask = nil
-	end
+    inst:RemoveComponent("workable")
+    inst.SoundEmitter:PlaySound("dontstarve/forest/treeCrumble")
+    if not (chopper ~= nil and chopper:HasTag("playerghost")) then
+        inst.SoundEmitter:PlaySound("dontstarve/wilson/use_axe_tree")
+    end
+    inst.AnimState:PlayAnimation(inst.anims.chop_burnt)
+    RemovePhysicsColliders(inst)
+    inst:ListenForEvent("animover", inst.Remove)
+    inst.components.lootdropper:SpawnLootPrefab("charcoal")
+    inst.components.lootdropper:DropLoot()
+    if inst.pineconetask ~= nil then
+        inst.pineconetask:Cancel()
+        inst.pineconetask = nil
+    end
 end
 
 local function GetBuild(inst)
@@ -104,40 +106,33 @@ local function GetBuild(inst)
 end
 
 local burnt_highlight_override = {.5,.5,.5}
-local function OnBurnt(inst, imm)
 
-	local function changes()
-		if inst.components.burnable then
-			inst.components.burnable:Extinguish()
-		end
-		inst:RemoveComponent("burnable")
-		inst:RemoveComponent("propagator")
-		inst:RemoveComponent("growable")
-		inst:RemoveComponent("blowinwindgust")
-		inst:RemoveTag("shelter")
-		inst:RemoveTag("dragonflybait_lowprio")
-		inst:RemoveTag("fire")
-		inst:RemoveTag("gustable")
-
-		inst.components.lootdropper:SetLoot({})
-
-		if inst.components.workable then
-			inst.components.workable:SetWorkLeft(1)
-			inst.components.workable:SetOnWorkCallback(nil)
-			inst.components.workable:SetOnFinishCallback(chop_down_burnt_tree)
-		end
-	end
-
-	if imm then
-		changes()
-	else
-		inst:DoTaskInTime( 0.5, changes)
-	end
-	inst.AnimState:PlayAnimation(inst.anims.burnt, true)
-	--inst.AnimState:SetRayTestOnBB(true);
-	inst:AddTag("burnt")
-
-	inst.highlight_override = burnt_highlight_override
+local function OnBurnt(inst, immediate)
+    local function changes()
+        if inst.components.burnable ~= nil then
+            inst.components.burnable:Extinguish()
+        end
+        inst:RemoveComponent("burnable")
+        inst:RemoveComponent("propagator")
+        inst:RemoveComponent("growable")
+        inst:RemoveComponent("hauntable")
+        inst:RemoveTag("shelter")
+        MakeHauntableWork(inst)
+        inst.components.lootdropper:SetLoot({})
+        if inst.components.workable then
+            inst.components.workable:SetWorkLeft(1)
+            inst.components.workable:SetOnWorkCallback(nil)
+            inst.components.workable:SetOnFinishCallback(chop_down_burnt_tree)
+        end
+    end
+    if immediate then
+        changes()
+    else
+        inst:DoTaskInTime(.5, changes)
+    end
+    inst.AnimState:PlayAnimation(inst.anims.burnt, true)
+    inst.AnimState:SetRayTestOnBB(true)
+    inst:AddTag("burnt")
 end
 
 local function PushSway(inst)
@@ -163,8 +158,6 @@ local function SetShort(inst)
 	if inst.components.workable then
 		inst.components.workable:SetWorkLeft(TUNING.EVERGREEN_CHOPS_SMALL)
 	end
-	-- if inst:HasTag("shelter") then inst:RemoveTag("shelter") end
-
 	inst.components.lootdropper:SetLoot(GetBuild(inst).short_loot)
 	Sway(inst)
 end
@@ -180,7 +173,7 @@ local function SetTall(inst)
 	if inst.components.workable then
 		inst.components.workable:SetWorkLeft(TUNING.EVERGREEN_CHOPS_TALL)
 	end
-	-- inst:AddTag("shelter")
+	inst:AddTag("shelter")
 	inst.components.lootdropper:SetLoot(GetBuild(inst).tall_loot)
 	Sway(inst)
 end
@@ -207,13 +200,11 @@ local growth_stages =
 
 
 local function chop_tree(inst, chopper, chops)
-
 	if chopper and chopper.components.beaverness and chopper.components.beaverness:IsBeaver() then
 		inst.SoundEmitter:PlaySound("dontstarve/characters/woodie/beaver_chop_tree")
 	else
 		inst.SoundEmitter:PlaySound("dontstarve/wilson/use_axe_tree")
 	end
-
 	inst.AnimState:PlayAnimation(inst.anims.chop)
 	inst.AnimState:PushAnimation(inst.anims.sway1, true)
 end
@@ -225,13 +216,10 @@ local function chop_down_tree(inst, chopper)
 	MakeSmallPropagator(inst)
 	inst:RemoveComponent("workable")
 	inst:RemoveTag("shelter")
-	inst:RemoveTag("gustable")
 	inst.SoundEmitter:PlaySound("dontstarve/forest/treefall")
 	local pt = Vector3(inst.Transform:GetWorldPosition())
 	local hispos = Vector3(chopper.Transform:GetWorldPosition())
-
 	local he_right = (hispos - pt):Dot(TheCamera:GetRightVec()) > 0
-
 	if he_right then
 		inst.AnimState:PlayAnimation(inst.anims.fallleft)
 		inst.components.lootdropper:DropLoot(pt - TheCamera:GetRightVec())
@@ -239,22 +227,18 @@ local function chop_down_tree(inst, chopper)
 		inst.AnimState:PlayAnimation(inst.anims.fallright)
 		inst.components.lootdropper:DropLoot(pt + TheCamera:GetRightVec())
 	end
-
 	RemovePhysicsColliders(inst)
 	inst.AnimState:PushAnimation(inst.anims.stump)
-
 	inst:AddComponent("workable")
 	inst.components.workable:SetWorkAction(ACTIONS.DIG)
 	inst.components.workable:SetOnFinishCallback(dig_up_stump)
 	inst.components.workable:SetWorkLeft(1)
-
 	inst:AddTag("stump")
 	if inst.components.growable then
 		inst.components.growable:StopGrowing()
 	end
-
-	inst:AddTag("NOCLICK")
-	inst:DoTaskInTime(2, function() inst:RemoveTag("NOCLICK") end)
+	-- inst:AddTag("NOCLICK")
+	-- inst:DoTaskInTime(2, function() inst:RemoveTag("NOCLICK") end)
 end
 
 
@@ -286,11 +270,9 @@ local function onsave(inst, data)
 	if inst:HasTag("burnt") or inst:HasTag("fire") then
 		data.burnt = true
 	end
-
 	if inst:HasTag("stump") then
 		data.stump = true
 	end
-
 	if inst.build ~= "normal" then
 		data.build = inst.build
 	end
@@ -303,7 +285,6 @@ local function onload(inst, data)
 		else
 			inst.build = data.build
 		end
-
 		if data.burnt then
 			inst:AddTag("fire") -- Add the fire tag here: OnEntityWake will handle it actually doing burnt logic
 		elseif data.stump then
@@ -317,7 +298,6 @@ local function onload(inst, data)
 			inst.AnimState:PlayAnimation(inst.anims.stump)
 			inst:AddTag("stump")
 			inst:RemoveTag("shelter")
-			inst:RemoveTag("gustable")
 			inst:AddComponent("workable")
 			inst.components.workable:SetWorkAction(ACTIONS.DIG)
 			inst.components.workable:SetOnFinishCallback(dig_up_stump)
@@ -351,7 +331,6 @@ local function OnEntityWake(inst)
 				inst.components.burnable:SetOnBurntFn(tree_burnt)
 			end
 		end
-
 		if not inst.components.propagator then
 			if inst:HasTag("stump") then
 				MakeSmallPropagator(inst)
@@ -362,7 +341,6 @@ local function OnEntityWake(inst)
 	elseif not inst:HasTag("burnt") and inst:HasTag("fire") then
 		OnBurnt(inst, true)
 	end
-
 	if not inst.components.inspectable then
 		inst:AddComponent("inspectable")
 		inst.components.inspectable.getstatus = inspect_tree
@@ -370,7 +348,6 @@ local function OnEntityWake(inst)
 end
 
 local function makefn(build, stage, data)
-
 	local function fn(Sim)
 		local l_stage = stage
 		if l_stage == 0 then
@@ -385,11 +362,12 @@ local function makefn(build, stage, data)
 		inst.entity:AddNetwork()
 		
 		MakeObstaclePhysics(inst, .25)
-		-- inst.Transform:SetScale(.75, .75, .75)
 
 		local minimap = inst.entity:AddMiniMapEntity()
 		minimap:SetIcon("tuber_trees.png")
 		minimap:SetPriority(1)
+		
+		inst.entity:SetPristine()
 		
 		if not TheWorld.ismastersim then
             return inst
@@ -430,7 +408,6 @@ local function makefn(build, stage, data)
 
 		inst.growfromseed = handler_growfromseed
 
-		--PushSway(inst)
 		inst.AnimState:SetTime(math.random()*2)
 
 		inst.OnSave = onsave
@@ -451,7 +428,6 @@ local function makefn(build, stage, data)
 			inst:RemoveComponent("propagator")
 			MakeSmallPropagator(inst)
 			inst:RemoveComponent("growable")
-			inst:RemoveTag("gustable")
 			RemovePhysicsColliders(inst)
 			inst.AnimState:PlayAnimation(inst.anims.stump)
 			inst:AddTag("stump")
@@ -470,7 +446,7 @@ local function makefn(build, stage, data)
 end
 
 local function tree(name, build, stage, data)
-	return Prefab("kyno_"..name, makefn(build, stage, data), assets, prefabs)
+	return Prefab(name, makefn(build, stage, data), assets, prefabs)
 end
 
 return tree("tubertree", "normal", 0),

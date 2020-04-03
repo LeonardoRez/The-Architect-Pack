@@ -274,8 +274,8 @@ local function chop_down_tree(inst, chopper)
 		inst.components.growable:StopGrowing()
 	end
 
-	inst:AddTag("NOCLICK")
-	inst:DoTaskInTime(2, function() inst:RemoveTag("NOCLICK") end)
+	-- inst:AddTag("NOCLICK")
+	-- inst:DoTaskInTime(2, function() inst:RemoveTag("NOCLICK") end)
 end
 
 
@@ -412,6 +412,8 @@ local function makefn(build, stage, data)
 		minimap:SetIcon("tree_rainforest.png")
 		minimap:SetPriority(1)
 		
+		inst.entity:SetPristine()
+		
 		if not TheWorld.ismastersim then
             return inst
         end
@@ -491,7 +493,7 @@ local function makefn(build, stage, data)
 end
 
 local function tree(name, build, stage, data)
-	return Prefab("kyno_"..name, makefn(build, stage, data), assets, prefabs)
+	return Prefab(name, makefn(build, stage, data), assets, prefabs)
 end
 
 return tree("rainforesttree_rot", "normal", 0),
@@ -500,4 +502,4 @@ tree("rainforesttree_rot_tall", "normal", 3),
 tree("rainforesttree_rot_short", "normal", 1),
 tree("rainforesttree_rot_burnt", "normal", 0, "burnt"),
 tree("rainforesttree_rot_stump", "normal", 0, "stump"),
-MakePlacer("kyno_rainforesttree_rot_short_placer", "rainforesttree", "tree_rainforest_gas_build", "idle_short")
+MakePlacer("rainforesttree_rot_short_placer", "rainforesttree", "tree_rainforest_gas_build", "idle_short")

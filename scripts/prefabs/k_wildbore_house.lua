@@ -18,6 +18,25 @@ local prefabs =
     "pigman",
     "splash_sink",
 }
+-- Client Updater
+local function OnUpdateWindow(window, inst, snow)
+    if inst:HasTag("burnt") then
+        inst._windowsnow = nil
+        inst._window = nil
+        snow:Remove()
+        window:Remove()
+    elseif inst.Light:IsEnabled() and inst.AnimState:IsCurrentAnimation("lit") then
+        if not window._shown then
+            window._shown = true
+            window:Show()
+            snow:Show()
+        end
+    elseif window._shown then
+        window._shown = false
+        window:Hide()
+        snow:Hide()
+    end
+end
 
 local function LightsOn(inst)
     if not inst:HasTag("burnt") then
@@ -282,8 +301,8 @@ local function MakeWindow()
     inst:AddTag("NOCLICK")
     inst.persists = false
 
-    inst.AnimState:SetBank("pig_house")
-    inst.AnimState:SetBuild("pig_house")
+    inst.AnimState:SetBank("pig_house_tropical")
+    inst.AnimState:SetBuild("pig_house_tropical")
     inst.AnimState:PlayAnimation("windowlight_idle")
     inst.AnimState:SetLightOverride(.6)
     inst.AnimState:SetBloomEffectHandle("shaders/anim.ksh")
@@ -304,8 +323,8 @@ local function MakeWindowSnow()
     inst:AddTag("NOCLICK")
     inst.persists = false
 
-    inst.AnimState:SetBank("pig_house")
-    inst.AnimState:SetBuild("pig_house")
+    inst.AnimState:SetBank("pig_house_tropical")
+    inst.AnimState:SetBuild("pig_house_tropical")
     inst.AnimState:PlayAnimation("windowsnow_idle")
     inst.AnimState:SetFinalOffset(2)
 

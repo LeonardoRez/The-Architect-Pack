@@ -277,8 +277,8 @@ local function chop_down_tree(inst, chopper)
 		inst.components.growable:StopGrowing()
 	end
 
-	inst:AddTag("NOCLICK")
-	inst:DoTaskInTime(2, function() inst:RemoveTag("NOCLICK") end)
+	-- inst:AddTag("NOCLICK")
+	-- inst:DoTaskInTime(2, function() inst:RemoveTag("NOCLICK") end)
 end
 
 
@@ -495,7 +495,7 @@ local function makefn(build, stage, data)
 end
 
 local function tree(name, build, stage, data)
-	return Prefab("kyno_"..name, makefn(build, stage, data), assets, prefabs)
+	return Prefab(name, makefn(build, stage, data), assets, prefabs)
 end
 
 return tree("teatree", "normal", 0),

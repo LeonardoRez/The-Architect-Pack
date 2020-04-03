@@ -983,11 +983,11 @@ AddRecipe("kyno_tallgrass", {Ingredient("dug_grass", 2), Ingredient("poop", 2)},
 kyno_hamlettab, TECH.CASINHA_ONE, "kyno_tallgrass_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "dug_grass.tex")
 
 
-AddRecipe("kyno_tubertree_short", {Ingredient("log", 3), Ingredient("acorn", 1)},
+AddRecipe("tubertree_short", {Ingredient("log", 3), Ingredient("acorn", 1)},
 kyno_hamlettab, TECH.CASINHA_ONE, "kyno_tubertree_short_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_tubertree.xml", "kyno_tubertree.tex")
 
 
-AddRecipe("kyno_tubertreebloom_short", {Ingredient("log", 3), Ingredient("petals", 3), Ingredient("acorn", 1)},
+AddRecipe("tubertreebloom_short", {Ingredient("log", 3), Ingredient("petals", 3), Ingredient("acorn", 1)},
 kyno_hamlettab, TECH.CASINHA_ONE, "kyno_tubertreebloom_short_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_tubertreebloom.xml", "kyno_tubertreebloom.tex")
 
 
@@ -1003,16 +1003,16 @@ AddRecipe("burr", {Ingredient("twiggy_nut", 1)},
 kyno_hamlettab, TECH.CASINHA_ONE, nil, nil, nil, 1, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "burr.tex")
 
 
-AddRecipe("kyno_rainforesttree_bloom_short",{ burringredient },
-kyno_hamlettab, TECH.CASINHA_ONE, "kyno_rainforesttree_bloom_short_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_treebloom.xml", "kyno_treebloom.tex")
+AddRecipe("rainforesttree_bloom_short", { burringredient },
+kyno_hamlettab, TECH.CASINHA_ONE, "rainforesttree_bloom_short_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_treebloom.xml", "kyno_treebloom.tex")
 
 
-AddRecipe("kyno_rainforesttree_rot_short", { burringredient, Ingredient("spoiled_food", 1)},
-kyno_hamlettab, TECH.CASINHA_ONE, "kyno_rainforesttree_rot_short_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_treerot.xml", "kyno_treerot.tex")
+AddRecipe("rainforesttree_rot_short", { burringredient, Ingredient("spoiled_food", 1)},
+kyno_hamlettab, TECH.CASINHA_ONE, "rainforesttree_rot_short_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_treerot.xml", "kyno_treerot.tex")
 
 
-AddRecipe("kyno_cocoonedtree_short", { burringredient, Ingredient("silk", 1)},
-kyno_hamlettab, TECH.CASINHA_ONE, "kyno_cocoonedtree_short_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_cocoonedtree.xml", "kyno_cocoonedtree.tex")
+AddRecipe("cocoonedtree_short", { burringredient, Ingredient("silk", 1)},
+kyno_hamlettab, TECH.CASINHA_ONE, "cocoonedtree_short_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_cocoonedtree.xml", "kyno_cocoonedtree.tex")
 
 
 AddRecipe("kyno_corkchest", {Ingredient("boards", 2), Ingredient("rope", 2)},
@@ -1091,30 +1091,30 @@ AddRecipe("kyno_topiary_4", {Ingredient("cutgrass", 10), Ingredient("twigs", 10)
 kyno_hamlettab, TECH.CASINHA_ONE, "kyno_topiary_4_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_pigkingtopiary.xml", "kyno_pigkingtopiary.tex")
 
 
-AddRecipe("hedge_block_item", {Ingredient("dug_grass", 1), Ingredient("cutgrass", 4)},
+AddRecipe("hedge_block_item", {Ingredient("wall_hay_item", 1), Ingredient("cutgrass", 4)},
 kyno_hamlettab, TECH.CASINHA_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "hedge_block_item.tex")
 
 local AGED_HEDGES = GetModConfigData("aged_hedges")
 if AGED_HEDGES == 0 then
-AddRecipe("hedge_block_aged_item", {Ingredient("dug_grass", 1), Ingredient("cutgrass", 4)},
+AddRecipe("hedge_block_aged_item", {Ingredient("wall_hay_item", 1), Ingredient("cutgrass", 4)},
 kyno_hamlettab, TECH.CASINHA_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "hedge_block_item.tex")
 end
 
-AddRecipe("hedge_cone_item", {Ingredient("dug_grass", 1), Ingredient("cutgrass", 4)},
+AddRecipe("hedge_cone_item", {Ingredient("wall_hay_item", 1), Ingredient("cutgrass", 4)},
 kyno_hamlettab, TECH.CASINHA_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "hedge_cone_item.tex")
 
 local AGED_HEDGES = GetModConfigData("aged_hedges")
 if AGED_HEDGES == 0 then
-AddRecipe("hedge_cone_aged_item", {Ingredient("dug_grass", 1), Ingredient("cutgrass", 4)},
+AddRecipe("hedge_cone_aged_item", {Ingredient("wall_hay_item", 1), Ingredient("cutgrass", 4)},
 kyno_hamlettab, TECH.CASINHA_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "hedge_cone_item.tex")
 end
 
-AddRecipe("hedge_layered_item", {Ingredient("dug_grass", 1), Ingredient("cutgrass", 4)},
+AddRecipe("hedge_layered_item", {Ingredient("wall_hay_item", 1), Ingredient("cutgrass", 4)},
 kyno_hamlettab, TECH.CASINHA_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "hedge_layered_item.tex")
 
 local AGED_HEDGES = GetModConfigData("aged_hedges")
 if AGED_HEDGES == 0 then
-AddRecipe("hedge_layered_aged_item", {Ingredient("dug_grass", 1), Ingredient("cutgrass", 4)},
+AddRecipe("hedge_layered_aged_item", {Ingredient("wall_hay_item", 1), Ingredient("cutgrass", 4)},
 kyno_hamlettab, TECH.CASINHA_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "hedge_layered_item.tex")
 end
 

@@ -25,6 +25,8 @@ local function fn()
     inst.entity:AddAnimState()
     inst.entity:AddSoundEmitter()
     inst.entity:AddNetwork()
+	
+	inst.AnimState:SetScale(1.2,1.2,1.2)
 
     inst.AnimState:SetBank("asparagus")
     inst.AnimState:SetBuild("asparagus2")

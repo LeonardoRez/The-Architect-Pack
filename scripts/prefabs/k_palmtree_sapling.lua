@@ -6,7 +6,7 @@ local pinecone_assets =
 
 local pinecone_prefabs =
 {
-    "kyno_palmtree_short",
+    "palmtree_short",
 }
 
 local function growtree(inst)
@@ -61,7 +61,7 @@ local function sapling_fn(build, anim, growprefab, tag, fireproof, overrideloot)
             return inst
         end
 		
-        inst.growprefab = "kyno_palmtree_short"
+        inst.growprefab = "palmtree_short"
         inst.StartGrowing = startgrowing
 
         inst:AddComponent("timer")
@@ -94,4 +94,4 @@ local function sapling_fn(build, anim, growprefab, tag, fireproof, overrideloot)
     return fn
 end
 
-return Prefab("kyno_palmtree_sapling", sapling_fn("coconut", "planted", "kyno_palmtree_short", "kyno_palmtree", true), pinecone_assets, pinecone_prefabs)
+return Prefab("kyno_palmtree_sapling", sapling_fn("coconut", "planted", "palmtree_short", "palmtree", true), pinecone_assets, pinecone_prefabs)
