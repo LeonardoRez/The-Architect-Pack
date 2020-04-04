@@ -181,7 +181,7 @@ PrefabFiles = {
 	"k_cocoonedtree",
 	"k_teatree",
 	"k_teatree_sapling",
-	"K_teatree_nut",
+	"k_teatree_nut",
 	"k_ham_pinecones",
 	"k_lamppost",
 	"k_radish",
@@ -1539,3 +1539,4 @@ kyno_shipwreckedtab, TECH.BARQUINHO_ONE, "kyno_watercrate_placer", 1, nil, nil, 
 AddRecipe("kyno_tarpit", {Ingredient("charcoal", 2), Ingredient("ash", 2), Ingredient("boneshard", 2)},
 kyno_shipwreckedtab, TECH.BARQUINHO_ONE, "kyno_tarpit_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_tarpit.xml", "kyno_tarpit.tex")
 end
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
