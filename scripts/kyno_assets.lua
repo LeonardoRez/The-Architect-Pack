@@ -479,6 +479,12 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_turfs_ham.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_turfs_ham.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_grub.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_grub.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_flytrap.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_flytrap.xml"),
+	
 	-- Unlisted Assets --
 	Asset("ANIM", "anim/mod_turfs.zip"),
 	Asset("ANIM", "anim/kyno_catalogues.zip"), -- Unused.
@@ -552,6 +558,8 @@ Assets = {
 	Asset("ANIM", "anim/lava_pool.zip"),
 	Asset("ANIM", "anim/dragoonegg.zip"),
 	Asset("ANIM", "anim/tar_trap.zip"),
+	Asset("ANIM", "anim/doydoy.zip"),
+	Asset("ANIM", "anim/doydoy_adult_build.zip"),
 	-- Hamlet Content --
 	Asset("ANIM", "anim/vamp_bat_entrance.zip"),
 	Asset("ANIM", "anim/portal_hamlet.zip"),
@@ -634,6 +642,7 @@ Assets = {
 	Asset("ANIM", "anim/dungball_build.zip"),
 	Asset("ANIM", "anim/dung_pile.zip"),
 	Asset("ANIM", "anim/gnat_mound.zip"),
+	Asset("ANIM", "anim/gnat.zip"),
 	Asset("ANIM", "anim/x_marks_spot_bandit.zip"),
 	Asset("ANIM", "anim/gold_puddle.zip"),
 	Asset("ANIM", "anim/interior_wall_decals_batcave.zip"),
@@ -723,6 +732,10 @@ Assets = {
 	Asset("ANIM", "anim/lamp_post2.zip"),
     Asset("ANIM", "anim/lamp_post2_city_build.zip"),    
     Asset("ANIM", "anim/lamp_post2_yotp_build.zip"),
+	Asset("ANIM", "anim/radish.zip"),
+	Asset("ANIM", "anim/giant_grub.zip"),
+	Asset("ANIM", "anim/venus_flytrap_lg_build.zip"),
+	Asset("ANIM", "anim/venus_flytrap_planted.zip"),
 	-- Sea Content --
 	Asset("ANIM", "anim/tree_mangrove_build.zip"),
 	Asset("ANIM", "anim/tree_mangrove_normal.zip"),

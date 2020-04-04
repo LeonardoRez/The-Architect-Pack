@@ -48,6 +48,7 @@ PrefabFiles = {
 	"k_volcano_shrub",
 	"k_coffeebush",
 	"k_dug_coffeebush",
+	"k_fakecoffeebush",
 	"k_coffeebeans",
 	"k_coffee",
 	"k_foods",
@@ -183,6 +184,9 @@ PrefabFiles = {
 	"K_teatree_nut",
 	"k_ham_pinecones",
 	"k_lamppost",
+	"k_radish",
+	"k_giantgrub",
+	"k_snaptooth",
 	-- SEA CONTENT (Currently disabled) --
 	"k_mangrovetrees",
 	"k_wrecks",
@@ -803,6 +807,14 @@ AddRecipe("kyno_trunk_wreck", {Ingredient("boards", 1), Ingredient("silk", 1), I
 kyno_hamlettab, TECH.CASINHA_ONE, "kyno_trunk_wreck_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_trunk.xml", "kyno_trunk.tex")
 
 
+AddRecipe("kyno_grub", {Ingredient("reviver", 1), Ingredient("slurtle_shellpieces", 2)},
+kyno_hamlettab, TECH.CASINHA_ONE, "kyno_grub_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_grub.xml", "kyno_grub.tex")
+
+
+AddRecipe("kyno_flytrap", {Ingredient("plantmeat", 2), Ingredient("houndstooth", 2)},
+kyno_hamlettab, TECH.CASINHA_ONE, "kyno_flytrap_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_flytrap.xml", "kyno_flytrap.tex")
+
+
 AddRecipe("kyno_dungball", {Ingredient("poop", 4), Ingredient("twigs", 4)},
 kyno_hamlettab, TECH.CASINHA_ONE, "kyno_dungball_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_dungball.xml", "kyno_dungball.tex")
 
@@ -953,6 +965,10 @@ kyno_hamlettab, TECH.CASINHA_ONE, "kyno_aloe_planted_placer", 1, nil, nil, nil, 
 
 AddRecipe("kyno_asparagus_planted", {Ingredient("asparagus", 1)},
 kyno_hamlettab, TECH.CASINHA_ONE, "kyno_asparagus_planted_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "asparagus.tex")
+
+
+AddRecipe("kyno_radish_planted", {Ingredient("pepper", 1)},
+kyno_hamlettab, TECH.CASINHA_ONE, "kyno_radish_planted_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "radish.tex")
 
 
 AddRecipe("kyno_leafystalk", {Ingredient("log", 10), Ingredient("succulent_picked", 5)},
@@ -1186,7 +1202,7 @@ AddRecipe("coconut", {Ingredient("acorn", 1)},
 kyno_shipwreckedtab, TECH.BARQUINHO_ONE, nil, nil, nil, 1, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "coconut.tex")
 
 
-AddRecipe("kyno_sweet_potato_planted", { potatoingredient },
+AddRecipe("kyno_sweet_potato_planted", {Ingredient("potato", 1)},
 kyno_shipwreckedtab, TECH.BARQUINHO_ONE, "kyno_sweet_potato_planted_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "sweet_potato.tex")
 
 
@@ -1343,9 +1359,13 @@ kyno_shipwreckedtab, TECH.BARQUINHO_ONE, "kyno_elephantcactus_placer", 1, nil, n
 
 local COFFEE_PLANT = GetModConfigData("coffee_hack")
 if COFFEE_PLANT == 0 then
-AddRecipe("dug_coffeebush", {Ingredient("poop", 5), Ingredient("ash", 5), Ingredient("dug_berrybush", 1)},
+AddRecipe("dug_coffeebush", {Ingredient("ash", 5), Ingredient("dug_berrybush", 1)},
 kyno_shipwreckedtab, TECH.BARQUINHO_ONE, nil, nil, nil, 1, nil, "images/inventoryimages/dug_coffeebush.xml", "dug_coffeebush.tex")
 end
+
+AddRecipe("kyno_fakecoffeebush", {Ingredient("poop", 2), Ingredient("dug_berrybush", 1)},
+kyno_shipwreckedtab, TECH.BARQUINHO_ONE, "kyno_fakecoffeebush_placer", 1, nil, nil, nil, "images/inventoryimages/dug_coffeebush.xml", "dug_coffeebush.tex")
+
 
 AddRecipe("kyno_rock_obsidian", {Ingredient("rocks", 5), Ingredient("redgem", 2)},
 kyno_shipwreckedtab, TECH.BARQUINHO_ONE, "kyno_rock_obsidian_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_rock_obsidian.xml", "kyno_rock_obsidian.tex")
@@ -1370,7 +1390,43 @@ kyno_shipwreckedtab, TECH.BARQUINHO_ONE, "kyno_volcano_altar_placer", 1, nil, ni
 AddRecipe("kyno_workbench", {Ingredient("cutstone", 2), Ingredient("boards", 4), Ingredient("charcoal", 2)},
 kyno_shipwreckedtab, TECH.BARQUINHO_ONE, "kyno_workbench_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_workbench.xml", "kyno_workbench.tex")
 
---[[
+
+AddRecipe("turf_magmafield", {Ingredient("turf_rocky", 2), Ingredient("rocks", 2)},
+kyno_shipwreckedtab, TECH.BARQUINHO_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_turfs_sw.xml", "turf_magmafield.tex")
+
+
+AddRecipe("turf_volcano", { magmaingredient },
+kyno_shipwreckedtab, TECH.BARQUINHO_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_turfs_sw.xml", "turf_volcano.tex")
+
+
+AddRecipe("turf_ash", {Ingredient("ash", 2)},
+kyno_shipwreckedtab, TECH.BARQUINHO_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_turfs_sw.xml", "turf_ash.tex")
+
+
+AddRecipe("turf_volcano_rock", { magmaingredient, Ingredient("rocks", 2)},
+kyno_shipwreckedtab, TECH.BARQUINHO_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_turfs_sw.xml", "turf_volcano_rock.tex")
+
+
+AddRecipe("turf_tidalmarsh", {Ingredient("turf_marsh", 2)},
+kyno_shipwreckedtab, TECH.BARQUINHO_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_turfs_sw_2.xml", "turf_tidalmarsh.tex")
+
+
+AddRecipe("turf_jungle", {Ingredient("turf_forest", 2)},
+kyno_shipwreckedtab, TECH.BARQUINHO_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_turfs_sw.xml", "turf_jungle.tex")
+
+
+AddRecipe("turf_meadow", {Ingredient("turf_grass", 2)},
+kyno_shipwreckedtab, TECH.BARQUINHO_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_turfs_sw.xml", "turf_meadow.tex")
+
+
+AddRecipe("turf_beach", {Ingredient("turf_desertdirt", 2)},
+kyno_shipwreckedtab, TECH.BARQUINHO_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_turfs_sw.xml", "turf_beach.tex")
+
+
+AddRecipe("turf_snakeskinfloor", {Ingredient("turf_carpetfloor", 2)},
+kyno_shipwreckedtab, TECH.BARQUINHO_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_turfs_sw.xml", "turf_snakeskinfloor.tex")
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Debug Mode (Recipes that currently don't have full support)
 local SEA_STRUCTURES = GetModConfigData("ocean_structures")
 if SEA_STRUCTURES == 0 then
 AddRecipe("mangrovetree_short", {Ingredient("log", 4), Ingredient("twigs", 4)},
@@ -1483,40 +1539,3 @@ kyno_shipwreckedtab, TECH.BARQUINHO_ONE, "kyno_watercrate_placer", 1, nil, nil, 
 AddRecipe("kyno_tarpit", {Ingredient("charcoal", 2), Ingredient("ash", 2), Ingredient("boneshard", 2)},
 kyno_shipwreckedtab, TECH.BARQUINHO_ONE, "kyno_tarpit_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_tarpit.xml", "kyno_tarpit.tex")
 end
-]]--
-
-AddRecipe("turf_magmafield", {Ingredient("turf_rocky", 2), Ingredient("rocks", 2)},
-kyno_shipwreckedtab, TECH.BARQUINHO_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_turfs_sw.xml", "turf_magmafield.tex")
-
-
-AddRecipe("turf_volcano", { magmaingredient },
-kyno_shipwreckedtab, TECH.BARQUINHO_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_turfs_sw.xml", "turf_volcano.tex")
-
-
-AddRecipe("turf_ash", {Ingredient("ash", 2)},
-kyno_shipwreckedtab, TECH.BARQUINHO_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_turfs_sw.xml", "turf_ash.tex")
-
-
-AddRecipe("turf_volcano_rock", { magmaingredient, Ingredient("rocks", 2)},
-kyno_shipwreckedtab, TECH.BARQUINHO_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_turfs_sw.xml", "turf_volcano_rock.tex")
-
-
-AddRecipe("turf_tidalmarsh", {Ingredient("turf_marsh", 2)},
-kyno_shipwreckedtab, TECH.BARQUINHO_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_turfs_sw_2.xml", "turf_tidalmarsh.tex")
-
-
-AddRecipe("turf_jungle", {Ingredient("turf_forest", 2)},
-kyno_shipwreckedtab, TECH.BARQUINHO_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_turfs_sw.xml", "turf_jungle.tex")
-
-
-AddRecipe("turf_meadow", {Ingredient("turf_grass", 2)},
-kyno_shipwreckedtab, TECH.BARQUINHO_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_turfs_sw.xml", "turf_meadow.tex")
-
-
-AddRecipe("turf_beach", {Ingredient("turf_desertdirt", 2)},
-kyno_shipwreckedtab, TECH.BARQUINHO_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_turfs_sw.xml", "turf_beach.tex")
-
-
-AddRecipe("turf_snakeskinfloor", {Ingredient("turf_carpetfloor", 2)},
-kyno_shipwreckedtab, TECH.BARQUINHO_ONE, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_turfs_sw.xml", "turf_snakeskinfloor.tex")
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

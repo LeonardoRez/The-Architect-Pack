@@ -10,7 +10,8 @@ local Assets=
 
 local function turnoffspeed(inst)
 	inst.components.locomotor.groundspeedmultiplier = 1
-	inst.components.locomotor.externalspeedmultiplier = 1	 
+	inst.components.locomotor.externalspeedmultiplier = 1
+	print("COFFEE SPEEDBOOST ENDED", turnoffspeed)
 end
 
 local function OnEaten(inst, eater)
@@ -18,6 +19,7 @@ local function OnEaten(inst, eater)
 	eater.components.locomotor.groundspeedmultiplier = 1.85
 	eater.components.locomotor.externalspeedmultiplier = 1.85
 	eater:DoTaskInTime(480, turnoffspeed)
+	print("COFFEE SPEEDBOOST STARTED", OnEaten)
 end
 
 local function cooked(Sim)

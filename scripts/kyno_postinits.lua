@@ -249,3 +249,19 @@ AddPrefabPostInit("hedge_layered_aged_item", function(inst)
 	end
 end)
 ------------------------------------------------------------------------------------------------------------
+AddComponentPostInit(
+    "locomotor",
+    function(inst)
+        local old = inst.UpdateGroundSpeedMultiplier
+        inst.UpdateGroundSpeedMultiplier = function(self)
+            old(self)
+            if
+                self.wasoncreep == false and self:FasterOnRoad() and
+                    GLOBAL.TheWorld.Map:GetTileAtPoint(self.inst.Transform:GetWorldPosition()) == GROUND.COBBLEROAD
+             then
+                self.groundspeedmultiplier = self.fastmultiplier
+            end
+        end
+    end
+)
+------------------------------------------------------------------------------------------------------------

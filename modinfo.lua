@@ -1,5 +1,5 @@
 name = " The Architect Pack"
-version = "1.0-A"
+version = "1.0-B"
 
 description = "This mod contains huge amount of decorative structures for Base Building! Remember: They're just replicas, static structures or not?...\n\nThis Mod Includes some Special Items, gotta craft 'em all! (Mostly decorative/utility items)\n\nThis includes content from: Shipwrecked, Hamlet, The Forge, The Gorge and exclusive DS/DST content!\n\nMod Version: "..version.."\n\nCredits on the mod page!"
 author = "The Building Society"
@@ -28,19 +28,6 @@ configuration_options =
         },
         default = 1,
     },
-	--[[
-	{
-		name = "ocean_structures",
-		label = "Ocean Structures",
-		hover = "Ocean Structures is not supported at this moment! Test by your own risk.",
-		options =
-		{
-			{description = "Yes", data = 0},
-			{description = "No", data = 1},
-		},
-		default = 1,
-	},
-	]]--
 	{
 		name = "coffee_hack",
 		label = "Coffee",
@@ -84,5 +71,16 @@ configuration_options =
 			{description = "No", data = 1},
 		},
 		default = 0,
+	},
+	{
+		name = "ocean_structures",
+		label = "Unimplemented Mode",
+		hover = "Enable structures that are not supported at this moment! Test by your own risk.",
+		options =
+		{
+			{description = "Yes", data = 0},
+			{description = "No", data = 1},
+		},
+		default = 1,
 	},
 }

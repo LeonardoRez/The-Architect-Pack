@@ -23,18 +23,6 @@ local function onbuilt(inst)
 	inst.AnimState:PushAnimation("idle_full")
 end
 
-local function SlowDown(inst)
-	local player = ThePlayer
-	player.components.locomotor.groundspeedmultiplier = TUNING.HEAVY_SPEED_MULT
-	-- player.components.locomotor.externalspeedmultiplier = TUNING.HEAVY_SPEED_MULT
-end
-
-local function SpeedUp(inst)
-	local player = ThePlayer
-	player.components.locomotor.groundspeedmultiplier = 1
-	player.components.locomotor.externalspeedmultiplier = 1	
-end
-
 local function fn()
 	local inst = CreateEntity()
     
@@ -59,7 +47,6 @@ local function fn()
     end
 	
 	inst:AddTag("tar_trap")
-	inst:AddTag("locomotor_slowdown")
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
@@ -71,11 +58,6 @@ local function fn()
 	inst.components.workable:SetWorkAction(ACTIONS.DIG)
 	inst.components.workable:SetOnFinishCallback(dig_up)
 	inst.components.workable:SetWorkLeft(1)
-	
-	inst:AddComponent("playerprox")
-    inst.components.playerprox:SetDist(1, 1)
-    inst.components.playerprox:SetOnPlayerNear(SlowDown)
-    inst.components.playerprox:SetOnPlayerFar(SpeedUp)
 
 	inst:ListenForEvent("onbuilt", onbuilt)
 	
