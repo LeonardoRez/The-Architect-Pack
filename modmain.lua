@@ -180,7 +180,7 @@ PrefabFiles = {
 	"k_cocoonedtree",
 	"k_teatree",
 	"k_teatree_sapling",
-	"K_teatree_nut",
+	"k_teatree_nut",
 	"k_ham_pinecones",
 	"k_lamppost",
 	-- SEA CONTENT (Currently disabled) --

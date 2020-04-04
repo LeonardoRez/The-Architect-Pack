@@ -127,7 +127,7 @@ local function addcone(name, spawn_prefab, bank, build, anim, winter_tree)
     table.insert(cones, MakePlacer(name.."_placer", bank, build, anim))
 end
 
-addcone("jungletreeseed", "kyno_jungletree_sapling", "jungleTreeSeed", "jungleTreeSeed", "idle_planted")
+addcone("jungletreeseed", "kyno_jungletree_sapling", "jungletreeseed", "jungletreeseed", "idle_planted")
 -- addcone("coconut", "kyno_palmtree_sapling", "coconut", "coconut", "planted") -- MOVED TO k_coconut.lua!
 
 return unpack(cones)
