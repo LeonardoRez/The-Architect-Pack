@@ -12,7 +12,7 @@ local assets =
 }
 
 local function dig_up(inst, chopper)
-	inst:PushAnimation("break")
+	inst.AnimState:PushAnimation("break")
 	inst.components.lootdropper:SpawnLootPrefab("poop")
 	inst.components.lootdropper:SpawnLootPrefab("poop")
 	inst.components.lootdropper:SpawnLootPrefab("twigs")
