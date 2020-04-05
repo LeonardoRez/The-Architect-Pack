@@ -21,7 +21,7 @@ local assets =
 	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_ham.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_ham.xml"),
 }
-
+--[[
 local function OnIsPathFindingDirty(inst)    
     local wall_x, wall_y, wall_z = inst.Transform:GetWorldPosition()
     if TheWorld.Map:GetPlatformAtPoint(wall_x, wall_z) == nil then        
@@ -75,12 +75,19 @@ local function onremove(inst)
     inst._ispathfinding:set_local(false)
     OnIsPathFindingDirty(inst)
 end
+]]--
+local function onhit(inst, worker)
+	inst.AnimState:PlayAnimation("hit")
+end
 
-local function onhit(inst)
-	local healthpercent = inst.components.health:GetPercent()
-        if healthpercent > 0 then
-		inst.AnimState:PlayAnimation("hit")
+local function onhammered(inst)
+	if inst:HasTag("fire") and inst.components.burnable then
+		inst.components.burnable:Extinguish()
 	end
+	inst.components.lootdropper:DropLoot()
+	SpawnPrefab("collapse_small").Transform:SetPosition(inst.Transform:GetWorldPosition())
+	inst.SoundEmitter:PlaySound("dontstarve/common/destroy_straw")
+	inst:Remove()
 end
 
 local function bramble1fn()
@@ -100,15 +107,15 @@ local function bramble1fn()
 	inst.AnimState:PlayAnimation("idle")
 	
 	MakeObstaclePhysics(inst, .5)
-	inst.Physics:SetDontRemoveOnSleep(true)
-	
+	-- inst.Physics:SetDontRemoveOnSleep(true)
+	--[[
 	inst._pfpos = nil
 	inst._ispathfinding = net_bool(inst.GUID, "_ispathfinding", "onispathfindingdirty")
 	makeobstacle(inst)
 	inst:DoTaskInTime(0, InitializePathFinding)
 
 	inst.OnRemoveEntity = onremove
-	
+	]]--
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -120,7 +127,7 @@ local function bramble1fn()
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
-	
+	--[[
 	inst:AddComponent("health")
 	inst.components.health:SetMaxHealth(100)
 	inst.components.health.ondelta = onhealthchange
@@ -130,10 +137,16 @@ local function bramble1fn()
 	inst:AddComponent("combat")
 	inst.components.combat:SetKeepTargetFunction(keeptargetfn)
 	inst.components.combat.onhitfn = onhit
-	
+	]]--
 	inst:AddComponent("savedrotation")
 	
-	inst.OnLoad = onload
+	inst:AddComponent("workable")
+    inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
+	inst.components.workable:SetOnFinishCallback(onhammered)
+	inst.components.workable:SetOnWorkCallback(onhit)
+	inst.components.workable:SetWorkLeft(3)
+	
+	-- inst.OnLoad = onload
 	
 	return inst
 end
@@ -155,15 +168,15 @@ local function bramble2fn()
 	inst.AnimState:PlayAnimation("idle")
 	
 	MakeObstaclePhysics(inst, .5)
-	inst.Physics:SetDontRemoveOnSleep(true)
-	
+	-- inst.Physics:SetDontRemoveOnSleep(true)
+	--[[
 	inst._pfpos = nil
 	inst._ispathfinding = net_bool(inst.GUID, "_ispathfinding", "onispathfindingdirty")
 	makeobstacle(inst)
 	inst:DoTaskInTime(0, InitializePathFinding)
 
 	inst.OnRemoveEntity = onremove
-	
+	]]--
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -175,7 +188,7 @@ local function bramble2fn()
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
-	
+	--[[
 	inst:AddComponent("health")
 	inst.components.health:SetMaxHealth(100)
 	inst.components.health.ondelta = onhealthchange
@@ -185,10 +198,16 @@ local function bramble2fn()
 	inst:AddComponent("combat")
 	inst.components.combat:SetKeepTargetFunction(keeptargetfn)
 	inst.components.combat.onhitfn = onhit
-	
+	]]--
 	inst:AddComponent("savedrotation")
 	
-	inst.OnLoad = onload
+	inst:AddComponent("workable")
+    inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
+	inst.components.workable:SetOnFinishCallback(onhammered)
+	inst.components.workable:SetOnWorkCallback(onhit)
+	inst.components.workable:SetWorkLeft(3)
+	
+	-- inst.OnLoad = onload
 	
 	return inst
 end
@@ -210,15 +229,15 @@ local function bramble3fn()
 	inst.AnimState:PlayAnimation("idle")
 	
 	MakeObstaclePhysics(inst, .5)
-	inst.Physics:SetDontRemoveOnSleep(true)
-	
+	-- inst.Physics:SetDontRemoveOnSleep(true)
+	--[[
 	inst._pfpos = nil
 	inst._ispathfinding = net_bool(inst.GUID, "_ispathfinding", "onispathfindingdirty")
 	makeobstacle(inst)
 	inst:DoTaskInTime(0, InitializePathFinding)
 
 	inst.OnRemoveEntity = onremove
-	
+	]]--
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -230,7 +249,7 @@ local function bramble3fn()
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
-	
+	--[[
 	inst:AddComponent("health")
 	inst.components.health:SetMaxHealth(100)
 	inst.components.health.ondelta = onhealthchange
@@ -240,10 +259,16 @@ local function bramble3fn()
 	inst:AddComponent("combat")
 	inst.components.combat:SetKeepTargetFunction(keeptargetfn)
 	inst.components.combat.onhitfn = onhit
-	
+	]]--
 	inst:AddComponent("savedrotation")
 	
-	inst.OnLoad = onload
+	inst:AddComponent("workable")
+    inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
+	inst.components.workable:SetOnFinishCallback(onhammered)
+	inst.components.workable:SetOnWorkCallback(onhit)
+	inst.components.workable:SetWorkLeft(3)
+	
+	-- inst.OnLoad = onload
 	
 	return inst
 end
@@ -266,15 +291,15 @@ local function bramblecorefn()
 	inst.AnimState:PlayAnimation("idle")
 	
 	MakeObstaclePhysics(inst, .5)
-	inst.Physics:SetDontRemoveOnSleep(true)
-	
+	-- inst.Physics:SetDontRemoveOnSleep(true)
+	--[[
 	inst._pfpos = nil
 	inst._ispathfinding = net_bool(inst.GUID, "_ispathfinding", "onispathfindingdirty")
 	makeobstacle(inst)
 	inst:DoTaskInTime(0, InitializePathFinding)
 
 	inst.OnRemoveEntity = onremove
-	
+	]]--
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -286,7 +311,7 @@ local function bramblecorefn()
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
-	
+	--[[
 	inst:AddComponent("health")
 	inst.components.health:SetMaxHealth(200)
 	inst.components.health.ondelta = onhealthchange
@@ -296,8 +321,15 @@ local function bramblecorefn()
 	inst:AddComponent("combat")
 	inst.components.combat:SetKeepTargetFunction(keeptargetfn)
 	inst.components.combat.onhitfn = onhit
+	]]--
 	
-	inst.OnLoad = onload
+	inst:AddComponent("workable")
+    inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
+	inst.components.workable:SetOnFinishCallback(onhammered)
+	inst.components.workable:SetOnWorkCallback(onhit)
+	inst.components.workable:SetWorkLeft(3)
+	
+	-- inst.OnLoad = onload
 	
 	return inst
 end
