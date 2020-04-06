@@ -1,5 +1,5 @@
 name = " The Architect Pack"
-version = "1.0-B"
+version = "1.5-B"
 
 description = "This mod contains huge amount of decorative structures for Base Building! Remember: They're just replicas, static structures or not?...\n\nThis Mod Includes some Special Items, gotta craft 'em all! (Mostly decorative/utility items)\n\nThis includes content from: Shipwrecked, Hamlet, The Forge, The Gorge and exclusive DS/DST content!\n\nMod Version: "..version.."\n\nCredits on the mod page!"
 author = "The Building Society"
@@ -41,8 +41,8 @@ configuration_options =
 	},
 	{
 		name = "hamlet_yotp",
-		label = "YOTP",
-		hover = "Some Hamlet Structures will have YOTP decorations!",
+		label = "Pig Fiesta",
+		hover = "Some Hamlet Structures will have Pig Fiesta decorations!",
 		options =
 		{
 			{description = "Yes", data = 0},

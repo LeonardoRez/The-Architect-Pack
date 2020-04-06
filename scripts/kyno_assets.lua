@@ -485,6 +485,15 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_flytrap.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_flytrap.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_gnawaltar.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_gnawaltar.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_gnawaltar.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_gnawaltar.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_bollard.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_bollard.xml"),
+	
 	-- Unlisted Assets --
 	Asset("ANIM", "anim/mod_turfs.zip"),
 	Asset("ANIM", "anim/kyno_catalogues.zip"), -- Unused.

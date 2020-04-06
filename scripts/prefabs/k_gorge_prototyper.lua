@@ -2,14 +2,13 @@ require "prefabutil"
 
 local assets =
 {
-	Asset("ANIM", "anim/portal_hamlet.zip"),
-	Asset("ANIM", "anim/portal_hamlet_build.zip"),
-    
-	Asset("IMAGE", "images/inventoryimages/kyno_inventoryimages_ham.tex"),
-	Asset("ATLAS", "images/inventoryimages/kyno_inventoryimages_ham.xml"),
+	Asset("ANIM", "anim/quagmire_altar.zip"),
 	
-	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_ham.tex"),
-	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_ham.xml"),
+	Asset("IMAGE", "images/inventoryimages/kyno_gnawaltar.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_gnawaltar.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_gnawaltar.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_gnawaltar.xml"),
 }
 
 local function onhammered(inst, worker)
@@ -20,15 +19,15 @@ local function onhammered(inst, worker)
 end
 
 local function onhit(inst, worker)
-    inst.AnimState:PlayAnimation("idle_off")
-    inst.AnimState:PushAnimation("idle_off")
+    inst.AnimState:PlayAnimation("idle_empty")
+    inst.AnimState:PushAnimation("idle_empty")
 end
 
 local function onbuilt(inst)
-    inst.AnimState:PushAnimation("idle_off")
+    inst.AnimState:PushAnimation("idle_empty")
 end
 
-local function Porkfn()
+local function Gnawfn()
 	local inst = CreateEntity()
 	
 	inst.entity:AddTransform()
@@ -37,18 +36,17 @@ local function Porkfn()
 	inst.entity:AddSoundEmitter()
     inst.entity:AddNetwork()
 	
-    MakeObstaclePhysics(inst, 1)
-	
 	local minimap = inst.entity:AddMiniMapEntity()
-    minimap:SetIcon("portal_ham.png")
-	minimap:SetPriority(5)
+	minimap:SetIcon("kyno_gnawaltar.tex")
 	
-    inst.AnimState:SetBank("hamportal")
-    inst.AnimState:SetBuild("portal_hamlet_build")
-    inst.AnimState:PlayAnimation("idle_off")
+    MakeObstaclePhysics(inst, .5)
+	
+    inst.AnimState:SetBank("quagmire_altar")
+    inst.AnimState:SetBuild("quagmire_altar")
+    inst.AnimState:PlayAnimation("idle_empty")
     
 	inst:AddTag("structure")
-	inst:AddTag("skyworthy")
+	inst:AddTag("gnawaltar")
 	
 	inst.entity:SetPristine()
 	
@@ -61,7 +59,7 @@ local function Porkfn()
 	
 	inst:AddComponent("workable")
     inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
-    inst.components.workable:SetWorkLeft(4)
+    inst.components.workable:SetWorkLeft(3)
 	inst.components.workable:SetOnFinishCallback(onhammered)
 	inst.components.workable:SetOnWorkCallback(onhit)
 	
@@ -72,5 +70,5 @@ local function Porkfn()
     return inst
 end
 
-return Prefab("kyno_ham_prototyper", Porkfn, assets),
-MakePlacer("kyno_ham_prototyper_placer", "hamportal", "portal_hamlet_build", "idle_off")
+return Prefab("kyno_gorge_prototyper", Gnawfn, assets),
+MakePlacer("kyno_gorge_prototyper_placer", "quagmire_altar", "quagmire_altar", "idle_empty")

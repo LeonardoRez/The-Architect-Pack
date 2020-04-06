@@ -4,17 +4,25 @@ Version 1.0-B
 - Added Doydoy around Doydoy Nest.
 - Added Snaptooth Flytrap.
 - Added Planted Radish. 
-- Added "Coffee Plant Replica" if you have "Coffee" disabled in options. 
-- Added New configuration option: "Unimplemented Mode". 
+- Added Coffee Plant Replica if you have Coffee disabled in options. 
+- Added New configuration option: Unimplemented Mode. 
 - Added Tiny light for Magic Flower. 
 - Added Speed boost for Stone Road Turf. 
-
 - Fixed Tar Trap crash in servers with caves enabled.
 - Fixed Planted Asparagus placement view. 
 - Magic Flower don't have death animation when far now.
 - Brambles now works like a structure instead of a wall.
 
-Version 1.0-C
+Version 1.5-B
+- Added The Gorge Structures.
+- Removed Skyworthy and Seaworthy prototyper function.
+- Changed Stone Road Turt recipe.
+- Changed Doydoy Nest recipe.
+- Fixed Players not able to craft some recipes in tabs.
+- Pirate Parrot now talk if the player is near.
+- Skyworthy and Seaworthy are now just a structure.
+
+
 
 
 
