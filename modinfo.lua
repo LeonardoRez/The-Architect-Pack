@@ -1,5 +1,5 @@
 name = " The Architect Pack"
-version = "1.5-B"
+version = "2.0-B"
 
 description = "This mod contains huge amount of decorative structures for Base Building! Remember: They're just replicas, static structures or not?...\n\nThis Mod Includes some Special Items, gotta craft 'em all! (Mostly decorative/utility items)\n\nThis includes content from: Shipwrecked, Hamlet, The Forge, The Gorge and exclusive DS/DST content!\n\nMod Version: "..version.."\n\nCredits on the mod page!"
 author = "The Building Society"
