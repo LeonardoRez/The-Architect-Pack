@@ -10,6 +10,43 @@ local assets =
 	Asset("ATLAS", "images/inventoryimages/kyno_slotmachine.xml"),
 }
 
+local prefabs = 
+{
+	"cutstone",
+}
+
+local function TurnOn(inst)
+	inst.sg:GoToState("spinning")
+	if math.random()<0.1 then
+		local stone = SpawnPrefab("cutstone")
+		local pt = Vector3(inst.Transform:GetWorldPosition()) + Vector3(0,2,0)
+		stone.Transform:SetPosition(pt:Get())
+		local down = TheCamera:GetDownVec()
+		local angle = math.atan2(down.z, down.x) + (math.random()*60)*DEGREES
+		local sp = 3 + math.random()
+		stone.Physics:SetVel(sp*math.cos(angle), math.random()*2+8, sp*math.sin(angle))
+	end
+end
+
+local function TurnOff(inst)
+	--inst.sg:GoToState("idle")
+end
+
+local function CanInteract(inst)
+	if inst.components.machine.ison then
+		return false
+	end
+	return true
+end
+
+local function GetStatus(inst, viewer)
+	if inst.on then
+		return "ON"
+	else
+		return "OFF"
+	end
+end
+
 local function onhammered(inst, worker)
 	inst.components.lootdropper:DropLoot()
 	SpawnPrefab("collapse_small").Transform:SetPosition(inst.Transform:GetWorldPosition())
@@ -18,8 +55,8 @@ local function onhammered(inst, worker)
 end
 
 local function onhit(inst, worker)
-	inst.AnimState:PlayAnimation("idle")
-	inst.AnimState:PushAnimation("idle")
+	inst.AnimState:PlayAnimation("hit")
+	inst.AnimState:PushAnimation("hit")
 end
 
 local function onbuilt(inst)
@@ -70,8 +107,16 @@ local function fn()
 	inst.components.workable:SetOnFinishCallback(onhammered)
 	inst.components.workable:SetOnWorkCallback(onhit)
 	inst.components.workable:SetWorkLeft(3)
+	
+	inst:AddComponent("machine")
+	inst.components.machine.turnonfn = TurnOn
+	-- inst.components.machine.turnofffn = TurnOff
+	inst.components.machine.caninteractfn = CanInteract
+	inst.components.machine.cooldowntime = 1.0
 
 	inst:ListenForEvent("onbuilt", onbuilt)
+	
+	inst:SetStateGraph("SGslotmachine")
 
 	return inst
 end

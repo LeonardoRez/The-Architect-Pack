@@ -494,6 +494,27 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_bollard.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_bollard.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_queenaltar.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_queenaltar.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_queenaltar.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_queenaltar.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_beaststatue1.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_beaststatue1.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_beaststatue2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_beaststatue2.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_beaststatue.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_beaststatue.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_beaststatue1_left.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_beaststatue1_left.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_beaststatue2_left.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_beaststatue2_left.xml"),
+	
 	-- Unlisted Assets --
 	Asset("ANIM", "anim/mod_turfs.zip"),
 	Asset("ANIM", "anim/kyno_catalogues.zip"), -- Unused.
@@ -745,6 +766,9 @@ Assets = {
 	Asset("ANIM", "anim/giant_grub.zip"),
 	Asset("ANIM", "anim/venus_flytrap_lg_build.zip"),
 	Asset("ANIM", "anim/venus_flytrap_planted.zip"),
+	-- The Gorge Content --
+	Asset("ANIM", "anim/quagmire_altar_statue1_left.zip"),
+	Asset("ANIM", "anim/quagmire_altar_statue2_left.zip"),
 	-- Sea Content --
 	Asset("ANIM", "anim/tree_mangrove_build.zip"),
 	Asset("ANIM", "anim/tree_mangrove_normal.zip"),

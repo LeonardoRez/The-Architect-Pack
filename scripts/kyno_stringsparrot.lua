@@ -32,19 +32,19 @@ for i, parrot in ipairs(parrot_pirate) do
 			if ent and ent.userid ~= nil then
 				if math.random() < 0.050 then
 					inst.components.talker:Say("Arrr! you little shit!")
-				elseif math.random() < 0.020 then
+				elseif math.random() < 0.050 then
 					inst.components.talker:Say("Glermz big head!")
-				elseif math.random() < 0.020 then
+				elseif math.random() < 0.050 then
 					inst.components.talker:Say("Chump!")
-				elseif math.random() < 0.020 then
+				elseif math.random() < 0.050 then
 					inst.components.talker:Say("You stink!")
-				elseif math.random() < 0.020 then
+				elseif math.random() < 0.050 then
 					inst.components.talker:Say("Feed me!")
-				elseif math.random() < 0.020 then
+				elseif math.random() < 0.050 then
 					inst.components.talker:Say("Glermz stop complaining!")
-				elseif math.random() < 0.020 then
+				elseif math.random() < 0.050 then
 					inst.components.talker:Say("Cracker!")
-				elseif math.random() < 0.020 then
+				elseif math.random() < 0.050 then
 					inst.components.talker:Say("Seu viadinho!")
 				end
 			end

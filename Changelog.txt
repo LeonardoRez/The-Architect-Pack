@@ -13,50 +13,15 @@ Version 1.0-B
 - Magic Flower don't have death animation when far now.
 - Brambles now works like a structure instead of a wall.
 
-Version 1.5-B
+Version 1.5-B-Alpha
 - Added The Gorge Structures.
-- Removed Skyworthy and Seaworthy prototyper function.
-- Changed Stone Road Turt recipe.
-- Changed Doydoy Nest recipe.
+- Added A Easter Egg about the Slot Machine.
+- Added Ability for Pirate Parrot talk if the player is near.
 - Fixed Players not able to craft some recipes in tabs.
-- Pirate Parrot now talk if the player is near.
-- Skyworthy and Seaworthy are now just a structure.
+- Changed Many recipes of Hamlet and Shipwrecked.
+- Removed Skyworthy and Seaworthy as prototyper machines.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-New:
-- Added Giant Grub. OK
-- Added Gnat Swarm around Gnat Mound. OK
-- Added Snaptooth Seedling.
-- Added Snaptooth Flytrap.
-- Added Planted Radish. OK
-- Added Coffee Plant replica if you have "Coffee" disabled in options. OK
-- Added New configuration option: "Unimplemented Mode". OK
-
-Fixes and Changes:
-- Added Tiny light for Magic Flower. OK
-- Added Speed boost for Stone Road Turf. OK
-- Fixed Tar Trap crash in servers with caves enabled. OK
-- Magic Flower don't have death animation when far now. OK
+Version 1.0-C (Coming Soon)
+- Added The Gorge Structures.
+- Added Thunderbirds around Thundernest.
+- Added New drop for Malbatross.
