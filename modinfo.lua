@@ -15,8 +15,20 @@ server_filter_tags = {"TBS", "TAP", "Decorations", "Base Building", "Mega Base"}
 icon_atlas = "ModiconTAP.xml"
 icon = "ModiconTAP.tex"
 
+-- The Gorge Extender --
+local emptyoptions = {{description="", data=false}}
+local function Breaker(title, hover)
+	return {
+		name=title,
+		hover=hover, --hover does not work, as this item cannot be hovered
+		options=emptyoptions,
+		default=false,
+	}
+end
+
 configuration_options =
 {
+	Breaker("Tweaks"),
     {
         name = "keep_food_on_cookpot",
         label = "Keep Food on Crock Pot",
@@ -29,37 +41,15 @@ configuration_options =
         default = 1,
     },
 	{
-		name = "coffee_hack",
-		label = "Coffee",
-		hover = "Yay Coffee! Now Fully working with Warly's Spices!",
-		options =
-		{
-			{description = "Yes", data = 0},
-			{description = "No", data = 1},
-		},
-		default = 1,
-	},
-	{
-		name = "hamlet_yotp",
-		label = "Pig Fiesta",
-		hover = "Some Hamlet Structures will have Pig Fiesta decorations!",
-		options =
-		{
-			{description = "Yes", data = 0},
-			{description = "No", data = 1},
-		},
-		default = 1,
-	},
-	{
 		name = "aged_hedges",
-		label = "Aged Hedges",
+		label = "Aged Hedges Recipes",
 		hover = "Hedges will have their aged version as craftable.",
 		options =
 		{
 			{description = "Yes", data = 0},
 			{description = "No", data = 1},
 		},
-		default = 0,
+		default = 1,
 	},
 	{
 		name = "tweak_recipes",
@@ -70,7 +60,50 @@ configuration_options =
 			{description = "Yes", data = 0},
 			{description = "No", data = 1},
 		},
-		default = 0,
+		default = 1,
+	},
+	{
+		name = "hamlet_yotp",
+		label = "Pig Fiesta Decorations",
+		hover = "Some Hamlet Structures will have Pig Fiesta decorations!",
+		options =
+		{
+			{description = "Yes", data = 0},
+			{description = "No", data = 1},
+		},
+		default = 1,
+	},
+	Breaker("Extras"),
+	{
+		name = "coffee_hack",
+		label = "Coffee",
+		hover = "Enables Coffee now fully working with Warly's spices!",
+		options =
+		{
+			{description = "Yes", data = 0},
+			{description = "No", data = 1},
+		},
+		default = 1,
+	},
+	{
+		name = "packim_baggims",
+		label = "Packim Baggims",
+		hover = "Enables Packim Baggims as special drop of Malbatross.",
+		options =
+		{
+			{description = "100% Chance", data = 1.00},
+			{description = "90% Chance", data = 0.10},
+			{description = "80% Chance", data = 0.20},
+			{description = "70% Chance", data = 0.10},
+			{description = "60% Chance", data = 0.10},
+			{description = "50% Chance", data = 0.10},
+			{description = "40% Chance", data = 0.10},
+			{description = "30% Chance", data = 0.10},
+			{description = "20% Chance", data = 0.10},
+			{description = "10% Chance", data = 0.10},
+			{description = "No", 	data = 0.00},
+		},
+		default = 0.00,
 	},
 	{
 		name = "ocean_structures",

@@ -66,8 +66,8 @@ end
 
 local function OnClose(inst)
     if not inst.components.health:IsDead() and inst.sg.currentstate.name ~= "transition" then
-        inst.sg:GoToState("close")
-    end
+        inst.sg:GoToState("close")		
+	end
 end
 
 -- eye bone was killed/destroyed
@@ -79,6 +79,49 @@ end
 local function OnStartFollowing(inst)
     --print("chester - OnStartFollowing")
     inst:AddTag("companion")
+end
+
+local function tryeatcontents(inst)
+    local dideat = false
+    local dideatfire = false
+    local container = inst.components.container
+
+    if inst.PackimState == "FIRE" then
+        for i = 1, container:GetNumSlots() do
+            local item = container:GetItemInSlot(i)
+            if item and item:HasTag("cookable") and not item:HasTag("irreplaceable") then 
+                local replacement = nil 
+                if item.components.cookable then 
+                    replacement = item.components.cookable:Cook(inst, inst)
+                elseif item.components.burnable then 
+                    replacement = SpawnPrefab("ash")
+                end  
+                if replacement then 
+                    local stacksize = 1 
+                    if item.components.stackable then 
+                        stacksize = item.components.stackable:StackSize()
+                    end
+                    if replacement.components.stackable then 
+                        replacement.components.stackable:SetStackSize(stacksize)
+                    end 
+                    container:RemoveItemBySlot(i)
+                    item:Remove()
+                    container:GiveItem(replacement, i)
+                end 
+            end 
+        end 
+        return false 
+    end 
+	local loot = {}
+	if #loot > 0 then
+		inst.components.lootdropper:SetLoot(loot)
+
+		inst:DoTaskInTime(60 * FRAMES, function(inst)
+			inst.components.lootdropper:DropLoot()
+			inst.components.lootdropper:SetLoot({})
+		end)
+	end
+	return dideat
 end
 
 local function MorphFatPackim(inst)
@@ -103,8 +146,8 @@ local function MorphFirePackim(inst)
     inst._isfatpackim:set(false)
 end
 
-local function CanMorph(inst)
-    if inst.PackimState ~= "NORMAL" or not TheWorld.state.isfullmoon then
+local function CanMorph(inst, dideat)
+    if dideat and inst.PackimState ~= "NORMAL" or not TheWorld.state.isfullmoon then
         return false, false
     end
 
@@ -134,9 +177,12 @@ local function CanMorph(inst)
 end
 
 local function CheckForMorph(inst)
-    local canFire, canFat = CanMorph(inst)
+	local dideat = tryeatcontents(inst)
+    local canFire, canFat = CanMorph(inst, dideat)
     if canFire or canFat then
         inst.sg:GoToState("transition")
+	elseif dideat then
+        inst.sg:GoToState("swallow")
     end
 end
 
@@ -300,7 +346,10 @@ local function create_packim()
 
     inst.OnSave = OnSave
     inst.OnPreLoad = OnPreLoad
-
+	
+	inst.tryeat = tryeatcontents
+	inst.checkfiretransform = CheckForMorph
+	
     return inst
 end
 

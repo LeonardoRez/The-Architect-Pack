@@ -128,25 +128,31 @@ local states=
 		onenter = function(inst)
 			inst.AnimState:PlayAnimation("closed")
 		end,
-		
+		--[[
 		events=
         {   
             EventHandler("animover", function(inst) inst.sg:GoToState("idle") end ),
         },
-		--[[
+		]]--
 		events=
 		{
 			EventHandler("animover",
 				function(inst)
-					inst.sg:GoToState("idle")
-				end
-					if inst.CanMorph(inst) then 
-						inst.sg:GoToState("transform", true)
-					else
+					local packimstate = inst.PackimState == "FIRE"
+					if inst.tryeat(inst) then --Do I contain anything I want to eat?
+						if packimstate == inst.PackimState then
+							inst.sg:GoToState("swallow")
+						else
+							inst.sg:GoToState("idle", true)
+						end
+					elseif inst.checkfiretransform(inst) then 
+						inst.sg:GoToState("idle", true)
+					else 
 						inst.sg:GoToState("idle")
-					end),
+					end
+				end ),
 		},
-		]]--
+		
 		timeline=
 		{
 			TimeEvent( 0*FRAMES, function(inst) inst.SoundEmitter:PlaySound(inst.sounds.close) end),

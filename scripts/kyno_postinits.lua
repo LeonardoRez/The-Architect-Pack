@@ -265,6 +265,7 @@ AddComponentPostInit(
     end
 )
 ------------------------------------------------------------------------------------------------------------
+packim_chance = GetModConfigData("packim_baggims")
 GLOBAL.SetSharedLootTable("malbatross_packim",
 {
 	{'meat',                                						1.00},
@@ -279,29 +280,10 @@ GLOBAL.SetSharedLootTable("malbatross_packim",
     {'malbatross_feathered_weave_blueprint',		1.00},
     {'bluegem',                             						1},
     {'bluegem',                             						1},
-    {'bluegem',                             					0.3},
-    {'yellowgem',                           				   0.05},
-	{'oceanfishingbobber_malbatross_tacklesketch',1.00},
-	{"packim_fishbone",										1.00},
-})
-
-GLOBAL.SetSharedLootTable("malbatross_no_packim",
-{
-	{'meat',                                						1.00},
-    {'meat',                                						1.00},
-    {'meat',                                						1.00},
-    {'meat',                                						1.00},
-    {'meat',                                						1.00},
-    {'meat',                                						1.00},
-    {'meat',                                						1.00},
-    {'malbatross_beak',                     					1.00},
-    {'mast_malbatross_item_blueprint',      			1.00},
-    {'malbatross_feathered_weave_blueprint',		1.00},
-    {'bluegem',                             						1},
-    {'bluegem',                             						1},
-    {'bluegem',                             					0.3},
-    {'yellowgem',                           				   0.05},
-	{'oceanfishingbobber_malbatross_tacklesketch',1.00},
+    {'bluegem',                                                   0.3},
+    {'yellowgem',                           				    0.05},
+	{'oceanfishingbobber_malbatross_tacklesketch', 1.00},
+	{"packim_fishbone",						  packim_chance},
 })
 
 AddPrefabPostInit("malbatross", function(inst)
