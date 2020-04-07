@@ -39,6 +39,8 @@ Assets = { -- Some Assets don't show correctly if they're not set here.
 	Asset("IMAGE", "images/inventoryimages/kyno_turfs_ham.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_turfs_ham.xml"),
 	Asset("ANIM", "anim/kyno_turfs2.zip"),
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
+	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),
 }
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 PrefabFiles = {
@@ -102,6 +104,8 @@ PrefabFiles = {
 	"k_dragoonegg",
 	"k_woodlegs_cage",
 	"k_tartrap",
+	"k_packim",
+	"k_packim_fishbone",
 	-- HAMLET CONTENT --
 	"k_ham_prototyper",
 	"k_cavecleft",

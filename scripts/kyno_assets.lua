@@ -515,6 +515,9 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_beaststatue2_left.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_beaststatue2_left.xml"),
 	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
+	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),
+	
 	-- Unlisted Assets --
 	Asset("ANIM", "anim/mod_turfs.zip"),
 	Asset("ANIM", "anim/kyno_catalogues.zip"), -- Unused.
@@ -590,6 +593,11 @@ Assets = {
 	Asset("ANIM", "anim/tar_trap.zip"),
 	Asset("ANIM", "anim/doydoy.zip"),
 	Asset("ANIM", "anim/doydoy_adult_build.zip"),
+	Asset("ANIM", "anim/packim_fishbone.zip"),
+	Asset("ANIM", "anim/packim.zip"),
+	Asset("ANIM", "anim/packim_build.zip"),
+	Asset("ANIM", "anim/packim_fat_build.zip"),
+	Asset("ANIM", "anim/packim_fire_build.zip"),
 	-- Hamlet Content --
 	Asset("ANIM", "anim/vamp_bat_entrance.zip"),
 	Asset("ANIM", "anim/portal_hamlet.zip"),
