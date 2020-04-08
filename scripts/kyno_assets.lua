@@ -518,6 +518,15 @@ Assets = {
 	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
 	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_potatohamlet.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_potatohamlet.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_ivy.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_ivy.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_ivy.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_ivy.xml"),
+	
 	-- Unlisted Assets --
 	Asset("ANIM", "anim/mod_turfs.zip"),
 	Asset("ANIM", "anim/kyno_catalogues.zip"), -- Unused.
@@ -598,6 +607,7 @@ Assets = {
 	Asset("ANIM", "anim/packim_build.zip"),
 	Asset("ANIM", "anim/packim_fat_build.zip"),
 	Asset("ANIM", "anim/packim_fire_build.zip"),
+	Asset("ANIM", "anim/teleportato_shipwrecked.zip"),
 	-- Hamlet Content --
 	Asset("ANIM", "anim/vamp_bat_entrance.zip"),
 	Asset("ANIM", "anim/portal_hamlet.zip"),
@@ -774,6 +784,7 @@ Assets = {
 	Asset("ANIM", "anim/giant_grub.zip"),
 	Asset("ANIM", "anim/venus_flytrap_lg_build.zip"),
 	Asset("ANIM", "anim/venus_flytrap_planted.zip"),
+	Asset("ANIM", "anim/teleportato_hamlet.zip"),
 	-- The Gorge Content --
 	Asset("ANIM", "anim/quagmire_altar_statue1_left.zip"),
 	Asset("ANIM", "anim/quagmire_altar_statue2_left.zip"),

@@ -11,11 +11,6 @@ local assets =
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_ham.xml"),
 }
 
-local prefabs =
-{
-	"cutgrass",
-}
-
 local function onhammered(inst, worker)
 	inst.components.lootdropper:DropLoot()
 	SpawnPrefab("collapse_big").Transform:SetPosition(inst.Transform:GetWorldPosition())
@@ -23,64 +18,44 @@ local function onhammered(inst, worker)
 	inst:Remove()
 end
 
-local function onhit(inst, worker)
-	inst.AnimState:PlayAnimation("flow_loop")
-	inst.AnimState:PushAnimation("flow_loop")
+local function TurnOn(inst)
+	inst.sg:GoToState("wateron")
 end
 
-local function ontransplantfn(inst)
-	inst.components.pickable:MakeBarren()
+local function TurnOff(inst)
+	inst.sg:GoToState("wateroff")
 end
 
-local function onpickedfn(inst, picker)
-	inst.AnimState:PlayAnimation("flow_pst")
-	inst.AnimState:PushAnimation("off")
-	inst.dry = true
-	inst:AddTag("IsDry")
+local function CanInteract(inst)
+	if inst.components.machine.ison then
+		return false
+	end
+	return true
 end
 
-local function getregentimefn(inst)
-	if inst.components.pickable == nil then
-        return TUNING.TOTAL_DAY_TIME
-    end
-	--[[
-    local max_cycles = inst.components.pickable.max_cycles
-    local cycles_left = inst.components.pickable.cycles_left or max_cycles
-    local num_cycles_passed = math.max(0, max_cycles - cycles_left)
-    return TUNING.BERRY_REGROW_TIME
-        + TUNING.BERRY_REGROW_INCREASE * num_cycles_passed
-        + TUNING.BERRY_REGROW_VARIANCE * math.random() ]]--
-end
-
-local function makefullfn(inst)
-	inst.AnimState:PlayAnimation("flow_pre")
-	inst.AnimState:PushAnimation("flow_loop")
-	inst.dry = false
-	inst:RemoveTag("IsDry")
-	inst:AddTag("IsFull")
-end
-
-local function onsave(inst, data)
-	if inst.dry and inst:HasTag("IsDry") then
-		data.dry = true
+local function GetStatus(inst, viewer)
+	if inst.on then
+		return "ON"
 	else
-		data.dry = false
+		return "OFF"
 	end
 end
 
-local function onload(inst, data)
-	if data and data.makebarren then
-		makebarrenfn(inst)
-		inst.components.pickable:MakeBarren()
-	end
-	if data and data.dry and inst:HasTag("IsDry") then
-		inst.dry = true
-		inst.AnimState:PlayAnimation("off", true)
-		else
-		inst.dry = false
-		inst.AnimState:PlayAnimation("flow_loop", true)
-	end
+local function onhit(inst, dist)
+	inst.sg:GoToState("hit")
 end
+
+local function OnBuilt(inst)
+	inst.sg:GoToState("place")
+end
+
+local function OnSave(inst, data)
+    local refs = {}
+    return refs
+end
+
+local function OnLoad(inst, data)
+end 
 
 local function fn()
 	local inst = CreateEntity()
@@ -97,7 +72,8 @@ local function fn()
 	
 	inst.AnimState:SetBank("fountain")
 	inst.AnimState:SetBuild("python_fountain")
-	inst.AnimState:PlayAnimation("flow_loop", true)
+	inst.AnimState:PlayAnimation("off")
+	inst.on = false
 	
 	MakeObstaclePhysics(inst, 2)
 	
@@ -116,17 +92,11 @@ local function fn()
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
 	
-	--[[
-	inst:AddComponent("pickable")
-	inst.components.pickable:SetUp(nil, nil)	
-	inst.components.pickable.onpickedfn = onpickedfn
-	inst.components.pickable.makefullfn = makefullfn
-	inst.components.pickable.ontransplantfn = ontransplantfn
-	inst.components.pickable.getregentimefn = getregentimefn
-	inst.components.pickable.max_cycles = TUNING.BERRYBUSH_CYCLES + math.random(2)
-    inst.components.pickable.cycles_left = inst.components.pickable.max_cycles
-	inst.components.pickable.quickpick = false
-	]]--
+	inst:AddComponent("machine")
+	inst.components.machine.turnonfn = TurnOn
+	inst.components.machine.turnofffn = TurnOff
+	inst.components.machine.caninteractfn = CanInteract
+	inst.components.machine.cooldowntime = 0.5
 	
     inst:AddComponent("workable")
     inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
@@ -134,8 +104,12 @@ local function fn()
 	inst.components.workable:SetOnWorkCallback(onhit)
 	inst.components.workable:SetWorkLeft(4)
 	
-	inst.OnSave = onsave 
-    inst.OnLoad = onload
+	inst:SetStateGraph("SGfountain")
+	
+	inst:ListenForEvent("onbuilt", OnBuilt)
+	
+	inst.OnSave = OnSave 
+    inst.OnLoad = OnLoad
 
 	return inst
 end

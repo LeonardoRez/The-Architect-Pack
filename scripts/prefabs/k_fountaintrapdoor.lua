@@ -42,6 +42,16 @@ local function onhit(inst, worker)
 	inst.AnimState:PushAnimation("closed")
 end
 
+local function onnear(inst)
+	inst.AnimState:PlayAnimation("opening")
+	inst.AnimState:PushAnimation("open")
+end
+
+local function onfar(inst)
+	inst.AnimState:PlayAnimation("closing")
+	inst.AnimState:PushAnimation("closed")
+end
+
 local function fn()
 	local inst = CreateEntity()
     
@@ -50,6 +60,8 @@ local function fn()
     inst.entity:AddSoundEmitter()
 	inst.entity:AddNetwork()
 
+	MakeObstaclePhysics(inst, 1)
+	
 	inst.AnimState:SetBank("python_trap_door")
 	inst.AnimState:SetBuild("python_trap_door")
 	inst.AnimState:PlayAnimation("closed", true)
@@ -76,6 +88,11 @@ local function fn()
 	inst.components.workable:SetOnFinishCallback(onhammered)
 	inst.components.workable:SetOnWorkCallback(onhit)
 	inst.components.workable:SetWorkLeft(2)
+	
+	 inst:AddComponent("playerprox")
+    inst.components.playerprox:SetDist(4, 5)
+    inst.components.playerprox.onnear = onnear
+    inst.components.playerprox.onfar = onfar
 
 	return inst
 end

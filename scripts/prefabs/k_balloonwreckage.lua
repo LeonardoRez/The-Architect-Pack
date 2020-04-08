@@ -119,11 +119,6 @@ local function balloonfn()
 	inst:AddTag("structure")
 	inst:AddTag("wreck")
 	
-	local function createExtras(inst)
-	inst.towerprefab =  SpawnPrefab("kyno_balloon_fx")
-	inst.towerprefab.entity:SetParent(inst.entity)
-	end
-	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
 	
@@ -138,8 +133,6 @@ local function balloonfn()
 	
 	inst.OnSave = onsave 
     inst.OnLoad = onload
-	
-	inst:DoTaskInTime(FRAMES * 1, createExtras)
 
 	return inst
 end
@@ -204,6 +197,11 @@ local function basketfn()
 	inst:AddTag("structure")
 	inst:AddTag("wreck")
 	
+	local function createExtras(inst)
+	inst.towerprefab =  SpawnPrefab("kyno_balloon_fx")
+	inst.towerprefab.entity:SetParent(inst.entity)
+	end
+	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
 	
@@ -218,6 +216,8 @@ local function basketfn()
 	
 	inst.OnSave = onsave 
     inst.OnLoad = onload
+	
+	inst:DoTaskInTime(FRAMES * 1, createExtras)
 
 	return inst
 end

@@ -106,6 +106,7 @@ PrefabFiles = {
 	"k_tartrap",
 	"k_packim",
 	"k_packim_fishbone",
+	"k_teleportato_shipwrecked",
 	-- HAMLET CONTENT --
 	"k_ham_prototyper",
 	"k_cavecleft",
@@ -193,11 +194,13 @@ PrefabFiles = {
 	"k_radish",
 	"k_giantgrub",
 	"k_snaptooth",
+	"k_teleportato_hamlet",
 	-- THE GORGE CONTENT --
 	"k_gorge_prototyper",
 	"k_bollard",
 	"k_queen_beast",
 	"k_beast_statue",
+	"k_ivy",
 	-- SEA CONTENT (Currently disabled) --
 	"k_mangrovetrees",
 	"k_wrecks",
@@ -231,6 +234,7 @@ AddMinimapAtlas("images/minimapimages/kyno_shipmast.xml")
 AddMinimapAtlas("images/minimapimages/kyno_gnawaltar.xml")
 AddMinimapAtlas("images/minimapimages/kyno_queenaltar.xml")
 AddMinimapAtlas("images/minimapimages/kyno_beaststatue.xml")
+AddMinimapAtlas("images/minimapimages/kyno_ivy.xml")
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddIngredientValues({"kyno_coffeebeans_cooked"}, {fruit=1}, true)
 AddIngredientValues({"kyno_coffeebeans"}, {fruit=1}, true)
@@ -603,6 +607,10 @@ AddRecipe("kyno_bollard", {Ingredient("cutstone", 1)},
 kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_bollard_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_bollard.xml", "kyno_bollard.tex")
 
 
+AddRecipe("kyno_ivy", {Ingredient("twigs", 4), Ingredient("cutgrass", 4)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_ivy_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_ivy.xml", "kyno_ivy.tex")
+
+
 AddRecipe("kyno_lamppost", {Ingredient("cutstone", 1), Ingredient("lantern", 1), Ingredient("transistor", 1)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_lamppost_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "city_lamp.tex")
 
@@ -855,6 +863,10 @@ AddRecipe("kyno_pugaliskcorpse", {Ingredient("boneshard", 4)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_pugaliskcorpse_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_snakebody.xml", "kyno_snakebody.tex")
 
 
+AddRecipe("kyno_teleporter_hamlet", {Ingredient("cutstone", 2), Ingredient("transistor", 2), Ingredient("nightmarefuel", 2)},
+kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_teleporter_hamlet_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_potatohamlet.xml", "kyno_potatohamlet.tex")
+
+
 AddRecipe("kyno_exoticflower", {Ingredient("petals", 1)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_exoticflower_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_exoticflower.xml", "kyno_exoticflower.tex")
 
@@ -1023,15 +1035,15 @@ AddRecipe("kyno_ironhulk_large", {Ingredient("gears", 6), Ingredient("transistor
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_ironhulk_large_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_hulklarge.xml", "kyno_hulklarge.tex")
 
 
-AddRecipe("kyno_bramble1", {Ingredient("dug_marsh_bush", 1), Ingredient("poop", 2)},
+AddRecipe("kyno_bramble1", {Ingredient("dug_marsh_bush", 1), Ingredient("poop", 1)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_bramble1_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_bramble1.xml", "kyno_bramble1.tex")
 
 
-AddRecipe("kyno_bramble2", {Ingredient("dug_marsh_bush", 1) ,Ingredient("poop", 2)},
+AddRecipe("kyno_bramble2", {Ingredient("dug_marsh_bush", 1) ,Ingredient("poop", 1)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_bramble2_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_bramble2.xml", "kyno_bramble2.tex")
 
 
-AddRecipe("kyno_bramble3", {Ingredient("dug_marsh_bush", 1), Ingredient("poop", 2)},
+AddRecipe("kyno_bramble3", {Ingredient("dug_marsh_bush", 1), Ingredient("poop", 1)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_bramble3_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_bramble3.xml", "kyno_bramble3.tex")
 
 
@@ -1392,6 +1404,10 @@ kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_icemaker_placer", 1, nil, nil, nil,
 
 AddRecipe("kyno_sandcastle", { beachingredient2, Ingredient("cutgrass", 4), Ingredient("flint", 3)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_sandcastle_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "sand_castle.tex")
+
+
+AddRecipe("kyno_teleporter_sw", {Ingredient("boards", 2), Ingredient("cutgrass", 4), Ingredient("nightmarefuel", 2)},
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_teleporter_sw_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_potatosw.xml", "kyno_potatosw.tex")
 
 
 AddRecipe("kyno_piratihatitator", {Ingredient("tophat", 1), Ingredient("robin", 1), Ingredient("boards", 4)},

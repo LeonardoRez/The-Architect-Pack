@@ -8,6 +8,11 @@ local assets =
 	Asset("ATLAS", "images/inventoryimages/kyno_inventoryimages_sw.xml"),
 }
 
+local prefabs =
+{
+	"kyno_seashell_buried",
+}
+
 local function ondeploy(inst, pt, deployer)
 local seashell = SpawnPrefab("kyno_seashell_buried")
 	if seashell ~= nil then

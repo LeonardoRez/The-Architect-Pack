@@ -281,7 +281,7 @@ end
 local wallprefabs = {}
 local walldata =
 {   
-    { name = "pig_ruins",	material = "thulecite", tags = { "stone", "ruins" },	loot = "thulecite", "thulecite_pieces", maxloots = 2, maxhealth = TUNING.RUINSWALL_HEALTH,	buildsound = "dontstarve/common/place_structure_stone" },
+    { name = "pig_ruins",	material = "thulecite", tags = { "stone", "ruins" },	loot = "thulecite_pieces", "thulecite_pieces", maxloots = 2, maxhealth = TUNING.RUINSWALL_HEALTH,	buildsound = "dontstarve/common/place_structure_stone" },
 }
 
 for i, v in ipairs(walldata) do

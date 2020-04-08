@@ -17,11 +17,19 @@ Version 1.5-B-Alpha
 - Added The Gorge Structures.
 - Added A Easter Egg about the Slot Machine.
 - Added Ability for Pirate Parrot talk if the player is near.
+- Added Wooden Thing of SW and HAM.
+- Added New configuration option: Packim Baggims.
+- Fixed Several bugs about the Packim Baggims.
 - Fixed Players not able to craft some recipes in tabs.
+- Fixed Ancient Wall dropping wrong loot when hammered.
+- Fixed Wicker Basket decal FX.
 - Changed Many recipes of Hamlet and Shipwrecked.
 - Removed Skyworthy and Seaworthy as prototyper machines.
+- Ominous Carvning will open if the player is near and close if the player is far.
+- Fountain of Youth can be turned on/off by the player now.
 
 Version 1.0-C (Coming Soon)
-- Added The Gorge Structures.
-- Added Thunderbirds around Thundernest.
-- Added New drop for Malbatross.
+- Added New configuration option: Cosmetic Hats.
+- Added New configuration option: Ro Bin.
+- Added New configuration option: Golden Pitchfork.
+- Added New configuration option: Lantern Tweak.
