@@ -69,14 +69,14 @@ local function fn()
 	
 	MakeObstaclePhysics(inst, 0.5)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pillar_fountain")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("pillar_fountain")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -112,14 +112,14 @@ local function collapsedfn()
 	
 	MakeObstaclePhysics(inst, 1)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pillar_fountain")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("pillar_fountain")
 
 	inst:AddComponent("inspectable")
 	

@@ -53,13 +53,13 @@ local function fn()
         inst.AnimState:PlayAnimation("idle2")
     end
 
+	inst:AddTag("notarget")
+	
     inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("notarget")
 
     inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -96,13 +96,13 @@ local function fernfn()
 	inst.AnimState:PlayAnimation("idle")
     inst.AnimState:SetRayTestOnBB(true)
 
+	inst:AddTag("notarget")
+	
     inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("notarget")
 
     inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

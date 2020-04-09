@@ -72,16 +72,16 @@ local function fn()
 	inst:SetPhysicsRadiusOverride(.2)
 	MakeWaterObstaclePhysics(inst, .2, .2, .2)
 	
+	inst:AddTag("structure")
+	inst:AddTag("buoy")
+	inst:AddTag("aquatic")
+	inst:AddTag("ignorewalkableplatforms")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("buoy")
-	inst:AddTag("aquatic")
-	inst:AddTag("ignorewalkableplatforms")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

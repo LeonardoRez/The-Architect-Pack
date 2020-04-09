@@ -33,7 +33,10 @@ local function cooked(Sim)
 	inst.AnimState:SetBuild("coffee")
 	inst.AnimState:PlayAnimation("idle")
 
+	inst:AddTag("show_spoilage")
+	
     inst.entity:SetPristine()
+	
     if not TheWorld.ismastersim then
         return inst
     end

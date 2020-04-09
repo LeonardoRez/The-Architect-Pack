@@ -49,14 +49,14 @@ local function fn()
 	
 	MakeObstaclePhysics(inst, 1)
 	
+	inst:AddTag("structure")
+	inst:AddTag("boulder")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("boulder")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

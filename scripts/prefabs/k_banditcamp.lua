@@ -46,16 +46,16 @@ local function fn()
 	inst.AnimState:SetBuild("x_marks_spot_bandit")
 	inst.AnimState:PlayAnimation("idle")
 	
+	inst:AddTag("structure")
+	inst:AddTag("buriedtreasure")
+	inst:AddTag("bandittreasure")
+	inst:AddTag("bandit_blink")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("buriedtreasure")
-	inst:AddTag("bandittreasure")
-	inst:AddTag("bandit_blink")
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)

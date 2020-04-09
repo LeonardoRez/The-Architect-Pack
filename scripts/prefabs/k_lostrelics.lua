@@ -116,14 +116,14 @@ local function headfn()
 	
 	MakeObstaclePhysics(inst, 1)
 	
+	inst:AddTag("structure")
+	inst:AddTag("boulder")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("boulder")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -165,15 +165,15 @@ local function pigfn()
 	
 	MakeObstaclePhysics(inst, 1)
 	
+	inst:AddTag("structure")
+	inst:AddTag("boulder")
+	inst:AddTag("statue_is_full")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("boulder")
-	inst:AddTag("statue_is_full")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -217,15 +217,15 @@ local function antfn()
 	
 	MakeObstaclePhysics(inst, 1)
 	
+	inst:AddTag("structure")
+	inst:AddTag("boulder")
+	inst:AddTag("statue_is_full")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("boulder")
-	inst:AddTag("statue_is_full")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -269,14 +269,14 @@ local function idolfn()
 	
 	MakeObstaclePhysics(inst, 0.75)
 	
+	inst:AddTag("structure")
+	inst:AddTag("boulder")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("boulder")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -318,14 +318,14 @@ local function plaquefn()
 	
 	MakeObstaclePhysics(inst, 0.75)
 	
+	inst:AddTag("structure")
+	inst:AddTag("boulder")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("boulder")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -367,15 +367,15 @@ local function trufflefn()
 	
 	MakeObstaclePhysics(inst, 0.75)
 	
+	inst:AddTag("structure")
+	inst:AddTag("boulder")
+	inst:AddTag("statue_is_full")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("boulder")
-	inst:AddTag("statue_is_full")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -419,14 +419,14 @@ local function sowfn()
 	
 	MakeObstaclePhysics(inst, 0.75)
 	
+	inst:AddTag("structure")
+	inst:AddTag("boulder")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("boulder")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

@@ -140,15 +140,15 @@ local function fn()
 	inst.AnimState:SetBuild("living_jungle_tree")
 	inst.AnimState:PlayAnimation("idle", true)
 	
+	inst:AddTag("plant")
+	inst:AddTag("tree")
+	inst:AddTag("workable")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("plant")
-	inst:AddTag("tree")
-	inst:AddTag("workable")
 
 	inst:AddComponent("inspectable")
 	

@@ -94,6 +94,9 @@ local function commonfn()
 	-- inst.AnimState:SetBuild("rock_magma")
 	-- inst.AnimState:PlayAnimation(anims[#anims])
 	
+	inst:AddTag("structure")
+	inst:AddTag("rock")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -104,9 +107,6 @@ local function commonfn()
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-	inst:AddTag("structure")
-	inst:AddTag("rock")
 	
     inst:AddComponent("lootdropper")
     

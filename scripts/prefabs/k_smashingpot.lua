@@ -63,14 +63,14 @@ local function fn()
 	inst.entity:AddPhysics() 
 	MakeObstaclePhysics(inst, .25)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pot")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("pot")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -105,14 +105,14 @@ local function smashedfn()
 	inst.AnimState:SetBuild("pig_ruins_pot")
 	inst.AnimState:PlayAnimation("broken")
 	
+	inst:AddTag("structure")
+	inst:AddTag("smashedpot")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("smashedpot")
 	
 	inst:AddComponent("inspectable")
 	

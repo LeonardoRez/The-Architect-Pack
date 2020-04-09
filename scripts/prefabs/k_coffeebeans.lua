@@ -66,6 +66,7 @@ local function MakeVeggie(name, has_seeds)
 
         inst:AddTag("cookable")
 		inst:AddTag("coffeebeans")
+		inst:AddTag("show_spoilage")
 
         inst.entity:SetPristine()
 
@@ -120,6 +121,7 @@ local function MakeVeggie(name, has_seeds)
 		
         inst:AddTag("cookable")
 		inst:AddTag("coffeebeans")
+		inst:AddTag("show_spoilage")
 
         inst.entity:SetPristine()
 
@@ -181,6 +183,8 @@ local function MakeVeggie(name, has_seeds)
         inst.AnimState:SetBank("coffeebeans")
         inst.AnimState:SetBuild("coffeebeans")
         inst.AnimState:PlayAnimation("cooked")
+		
+		inst:AddTag("show_spoilage")
 
         inst.entity:SetPristine()
 

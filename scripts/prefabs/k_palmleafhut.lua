@@ -84,6 +84,10 @@ local function fn()
 	
 	-- MakeObstaclePhysics(inst, 1)
 	
+	inst:AddTag("structure")
+	inst:AddTag("shelter")
+	inst:AddTag("dryshelter")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -95,10 +99,6 @@ local function fn()
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-	inst:AddTag("structure")
-	inst:AddTag("shelter")
-	inst:AddTag("dryshelter")
 	
 	inst:AddComponent("waterproofer")
 	inst.components.waterproofer:SetEffectiveness(TUNING.WATERPROOFNESS_ABSOLUTE)

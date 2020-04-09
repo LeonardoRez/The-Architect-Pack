@@ -68,14 +68,14 @@ local function fn()
 	inst.AnimState:SetLayer(LAYER_BACKGROUND)
 	inst.AnimState:SetSortOrder(3)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pugalisk_trap_door")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("pugalisk_trap_door")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

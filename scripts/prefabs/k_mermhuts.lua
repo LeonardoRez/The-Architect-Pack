@@ -160,14 +160,14 @@ local function MermhutFn()
     inst.AnimState:SetBuild("merm_sw_house")
     inst.AnimState:PlayAnimation("idle")  
 
+	inst:AddTag("structure")
+    inst:AddTag("tropical_mermhouse")
+	
 	inst.entity:SetPristine()
 
 	if not TheWorld.ismastersim then
 		return inst
 	end
-
-    inst:AddTag("structure")
-    inst:AddTag("mermhouse")
 	
 	inst:AddComponent("lootdropper")
 	inst:AddComponent("inspectable")
@@ -228,14 +228,14 @@ local function FishermermhutFn()
     inst.AnimState:SetBuild("merm_fisherman_house")
     inst.AnimState:PlayAnimation("idle")  
 
+	inst:AddTag("structure")
+    inst:AddTag("tropical_mermhouse")
+	
 	inst.entity:SetPristine()
 
 	if not TheWorld.ismastersim then
 		return inst
 	end
-
-    inst:AddTag("structure")
-    inst:AddTag("mermhouse")
 	
 	inst:AddComponent("lootdropper")
 	inst:AddComponent("inspectable")

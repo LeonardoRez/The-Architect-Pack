@@ -63,15 +63,15 @@ local function fn()
 	inst.AnimState:AddOverrideBuild("woodlegs")
 	
 	MakeObstaclePhysics(inst, 1.1)
+	
+	inst:AddTag("structure")
+	inst:AddTag("cage")
 
     inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-    inst:AddTag("structure")
-	inst:AddTag("cage")
 
 	inst:AddComponent("inspectable")
     inst:AddComponent("lootdropper")

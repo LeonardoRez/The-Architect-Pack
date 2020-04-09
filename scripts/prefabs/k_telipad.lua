@@ -58,6 +58,9 @@ local function fn()
 	inst.AnimState:SetOrientation(ANIM_ORIENTATION.OnGround)
 	inst.AnimState:SetLayer(LAYER_BACKGROUND)
 	inst.AnimState:SetSortOrder(3)
+	
+	inst:AddTag("structure")
+	inst:AddTag("telipad")
 
     inst.entity:SetPristine()
 
@@ -84,9 +87,6 @@ local function fn()
 				table.insert(inst.decor, item_inst)
 			end
 		end
-
-    inst:AddTag("structure")
-	inst:AddTag("telipad")
 
 	inst:AddComponent("inspectable")
     inst:AddComponent("lootdropper")
@@ -121,14 +121,14 @@ local function beaconfn()
 	
 	inst.persists = false
 	
+	inst:AddTag("telipad_beacon")
+	inst:AddTag("NOCLICK")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("telipad_beacon")
-	inst:AddTag("NOCLICK")
 	
 	return inst
 end

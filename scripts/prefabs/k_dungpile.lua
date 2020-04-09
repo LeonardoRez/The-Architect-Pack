@@ -53,14 +53,14 @@ local function fn()
 	inst.AnimState:SetBuild("dung_pile")
 	inst.AnimState:PlayAnimation(anims[#anims])
 	
+	inst:AddTag("structure")
+	inst:AddTag("dungpile")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("dungpile")
 	
 	inst:AddComponent("inspectable")
 	

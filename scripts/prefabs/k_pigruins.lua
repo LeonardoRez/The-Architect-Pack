@@ -130,14 +130,14 @@ local function makefn(name, dungeonname)
 	
 	MakeObstaclePhysics(inst, 1.20)
 
+	inst:AddTag("structure")
+	inst:AddTag("ruins_entrance")
+	
     inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-    inst:AddTag("structure")
-	inst:AddTag("ruins_entrance")
 
 	inst:AddComponent("inspectable")
     inst:AddComponent("lootdropper")

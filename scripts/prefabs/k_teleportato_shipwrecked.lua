@@ -54,14 +54,14 @@ local function fn()
 	inst.AnimState:SetBuild("teleportato_shipwrecked")
 	inst.AnimState:PlayAnimation("active_idle", true)
 	
+	inst:AddTag("structure")
+	inst:AddTag("teleporter_hamlet")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("teleporter_hamlet")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

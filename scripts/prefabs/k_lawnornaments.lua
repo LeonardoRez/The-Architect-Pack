@@ -71,14 +71,14 @@ local function makeitem(name, frame)
 	
 	MakeObstaclePhysics(inst, .5)
 	
+	inst:AddTag("structure")
+	inst:AddTag("lawnornament")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("lawnornament")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

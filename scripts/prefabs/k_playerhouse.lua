@@ -235,15 +235,15 @@ local function Slantyfn()
 	
 	MakeObstaclePhysics(inst, 1)
 	inst.unboarded = true
+	
+	inst:AddTag("structure")
+	inst:AddTag("playerhouse")
 
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("playerhouse")
 
 	inst:AddComponent("inspectable")
 	
@@ -298,15 +298,15 @@ local function Manorfn()
 	
 	MakeObstaclePhysics(inst, 1)
 	inst.unboarded = true
+	
+	inst:AddTag("structure")
+	inst:AddTag("playerhouse")
 
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("playerhouse")
 
 	inst:AddComponent("inspectable")
 	
@@ -368,14 +368,14 @@ local function Villafn()
 	MakeObstaclePhysics(inst, 1)
 	inst.unboarded = true
 
+	inst:AddTag("structure")
+	inst:AddTag("playerhouse")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("playerhouse")
 
 	inst:AddComponent("inspectable")
 	
@@ -437,14 +437,14 @@ local function Cottagefn()
 	MakeObstaclePhysics(inst, 1)
 	inst.unboarded = true
 
+	inst:AddTag("structure")
+	inst:AddTag("playerhouse")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("playerhouse")
 
 	inst:AddComponent("inspectable")
 	
@@ -506,14 +506,14 @@ local function Tudorfn()
 	MakeObstaclePhysics(inst, 1)
 	inst.unboarded = true
 
+	inst:AddTag("structure")
+	inst:AddTag("playerhouse")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("playerhouse")
 
 	inst:AddComponent("inspectable")
 	
@@ -575,14 +575,14 @@ local function Gothicfn()
 	MakeObstaclePhysics(inst, 1)
 	inst.unboarded = true
 
+	inst:AddTag("structure")
+	inst:AddTag("playerhouse")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("playerhouse")
 
 	inst:AddComponent("inspectable")
 	
@@ -644,14 +644,14 @@ local function Brickfn()
 	MakeObstaclePhysics(inst, 1)
 	inst.unboarded = true
 
+	inst:AddTag("structure")
+	inst:AddTag("playerhouse")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("playerhouse")
 
 	inst:AddComponent("inspectable")
 	
@@ -713,14 +713,14 @@ local function Turretfn()
 	MakeObstaclePhysics(inst, 1)
 	inst.unboarded = true
 
+	inst:AddTag("structure")
+	inst:AddTag("playerhouse")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("playerhouse")
 
 	inst:AddComponent("inspectable")
 	

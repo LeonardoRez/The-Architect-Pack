@@ -72,15 +72,15 @@ local function fn()
 	MakeWaterObstaclePhysics(inst, .4, .4, .4)
 	inst.Physics:SetDontRemoveOnSleep(true)
 
+	inst:AddTag("structure")
+	inst:AddTag("aquatic")
+	inst:AddTag("ignorewalkableplatforms")
+	
     inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-    inst:AddTag("structure")
-	inst:AddTag("aquatic")
-	inst:AddTag("ignorewalkableplatforms")
 
 	inst:AddComponent("inspectable")
     inst:AddComponent("lootdropper")

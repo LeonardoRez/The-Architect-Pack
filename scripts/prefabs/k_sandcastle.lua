@@ -52,6 +52,10 @@ local function fn()
 	
 	MakeObstaclePhysics(inst, .4)
 	
+	inst:AddTag("structure")
+	inst:AddTag("sandcastle")
+	inst:AddTag("sand")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -66,10 +70,6 @@ local function fn()
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-	inst:AddTag("structure")
-	inst:AddTag("sandcastle")
-	inst:AddTag("sand")
     
 	inst:AddComponent("workable")
 	inst.components.workable:SetWorkAction(ACTIONS.DIG)

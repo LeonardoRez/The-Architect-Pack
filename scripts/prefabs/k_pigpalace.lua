@@ -298,16 +298,16 @@ local function fn()
 	inst.AnimState:PlayAnimation("idle", true)
 	
 	MakeObstaclePhysics(inst, 1.25)
+	
+	inst:AddTag("structure")
+	inst:AddTag("pighouse")
+	inst:AddTag("pigpalace")
 
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("pighouse")
-	inst:AddTag("pigpalace")
 
 	inst:AddComponent("inspectable")
 	

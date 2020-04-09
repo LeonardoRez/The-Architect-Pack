@@ -40,14 +40,14 @@ local function fn()
 	inst.AnimState:SetBuild("nettle")
 	inst.AnimState:PlayAnimation("idle", true)
 	
+	inst:AddTag("structure")
+	inst:AddTag("nettle")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("nettle")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

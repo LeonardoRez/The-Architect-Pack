@@ -336,6 +336,10 @@ local function Spafn()
 	MakeObstaclePhysics(inst, 1)
 	MakeSnowCoveredPristine(inst)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pighouse")
+	inst:AddTag("pigshop")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -346,10 +350,6 @@ local function Spafn()
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-	inst:AddTag("structure")
-	inst:AddTag("pighouse")
-	inst:AddTag("pigshop")
 	
     inst:AddComponent("lootdropper")
     inst:AddComponent("workable")
@@ -414,6 +414,10 @@ local function Flowerfn()
 	MakeObstaclePhysics(inst, 1)
 	MakeSnowCoveredPristine(inst)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pighouse")
+	inst:AddTag("pigshop")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -424,10 +428,6 @@ local function Flowerfn()
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-	inst:AddTag("structure")
-	inst:AddTag("pighouse")
-	inst:AddTag("pigshop")
 	
     inst:AddComponent("lootdropper")
     inst:AddComponent("workable")
@@ -492,6 +492,10 @@ local function Generalfn()
 	MakeObstaclePhysics(inst, 1)
 	MakeSnowCoveredPristine(inst)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pighouse")
+	inst:AddTag("pigshop")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -502,10 +506,6 @@ local function Generalfn()
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-	inst:AddTag("structure")
-	inst:AddTag("pighouse")
-	inst:AddTag("pigshop")
 	
     inst:AddComponent("lootdropper")
     inst:AddComponent("workable")
@@ -570,6 +570,10 @@ local function Delifn()
 	MakeObstaclePhysics(inst, 1)
 	MakeSnowCoveredPristine(inst)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pighouse")
+	inst:AddTag("pigshop")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -580,10 +584,6 @@ local function Delifn()
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-	inst:AddTag("structure")
-	inst:AddTag("pighouse")
-	inst:AddTag("pigshop")
 	
     inst:AddComponent("lootdropper")
     inst:AddComponent("workable")
@@ -648,6 +648,10 @@ local function Producefn()
 	MakeObstaclePhysics(inst, 1)
 	MakeSnowCoveredPristine(inst)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pighouse")
+	inst:AddTag("pigshop")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -658,10 +662,6 @@ local function Producefn()
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-	inst:AddTag("structure")
-	inst:AddTag("pighouse")
-	inst:AddTag("pigshop")
 	
     inst:AddComponent("lootdropper")
     inst:AddComponent("workable")
@@ -726,6 +726,10 @@ local function Antiquitiesfn()
 	MakeObstaclePhysics(inst, 1)
 	MakeSnowCoveredPristine(inst)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pighouse")
+	inst:AddTag("pigshop")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -736,10 +740,6 @@ local function Antiquitiesfn()
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-	inst:AddTag("structure")
-	inst:AddTag("pighouse")
-	inst:AddTag("pigshop")
 	
     inst:AddComponent("lootdropper")
     inst:AddComponent("workable")
@@ -804,6 +804,10 @@ local function Arcanefn()
 	MakeObstaclePhysics(inst, 1)
 	MakeSnowCoveredPristine(inst)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pighouse")
+	inst:AddTag("pigshop")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -814,10 +818,6 @@ local function Arcanefn()
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-	inst:AddTag("structure")
-	inst:AddTag("pighouse")
-	inst:AddTag("pigshop")
 	
     inst:AddComponent("lootdropper")
     inst:AddComponent("workable")
@@ -882,6 +882,10 @@ local function Weaponsfn()
 	MakeObstaclePhysics(inst, 1)
 	MakeSnowCoveredPristine(inst)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pighouse")
+	inst:AddTag("pigshop")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -892,10 +896,6 @@ local function Weaponsfn()
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-	inst:AddTag("structure")
-	inst:AddTag("pighouse")
-	inst:AddTag("pigshop")
 	
     inst:AddComponent("lootdropper")
     inst:AddComponent("workable")
@@ -960,6 +960,10 @@ local function Hatsfn()
 	MakeObstaclePhysics(inst, 1)
 	MakeSnowCoveredPristine(inst)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pighouse")
+	inst:AddTag("pigshop")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -970,10 +974,6 @@ local function Hatsfn()
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-	inst:AddTag("structure")
-	inst:AddTag("pighouse")
-	inst:AddTag("pigshop")
 	
     inst:AddComponent("lootdropper")
     inst:AddComponent("workable")
@@ -1038,6 +1038,10 @@ local function Bankfn()
 	MakeObstaclePhysics(inst, 1)
 	MakeSnowCoveredPristine(inst)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pighouse")
+	inst:AddTag("pigshop")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -1048,10 +1052,6 @@ local function Bankfn()
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-	inst:AddTag("structure")
-	inst:AddTag("pighouse")
-	inst:AddTag("pigshop")
 	
     inst:AddComponent("lootdropper")
     inst:AddComponent("workable")
@@ -1118,6 +1118,10 @@ local function Tinkerfn()
 	MakeObstaclePhysics(inst, 1)
 	MakeSnowCoveredPristine(inst)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pighouse")
+	inst:AddTag("pigshop")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -1128,10 +1132,6 @@ local function Tinkerfn()
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-	inst:AddTag("structure")
-	inst:AddTag("pighouse")
-	inst:AddTag("pigshop")
 	
     inst:AddComponent("lootdropper")
     inst:AddComponent("workable")
@@ -1198,6 +1198,10 @@ local function Academyfn()
 	MakeObstaclePhysics(inst, 1)
 	MakeSnowCoveredPristine(inst)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pighouse")
+	inst:AddTag("pigshop")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -1208,10 +1212,6 @@ local function Academyfn()
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-	inst:AddTag("structure")
-	inst:AddTag("pighouse")
-	inst:AddTag("pigshop")
 	
     inst:AddComponent("lootdropper")
     inst:AddComponent("workable")
@@ -1278,6 +1278,10 @@ local function Hallfn()
 	MakeObstaclePhysics(inst, 1)
 	MakeSnowCoveredPristine(inst)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pighouse")
+	inst:AddTag("pigshop")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -1288,10 +1292,6 @@ local function Hallfn()
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-	inst:AddTag("structure")
-	inst:AddTag("pighouse")
-	inst:AddTag("pigshop")
 	
     inst:AddComponent("lootdropper")
     inst:AddComponent("workable")

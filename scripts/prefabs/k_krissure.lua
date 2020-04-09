@@ -58,6 +58,8 @@ local function fn()
 	MakeObstaclePhysics(inst, 1)
 	
 	inst:AddTag("cooker")
+	inst:AddTag("structure")
+	inst:AddTag("geyser")
 	
 	inst.entity:SetPristine()
 
@@ -66,9 +68,6 @@ local function fn()
     end
 	
 	inst.no_wet_prefix = true
-	
-	inst:AddTag("structure")
-	inst:AddTag("geyser")
 	
 	inst:AddComponent("heater")
     inst.components.heater.heat = 100

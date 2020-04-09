@@ -78,14 +78,14 @@ local function wellfn()
 	
 	MakeObstaclePhysics(inst, 2)
 	
+	inst:AddTag("structure")
+	inst:AddTag("well")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("well")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -124,14 +124,14 @@ local function endfn()
 	
 	MakeObstaclePhysics(inst, 2)
 	
+	inst:AddTag("structure")
+	inst:AddTag("endwell")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("endwell")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

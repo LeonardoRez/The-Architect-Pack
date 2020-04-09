@@ -395,16 +395,16 @@ local function makefn(animset, setbuild)
     inst.AnimState:SetMultColour(color, color, color, 1)
 	
 	MakeObstaclePhysics(inst, 1)
+	
+	inst:AddTag("structure")
+	inst:AddTag("pighouse")
+	inst:AddTag("pigtownhouse")
 
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("pighouse")
-	inst:AddTag("pigtownhouse")
 
 	inst:AddComponent("inspectable")
 	

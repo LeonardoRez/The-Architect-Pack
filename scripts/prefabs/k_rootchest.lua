@@ -78,15 +78,15 @@ local function fn()
 	inst.AnimState:SetBuild("treasure_chest_roottrunk")
 	inst.AnimState:PlayAnimation("closed", true)
 	
+	inst:AddTag("structure")
+	inst:AddTag("root_trunk")
+	inst:AddTag("chest")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("root_trunk")
-	inst:AddTag("chest")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

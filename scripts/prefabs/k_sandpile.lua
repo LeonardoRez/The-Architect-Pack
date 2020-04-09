@@ -47,6 +47,9 @@ local function fn()
 	inst.AnimState:SetBuild("sand_dune")
 	inst.AnimState:PlayAnimation(anims[#anims])
 	
+	inst:AddTag("structure")
+	inst:AddTag("sand")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -57,9 +60,6 @@ local function fn()
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-	inst:AddTag("structure")
-	inst:AddTag("sand")
 	
     inst:AddComponent("lootdropper")
     

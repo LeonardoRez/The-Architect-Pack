@@ -73,6 +73,10 @@ local function fn()
 	inst.AnimState:SetLayer(LAYER_BACKGROUND)
 	inst.AnimState:SetSortOrder(3)
 	
+	inst:AddTag("structure")
+	inst:AddTag("poison")
+	inst:AddTag("trytonguebuthole")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -83,10 +87,6 @@ local function fn()
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-	inst:AddTag("structure")
-	inst:AddTag("poison")
-	inst:AddTag("trytonguebuthole")
 	
     inst:AddComponent("lootdropper")
     

@@ -55,15 +55,15 @@ local function fn()
 	
 	MakeObstaclePhysics(inst, .5)
 	
+	inst:AddTag("structure")
+	inst:AddTag("boulder")
+	inst:AddTag("gnat_mound")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("boulder")
-	inst:AddTag("gnat_mound")
 	
 	local function createGnat(inst)
 	inst.gnatprefab =  SpawnPrefab("kyno_gnat")
@@ -106,12 +106,6 @@ local function gnatfn()
 	inst.AnimState:PlayAnimation("idle_loop", true)
 	inst.persists = false
 	
-	inst.entity:SetPristine()
-
-    if not TheWorld.ismastersim then
-        return inst
-    end
-	
 	inst:AddTag("gnat")
 	inst:AddTag("flying")
 	inst:AddTag("insect")
@@ -119,6 +113,12 @@ local function gnatfn()
 	inst:AddTag("smallcreature")
 	inst:AddTag("notarget")
 	inst:AddTag("NOCLICK")
+	
+	inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
 
 	inst:AddComponent("lootdropper")
 	

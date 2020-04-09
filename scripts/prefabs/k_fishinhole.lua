@@ -36,15 +36,15 @@ local function fn()
 	inst:SetPhysicsRadiusOverride(.1)
 	MakeWaterObstaclePhysics(inst, .1, .1, .1)
 	
+	inst:AddTag("structure")
+	inst:AddTag("aquatic")
+	inst:AddTag("fishschool")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("aquatic")
-	inst:AddTag("fishschool")
 
 	inst:AddComponent("inspectable")
 	inst.no_wet_prefix = true

@@ -81,15 +81,15 @@ local function fn()
 	inst.AnimState:SetBuild("ant_chest_nectar")
 	inst.AnimState:PlayAnimation("closed", true)
 	
+	inst:AddTag("structure")
+	inst:AddTag("antchest")
+	inst:AddTag("chest")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("antchest")
-	inst:AddTag("chest")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

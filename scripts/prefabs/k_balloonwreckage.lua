@@ -110,14 +110,14 @@ local function balloonfn()
 	
 	MakeObstaclePhysics(inst, .75)
 	
+	inst:AddTag("structure")
+	inst:AddTag("wreck")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("wreck")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -154,13 +154,13 @@ local function fxfn()
 	
     inst.persists = false
 	
+	inst:AddTag("NOCLICK")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-    
-	inst:AddTag("NOCLICK")
 	
 	inst:AddComponent("workable")
     inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
@@ -188,14 +188,14 @@ local function basketfn()
 	
 	MakeObstaclePhysics(inst, .75)
 	
+	inst:AddTag("structure")
+	inst:AddTag("wreck")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("wreck")
 	
 	local function createExtras(inst)
 	inst.towerprefab =  SpawnPrefab("kyno_balloon_fx")
@@ -239,14 +239,14 @@ local function flagsfn()
 	
 	MakeObstaclePhysics(inst, .75)
 	
+	inst:AddTag("structure")
+	inst:AddTag("wreck")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("wreck")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -280,14 +280,14 @@ local function bagsandfn()
 	
 	MakeObstaclePhysics(inst, .75)
 	
+	inst:AddTag("structure")
+	inst:AddTag("wreck")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("wreck")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -321,14 +321,14 @@ local function suitcasefn()
 	
 	MakeObstaclePhysics(inst, .75)
 	
+	inst:AddTag("structure")
+	inst:AddTag("wreck")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("wreck")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -362,14 +362,14 @@ local function trunkfn()
 	
 	MakeObstaclePhysics(inst, .75)
 	
+	inst:AddTag("structure")
+	inst:AddTag("wreck")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("wreck")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

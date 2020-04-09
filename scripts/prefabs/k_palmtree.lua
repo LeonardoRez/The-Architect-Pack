@@ -404,15 +404,15 @@ local function makefn(build, stage, data)
 		minimap:SetIcon("palmTree.png")
 		minimap:SetPriority(1)
 		
+		inst:AddTag("tree")
+		inst:AddTag("workable")
+		inst:AddTag("shelter")
+		
 		inst.entity:SetPristine()
 		
 		if not TheWorld.ismastersim then
             return inst
         end
-
-		inst:AddTag("tree")
-		inst:AddTag("workable")
-		inst:AddTag("shelter")
 
 		inst.build = build
 		inst.AnimState:SetBuild(GetBuild(inst).file)

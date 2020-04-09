@@ -63,14 +63,14 @@ local function vinefn()
 	MakeCharacterPhysics(inst, 1, .3)
 	inst.Physics:SetDontRemoveOnSleep(true)
 	
+	inst:AddTag("structure")
+	inst:AddTag("hangingvine")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("hangingvine")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -113,14 +113,14 @@ local function hangingfn()
 	MakeCharacterPhysics(inst, 1, .3)
 	inst.Physics:SetDontRemoveOnSleep(true)
 	
+	inst:AddTag("structure")
+	inst:AddTag("hangingvine")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("hangingvine")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

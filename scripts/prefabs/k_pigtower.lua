@@ -307,14 +307,14 @@ local function Towerfn()
 	
 	MakeObstaclePhysics(inst, 1)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pigtower")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("pigtower")
 
 	inst:AddComponent("inspectable")
 	
@@ -386,14 +386,14 @@ local function Towerfn2()
 	
 	MakeObstaclePhysics(inst, 1)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pigtower")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("pigtower")
 
 	inst:AddComponent("inspectable")
 	
@@ -465,14 +465,14 @@ local function Towerfn3()
 	
 	MakeObstaclePhysics(inst, 1)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pigtower")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("pigtower")
 
 	inst:AddComponent("inspectable")
 	
@@ -544,15 +544,15 @@ local function PalaceTowerfn()
 	
 	MakeObstaclePhysics(inst, 1)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pigtower")
+	inst:AddTag("palacetower")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("pigtower")
-	inst:AddTag("palacetower")
 
 	inst:AddComponent("inspectable")
 	

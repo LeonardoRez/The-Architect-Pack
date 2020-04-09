@@ -172,12 +172,6 @@ local function fn()
     else
         MakeObstaclePhysics(inst, 1)
     end
-
-    inst.entity:SetPristine()
-
-    if not TheWorld.ismastersim then
-        return inst
-    end
 	
 	inst:AddTag("campfire")
     inst:AddTag("structure")
@@ -185,6 +179,12 @@ local function fn()
     inst:AddTag("wildfireprotected")
     inst:AddTag("cooker")
 	inst:AddTag("ignorewalkableplatforms")
+
+    inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
 
     inst:AddComponent("burnable")
     inst.components.burnable:AddBurnFX("kyno_chimineafire", Vector3(0, 0, 0))

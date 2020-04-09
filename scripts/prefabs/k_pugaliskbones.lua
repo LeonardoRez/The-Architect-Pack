@@ -36,14 +36,14 @@ local function fn()
 	inst.AnimState:SetBuild("python_test")
 	inst.AnimState:PlayAnimation("death_idle", true)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pugalisk_bones")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("pugalisk_trap_door")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

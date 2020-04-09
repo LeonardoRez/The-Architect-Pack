@@ -108,14 +108,14 @@ local function fn()
 
 	inst.OnRemoveEntity = onremove
 	
+	inst:AddTag("structure")
+	inst:AddTag("plantkin")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("plantkin")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

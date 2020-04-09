@@ -77,15 +77,15 @@ local function fn(Sim)
 	inst.AnimState:PlayAnimation("idle", true)
 	
 	MakeObstaclePhysics(inst, .25)
+	
+	inst:AddTag("burnt")
+	inst:AddTag("tree")
 
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("burnt")
-	inst:AddTag("tree")
 
 	inst:AddComponent("workable")
 	inst.components.workable:SetWorkAction(ACTIONS.CHOP)

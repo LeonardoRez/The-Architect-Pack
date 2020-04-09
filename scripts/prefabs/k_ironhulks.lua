@@ -67,14 +67,14 @@ local function spiderfn()
 	
 	MakeObstaclePhysics(inst, 2)
 	
+	inst:AddTag("structure")
+	inst:AddTag("ironhulk")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("ironhulk")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -113,14 +113,14 @@ local function legfn()
 	
 	MakeObstaclePhysics(inst, 1.2)
 	
+	inst:AddTag("structure")
+	inst:AddTag("ironhulk")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("ironhulk")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -159,14 +159,14 @@ local function headfn()
 	
 	MakeObstaclePhysics(inst, 2)
 	
+	inst:AddTag("structure")
+	inst:AddTag("ironhulk")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("ironhulk")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -205,14 +205,14 @@ local function clawfn()
 	
 	MakeObstaclePhysics(inst, 1.2)
 	
+	inst:AddTag("structure")
+	inst:AddTag("ironhulk")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("ironhulk")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -248,15 +248,15 @@ local function largefn()
 	
 	MakeObstaclePhysics(inst, 2.5)
 	
+	inst:AddTag("ancient_hulk") 
+    inst:AddTag("structure")   
+    inst:AddTag("mech")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-    inst:AddTag("ancient_hulk") 
-    inst:AddTag("structure")   
-    inst:AddTag("mech")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

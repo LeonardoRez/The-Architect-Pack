@@ -106,14 +106,14 @@ local function fn()
 
 	inst.OnRemoveEntity = onremove
 	
+	inst:AddTag("structure")
+	inst:AddTag("spear_trap")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("spear_trap")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

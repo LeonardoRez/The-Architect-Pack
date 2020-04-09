@@ -43,14 +43,14 @@ local function fn()
 	inst.AnimState:SetBuild("thunderbird_nest")
 	inst.AnimState:PlayAnimation("orenest", false)
 	
+	inst:AddTag("structure")
+	inst:AddTag("thundernest")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("thundernest")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

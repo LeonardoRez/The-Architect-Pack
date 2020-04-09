@@ -79,14 +79,14 @@ local function fn(Sim)
 	
 	MakeObstaclePhysics(inst, 1)
 	
+	inst:AddTag("structure")
+	inst:AddTag("kynoclock")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("kynoclock")
 	
 	local function createExtras(inst)
 	inst.clockprefab =  SpawnPrefab("kyno_aporkalypse_clock1")

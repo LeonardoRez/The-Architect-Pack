@@ -36,6 +36,10 @@ local function fn()
 	
 	MakeObstaclePhysics(inst, 1)
 	
+	inst:AddTag("structure")
+	inst:AddTag("thorny")
+	inst:AddTag("elephantcactus")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -46,11 +50,6 @@ local function fn()
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-	inst:AddTag("structure")
-	inst:AddTag("thorny")
-	inst:AddTag("elephantcactus")
-	inst:AddTag("scarytoprey")
 	
     inst:AddComponent("lootdropper")
     

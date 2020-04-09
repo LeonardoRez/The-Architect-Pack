@@ -36,6 +36,9 @@ local function fn()
 	inst.AnimState:SetBuild("lantern_fly")
 	inst.AnimState:PlayAnimation("cocoon_idle_loop")
 	
+	inst:AddTag("structure")
+	inst:AddTag("buriedtreasure")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -44,9 +47,6 @@ local function fn()
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-	inst:AddTag("structure")
-	inst:AddTag("buriedtreasure")
 	
 	inst:AddComponent("inspectable")
     inst:AddComponent("lootdropper")

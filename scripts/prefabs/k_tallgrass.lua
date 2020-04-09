@@ -42,14 +42,14 @@ local function fn()
 	inst.AnimState:SetBuild("grass_tall")
 	inst.AnimState:PlayAnimation("idle", true)
 	
+	inst:AddTag("structure")
+	inst:AddTag("tall_grass")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("tall_grass")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

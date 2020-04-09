@@ -69,16 +69,16 @@ local function fn()
 	
 	MakeObstaclePhysics(inst, 0.25)
 	
+	inst:AddTag("doydoy")
+	inst:AddTag("doydoynest")
+	inst:AddTag("structure")
+	inst:AddTag("fullnest")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("doydoy")
-	inst:AddTag("doydoynest")
-	inst:AddTag("structure")
-	inst:AddTag("fullnest")
 	
 	local decor_items = doydoy_defs
 		inst.decor = {}
@@ -131,15 +131,15 @@ local function doydoyfn()
 	inst.AnimState:PlayAnimation("idle", true)
 	inst.persists = false
 		
+	inst:AddTag("doydoy")
+	inst:AddTag("animal")	
+	inst:AddTag("smallcreature")	
+		
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("doydoy")
-	inst:AddTag("animal")	
-	inst:AddTag("smallcreature")
 
 	inst:AddComponent("lootdropper")
 	

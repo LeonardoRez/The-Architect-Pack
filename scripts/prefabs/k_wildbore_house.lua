@@ -361,6 +361,9 @@ local function fn()
 	MakeObstaclePhysics(inst, 1)
 	
 	MakeSnowCoveredPristine(inst)
+	
+	inst:AddTag("structure")
+	inst:AddTag("pighouse")
 
     if not TheNet:IsDedicated() then
         inst._window = MakeWindow()
@@ -382,9 +385,6 @@ local function fn()
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-	inst:AddTag("structure")
-	inst:AddTag("pighouse")
 	
     inst:AddComponent("lootdropper")
     inst:AddComponent("workable")

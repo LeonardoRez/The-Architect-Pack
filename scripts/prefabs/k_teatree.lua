@@ -415,13 +415,15 @@ local function makefn(build, stage, data)
 		minimap:SetIcon("teatree.png")
 		minimap:SetPriority(1)
 		
-		if not TheWorld.ismastersim then
-            return inst
-        end
-
 		inst:AddTag("tree")
 		inst:AddTag("workable")
 		inst:AddTag("shelter")
+		
+		inst.entity:SetPristine()
+		
+		if not TheWorld.ismastersim then
+            return inst
+        end
 
 		inst.build = build
 		inst.AnimState:SetBuild(GetBuild(inst).file)

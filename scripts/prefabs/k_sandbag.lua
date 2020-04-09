@@ -151,17 +151,17 @@ local function fn()
 	--but we don't to handle it until after our position is set
 	inst:DoTaskInTime(0, InitializePathFinding)
 	
-	inst.entity:SetPristine()
-
-    if not TheWorld.ismastersim then
-        return inst
-    end
-	
 	inst:AddTag("structure")
 	inst:AddTag("floodblocker")
 	inst:AddTag("sandbag")
 	inst:AddTag("wall")
 	inst:AddTag("noauradamage")
+	
+	inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -215,13 +215,13 @@ local function itemfn()
 	inst.AnimState:SetBuild("sandbag")
 	inst.AnimState:PlayAnimation("idle")
 	
+	inst:AddTag("wallbuilder")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("wallbuilder")
 	
 	inst:AddComponent("repairer")
 	inst.components.repairer.repairmaterial = "kyno_sandbagsmall_item"

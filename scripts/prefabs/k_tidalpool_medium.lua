@@ -104,14 +104,14 @@ local function fn()
 	
 	MakeObstaclePhysics(inst, 3.5)
 	
+	inst:AddTag("fishable")
+	inst:AddTag("structure")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("fishable")
-	inst:AddTag("structure")
 	
 	inst:AddComponent("inspectable")
 	inst.no_wet_prefix = true
@@ -155,6 +155,12 @@ local function plantfn()
 	inst.AnimState:PlayAnimation("idle")
 	
 	inst:AddComponent("inspectable")
+	
+	inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
 	
 	return inst
 end

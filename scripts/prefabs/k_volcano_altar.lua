@@ -62,6 +62,9 @@ local function baseFn(Sim)
 	
 	MakeObstaclePhysics(inst, 2.0, 1.2)
 	
+	inst:AddTag("structure")
+	inst:AddTag("altar")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -79,9 +82,6 @@ local function baseFn(Sim)
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-	inst:AddTag("structure")
-	inst:AddTag("altar")
 	
     inst:AddComponent("lootdropper")
     inst:AddComponent("workable")
@@ -114,13 +114,13 @@ local function towerFn(Sim)
 	inst.AnimState:SetFinalOffset(toweroff)
     inst.persists = false
 	
+	inst:AddTag("NOCLICK")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-    
-	inst:AddTag("NOCLICK")
 	
 	inst:AddComponent("workable")
 	inst.components.workable:SetWorkAction(ACTIONS.HAMMER)

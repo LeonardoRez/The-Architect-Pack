@@ -82,14 +82,14 @@ local function pillarfn()
 	
 	MakeObstaclePhysics(inst, 0.5)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pillar_pigruins")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("pillar_pigruins")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -125,14 +125,14 @@ local function pillarbluefn()
 	
 	MakeObstaclePhysics(inst, 0.5)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pillar_pigruins")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("pillar_pigruins")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -166,14 +166,14 @@ local function brokenfn()
 	
 	MakeObstaclePhysics(inst, 1)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pillar_pigruins_broken")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("pillar_pigruins_broken")
 
 	inst:AddComponent("inspectable")
 	
@@ -206,14 +206,14 @@ local function brokenbluefn()
 	
 	MakeObstaclePhysics(inst, 1)
 	
+	inst:AddTag("structure")
+	inst:AddTag("pillar_pigruins_broken")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("pillar_pigruins_broken")
 
 	inst:AddComponent("inspectable")
 	

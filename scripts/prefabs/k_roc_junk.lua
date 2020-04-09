@@ -138,14 +138,14 @@ local function workable(file, anim, action, loot, lootmax, minimap, eightfaced)
 	inst.AnimState:SetBuild(file)
 	inst.AnimState:PlayAnimation(anim)
 	
+	inst:AddTag("structure")
+	inst:AddTag("BFB_junk")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("BFB_junk")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

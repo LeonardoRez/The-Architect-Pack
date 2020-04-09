@@ -116,14 +116,14 @@ local function bramble1fn()
 
 	inst.OnRemoveEntity = onremove
 	]]--
+	inst:AddTag("structure")
+	inst:AddTag("brambles")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("brambles")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -177,14 +177,14 @@ local function bramble2fn()
 
 	inst.OnRemoveEntity = onremove
 	]]--
+	inst:AddTag("structure")
+	inst:AddTag("brambles")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("brambles")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -238,14 +238,14 @@ local function bramble3fn()
 
 	inst.OnRemoveEntity = onremove
 	]]--
+	inst:AddTag("structure")
+	inst:AddTag("brambles")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("brambles")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -300,14 +300,14 @@ local function bramblecorefn()
 
 	inst.OnRemoveEntity = onremove
 	]]--
+	inst:AddTag("structure")
+	inst:AddTag("brambles")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
-	inst:AddTag("brambles")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

@@ -142,17 +142,17 @@ local function Labfn()
 	inst.Physics:SetDontRemoveOnSleep(true)
 	
 	inst:AddTag("prototyper")
+	inst:AddTag("structure")
+	inst:AddTag("aquatic")
+	inst:AddTag("ignorewalkableplatforms")
 	
 	inst.entity:SetPristine()
 	
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst:AddTag("structure")
+
 	inst:AddTag("prototyper")
-	inst:AddTag("aquatic")
-	inst:AddTag("ignorewalkableplatforms")
 	
 	inst._activetask = nil
 	inst.is_already_built = true -- this is for spawned prototypers or prototypers after load

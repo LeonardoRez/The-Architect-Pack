@@ -41,6 +41,8 @@ local function fn()
 	MakeObstaclePhysics(inst, .6)
 	
 	inst:AddTag("cooker")
+	inst:AddTag("structure")
+	inst:AddTag("lavapool")
 	
 	inst.entity:SetPristine()
 
@@ -49,9 +51,6 @@ local function fn()
     end
 	
 	inst.no_wet_prefix = true
-	
-	inst:AddTag("structure")
-	inst:AddTag("lavapool")
 	
 	inst:AddComponent("cooker")
 	

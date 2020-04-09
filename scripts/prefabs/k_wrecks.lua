@@ -158,14 +158,14 @@ local function mastfn()
 	MakeWaterObstaclePhysics(inst, .1, .1, .1)
 	inst.Physics:SetDontRemoveOnSleep(true)
 	
+	inst:AddTag("structure")
+	inst:AddTag("ignorewalkableplatforms")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("ignorewalkableplatforms")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -211,14 +211,14 @@ local function bowfn()
 	MakeWaterObstaclePhysics(inst, 1, 1, 1)
 	inst.Physics:SetDontRemoveOnSleep(true)
 	
+	inst:AddTag("structure")
+	inst:AddTag("ignorewalkableplatforms")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("ignorewalkableplatforms")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -264,14 +264,14 @@ local function midshipfn()
 	MakeWaterObstaclePhysics(inst, 1, 1, 1)
 	inst.Physics:SetDontRemoveOnSleep(true)
 	
+	inst:AddTag("structure")
+	inst:AddTag("ignorewalkableplatforms")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("ignorewalkableplatforms")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -317,14 +317,14 @@ local function sternfn()
 	MakeWaterObstaclePhysics(inst, 1, 1, 1)
 	inst.Physics:SetDontRemoveOnSleep(true)
 	
+	inst:AddTag("structure")
+	inst:AddTag("ignorewalkableplatforms")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
         return inst
     end
-
-	inst:AddTag("structure")
-	inst:AddTag("ignorewalkableplatforms")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
