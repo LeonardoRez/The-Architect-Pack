@@ -201,6 +201,9 @@ PrefabFiles = {
 	"k_queen_beast",
 	"k_beast_statue",
 	"k_ivy",
+	"k_gorge_gateway",
+	"k_mermcarts",
+	"k_streetlights",
 	-- SEA CONTENT (Currently disabled) --
 	"k_mangrovetrees",
 	"k_wrecks",
@@ -516,27 +519,27 @@ deepjungleingredient.atlas = "images/inventoryimages/kyno_turfs_ham.xml"
 -- Tweaked Recipes for basebuilding. 
 local TWEAK_RECIPES = GetModConfigData("tweak_recipes")
 if TWEAK_RECIPES then
-local gatetweak = Recipe("fence_gate_item", {Ingredient("boards", 3), Ingredient("rope", 2) }, RECIPETABS.TOWN, TECH.SCIENCE_TWO,nil,nil,nil,2)
+local gatetweak = Recipe("fence_gate_item", {Ingredient("boards", 1), Ingredient("rope", 1) }, RECIPETABS.TOWN, TECH.SCIENCE_TWO,nil,nil,nil,2)
 local gate_sortkey = AllRecipes["minisign"]["sortkey"]
 gatetweak.sortkey = gate_sortkey + 0.1
 
-local fencetweak = Recipe("fence_item", {Ingredient("twigs", 4), Ingredient("rope", 2) }, RECIPETABS.TOWN, TECH.SCIENCE_ONE,nil,nil,nil,8)
+local fencetweak = Recipe("fence_item", {Ingredient("twigs", 4), Ingredient("rope", 1) }, RECIPETABS.TOWN, TECH.SCIENCE_ONE,nil,nil,nil,8)
 local fence_sortkey = AllRecipes["fence_gate_item"]["sortkey"]
 fencetweak.sortkey = fence_sortkey + 0.1
 
-local haytweak = Recipe("wall_hay_item", {Ingredient("cutgrass", 3), Ingredient("twigs", 3) }, RECIPETABS.TOWN, TECH.SCIENCE_ONE,nil,nil,nil,8)
+local haytweak = Recipe("wall_hay_item", {Ingredient("cutgrass", 4), Ingredient("twigs", 2) }, RECIPETABS.TOWN, TECH.SCIENCE_ONE,nil,nil,nil,8)
 local hay_sortkey = AllRecipes["fence_item"]["sortkey"]
 haytweak.sortkey = hay_sortkey + 0.1
 
-local woodtweak = Recipe("wall_wood_item", {Ingredient("boards", 3),Ingredient("rope", 1)}, RECIPETABS.TOWN,  TECH.SCIENCE_ONE,nil,nil,nil,8)
+local woodtweak = Recipe("wall_wood_item", {Ingredient("boards", 2),Ingredient("rope", 1)}, RECIPETABS.TOWN,  TECH.SCIENCE_ONE,nil,nil,nil,8)
 local wood_sortkey = AllRecipes["wall_hay_item"]["sortkey"]
 woodtweak.sortkey = wood_sortkey + 0.1
 
-local stonetweak = Recipe("wall_stone_item", {Ingredient("cutstone", 3)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO,nil,nil,nil,8)
+local stonetweak = Recipe("wall_stone_item", {Ingredient("cutstone", 2)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO,nil,nil,nil,8)
 local stone_sortkey = AllRecipes["wall_wood_item"]["sortkey"]
 stonetweak.sortkey = stone_sortkey + 0.1
 
-local moontweak = Recipe("wall_moonrock_item", {Ingredient("moonrocknugget", 3)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO,nil,nil,nil,8)
+local moontweak = Recipe("wall_moonrock_item", {Ingredient("moonrocknugget", 4)}, RECIPETABS.TOWN, TECH.SCIENCE_TWO,nil,nil,nil,8)
 local moon_sortkey = AllRecipes["wall_stone_item"]["sortkey"]
 moontweak.sortkey = moon_sortkey + 0.1
 
@@ -609,6 +612,26 @@ kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_bollard_placer", 1, nil, nil, nil, "image
 
 AddRecipe("kyno_ivy", {Ingredient("twigs", 4), Ingredient("cutgrass", 4)},
 kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_ivy_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_ivy.xml", "kyno_ivy.tex")
+
+
+AddRecipe("kyno_streetlight1", {Ingredient("lantern", 1), Ingredient("cutstone", 1), Ingredient("transistor", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_streetlight1_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_streetlight1.xml", "kyno_streetlight1.tex")
+
+
+AddRecipe("kyno_streetlight2", {Ingredient("lantern", 1), Ingredient("cutstone", 1), Ingredient("transistor", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_streetlight2_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_streetlight2.xml", "kyno_streetlight2.tex")
+
+
+AddRecipe("kyno_mossygateway", {Ingredient("cutstone", 2), Ingredient("nightmarefuel", 3)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_mossygateway_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_mossygateway.xml", "kyno_mossygateway.tex")
+
+
+AddRecipe("kyno_sammywagon", {Ingredient("boards", 1), Ingredient("cutgrass", 5)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_sammywagon_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_sammywagon.xml", "kyno_sammywagon.tex")
+
+
+AddRecipe("kyno_piptoncart", {Ingredient("cutstone", 1), Ingredient("bluegem", 2)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_piptoncart_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_piptoncart.xml", "kyno_piptoncart.tex")
 
 
 AddRecipe("kyno_lamppost", {Ingredient("cutstone", 1), Ingredient("lantern", 1), Ingredient("transistor", 1)},

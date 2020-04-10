@@ -527,6 +527,24 @@ Assets = {
 	Asset("IMAGE", "images/minimapimages/kyno_ivy.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_ivy.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_mossygateway.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_mossygateway.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_mossygateway.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_mossygateway.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_sammywagon.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_sammywagon.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_piptoncart.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_piptoncart.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_streetlight1.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_streetlight1.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_streetlight2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_streetlight2.xml"),
+	
 	-- Unlisted Assets --
 	Asset("ANIM", "anim/mod_turfs.zip"),
 	Asset("ANIM", "anim/kyno_catalogues.zip"), -- Unused.

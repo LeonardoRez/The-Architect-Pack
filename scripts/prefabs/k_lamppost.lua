@@ -125,18 +125,6 @@ local function fn()
 	inst:WatchWorldState("isdusk", LightsOn)
     LightsOn(inst, TheWorld.state.isdusk)
 	
-	-- inst:WatchWorldState("isnight", LightsOn)
-    -- LightsOn(inst, TheWorld.state.isnight)
-	
-	--[[
-    inst:ListenForEvent( "daytime", function()
-        inst:DoTaskInTime(1/30, function() updatelight(inst) end)
-    end, GetWorld())
-    inst:ListenForEvent( "dusktime", function()
-        inst:DoTaskInTime(1/30, function() updatelight(inst) end)
-    end, GetWorld())
-	]]--
-	
 	inst.OnSave = function(inst, data)
         if inst.lighton then
             data.lighton = inst.lighton
