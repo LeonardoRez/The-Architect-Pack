@@ -545,6 +545,93 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_streetlight2.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_streetlight2.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_mealingstone.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_mealingstone.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_crabtrap.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_crabtrap.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_saltpond.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_saltpond.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_saltpond_rack.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_saltpond_rack.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_safe.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_safe.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_safe.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_safe.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_carriage.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_carriage.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_carriage.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_carriage.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_bike.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_bike.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_bike.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_bike.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_gorgeclock.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_gorgeclock.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_gorgeclock.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_gorgeclock.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_cathedral.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_cathedral.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_cathedral.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_cathedral.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_pubdoor.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_pubdoor.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_pubdoor.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_pubdoor.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_housedoor.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_housedoor.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_housedoor.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_housedoor.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_roof.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_roof.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_roof.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_roof.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_clocktower.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_clocktower.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_clocktower.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_clocktower.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_house.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_house.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_house.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_house.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_chimney1.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_chimney1.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_chimney1.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_chimney1.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_chimney2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_chimney2.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_chimney2.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_chimney2.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_antqueen.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_antqueen.xml"),
+	
 	-- Unlisted Assets --
 	Asset("ANIM", "anim/mod_turfs.zip"),
 	Asset("ANIM", "anim/kyno_catalogues.zip"), -- Unused.
@@ -715,6 +802,7 @@ Assets = {
 	Asset("ANIM", "anim/throne.zip"),
 	Asset("ANIM", "anim/rock_flipping.zip"),
 	Asset("ANIM", "anim/thunderbird_nest.zip"),
+	Asset("ANIM", "anim/thunderbird.zip"),
 	Asset("ANIM", "anim/roc_nest.zip"),
 	Asset("ANIM", "anim/roc_junk.zip"),   
     Asset("ANIM", "anim/roc_egg_shells.zip"),
@@ -803,6 +891,7 @@ Assets = {
 	Asset("ANIM", "anim/venus_flytrap_lg_build.zip"),
 	Asset("ANIM", "anim/venus_flytrap_planted.zip"),
 	Asset("ANIM", "anim/teleportato_hamlet.zip"),
+	Asset("ANIM", "anim/crickant_queen_basics.zip"),
 	-- The Gorge Content --
 	Asset("ANIM", "anim/quagmire_altar_statue1_left.zip"),
 	Asset("ANIM", "anim/quagmire_altar_statue2_left.zip"),

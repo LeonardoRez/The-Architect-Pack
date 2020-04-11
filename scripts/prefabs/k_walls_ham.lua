@@ -219,7 +219,7 @@ function MakeWallType(data)
 
         inst.AnimState:SetBank("wall")
         inst.AnimState:SetBuild("wall_"..data.name)
-        inst.AnimState:PlayAnimation("half")
+        inst.AnimState:PlayAnimation("threequarter")
 
         for i, v in ipairs(data.tags) do
             inst:AddTag(v)
@@ -253,7 +253,7 @@ function MakeWallType(data)
 
         inst:AddComponent("health")
         inst.components.health:SetMaxHealth(data.maxhealth)
-        inst.components.health:SetCurrentHealth(data.maxhealth * .5)
+        inst.components.health:SetCurrentHealth(534)
         inst.components.health.ondelta = onhealthchange
         inst.components.health.nofadeout = true
         inst.components.health.canheal = false
@@ -275,7 +275,7 @@ function MakeWallType(data)
 
     return Prefab("wall_"..data.name, fn, assets, prefabs),
         Prefab("wall_"..data.name.."_item", itemfn, assets, { "wall_"..data.name, "wall_"..data.name.."_item_placer" }),
-        MakePlacer("wall_"..data.name.."_item_placer", "wall", "wall_"..data.name, "half", false, false, true, nil, nil, "eight")
+        MakePlacer("wall_"..data.name.."_item_placer", "wall", "wall_"..data.name, "threequarter", false, false, true, nil, nil, "eight")
 end
 
 local wallprefabs = {}

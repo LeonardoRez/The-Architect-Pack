@@ -104,6 +104,8 @@ local function gnatfn()
 	inst.AnimState:SetBank("gnat")
 	inst.AnimState:SetBuild("gnat")
 	inst.AnimState:PlayAnimation("idle_loop", true)
+	inst.AnimState:SetSortOrder(3)
+	
 	inst.persists = false
 	
 	inst:AddTag("gnat")

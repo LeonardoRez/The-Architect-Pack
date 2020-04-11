@@ -204,6 +204,11 @@ PrefabFiles = {
 	"k_gorge_gateway",
 	"k_mermcarts",
 	"k_streetlights",
+	"k_mealingstone",
+	"k_crabtrap",
+	"k_saltpond",
+	"k_safe",
+	"k_oldstructures",
 	-- SEA CONTENT (Currently disabled) --
 	"k_mangrovetrees",
 	"k_wrecks",
@@ -238,6 +243,18 @@ AddMinimapAtlas("images/minimapimages/kyno_gnawaltar.xml")
 AddMinimapAtlas("images/minimapimages/kyno_queenaltar.xml")
 AddMinimapAtlas("images/minimapimages/kyno_beaststatue.xml")
 AddMinimapAtlas("images/minimapimages/kyno_ivy.xml")
+AddMinimapAtlas("images/minimapimages/kyno_saltpond.xml")
+AddMinimapAtlas("images/minimapimages/kyno_safe.xml")
+AddMinimapAtlas("images/minimapimages/kyno_carriage.xml")
+AddMinimapAtlas("images/minimapimages/kyno_bike.xml")
+AddMinimapAtlas("images/minimapimages/kyno_gorgeclock.xml")
+AddMinimapAtlas("images/minimapimages/kyno_pubdoor.xml")
+AddMinimapAtlas("images/minimapimages/kyno_housedoor.xml")
+AddMinimapAtlas("images/minimapimages/kyno_roof.xml")
+AddMinimapAtlas("images/minimapimages/kyno_clocktower.xml")
+AddMinimapAtlas("images/minimapimages/kyno_house.xml")
+AddMinimapAtlas("images/minimapimages/kyno_chimney1.xml")
+AddMinimapAtlas("images/minimapimages/kyno_chimney2.xml")
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddIngredientValues({"kyno_coffeebeans_cooked"}, {fruit=1}, true)
 AddIngredientValues({"kyno_coffeebeans"}, {fruit=1}, true)
@@ -254,7 +271,7 @@ for k, v in pairs(require("kyno_food_spicer")) do
 	AddCookerRecipe("portablespicer", v)
 end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
--- I Took the turfs code from eXiGe's mod. I hope he doesn't get mad at me xddddddddddd
+-- I Took the turfs code from eXiGe's mod. I hope he doesn't get mad at me xd
 if GLOBAL.TheNet:GetIsMasterSimulation() then
     local turf_atlas = MODROOT.."images/inventoryimages/kyno_turfs_sw.xml"
     for _, turf in pairs({"ash", "magmafield", "volcano", "volcano_rock", "jungle", "meadow", "snakeskinfloor", "beach", "foundation", "fields", "cobbleroad", "pigruins", "lawn"}) do
@@ -287,7 +304,7 @@ if GLOBAL.TheNet:GetIsMasterSimulation() then
         end)
     end
 end
-
+-- Wall Code
 local function IsNearOther(other, pt, min_spacing_sq)
     local spacing_sq = min_spacing_sq
     if other:HasTag("wall") then
@@ -444,7 +461,7 @@ for y = 2, 0, -1 do
     end
 end
 
-params.packim = -- Fix for rootchest aka Root Trunk
+params.packim = -- Fix for packim aka Packim Baggims
 {
     widget =
     {
@@ -461,25 +478,25 @@ for y = 2, 0, -1 do
         table.insert(params.packim.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
     end
 end
---[[
-params.packim = -- Fix for rootchest aka Root Trunk
+
+params.kyno_safechest = -- Fix for safechest aka Safe
 {
     widget =
     {
         slotpos = {},
-        animbank = "ui_chester_shadow_3x4",
-        animbuild = "ui_chester_shadow_3x4",
+        animbank = "ui_chest_3x3",
+        animbuild = "ui_chest_3x3",
         pos = GLOBAL.Vector3(0, 200, 0),
         side_align_tip = 160,
     },
-    type = "shadowchester",
+    type = "chest",
 }
 for y = 2, 0, -1 do
     for x = 0, 2 do
-        table.insert(params.packim.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
+        table.insert(params.kyno_safechest.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
     end
 end
-]]--
+
 for k, v in pairs(params) do
     containers.MAXITEMSLOTS = math.max(containers.MAXITEMSLOTS, v.widget.slotpos ~= nil and #v.widget.slotpos or 0)
 end
@@ -570,19 +587,19 @@ end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 local notags = {'NOBLOCK', 'player', 'FX'}
 local function IsOcean(pt, rot)
-    local ground_tile = TheWorld.Map:GetTileAtPoint(pt.x, pt.y, pt.z)
+    local ground_tile = GLOBAL.TheWorld.Map:GetTileAtPoint(pt.x, pt.y, pt.z)
     return ground_tile and ground_tile == GROUND.OCEAN_COASTAL_SHORE and ground_tile == GROUND.SAVANNA -- Savanna it's just for the testings!
 end
 
-AddRecipe("kyno_sw_prototyper", {Ingredient("transistor", 2), Ingredient("boards", 4), Ingredient("pondfish", 4)},
+AddRecipe("kyno_sw_prototyper", {Ingredient("boards", 4), Ingredient("pondfish", 4)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_sw_prototyper_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "shipwrecked_entrance.tex")
 
 
-AddRecipe("kyno_ham_prototyper", {Ingredient("transistor", 2), Ingredient("boards", 4), Ingredient("pigskin", 4)},
+AddRecipe("kyno_ham_prototyper", {Ingredient("boards", 4), Ingredient("pigskin", 4)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_ham_prototyper_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "porkland_entrance.tex")
 
 
-AddRecipe("kyno_gorge_prototyper", {Ingredient("transistor", 2), Ingredient("cutstone", 3), Ingredient("meatballs", 2)},
+AddRecipe("kyno_gorge_prototyper", {Ingredient("cutstone", 3), Ingredient("meatballs", 2)},
 kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_gorge_prototyper_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_gnawaltar.xml", "kyno_gnawaltar.tex")
 
 
@@ -628,6 +645,70 @@ kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_mossygateway_placer", 1, nil, nil, nil, "
 
 AddRecipe("kyno_sammywagon", {Ingredient("boards", 1), Ingredient("cutgrass", 5)},
 kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_sammywagon_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_sammywagon.xml", "kyno_sammywagon.tex")
+
+
+AddRecipe("kyno_mealingstone", {Ingredient("cutstone", 1), Ingredient("rocks", 3)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_mealingstone_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_mealingstone.xml", "kyno_mealingstone.tex")
+
+
+AddRecipe("kyno_safechest", {Ingredient("cutstone", 2), Ingredient("goldnugget", 2)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_safechest_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_safe.xml", "kyno_safe.tex")
+
+
+AddRecipe("kyno_saltpond", {Ingredient("saltrock", 2), Ingredient("ice", 4), Ingredient("pondfish", 2)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_saltpond_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_saltpond.xml", "kyno_saltpond.tex")
+
+
+AddRecipe("kyno_saltpond_rack", {Ingredient("saltrock", 2), Ingredient("ice", 4), Ingredient("twigs", 4)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_saltpond_rack_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_saltpond_rack.xml", "kyno_saltpond_rack.tex")
+
+
+AddRecipe("kyno_crabtrap", {Ingredient("boards", 1), Ingredient("silk", 2)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_crabtrap_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_crabtrap.xml", "kyno_crabtrap.tex")
+
+
+AddRecipe("kyno_rubble_carriage", {Ingredient("cutstone", 2)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_carriage_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_carriage.xml", "kyno_carriage.tex")
+
+
+AddRecipe("kyno_rubble_bike", {Ingredient("cutstone", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_bike_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_bike.xml", "kyno_bike.tex")
+
+
+AddRecipe("kyno_rubble_clock", {Ingredient("boards", 1), Ingredient("compass", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_clock_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_gorgeclock.xml", "kyno_gorgeclock.tex")
+
+
+AddRecipe("kyno_rubble_cathedral", {Ingredient("cutstone", 2)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_cathedral_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_cathedral.xml", "kyno_cathedral.tex")
+
+
+AddRecipe("kyno_rubble_pubdoor", {Ingredient("cutstone", 2), Ingredient("boards", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_pubdoor_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_pubdoor.xml", "kyno_pubdoor.tex")
+
+
+AddRecipe("kyno_rubble_door", {Ingredient("cutstone", 2)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_door_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_housedoor.xml", "kyno_housedoor.tex")
+
+
+AddRecipe("kyno_rubble_roof", {Ingredient("cutstone", 2), Ingredient("boards", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_roof_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_roof.xml", "kyno_roof.tex")
+
+
+AddRecipe("kyno_rubble_clocktower", {Ingredient("cutstone", 2), Ingredient("compass", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_clocktower_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_clocktower.xml", "kyno_clocktower.tex")
+
+
+AddRecipe("kyno_rubble_house", {Ingredient("cutstone", 2)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_house_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_house.xml", "kyno_house.tex")
+
+
+AddRecipe("kyno_rubble_chimney", {Ingredient("cutstone", 2)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_chimney_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_chimney1.xml", "kyno_chimney1.tex")
+
+
+AddRecipe("kyno_rubble_chimney2", {Ingredient("cutstone", 2), Ingredient("boards", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_chimney2_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_chimney2.xml", "kyno_chimney2.tex")
 
 
 AddRecipe("kyno_piptoncart", {Ingredient("cutstone", 1), Ingredient("bluegem", 2)},
@@ -785,6 +866,11 @@ kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_mantqueenhill_placer", 3, nil, nil, nil,
 AddRecipe("kyno_antthrone", {Ingredient("rocks", 10), Ingredient("nitre", 5)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_antthrone_placer", 3, nil, nil, nil, "images/inventoryimages/kyno_antthrone.xml", "kyno_antthrone.tex")
 
+local ANT_QUEEN = GetModConfigData("ant_queen")
+if ANT_QUEEN == 0 then
+AddRecipe("kyno_ant_queen", {Ingredient("rocks", 10), Ingredient("nitre", 5), Ingredient("reviver", 1)},
+kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_ant_queen_placer", 3, nil, nil, nil, "images/inventoryimages/kyno_antqueen.xml", "kyno_antqueen.tex")
+end
 
 AddRecipe("kyno_antcombhome", {Ingredient("honey", 4), Ingredient("honeycomb", 1)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_antcombhome_placer", 2, nil, nil, nil, "images/inventoryimages/kyno_antcombhome.xml", "kyno_antcombhome.tex")

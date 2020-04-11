@@ -46,6 +46,8 @@ for i, parrot in ipairs(parrot_pirate) do
 					inst.components.talker:Say("Cracker!")
 				elseif math.random() < 0.050 then
 					inst.components.talker:Say("Seu viadinho!")
+				elseif math.random() < 0.050 then
+					inst.components.talker:Say("CUT STONES!!!")
 				end
 			end
 		end)

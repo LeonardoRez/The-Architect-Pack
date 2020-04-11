@@ -3,12 +3,21 @@ require "prefabutil"
 local assets =
 {
 	Asset("ANIM", "anim/throne.zip"),
+	Asset("ANIM", "anim/crickant_queen_basics.zip"),
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_antthrone.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_antthrone.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_antqueen.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_antqueen.xml"),
+	
 	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_ham.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_ham.xml"),
+}
+
+local prefabs =
+{
+	"kyno_ant_queen",
 }
 
 local function onwork(inst, worker, workleft)
@@ -21,6 +30,19 @@ local function onwork(inst, worker, workleft)
 	end
 end
 
+local function onwork_queen(inst, worker, workleft)
+	if workleft < TUNING.ROCKS_MINE*(1/3) then
+		inst.AnimState:PlayAnimation("hit", false)
+		inst.AnimState:PushAnimation("idle", true)
+	elseif workleft < TUNING.ROCKS_MINE*(2/3) then
+		inst.AnimState:PlayAnimation("hit", false)
+		inst.AnimState:PushAnimation("idle", true)
+	else
+		inst.AnimState:PlayAnimation("hit", false)
+		inst.AnimState:PushAnimation("idle", true)
+	end
+end
+
 local function onfinish(inst, worker)
 	local pt = Point(inst.Transform:GetWorldPosition())
 	inst.components.lootdropper:DropLoot(pt)
@@ -30,6 +52,16 @@ end
 
 local function onbuilt(inst)
 	inst.AnimState:PushAnimation("full")
+end
+
+local function onfar(inst)
+	inst.AnimState:PlayAnimation("sleep_pre")
+	inst.AnimState:PushAnimation("sleep_loop", true)
+end
+
+local function onnear(inst)
+	inst.AnimState:PlayAnimation("sleep_pst")
+	inst.AnimState:PushAnimation("idle", true)
 end
 
 local function fn()
@@ -61,7 +93,7 @@ local function fn()
     if not TheWorld.ismastersim then
         return inst
     end
-
+	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
 	
@@ -79,9 +111,69 @@ local function fn()
 	return inst
 end
 
+local function queenfn()
+	local inst = CreateEntity()
+    
+	inst.entity:AddTransform()
+    inst.entity:AddAnimState()
+    inst.entity:AddSoundEmitter()
+	inst.entity:AddNetwork()
+	
+	local minimap = inst.entity:AddMiniMapEntity()
+	minimap:SetIcon("ruins_artichoke.png")
+	
+	inst.Transform:SetScale(0.7, 0.7, 0.7)
+	
+	inst.AnimState:SetBank("crick_crickantqueen")
+	inst.AnimState:SetBuild("crickant_queen_basics")
+	inst.AnimState:PlayAnimation("sleep_loop", true)
+	inst.AnimState:AddOverrideBuild("throne")
+	
+	MakeObstaclePhysics(inst, 6)
+	
+	inst:AddTag("structure")
+	inst:AddTag("boulder")
+	inst:AddTag("antthrone")
+	inst:AddTag("birdblocker")
+	inst:AddTag("antqueen")
+	inst:AddTag("epic")
+	
+	inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
+	
+	inst:AddComponent("playerprox")
+    inst.components.playerprox:SetDist(6, 10)
+    inst.components.playerprox:SetOnPlayerNear(onnear)
+    inst.components.playerprox:SetOnPlayerFar(onfar)
+	
+	inst:AddComponent("inspectable")
+	inst:AddComponent("lootdropper")
+	
+	inst:AddComponent("hauntable")
+    inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
+    
+	inst:AddComponent("workable")
+	inst.components.workable:SetWorkAction(ACTIONS.MINE)
+	inst.components.workable:SetWorkLeft(TUNING.ROCKS_MINE)
+	inst.components.workable:SetOnWorkCallback(onwork_queen)
+	inst.components.workable:SetOnFinishCallback(onfinish)
+
+	return inst
+end
+
 local function throneplacetestfn(inst)
 	inst.Transform:SetScale(0.7, 0.7, 0.7)
 end
 
+local function queenplacetestfn(inst)
+	inst.Transform:SetScale(0.7, 0.7, 0.7)
+	inst.AnimState:AddOverrideBuild("throne")
+end
+
 return Prefab("kyno_antthrone", fn, assets, prefabs),
-MakePlacer("kyno_antthrone_placer", "throne", "throne", "full", false, nil, nil, nil, nil, nil, throneplacetestfn)
+Prefab("kyno_ant_queen", queenfn, assets, prefabs),
+MakePlacer("kyno_antthrone_placer", "throne", "throne", "full", false, nil, nil, nil, nil, nil, throneplacetestfn),
+MakePlacer("kyno_ant_queen_placer", "crick_crickantqueen", "crickant_queen_basics", "idle", false, nil, nil, nil, nil, nil, queenplacetestfn)

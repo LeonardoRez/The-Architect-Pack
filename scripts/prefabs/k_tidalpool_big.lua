@@ -167,4 +167,4 @@ end
 
 return Prefab("kyno_tidalpool_big", fn, assets, prefabs),
 Prefab("kyno_marsh_plant_tropical", plantfn, assets, prefabs),
-MakePlacer("kyno_tidalpool_big_placer", "tidal_pool", "tidal_pool", "big_idle")
+MakePlacer("kyno_tidalpool_big_placer", "tidal_pool", "tidal_pool", "big_idle", true)
