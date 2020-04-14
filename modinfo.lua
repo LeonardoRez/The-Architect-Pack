@@ -84,17 +84,6 @@ configuration_options =
 		},
 		default = 0,
 	},
-	{
-		name = "mod_fix",
-		label = "Fix for Caves",
-		hover = "TEMPORARY Fix for structures in the caves!!!",
-		options =
-		{
-			{description = "Enabled", data = 0},
-			{description = "Disabled", data = 1},
-		},
-		default = 0,
-	},
 	Title("Extras", "Note: Some options below may affect your gameplay if enabled."),
 	{
 		name = "coffee_hack",
@@ -127,18 +116,20 @@ configuration_options =
 		},
 		default = 0.00,
 	},
+	--[[
 	{
 		name = "colourcubes",
 		label = "Colour Cubes",
 		hover = "Enables CC from Hamlet or Shipwrecked.",
 		options =
 		{
-			{description = "Disabled", 		data =   0},
-			{description = "Hamlet", 		data =   1},
-			{description = "Shipwrecked", data =   2},
+			{description = "Disabled", 		data =   "NO"},
+			{description = "Hamlet", 		data =   "HAM"},
+			{description = "Shipwrecked", data =   "SW"},
 		},
-		default = 0,
+		default = "NO",
 	},
+	]]--
 	{
 		name = "ocean_structures",
 		label = "Unimplemented Mode",

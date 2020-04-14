@@ -1882,8 +1882,9 @@ kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_tarpit_placer", 1, nil, nil, nil, "
 end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Colour Cubes
+--[[
 local CC = GetModConfigData("colourcubes")
-if CC  == 1 then
+if CC  == "HAM" then
 local function getval(fn, path)
 	local val = fn
 	for entry in path:gmatch("[^%.]+") do
@@ -1986,7 +1987,7 @@ local DST = GLOBAL.TheSim:GetGameID() == "DST"
 			end
 		end
 	end)
-else
+else == "SW"
 local function getval(fn, path)
 	local val = fn
 	for entry in path:gmatch("[^%.]+") do
@@ -2091,3 +2092,4 @@ local DST = GLOBAL.TheSim:GetGameID() == "DST"
 		end
 	end)
 end
+]]--
