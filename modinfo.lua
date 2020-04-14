@@ -116,20 +116,18 @@ configuration_options =
 		},
 		default = 0.00,
 	},
-	--[[
 	{
 		name = "colourcubes",
 		label = "Colour Cubes",
 		hover = "Enables CC from Hamlet or Shipwrecked.",
 		options =
 		{
-			{description = "Disabled", 		data =   "NO"},
-			{description = "Hamlet", 		data =   "HAM"},
-			{description = "Shipwrecked", data =   "SW"},
+			{description = "Disabled", 		data =   0},
+			{description = "Hamlet", 		data =   1},
+			{description = "Shipwrecked", data =   2},
 		},
-		default = "NO",
+		default = 0,
 	},
-	]]--
 	{
 		name = "ocean_structures",
 		label = "Unimplemented Mode",
