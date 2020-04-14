@@ -19,6 +19,7 @@ local function onhammered(inst, worker)
 	if inst.components.container then inst.components.container:DropEverything() end
 	SpawnPrefab("collapse_small").Transform:SetPosition(inst.Transform:GetWorldPosition())
 	inst.SoundEmitter:PlaySound("dontstarve/common/destroy_wood")
+	inst.SoundEmitter:KillSound("loop")
 	inst:Remove()
 end
 
@@ -32,6 +33,7 @@ end
 local function onbuilt(inst)
 	inst.AnimState:PlayAnimation("full")
 	inst.AnimState:PushAnimation("full", true)
+	inst.SoundEmitter:PlaySound("dontstarve/bee/bee_hive_LP", "loop")
 end	
 
 local function onsave(inst, data)

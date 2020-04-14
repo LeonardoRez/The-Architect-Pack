@@ -518,6 +518,14 @@ Assets = {
 	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
 	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),
 	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC003.fev"),
+	Asset("SOUND", "sound/DLC003_AMB_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_music_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_sfx.fsb"),
+	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_wagstaff.fev"),
+	Asset("SOUND", "sound/dontstarve_wagstaff.fsb"),
+	
 	Asset("IMAGE", "images/inventoryimages/kyno_potatohamlet.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_potatohamlet.xml"),
 	
@@ -632,6 +640,63 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_antqueen.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_antqueen.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_ironfencesmall.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_ironfencesmall.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_irongate_item.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_irongate_item.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_sammywagon.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_sammywagon.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_piptoncart.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_piptoncart.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_minisign_icons.tex"),
+    Asset("ATLAS", "images/inventoryimages/kyno_minisign_icons.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_minisign_icons_2.tex"),
+    Asset("ATLAS", "images/inventoryimages/kyno_minisign_icons_2.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_minisign_icons_3.tex"),
+    Asset("ATLAS", "images/inventoryimages/kyno_minisign_icons_3.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_urn.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_urn.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_urn.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_urn.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_stoneobelisk.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_stoneobelisk.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_stoneobelisk.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_stoneobelisk.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_worshipper.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_worshipper.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_worshipper.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_worshipper.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_worshipper2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_worshipper2.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_worshipper2_left.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_worshipper2_left.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_worshipper2.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_worshipper2.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_birdfountain.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_birdfountain.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_birdfountain.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_birdfountain.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_cottontree.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_cottontree.xml"),
+	
 	-- Unlisted Assets --
 	Asset("ANIM", "anim/mod_turfs.zip"),
 	Asset("ANIM", "anim/kyno_catalogues.zip"), -- Unused.
@@ -713,6 +778,8 @@ Assets = {
 	Asset("ANIM", "anim/packim_fat_build.zip"),
 	Asset("ANIM", "anim/packim_fire_build.zip"),
 	Asset("ANIM", "anim/teleportato_shipwrecked.zip"),
+	Asset("ANIM", "anim/tigershark_ground.zip"),
+	Asset("ANIM", "anim/tigershark_ground_build.zip"),
 	-- Hamlet Content --
 	Asset("ANIM", "anim/vamp_bat_entrance.zip"),
 	Asset("ANIM", "anim/portal_hamlet.zip"),
@@ -895,6 +962,10 @@ Assets = {
 	-- The Gorge Content --
 	Asset("ANIM", "anim/quagmire_altar_statue1_left.zip"),
 	Asset("ANIM", "anim/quagmire_altar_statue2_left.zip"),
+	Asset("ANIM", "anim/quagmire_cemetery_left.zip"),
+	Asset("ANIM", "anim/kyno_irongate.zip"),
+	Asset("ANIM", "anim/sugarwoodtree_build.zip"),
+	Asset("ANIM", "anim/sugarwoodtree_trunk_short_build.zip"),
 	-- Sea Content --
 	Asset("ANIM", "anim/tree_mangrove_build.zip"),
 	Asset("ANIM", "anim/tree_mangrove_normal.zip"),

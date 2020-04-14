@@ -8,6 +8,14 @@ local assets =
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_sw.xml"),
 }
 
+local prefabs =
+{
+	"kyno_sandhill_med",
+	"kyno_sandhill_low",
+	"sand_puff",
+}
+
+--[[
 local anims = {"low", "med", "full"}
 
 local function dig_up(inst, worker, workleft)
@@ -34,8 +42,27 @@ local function dig_up(inst, worker, workleft)
         inst.AnimState:PlayAnimation(anims[workleft])
     end
 end
+]]--
 
-local function fn()
+local function dig_up_full(inst, chopper)
+	SpawnPrefab("sand_puff").Transform:SetPosition(inst.Transform:GetWorldPosition())
+	inst:Remove()
+	SpawnPrefab("kyno_sandhill_med").Transform:SetPosition(inst.Transform:GetWorldPosition())
+end
+
+local function dig_up_med(inst, chopper)
+	SpawnPrefab("sand_puff").Transform:SetPosition(inst.Transform:GetWorldPosition())
+	inst:Remove()
+	SpawnPrefab("kyno_sandhill_low").Transform:SetPosition(inst.Transform:GetWorldPosition())
+end
+
+local function dig_up_low(inst, chopper)
+	SpawnPrefab("sand_puff").Transform:SetPosition(inst.Transform:GetWorldPosition())
+	SpawnPrefab("turf_beach").Transform:SetPosition(inst.Transform:GetWorldPosition())
+	inst:Remove()
+end
+
+local function fullfn()
 	local inst = CreateEntity()
     
 	inst.entity:AddTransform()
@@ -45,7 +72,7 @@ local function fn()
 	
 	inst.AnimState:SetBank("sand_dune")
 	inst.AnimState:SetBuild("sand_dune")
-	inst.AnimState:PlayAnimation(anims[#anims])
+	inst.AnimState:PlayAnimation("full")
 	
 	inst:AddTag("structure")
 	inst:AddTag("sand")
@@ -65,11 +92,85 @@ local function fn()
     
 	inst:AddComponent("workable")
 	inst.components.workable:SetWorkAction(ACTIONS.DIG)
-	inst.components.workable:SetOnWorkCallback(dig_up)
-	inst.components.workable:SetWorkLeft(#anims)
+	inst.components.workable:SetOnWorkCallback(dig_up_full)
+	inst.components.workable:SetWorkLeft(1)
 	
 	return inst
 end
 
-return Prefab("kyno_sandhill", fn, assets, prefabs),
+local function medfn()
+	local inst = CreateEntity()
+    
+	inst.entity:AddTransform()
+    inst.entity:AddAnimState()
+    inst.entity:AddSoundEmitter()
+	inst.entity:AddNetwork()
+	
+	inst.AnimState:SetBank("sand_dune")
+	inst.AnimState:SetBuild("sand_dune")
+	inst.AnimState:PlayAnimation("med")
+	
+	inst:AddTag("structure")
+	inst:AddTag("sand")
+	
+	inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
+
+	inst:AddComponent("inspectable")
+	
+	inst:AddComponent("hauntable")
+    inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
+	
+    inst:AddComponent("lootdropper")
+    
+	inst:AddComponent("workable")
+	inst.components.workable:SetWorkAction(ACTIONS.DIG)
+	inst.components.workable:SetOnWorkCallback(dig_up_med)
+	inst.components.workable:SetWorkLeft(1)
+	
+	return inst
+end
+
+local function lowfn()
+	local inst = CreateEntity()
+    
+	inst.entity:AddTransform()
+    inst.entity:AddAnimState()
+    inst.entity:AddSoundEmitter()
+	inst.entity:AddNetwork()
+	
+	inst.AnimState:SetBank("sand_dune")
+	inst.AnimState:SetBuild("sand_dune")
+	inst.AnimState:PlayAnimation("low")
+	
+	inst:AddTag("structure")
+	inst:AddTag("sand")
+	
+	inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
+
+	inst:AddComponent("inspectable")
+	
+	inst:AddComponent("hauntable")
+    inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
+	
+    inst:AddComponent("lootdropper")
+    
+	inst:AddComponent("workable")
+	inst.components.workable:SetWorkAction(ACTIONS.DIG)
+	inst.components.workable:SetOnWorkCallback(dig_up_low)
+	inst.components.workable:SetWorkLeft(1)
+	
+	return inst
+end
+
+return Prefab("kyno_sandhill", fullfn, assets, prefabs),
+Prefab("kyno_sandhill_med", medfn, assets, prefabs),
+Prefab("kyno_sandhill_low", lowfn, assets, prefabs),
 MakePlacer("kyno_sandhill_placer", "sand_dune", "sand_dune", "full")

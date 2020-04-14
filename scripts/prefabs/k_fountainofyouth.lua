@@ -9,6 +9,11 @@ local assets =
 	
 	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_ham.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_ham.xml"),
+	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC003.fev"),
+	Asset("SOUND", "sound/DLC003_AMB_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_music_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_sfx.fsb"),
 }
 
 local function onhammered(inst, worker)
@@ -20,10 +25,12 @@ end
 
 local function TurnOn(inst)
 	inst.sg:GoToState("wateron")
+	inst.SoundEmitter:PlaySound("dontstarve_DLC003/creatures/boss/pugalisk/fountain_LP", "burble")
 end
 
 local function TurnOff(inst)
 	inst.sg:GoToState("wateroff")
+	inst.SoundEmitter:KillSound("burble")
 end
 
 local function CanInteract(inst)

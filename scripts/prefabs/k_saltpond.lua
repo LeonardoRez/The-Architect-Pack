@@ -198,7 +198,7 @@ end
 local function rackplacetestfn(inst)
 	inst.AnimState:AddOverrideBuild("quagmire_salt_rack")
 	-- inst.AnimState:AddOverrideBank("quagmire_salt_rack")
-	inst.AnimState:PlayAnimation("idle")
+	inst.AnimState:Show("idle")
 end
 
 return Prefab("kyno_saltpond", pondfn, assets, prefabs),

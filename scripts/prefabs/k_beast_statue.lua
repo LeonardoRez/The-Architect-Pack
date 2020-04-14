@@ -91,14 +91,12 @@ local function beast1_leftfn()
 	inst.entity:AddSoundEmitter()
     inst.entity:AddNetwork()
 	
-	inst.Transform:SetRotation(45)
-	
 	local minimap = inst.entity:AddMiniMapEntity()
 	minimap:SetIcon("kyno_beaststatue.tex")
 	
     MakeObstaclePhysics(inst, .5)
 	
-    inst.AnimState:SetBank("quagmire_altar_statue1")
+    inst.AnimState:SetBank("quagmire_altar_statue1_left")
     inst.AnimState:SetBuild("quagmire_altar_statue1_left")
     inst.AnimState:PlayAnimation("idle")
     
@@ -217,7 +215,7 @@ return Prefab("kyno_beaststatue", beast1fn, assets),
 Prefab("kyno_beaststatue_left", beast1_leftfn, assets),
 Prefab("kyno_beaststatue2", beast2fn, assets),
 Prefab("kyno_beaststatue2_left", beast2_leftfn, assets),
-MakePlacer("kyno_beaststatue_placer", "quagmire_altar_statue1", "quagmire_altar_statue1", "idle", false, nil, nil, nil, 90, nil),
-MakePlacer("kyno_beaststatue_left_placer", "quagmire_altar_statue1", "quagmire_altar_statue1_left", "idle", false, nil, nil, nil, 90, nil),
-MakePlacer("kyno_beaststatue2_placer", "quagmire_altar_statue2", "quagmire_altar_statue2", "idle", false, nil, nil, nil, 90, nil),
-MakePlacer("kyno_beaststatue2_left_placer", "quagmire_altar_statue2", "quagmire_altar_statue2_left", "idle", false, nil, nil, nil, 90, nil)
+MakePlacer("kyno_beaststatue_placer", "quagmire_altar_statue1", "quagmire_altar_statue1", "idle"),
+MakePlacer("kyno_beaststatue_left_placer", "quagmire_altar_statue1_left", "quagmire_altar_statue1_left", "idle"),
+MakePlacer("kyno_beaststatue2_placer", "quagmire_altar_statue2", "quagmire_altar_statue2", "idle"),
+MakePlacer("kyno_beaststatue2_left_placer", "quagmire_altar_statue2", "quagmire_altar_statue2_left", "idle")

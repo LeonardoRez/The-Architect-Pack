@@ -1,5 +1,5 @@
 name = " The Architect Pack"
-version = "1.5-B-Alpha-2"
+version = "1.5-B-Alpha-3"
 
 description = "This mod contains huge amount of decorative structures for Base Building! Remember: They're just replicas, static structures or not?...\n\nThis Mod Includes some Special Items, gotta craft 'em all! (Mostly decorative/utility items)\n\nThis includes content from: Shipwrecked, Hamlet, The Forge, The Gorge and exclusive DS/DST content!\n\nMod Version: "..version.."\n\nCredits on the mod page!"
 author = "The Building Society"
@@ -84,6 +84,17 @@ configuration_options =
 		},
 		default = 0,
 	},
+	{
+		name = "mod_fix",
+		label = "Fix for Caves",
+		hover = "TEMPORARY Fix for structures in the caves!!!",
+		options =
+		{
+			{description = "Enabled", data = 0},
+			{description = "Disabled", data = 1},
+		},
+		default = 0,
+	},
 	Title("Extras", "Note: Some options below may affect your gameplay if enabled."),
 	{
 		name = "coffee_hack",
@@ -115,6 +126,18 @@ configuration_options =
 			{description = "Disabled", 	data = 0.00},
 		},
 		default = 0.00,
+	},
+	{
+		name = "colourcubes",
+		label = "Colour Cubes",
+		hover = "Enables CC from Hamlet or Shipwrecked.",
+		options =
+		{
+			{description = "Disabled", 		data =   0},
+			{description = "Hamlet", 		data =   1},
+			{description = "Shipwrecked", data =   2},
+		},
+		default = 0,
 	},
 	{
 		name = "ocean_structures",

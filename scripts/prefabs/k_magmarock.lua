@@ -22,6 +22,15 @@ local assets_magma_gold =
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_sw.xml"),
 }
 
+local prefabs = 
+{
+	"kyno_magmarock_med",
+	"kyno_magmarock_low",
+	"kyno_magmarock_gold_med",
+	"kyno_magmarock_gold_low",
+}
+
+--[[
 local anims_magma = {"low", "med", "full"}
 local anims_magma_gold = {"low", "med", "full"}
 
@@ -76,6 +85,43 @@ local function dig_up_magma_gold(inst, worker, workleft)
         inst.AnimState:PlayAnimation(anims_magma_gold[workleft])
     end
 end
+]]--
+local function dig_up_magma_full(inst, worker, workleft)
+	inst:Remove()
+	SpawnPrefab("kyno_magmarock_med").Transform:SetPosition(inst.Transform:GetWorldPosition())
+end
+
+local function dig_up_magma_med(inst, worker, workleft)
+	inst:Remove()
+	SpawnPrefab("kyno_magmarock_low").Transform:SetPosition(inst.Transform:GetWorldPosition())
+end
+
+local function dig_up_magma_low(inst, worker, workleft)
+	inst:Remove()
+	inst.components.lootdropper:SpawnLootPrefab("rocks")
+	inst.components.lootdropper:SpawnLootPrefab("rocks")
+	inst.components.lootdropper:SpawnLootPrefab("flint")
+	inst.components.lootdropper:SpawnLootPrefab("flint")
+end
+
+local function dig_up_magma_gold_full(inst, worker, workleft)
+	inst:Remove()
+	SpawnPrefab("kyno_magmarock_gold_med").Transform:SetPosition(inst.Transform:GetWorldPosition())
+end
+
+local function dig_up_magma_gold_med(inst, worker, workleft)
+	inst:Remove()
+	SpawnPrefab("kyno_magmarock_gold_low").Transform:SetPosition(inst.Transform:GetWorldPosition())
+end
+
+local function dig_up_magma_gold_low(inst, worker, workleft)
+	inst:Remove()
+	inst.components.lootdropper:SpawnLootPrefab("rocks")
+	inst.components.lootdropper:SpawnLootPrefab("rocks")
+	inst.components.lootdropper:SpawnLootPrefab("flint")
+	inst.components.lootdropper:SpawnLootPrefab("flint")
+	inst.components.lootdropper:SpawnLootPrefab("goldnugget")
+end
 
 local function commonfn()
 	local inst = CreateEntity()
@@ -126,7 +172,7 @@ local function MagmaGoldFn()
 	
 	inst.AnimState:SetBank("rock_magma_gold")
 	inst.AnimState:SetBuild("rock_magma_gold")
-	inst.AnimState:PlayAnimation(anims_magma_gold[#anims_magma_gold])
+	inst.AnimState:PlayAnimation("full")
 	
 	inst.entity:SetPristine()
 
@@ -136,8 +182,56 @@ local function MagmaGoldFn()
 	
 	inst:AddComponent("workable")
 	inst.components.workable:SetWorkAction(ACTIONS.DIG)
-	inst.components.workable:SetOnWorkCallback(dig_up_magma_gold)
-	inst.components.workable:SetWorkLeft(#anims_magma_gold)
+	inst.components.workable:SetOnWorkCallback(dig_up_magma_gold_full)
+	inst.components.workable:SetWorkLeft(1)
+	
+	return inst
+end
+
+local function MagmaGoldMedFn()
+	local inst = commonfn()
+	
+	local minimap = inst.entity:AddMiniMapEntity()
+	minimap:SetIcon("rockmagma.png")
+	
+	inst.AnimState:SetBank("rock_magma_gold")
+	inst.AnimState:SetBuild("rock_magma_gold")
+	inst.AnimState:PlayAnimation("med")
+	
+	inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
+	
+	inst:AddComponent("workable")
+	inst.components.workable:SetWorkAction(ACTIONS.DIG)
+	inst.components.workable:SetOnWorkCallback(dig_up_magma_gold_med)
+	inst.components.workable:SetWorkLeft(1)
+	
+	return inst
+end
+
+local function MagmaGoldLowFn()
+	local inst = commonfn()
+	
+	local minimap = inst.entity:AddMiniMapEntity()
+	minimap:SetIcon("rockmagma.png")
+	
+	inst.AnimState:SetBank("rock_magma_gold")
+	inst.AnimState:SetBuild("rock_magma_gold")
+	inst.AnimState:PlayAnimation("low")
+	
+	inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
+	
+	inst:AddComponent("workable")
+	inst.components.workable:SetWorkAction(ACTIONS.DIG)
+	inst.components.workable:SetOnWorkCallback(dig_up_magma_gold_low)
+	inst.components.workable:SetWorkLeft(1)
 	
 	return inst
 end
@@ -150,7 +244,7 @@ local function MagmaFn()
 	
 	inst.AnimState:SetBank("rock_magma")
 	inst.AnimState:SetBuild("rock_magma")
-	inst.AnimState:PlayAnimation(anims_magma[#anims_magma])
+	inst.AnimState:PlayAnimation("full")
 	
 	inst.entity:SetPristine()
 
@@ -160,13 +254,65 @@ local function MagmaFn()
 	
 	inst:AddComponent("workable")
 	inst.components.workable:SetWorkAction(ACTIONS.DIG)
-	inst.components.workable:SetOnWorkCallback(dig_up_magma)
-	inst.components.workable:SetWorkLeft(#anims_magma)
+	inst.components.workable:SetOnWorkCallback(dig_up_magma_full)
+	inst.components.workable:SetWorkLeft(1)
+	
+	return inst
+end
+
+local function MagmaMedFn()
+	local inst = commonfn()
+	
+	local minimap = inst.entity:AddMiniMapEntity()
+	minimap:SetIcon("rockmagma.png")
+	
+	inst.AnimState:SetBank("rock_magma")
+	inst.AnimState:SetBuild("rock_magma")
+	inst.AnimState:PlayAnimation("med")
+	
+	inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
+	
+	inst:AddComponent("workable")
+	inst.components.workable:SetWorkAction(ACTIONS.DIG)
+	inst.components.workable:SetOnWorkCallback(dig_up_magma_med)
+	inst.components.workable:SetWorkLeft(1)
+	
+	return inst
+end
+
+local function MagmaLowFn()
+	local inst = commonfn()
+	
+	local minimap = inst.entity:AddMiniMapEntity()
+	minimap:SetIcon("rockmagma.png")
+	
+	inst.AnimState:SetBank("rock_magma")
+	inst.AnimState:SetBuild("rock_magma")
+	inst.AnimState:PlayAnimation("low")
+	
+	inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
+	
+	inst:AddComponent("workable")
+	inst.components.workable:SetWorkAction(ACTIONS.DIG)
+	inst.components.workable:SetOnWorkCallback(dig_up_magma_low)
+	inst.components.workable:SetWorkLeft(1)
 	
 	return inst
 end
 	
 return Prefab("kyno_magmarock_gold", MagmaGoldFn, assets_magma_gold, prefabs),
+Prefab("kyno_magmarock_gold_med", MagmaGoldMedFn, assets_magma_gold, prefabs),
+Prefab("kyno_magmarock_gold_low", MagmaGoldLowFn, assets_magma_gold, prefabs),
 Prefab("kyno_magmarock", MagmaFn, assets_magma, prefabs),
+Prefab("kyno_magmarock_med", MagmaMedFn, assets_magma, prefabs),
+Prefab("kyno_magmarock_low", MagmaLowFn, assets_magma, prefabs),
 MakePlacer("kyno_magmarock_gold_placer", "rock_magma_gold", "rock_magma_gold", "full"),
 MakePlacer("kyno_magmarock_placer", "rock_magma", "rock_magma", "full")

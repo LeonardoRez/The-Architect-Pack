@@ -15,14 +15,14 @@ local assets =
 local function onopen(inst) 
 	if not inst:HasTag("burnt") then
 		inst.AnimState:PlayAnimation("open")
-		inst.SoundEmitter:PlaySound("dontstarve/wilson/chest_open")
+		inst.SoundEmitter:PlaySound("dontstarve/quagmire/common/safe/key")
 	end
 end
 
 local function onclose(inst)
 	if not inst:HasTag("burnt") then
 		inst.AnimState:PlayAnimation("closed")
-		inst.SoundEmitter:PlaySound("dontstarve/wilson/chest_close")
+		inst.SoundEmitter:PlaySound("dontstarve/quagmire/common/safe/key")
 	end
 end
 

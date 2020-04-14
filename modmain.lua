@@ -14,16 +14,28 @@ modimport("scripts/kyno_assets")
 modimport("scripts/kyno_strings")
 modimport("scripts/kyno_stringsparrot")
 modimport("scripts/kyno_postinits")
--- modimport("libs/custom_tech_tree")
--- modimport("libs/env")
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Assets = { -- Some Assets don't show correctly if they're not set here.
+	-- Assets for Mini Signs.
     Asset("ATLAS_BUILD", "images/inventoryimages/kyno_turfs_sw.xml", 256),
 	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_turfs_sw_2.xml", 256),
+	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_turfs_ham.xml", 256),
+	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_minisign_icons.xml", 256),
+	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_minisign_icons_2.xml", 256),
+	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_minisign_icons_3.xml", 256),
+	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_irongate_item.xml", 256),
+	Asset("ATLAS_BUILD", "images/inventoryimages/wall_pig_ruins_item.xml", 256),
+	-- Common Assets.
     Asset("IMAGE", "images/inventoryimages/kyno_turfs_sw.tex"),
     Asset("ATLAS", "images/inventoryimages/kyno_turfs_sw.xml"),
 	Asset("IMAGE", "images/inventoryimages/kyno_turfs_sw_2.tex"),
     Asset("ATLAS", "images/inventoryimages/kyno_turfs_sw_2.xml"),
+	Asset("IMAGE", "images/inventoryimages/kyno_minisign_icons.tex"),
+    Asset("ATLAS", "images/inventoryimages/kyno_minisign_icons.xml"),
+	Asset("IMAGE", "images/inventoryimages/kyno_minisign_icons_2.tex"),
+    Asset("ATLAS", "images/inventoryimages/kyno_minisign_icons_2.xml"),
+	Asset("IMAGE", "images/inventoryimages/kyno_minisign_icons_3.tex"),
+    Asset("ATLAS", "images/inventoryimages/kyno_minisign_icons_3.xml"),
 	Asset("IMAGE", "images/inventoryimages/kyno_potato.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_potato.xml"),
 	Asset("IMAGE", "images/tabimages/kyno_shipwreckedtab.tex"),
@@ -38,12 +50,23 @@ Assets = { -- Some Assets don't show correctly if they're not set here.
 	Asset("ATLAS", "images/inventoryimages/kyno_thundernest.xml"),
 	Asset("IMAGE", "images/inventoryimages/kyno_turfs_ham.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_turfs_ham.xml"),
+	Asset("IMAGE", "images/inventoryimages/wall_pig_ruins_item.tex"),
+	Asset("ATLAS", "images/inventoryimages/wall_pig_ruins_item.xml"),
+	Asset("IMAGE", "images/inventoryimages/kyno_irongate_item.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_irongate_item.xml"),
 	Asset("ANIM", "anim/kyno_turfs2.zip"),
 	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
 	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC003.fev"),
+	Asset("SOUND", "sound/DLC003_AMB_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_music_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_sfx.fsb"),
+	Asset("SOUNDPACKAGE", "sound/dontstarve_wagstaff.fev"),
+	Asset("SOUND", "sound/dontstarve_wagstaff.fsb"),
 }
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 PrefabFiles = {
+	"k_custom_placers",
 	-- VOLCANO CONTENT --
 	"k_dragoonden",
 	"k_elephantcactus",
@@ -209,6 +232,14 @@ PrefabFiles = {
 	"k_saltpond",
 	"k_safe",
 	"k_oldstructures",
+	"k_ironfence",
+	"k_irongate",
+	"k_urn",
+	"k_stoneobelisk",
+	"k_gnawangel",
+	"k_gnawangel2",
+	"k_birdfountain",
+	"k_cottontree",
 	-- SEA CONTENT (Currently disabled) --
 	"k_mangrovetrees",
 	"k_wrecks",
@@ -236,6 +267,8 @@ PrefabFiles = {
 	"k_tarpit",
 }
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+local atlas = (src and src.components.inventoryitem and src.components.inventoryitem.atlasname and resolvefilepath(src.components.inventoryitem.atlasname) ) or "images/inventoryimages/kyno_inventoryimages_ham.xml"
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddMinimapAtlas("images/minimapimages/kyno_minimap_atlas_sw.xml")
 AddMinimapAtlas("images/minimapimages/kyno_minimap_atlas_ham.xml")
 AddMinimapAtlas("images/minimapimages/kyno_shipmast.xml")
@@ -255,6 +288,13 @@ AddMinimapAtlas("images/minimapimages/kyno_clocktower.xml")
 AddMinimapAtlas("images/minimapimages/kyno_house.xml")
 AddMinimapAtlas("images/minimapimages/kyno_chimney1.xml")
 AddMinimapAtlas("images/minimapimages/kyno_chimney2.xml")
+AddMinimapAtlas("images/minimapimages/kyno_sammywagon.xml")
+AddMinimapAtlas("images/minimapimages/kyno_piptoncart.xml")
+AddMinimapAtlas("images/minimapimages/kyno_urn.xml")
+AddMinimapAtlas("images/minimapimages/kyno_stoneobelisk.xml")
+AddMinimapAtlas("images/minimapimages/kyno_worshipper.xml")
+AddMinimapAtlas("images/minimapimages/kyno_worshipper2.xml")
+AddMinimapAtlas("images/minimapimages/kyno_birdfountain.xml")
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddIngredientValues({"kyno_coffeebeans_cooked"}, {fruit=1}, true)
 AddIngredientValues({"kyno_coffeebeans"}, {fruit=1}, true)
@@ -304,6 +344,62 @@ if GLOBAL.TheNet:GetIsMasterSimulation() then
         end)
     end
 end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local item_atlas = MODROOT.."images/inventoryimages/kyno_minisign_icons.xml"
+    for _, item in pairs({"coconut", "wall_enforcedlimestone_item", "wall_limestone_item", "jungletreeseed", "seashell", "kyno_sandbagsmall_item", "dug_coffeebush", "coffee", "kyno_coffeebeans", "kyno_coffeebeans_cooked", "packim_fishbone"}) do
+        local item_name = item
+        AddPrefabPostInit(item_name, function(inst)
+            inst.components.inventoryitem.imagename = item_name
+            inst.components.inventoryitem.atlasname = item_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local item2_atlas = MODROOT.."images/inventoryimages/kyno_minisign_icons_2.xml"
+    for _, item2 in pairs({"teatree_nut", "burr", "hedge_block_item", "hedge_cone_item", "hedge_layered_item"}) do
+        local item2_name = item2
+        AddPrefabPostInit(item2_name, function(inst)
+            inst.components.inventoryitem.imagename = item2_name
+            inst.components.inventoryitem.atlasname = item2_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local item3_atlas = MODROOT.."images/inventoryimages/wall_pig_ruins_item.xml"
+    for _, item3 in pairs({"wall_pig_ruins_item"}) do
+        local item3_name = item3
+        AddPrefabPostInit(item3_name, function(inst)
+            inst.components.inventoryitem.imagename = item3_name
+            inst.components.inventoryitem.atlasname = item3_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local item4_atlas = MODROOT.."images/inventoryimages/kyno_minisign_icons_3.xml"
+    for _, item4 in pairs({"hedge_block_aged_item", "hedge_cone_aged_item", "hedge_layered_aged_item"}) do
+        local item4_name = item4
+        AddPrefabPostInit(item4_name, function(inst)
+            inst.components.inventoryitem.imagename = item4_name
+            inst.components.inventoryitem.atlasname = item4_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local item5_atlas = MODROOT.."images/inventoryimages/kyno_irongate_item.xml"
+    for _, item5 in pairs({"kyno_irongate_item"}) do
+        local item5_name = item5
+        AddPrefabPostInit(item5_name, function(inst)
+            inst.components.inventoryitem.imagename = item5_name
+            inst.components.inventoryitem.atlasname = item5_atlas
+        end)
+    end
+end
+
 -- Wall Code
 local function IsNearOther(other, pt, min_spacing_sq)
     local spacing_sq = min_spacing_sq
@@ -713,6 +809,46 @@ kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_chimney2_placer", 1, nil, nil, nil
 
 AddRecipe("kyno_piptoncart", {Ingredient("cutstone", 1), Ingredient("bluegem", 2)},
 kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_piptoncart_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_piptoncart.xml", "kyno_piptoncart.tex")
+
+
+AddRecipe("kyno_irongate_item", {Ingredient("twigs", 6), Ingredient("flint", 2)},
+kyno_gorgetab, TECH.SCIENCE_TWO, nil, nil, nil, 2, nil, "images/inventoryimages/kyno_irongate_item.xml", "kyno_irongate_item.tex")
+
+
+AddRecipe("kyno_ironfencesmall", {Ingredient("twigs", 3), Ingredient("flint", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_ironfencesmall_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_ironfencesmall.xml", "kyno_ironfencesmall.tex")
+
+
+AddRecipe("kyno_ironfencetall", {Ingredient("twigs", 3), Ingredient("flint", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_ironfencetall_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_ironfencesmall.xml", "kyno_ironfencesmall.tex")
+
+
+AddRecipe("kyno_urn", {Ingredient("cutstone", 1), Ingredient("redgem", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_urn_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_urn.xml", "kyno_urn.tex")
+
+
+AddRecipe("kyno_worshipper", {Ingredient("cutstone", 1), Ingredient("redgem", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_worshipper_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_worshipper.xml", "kyno_worshipper.tex")
+
+
+AddRecipe("kyno_worshipper2", {Ingredient("cutstone", 1), Ingredient("redgem", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_worshipper2_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_worshipper2.xml", "kyno_worshipper2.tex")
+
+
+AddRecipe("kyno_worshipper2_left", {Ingredient("cutstone", 1), Ingredient("redgem", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_worshipper2_left_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_worshipper2_left.xml", "kyno_worshipper2_left.tex")
+
+
+AddRecipe("kyno_stoneobelisk", {Ingredient("cutstone", 2)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_stoneobelisk_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_stoneobelisk.xml", "kyno_stoneobelisk.tex")
+
+
+AddRecipe("kyno_birdfountain", {Ingredient("cutstone", 1), Ingredient("redgem", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_birdfountain_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_birdfountain.xml", "kyno_birdfountain.tex")
+
+
+AddRecipe("cottontree_normal", {Ingredient("log", 3), Ingredient("pinecone", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "cottontree_normal_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_cottontree.xml", "kyno_cottontree.tex")
 
 
 AddRecipe("kyno_lamppost", {Ingredient("cutstone", 1), Ingredient("lantern", 1), Ingredient("transistor", 1)},
@@ -1188,7 +1324,7 @@ AddRecipe("kyno_junglefern_green", {Ingredient("succulent_picked", 1)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_junglefern_green_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_junglefern2.xml", "kyno_junglefern2.tex")
 
 
-AddRecipe("kyno_magicflower", {Ingredient("petals", 5), Ingredient("nightmarefuel", 2), Ingredient("poop", 2)},
+AddRecipe("kyno_magicflower", {Ingredient("petals", 5), Ingredient("nightmarefuel", 2)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_magicflower_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_magicflower.xml", "kyno_magicflower.tex")
 
 
@@ -1503,7 +1639,7 @@ AddRecipe("kyno_palmleaf_hut", {Ingredient("cutgrass", 5), Ingredient("rope", 3)
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_palmleaf_hut_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "palmleaf_hut.tex")
 
 
-AddRecipe("kyno_doydoy_nest",{Ingredient("twigs", 8), Ingredient("goose_feather", 2), Ingredient("egg", 1)},
+AddRecipe("kyno_doydoy_nest",{Ingredient("twigs", 8), Ingredient("goose_feather", 2), Ingredient("bird_egg", 1)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_doydoy_nest_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "doydoynest.tex")
 
 
@@ -1745,3 +1881,213 @@ AddRecipe("kyno_tarpit", {Ingredient("charcoal", 2), Ingredient("ash", 2), Ingre
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_tarpit_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_tarpit.xml", "kyno_tarpit.tex")
 end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Colour Cubes
+local CC = GetModConfigData("colourcubes")
+if CC  == 1 then
+local function getval(fn, path)
+	local val = fn
+	for entry in path:gmatch("[^%.]+") do
+		local i=1
+		while true do
+			local name, value = GLOBAL.debug.getupvalue(val, i)
+			if name == entry then
+				val = value
+				break
+			elseif name == nil then
+				return
+			end
+			i=i+1
+		end
+	end
+	return val
+end
+
+local function setval(fn, path, new)
+	local val = fn
+	local prev = nil
+	local i
+	for entry in path:gmatch("[^%.]+") do
+		i = 1
+		prev = val
+		while true do
+			local name, value = GLOBAL.debug.getupvalue(val, i)
+			if name == entry then
+				val = value
+				break
+			elseif name == nil then
+				return
+			end
+			i=i+1
+		end
+	end
+	GLOBAL.debug.setupvalue(prev, i ,new)
+end
+
+local DST = GLOBAL.TheSim:GetGameID() == "DST"
+
+	-- table.insert( Assets, Asset("IMAGE","images/colour_cubes/sw_mild_day_cc.tex") )
+	-- table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_mild_dusk_cc.tex") )
+	-- table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_mild_night_cc.tex") )
+	-- table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_wet_day_cc.tex") )
+	-- table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_wet_dusk_cc.tex") )
+	-- table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_wet_night_cc.tex") )
+	-- table.insert( Assets, Asset("IMAGE","images/colour_cubes/sw_green_day_cc.tex") )
+	-- table.insert( Assets, Asset("IMAGE","images/colour_cubes/sw_green_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_dry_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_dry_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_dry_night_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_cold_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_cold_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_cold_night_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_cold_bloodmoon_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_warm_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_warm_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_warm_night_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/temperate_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/temperate_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/temperate_night_cc.tex") )
+	-- table.insert( Assets, Asset("IMAGE","images/colour_cubes/lavaarena2_cc.tex") )
+	-- table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_temperate_night_cc.tex") )
+
+	AddComponentPostInit("colourcube", function(self)
+		for _,v in pairs(GLOBAL.TheWorld.event_listeners["playerdeactivated"][GLOBAL.TheWorld]) do
+			if getval(v,"OnOverrideCCTable") then
+				setval(v, "OnOverrideCCTable.UpdateAmbientCCTable.SEASON_COLOURCUBES",{
+					autumn =
+					{
+						day = resolvefilepath("images/colour_cubes/temperate_day_cc.tex"),
+						dusk = resolvefilepath("images/colour_cubes/temperate_dusk_cc.tex"),
+						night = resolvefilepath("images/colour_cubes/temperate_night_cc.tex"),
+						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
+					},
+					winter =
+					{
+						day = resolvefilepath("images/colour_cubes/pork_cold_day_cc.tex"),
+						dusk = resolvefilepath("images/colour_cubes/pork_cold_dusk_cc.tex"),
+						night = resolvefilepath("images/colour_cubes/pork_cold_night_cc.tex"),
+						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
+					},
+					spring =
+					{
+						day = resolvefilepath("images/colour_cubes/pork_warm_day_cc.tex"),
+						dusk = resolvefilepath("images/colour_cubes/pork_warm_dusk_cc.tex"),
+						night = resolvefilepath("images/colour_cubes/pork_warm_night_cc.tex"),
+						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
+					},
+					summer =
+					{
+						day = resolvefilepath("images/colour_cubes/SW_dry_day_cc.tex"),
+						dusk = resolvefilepath("images/colour_cubes/SW_dry_dusk_cc.tex"),
+						night = resolvefilepath("images/colour_cubes/SW_dry_night_cc.tex"),
+						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
+					},
+				})
+				break
+			end
+		end
+	end)
+else
+local function getval(fn, path)
+	local val = fn
+	for entry in path:gmatch("[^%.]+") do
+		local i=1
+		while true do
+			local name, value = GLOBAL.debug.getupvalue(val, i)
+			if name == entry then
+				val = value
+				break
+			elseif name == nil then
+				return
+			end
+			i=i+1
+		end
+	end
+	return val
+end
+
+local function setval(fn, path, new)
+	local val = fn
+	local prev = nil
+	local i
+	for entry in path:gmatch("[^%.]+") do
+		i = 1
+		prev = val
+		while true do
+			local name, value = GLOBAL.debug.getupvalue(val, i)
+			if name == entry then
+				val = value
+				break
+			elseif name == nil then
+				return
+			end
+			i=i+1
+		end
+	end
+	GLOBAL.debug.setupvalue(prev, i ,new)
+end
+
+local DST = GLOBAL.TheSim:GetGameID() == "DST"
+
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/sw_mild_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_mild_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_mild_night_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_wet_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_wet_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_wet_night_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/sw_green_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/sw_green_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_dry_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_dry_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_dry_night_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colour_cubes/purple_moon_cc.tex") )
+	-- table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_cold_day_cc.tex") )
+	-- table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_cold_dusk_cc.tex") )
+	-- table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_cold_night_cc.tex") )
+	-- table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_cold_bloodmoon_cc.tex") )
+	-- table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_warm_day_cc.tex") )
+	-- table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_warm_dusk_cc.tex") )
+	-- table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_warm_night_cc.tex") )
+	-- table.insert( Assets, Asset("IMAGE","images/colour_cubes/temperate_day_cc.tex") )
+	-- table.insert( Assets, Asset("IMAGE","images/colour_cubes/temperate_dusk_cc.tex") )
+	-- table.insert( Assets, Asset("IMAGE","images/colour_cubes/temperate_night_cc.tex") )
+	-- table.insert( Assets, Asset("IMAGE","images/colour_cubes/lavaarena2_cc.tex") )
+	-- table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_temperate_night_cc.tex") )
+
+	AddComponentPostInit("colourcube", function(self)
+		for _,v in pairs(GLOBAL.TheWorld.event_listeners["playerdeactivated"][GLOBAL.TheWorld]) do
+			if getval(v,"OnOverrideCCTable") then
+				setval(v, "OnOverrideCCTable.UpdateAmbientCCTable.SEASON_COLOURCUBES",{
+					autumn =
+					{
+						day = resolvefilepath("images/colour_cubes/sw_mild_day_cc.tex"),
+						dusk = resolvefilepath("images/colour_cubes/SW_mild_dusk_cc.tex"),
+						night = resolvefilepath("images/colour_cubes/SW_mild_night_cc.tex"),
+						full_moon = resolvefilepath("images/colour_cubes/purple_moon_cc.tex"),
+					},
+					winter =
+					{
+						day = resolvefilepath("images/colour_cubes/SW_wet_day_cc.tex"),
+						dusk = resolvefilepath("images/colour_cubes/SW_wet_dusk_cc.tex"),
+						night = resolvefilepath("images/colour_cubes/SW_wet_night_cc.tex"),
+						full_moon = resolvefilepath("images/colour_cubes/purple_moon_cc.tex"),
+					},
+					spring =
+					{
+						day = resolvefilepath("images/colour_cubes/sw_green_day_cc.tex"),
+						dusk = resolvefilepath("images/colour_cubes/sw_green_dusk_cc.tex"),
+						night = resolvefilepath("images/colour_cubes/sw_green_dusk_cc.tex"),
+						full_moon = resolvefilepath("images/colour_cubes/purple_moon_cc.tex"),
+					},
+					summer =
+					{
+						day = resolvefilepath("images/colour_cubes/SW_dry_day_cc.tex"),
+						dusk = resolvefilepath("images/colour_cubes/SW_dry_dusk_cc.tex"),
+						night = resolvefilepath("images/colour_cubes/SW_dry_night_cc.tex"),
+						full_moon = resolvefilepath("images/colour_cubes/purple_moon_cc.tex"),
+					},
+				})
+				break
+			end
+		end
+	end)
+end

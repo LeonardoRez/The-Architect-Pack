@@ -21,6 +21,9 @@ local assets =
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_debris_3.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_debris_3.xml"),
+	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
+	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),
 }
 
 local prefabs = {
@@ -180,6 +183,14 @@ local function debrisfn(anim, hitanim, workoverride, lootoverride, collision)
 	return inst
 end	
 
+local function DoPeck(inst)
+if inst:HasTag("wallythebird") then
+	inst:DoTaskInTime(8+math.random()*5, function() DoPeck(inst) end)
+		inst.AnimState:PlayAnimation("idle_peck")
+		inst.AnimState:PushAnimation("idle")
+	end
+end
+
 local function shipmastfn()
 	local inst = CreateEntity()
     
@@ -199,6 +210,8 @@ local function shipmastfn()
     inst.AnimState:SetBuild("parrot_pirate_intro")
     inst.AnimState:PlayAnimation("idle", true)
 	
+	inst:AddTag("wallythebird")
+	
 	if not TheWorld.ismastersim then
         return inst
     end
@@ -216,6 +229,8 @@ local function shipmastfn()
 
     MakeSmallBurnable(inst)
     MakeSmallPropagator(inst)
+	
+	DoPeck(inst)
 	
 	return inst
 end

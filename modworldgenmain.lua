@@ -29,7 +29,7 @@ AddTile(70, "beach", "mod_turfs", nil,
     },{
         noise_texture = "levels/textures/mini_beach_noise.tex"
     }
-)
+, true)
 
 AddTile(71, "volcano_rock", "mod_turfs", nil,
     {
@@ -63,7 +63,7 @@ AddTile(73, "meadow", "mod_turfs", nil,
     },{
         noise_texture = "levels/textures/mini_savannah_noise.tex"
     }
-)
+, true)
 
 AddTile(74, "jungle", "mod_turfs", nil,
     {
@@ -75,7 +75,7 @@ AddTile(74, "jungle", "mod_turfs", nil,
     },{
         noise_texture = "levels/textures/mini_jungle_noise.tex"
     }
-)
+, true)
 
 AddTile(75, "volcano", "mod_turfs", nil,
     {
@@ -119,20 +119,6 @@ AddTile(78, "snakeskinfloor", "mod_turfs", "snakeskin",
     }
 , true)
 
---[[
-AddTile(78, "forge", "mod_turfs", nil,
-    {
-        name = "cave",
-        noise_texture = "levels/textures/lavaarena_floor_noise.tex",
-        runsound = run_marble,
-        walksound = walk_marble,
-        snowsound = run_snow,
-    },{
-        noise_texture = "levels/textures/lavaarena_floor_mini.tex"
-    }
-, true)
-]]--
-
 AddTile(79, "cobbleroad", "mod_turfs", nil,
     {
         name = "stoneroad",
@@ -161,7 +147,7 @@ AddTile(81, "fields", "mod_turfs", nil,
     },{
         noise_texture = "levels/textures/mini_noise_farmland.tex"
     }
-)
+, true)
 
 AddTile(82, "foundation", "mod_turfs", nil,
     {
@@ -196,7 +182,7 @@ AddTile(84, "rainforest", "kyno_turfs2", nil,
     },{
         noise_texture = "levels/textures/mini_noise_rainforest.tex"
     }
-)
+, true)
 
 AddTile(85, "plains", "kyno_turfs2", nil,
 	{
@@ -208,7 +194,7 @@ AddTile(85, "plains", "kyno_turfs2", nil,
 	},{
 		noise_texture = "levels/textures/mini_plains_noise.tex",
 	}
-)
+, true)
 	
 AddTile(86, "deepjungle", "kyno_turfs2", nil,
 	{
@@ -220,7 +206,7 @@ AddTile(86, "deepjungle", "kyno_turfs2", nil,
 	},{
 		noise_texture = "levels/textures/mini_noise_jungle_deep.tex",
 	}
-)
+, true)
 
 AddTile(87, "bog", "kyno_turfs2", nil,
 	{
@@ -232,7 +218,7 @@ AddTile(87, "bog", "kyno_turfs2", nil,
 	},{
 		noise_texture = "levels/textures/mini_noise_bog.tex",
 	}
-)
+, true)
 
 AddTile(88, "mossy_blossom", "kyno_turfs2", nil,
 	{
@@ -244,7 +230,7 @@ AddTile(88, "mossy_blossom", "kyno_turfs2", nil,
 	},{
 		noise_texture = "levels/textures/mini_noise_mossy_blossom.tex",
 	}
-)
+, true)
 	
 AddTile(89, "gasjungle", "kyno_turfs2", nil,
 	{
@@ -256,7 +242,7 @@ AddTile(89, "gasjungle", "kyno_turfs2", nil,
 	},{
 		noise_texture = "levels/textures/mini_gasbiome_noise.tex",
 	}
-)
+, true)
 
 AddTile(90, "beard_hair", "kyno_turfs2", nil,
 	{
@@ -268,7 +254,7 @@ AddTile(90, "beard_hair", "kyno_turfs2", nil,
 	},{
 		noise_texture = "levels/textures/mini_battlegrounds_noise.tex",
 	}
-)	
+, true)
 	
 ChangeTileTypeRenderOrder(GROUND.BEACH, GROUND.ROAD, true)
 ChangeTileTypeRenderOrder(GROUND.VOLCANO_ROCK, GROUND.BEACH, true)

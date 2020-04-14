@@ -39,7 +39,7 @@ local function tallfn()
 	
 	inst.Light:SetFalloff(1)
     inst.Light:SetIntensity(.7)
-    inst.Light:SetRadius(3)
+    inst.Light:SetRadius(5)
     inst.Light:Enable(true)
     inst.Light:SetColour(197/255, 197/255, 10/255)
 	

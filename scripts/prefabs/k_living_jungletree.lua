@@ -9,6 +9,9 @@ local assets =
 	
 	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_sw.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_sw.xml"),
+	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
+	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),
 }
 
 local prefabs =
@@ -47,7 +50,7 @@ local function OnBurnt(inst)
     
 	inst.AnimState:PlayAnimation("burnt_tall", true)
 
-	-- inst.SoundEmitter:PlaySound("dontstarve_DLC002/common/living_jungle_tree/burn")
+	inst.SoundEmitter:PlaySound("dontstarve_DLC002/common/living_jungle_tree/burn")
 	
     inst.AnimState:SetRayTestOnBB(true);
     inst:AddTag("burnt")
@@ -79,7 +82,7 @@ local function onworked(inst, chopper, workleft)
 	else
 		inst.SoundEmitter:PlaySound("dontstarve/wilson/use_axe_tree")          
 	end
-	inst.SoundEmitter:PlaySound("dontstarve/creatures/leif/livingtree_hit")
+	inst.SoundEmitter:PlaySound("dontstarve_DLC002/common/living_jungle_tree/hit")
 	inst.AnimState:PlayAnimation("chop")
 	inst.AnimState:PushAnimation("idle", true)
 end
@@ -90,7 +93,7 @@ local function onworkfinish(inst, chopper)
     local hispos = Vector3(chopper.Transform:GetWorldPosition())
     local he_right = (hispos - pt):Dot(TheCamera:GetRightVec()) > 0
 
-    inst.SoundEmitter:PlaySound("dontstarve/creatures/leif/livingtree_die")
+    inst.SoundEmitter:PlaySound("dontstarve_DLC002/common/living_jungle_tree/death")
 
     if he_right then
         inst.AnimState:PlayAnimation("fallleft")

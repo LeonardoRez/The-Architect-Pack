@@ -305,10 +305,10 @@ local function create_packim()
 
     inst:AddComponent("locomotor")
     inst.components.locomotor.walkspeed = 10
-    -- inst.components.locomotor.runspeed = 7
-    inst.components.locomotor:SetAllowPlatformHopping(true)
+    inst.components.locomotor:SetAllowPlatformHopping(false)
+	inst.components.locomotor.pathcaps = { ignorewalls = true, allowocean = true }
 
-    inst:AddComponent("embarker")
+    -- inst:AddComponent("embarker")
 
     inst:AddComponent("follower")
     inst:ListenForEvent("stopfollowing", OnStopFollowing)

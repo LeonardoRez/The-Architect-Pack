@@ -9,6 +9,11 @@ local assets =
 	
 	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_ham.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_ham.xml"),
+	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC003.fev"),
+	Asset("SOUND", "sound/DLC003_AMB_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_music_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_sfx.fsb"),
 }
 
 local function dig_up(inst, chopper)
@@ -22,17 +27,13 @@ local function dig_up(inst, chopper)
 	inst:Remove()
 end
 
---[[
 local function onnear(inst) 
-	inst.AnimState:PlayAnimation("idle_gargle")
-	inst.AnimState:PushAnimation("idle_loop", true)
+	inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/crafted/flower_of_life/fx_LP","drainloop")
 end
 
 local function onfar(inst)
-	inst.AnimState:PlayAnimation("idle_loop")
-	inst.AnimState:PushAnimation("death",  false)
+	inst.SoundEmitter:KillSound("drainloop")
 end
-]]--
 
 local function onbuilt(inst)
 	inst.AnimState:PushAnimation("idle_loop", true)
@@ -83,12 +84,10 @@ local function fn()
 	inst.components.workable:SetOnFinishCallback(dig_up)
 	inst.components.workable:SetWorkLeft(1)
 	
-	--[[
 	inst:AddComponent("playerprox")
     inst.components.playerprox:SetDist(3, 6)
     inst.components.playerprox:SetOnPlayerNear(onnear)
     inst.components.playerprox:SetOnPlayerFar(onfar)
-	]]--
 
 	inst:ListenForEvent("onbuilt", onbuilt)
 

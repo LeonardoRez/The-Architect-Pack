@@ -450,7 +450,7 @@ local function makefn(animset, setbuild)
 
     MakeHauntableWork(inst)
 	
-	MakeSnowCovered(inst, .01)
+	-- MakeSnowCovered(inst, .01)
 
     inst:ListenForEvent("onbuilt", onbuilt)
     inst.inittask = inst:DoTaskInTime(0, oninit)

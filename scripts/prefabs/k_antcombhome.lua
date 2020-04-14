@@ -18,6 +18,7 @@ local function onhammered(inst, worker)
 	inst.components.lootdropper:DropLoot()
 	SpawnPrefab("collapse_big").Transform:SetPosition(inst.Transform:GetWorldPosition())
 	inst.SoundEmitter:PlaySound("dontstarve/common/destroy_wood")
+	inst.SoundEmitter:KillSound("loop")
 	inst:Remove()
 end
 
@@ -31,6 +32,7 @@ end
 local function onbuilt(inst)
 	inst.AnimState:PlayAnimation("place")
 	inst.AnimState:PushAnimation("idle")
+	inst.SoundEmitter:PlaySound("dontstarve/bee/bee_hive_LP", "loop")
 end
 
 local function onsave(inst, data)

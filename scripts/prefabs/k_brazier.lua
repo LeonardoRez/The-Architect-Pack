@@ -143,6 +143,7 @@ local function fn()
     inst:AddTag("campfire")
     inst:AddTag("structure")
     inst:AddTag("wildfireprotected")
+	inst:AddTag("notarget")
 
     inst:AddTag("cooker")
 

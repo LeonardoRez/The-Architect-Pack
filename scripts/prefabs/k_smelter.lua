@@ -9,6 +9,11 @@ local assets =
 	
 	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_ham.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_ham.xml"),
+	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC003.fev"),
+	Asset("SOUND", "sound/DLC003_AMB_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_music_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_sfx.fsb"),
 }
 
 local function onhammered(inst, worker)
@@ -19,13 +24,50 @@ local function onhammered(inst, worker)
 end
 
 local function onfar(inst)
+	inst.SoundEmitter:KillSound("move_1")
+	inst.SoundEmitter:KillSound("move_2")
+	inst.SoundEmitter:KillSound("pour")
+	inst.SoundEmitter:KillSound("steam")
+	inst.SoundEmitter:KillSound("brick")
 	inst.AnimState:PlayAnimation("smelting_pre")
 	inst.AnimState:PushAnimation("smelting_loop", true)
+	inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/crafted/smelter/smelt_LP", "snd")
 end
 
 local function onnear(inst)
 	inst.AnimState:PlayAnimation("smelting_pst")
 	inst.AnimState:PushAnimation("idle_full", true)
+	inst.SoundEmitter:KillSound("snd")
+	inst:DoTaskInTime(1/30, function()
+                if inst.AnimState:IsCurrentAnimation("smelting_pst") then
+                   inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/crafted/smelter/move_1")
+               end
+           end )
+		inst:DoTaskInTime(8/30, function()
+                if inst.AnimState:IsCurrentAnimation("smelting_pst") then
+                   inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/crafted/smelter/move_2")
+               end
+           end )
+		inst:DoTaskInTime(14/30, function()
+                if inst.AnimState:IsCurrentAnimation("smelting_pst") then
+                   inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/crafted/smelter/pour")
+               end
+           end )
+		inst:DoTaskInTime(31/30, function()
+                if inst.AnimState:IsCurrentAnimation("smelting_pst") then
+                   inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/crafted/smelter/steam")
+               end
+           end )
+        inst:DoTaskInTime(36/30, function()
+                if inst.AnimState:IsCurrentAnimation("smelting_pst") then
+                   inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/crafted/smelter/brick")
+               end
+           end )   
+        inst:DoTaskInTime(49/30, function()
+                if inst.AnimState:IsCurrentAnimation("smelting_pst") then
+                   inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/crafted/smelter/move_2")
+               end
+	   end )
 end
 
 local function onhit(inst, worker)
@@ -35,6 +77,32 @@ end
 
 local function onbuilt(inst)
 	inst.AnimState:PlayAnimation("place")
+	inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/crafted/smelter/build")
+	inst:DoTaskInTime(1/30, function()
+                if inst.AnimState:IsCurrentAnimation("place") then
+                   inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/crafted/smelter/brick")
+               end
+           end )
+	inst:DoTaskInTime(4/30, function()
+                if inst.AnimState:IsCurrentAnimation("place") then
+                   inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/crafted/smelter/brick")
+               end
+           end )
+	inst:DoTaskInTime(8/30, function()
+                if inst.AnimState:IsCurrentAnimation("place") then
+                   inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/crafted/smelter/brick")
+               end
+           end )
+	inst:DoTaskInTime(12/30, function()
+                if inst.AnimState:IsCurrentAnimation("place") then
+                   inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/crafted/smelter/brick")
+               end
+           end )
+	inst:DoTaskInTime(14/30, function()
+                if inst.AnimState:IsCurrentAnimation("place") then
+                   inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/crafted/smelter/brick")
+               end
+		end )
     inst.AnimState:PushAnimation("idle_full", true)
 end
 

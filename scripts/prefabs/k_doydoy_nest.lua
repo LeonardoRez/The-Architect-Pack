@@ -11,6 +11,9 @@ local assets =
 	
 	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_sw.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_sw.xml"),
+	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
+	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),
 }
 
 local prefabs = 
@@ -42,6 +45,7 @@ local function peck(inst)
 if inst:HasTag("doydoy") then
 	inst:DoTaskInTime(4+math.random()*5, function() peck(inst) end)
 		inst.AnimState:PlayAnimation("peck")
+		inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/teen_doy_doy/idle")
 		inst.AnimState:PushAnimation("idle", true)
 	end
 end

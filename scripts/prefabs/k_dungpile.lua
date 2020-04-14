@@ -11,6 +11,11 @@ local assets =
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_sw.xml"),
 }
 
+local prefabs =
+{
+	"flies",
+}
+
 local anims = {"idle_low", "idle_med", "idle_full"}
 
 local function dig_up(inst, worker, workleft)
@@ -29,10 +34,19 @@ local function dig_up(inst, worker, workleft)
         end
         inst:Remove()
 		inst.SoundEmitter:PlaySound("dontstarve/common/food_rot")
+		if inst.flies ~= nil then
+        inst.flies:Remove()
+		end
     else
         print("PlayAnimation", workleft, anims[workleft])
         inst.AnimState:PlayAnimation(anims[workleft])
 		inst.SoundEmitter:PlaySound("dontstarve/common/food_rot")
+    end
+end
+
+local function onbuilt(inst)
+	if inst.flies == nil then
+        inst.flies = inst:SpawnChild("flies")
     end
 end
 
@@ -61,6 +75,8 @@ local function fn()
     if not TheWorld.ismastersim then
         return inst
     end
+	
+	inst.flies = inst:SpawnChild("flies")
 	
 	inst:AddComponent("inspectable")
 	

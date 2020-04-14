@@ -32,22 +32,31 @@ for i, parrot in ipairs(parrot_pirate) do
 			if ent and ent.userid ~= nil then
 				if math.random() < 0.050 then
 					inst.components.talker:Say("Arrr! you little shit!")
+					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp") 
 				elseif math.random() < 0.050 then
 					inst.components.talker:Say("Glermz big head!")
+					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp") 
 				elseif math.random() < 0.050 then
 					inst.components.talker:Say("Chump!")
+					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp") 
 				elseif math.random() < 0.050 then
 					inst.components.talker:Say("You stink!")
+					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp") 
 				elseif math.random() < 0.050 then
 					inst.components.talker:Say("Feed me!")
+					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp") 
 				elseif math.random() < 0.050 then
 					inst.components.talker:Say("Glermz stop complaining!")
+					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp") 
 				elseif math.random() < 0.050 then
 					inst.components.talker:Say("Cracker!")
+					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp") 
 				elseif math.random() < 0.050 then
 					inst.components.talker:Say("Seu viadinho!")
+					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp") 
 				elseif math.random() < 0.050 then
 					inst.components.talker:Say("CUT STONES!!!")
+					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp") 
 				end
 			end
 		end)

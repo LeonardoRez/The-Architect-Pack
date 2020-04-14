@@ -9,6 +9,11 @@ local assets =
 	
 	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_ham.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_ham.xml"),
+	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC003.fev"),
+	Asset("SOUND", "sound/DLC003_AMB_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_music_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_sfx.fsb"),
 }
 
 local function onhammered(inst, worker)
@@ -21,12 +26,15 @@ end
 local function onhit(inst, worker)
     inst.AnimState:PlayAnimation("hit_off")
     inst.AnimState:PushAnimation("off", true)
+	inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/crafted/fan/hit")
 end
 
 local function onbuilt(inst)
 	inst.AnimState:PlayAnimation("place")
     inst.AnimState:PlayAnimation("activate")
 	inst.AnimState:PushAnimation("idle_loop", true)
+	-- inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/crafted/fan/place")
+	inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/crafted/fan/on_LP", "firesuppressor_idle")
 end
 
 local function fn()

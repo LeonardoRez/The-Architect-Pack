@@ -11,17 +11,28 @@ local assets =
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_ham.xml"),
 }
 
+local prefabs =
+{
+	"flies",
+}
+
 local function dig_up(inst, chopper)
-	inst.AnimState:PushAnimation("break")
 	inst.components.lootdropper:SpawnLootPrefab("poop")
 	inst.components.lootdropper:SpawnLootPrefab("poop")
 	inst.components.lootdropper:SpawnLootPrefab("twigs")
 	inst.components.lootdropper:SpawnLootPrefab("twigs")
-	inst:Remove()
+		inst:Remove()
+		inst.SoundEmitter:PlaySound("dontstarve/common/food_rot")
+		if inst.flies ~= nil then
+        inst.flies:Remove()
+	end
 end
 
 local function onbuilt(inst)
 	inst.AnimState:PushAnimation("idle")
+	if inst.flies == nil then
+        inst.flies = inst:SpawnChild("flies")
+    end
 end
 
 local function fn()
@@ -51,6 +62,8 @@ local function fn()
         return inst
     end
 
+	inst.flies = inst:SpawnChild("flies")
+	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
 	

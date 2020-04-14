@@ -83,7 +83,7 @@ local function fn()
 	
 	inst.Light:SetFalloff(0.9)
     inst.Light:SetIntensity(INTENSITY)
-    inst.Light:SetRadius(5)
+    inst.Light:SetRadius(6)
     inst.Light:Enable(false)
     inst.Light:SetColour(197/255, 197/255, 10/255)
 	
@@ -119,11 +119,17 @@ local function fn()
    
 	inst:ListenForEvent("onbuilt", onbuilt)
 	
+	inst:DoTaskInTime(1/30, function()
 	inst:WatchWorldState("isday", LightsOff)
     LightsOff(inst, TheWorld.state.isday)
+	end)
 	
+	inst:DoTaskInTime(1/30, function()
 	inst:WatchWorldState("isdusk", LightsOn)
+	inst:WatchWorldState("isnight", LightsOn)
     LightsOn(inst, TheWorld.state.isdusk)
+	LightsOn(inst, TheWorld.state.isnight)
+	end)
 	
 	inst.OnSave = function(inst, data)
         if inst.lighton then

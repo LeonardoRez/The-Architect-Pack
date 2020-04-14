@@ -13,6 +13,11 @@ local assets =
 	
 	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_ham.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_ham.xml"),
+	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC003.fev"),
+	Asset("SOUND", "sound/DLC003_AMB_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_music_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_sfx.fsb"),
 }
 
 local prefabs =
@@ -33,12 +38,15 @@ end
 local function onwork_queen(inst, worker, workleft)
 	if workleft < TUNING.ROCKS_MINE*(1/3) then
 		inst.AnimState:PlayAnimation("hit", false)
+		inst.SoundEmitter:PlaySound("dontstarve_DLC003/creatures/boss/antqueen/hit")
 		inst.AnimState:PushAnimation("idle", true)
 	elseif workleft < TUNING.ROCKS_MINE*(2/3) then
 		inst.AnimState:PlayAnimation("hit", false)
+		inst.SoundEmitter:PlaySound("dontstarve_DLC003/creatures/boss/antqueen/hit")
 		inst.AnimState:PushAnimation("idle", true)
 	else
 		inst.AnimState:PlayAnimation("hit", false)
+		inst.SoundEmitter:PlaySound("dontstarve_DLC003/creatures/boss/antqueen/hit")
 		inst.AnimState:PushAnimation("idle", true)
 	end
 end
@@ -57,11 +65,13 @@ end
 local function onfar(inst)
 	inst.AnimState:PlayAnimation("sleep_pre")
 	inst.AnimState:PushAnimation("sleep_loop", true)
+	inst.SoundEmitter:KillSound("taunt")
 end
 
 local function onnear(inst)
 	inst.AnimState:PlayAnimation("sleep_pst")
 	inst.AnimState:PushAnimation("idle", true)
+	inst.SoundEmitter:PlaySound("dontstarve_DLC003/creatures/boss/antqueen/taunt")
 end
 
 local function fn()

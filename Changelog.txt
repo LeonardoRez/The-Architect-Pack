@@ -8,34 +8,72 @@ Version 1.0-B
 - Added New configuration option: Unimplemented Mode. 
 - Added Tiny light for Magic Flower. 
 - Added Speed boost for Stone Road Turf. 
+
 - Fixed Tar Trap crash in servers with caves enabled.
 - Fixed Planted Asparagus placement view. 
+
 - Magic Flower don't have death animation when far now.
 - Brambles now works like a structure instead of a wall.
 
-Version 1.5-B-Alpha-2
+Version 1.5-B-Alpha-3
 - Added The Gorge Structures.
 - Added A Easter Egg about the Slot Machine.
 - Added Thunderbird around the Thundernest.
 - Added Ability for Pirate Parrot talk if the player is near.
 - Added Wooden Thing of Shipwrecked and Hamlet.
+- Added Minimap Icons for Sammy and Pipton. 
+- Added Sharkitten around the Sharkitten Den.
+- Added Flies around Dung Ball and Dung Pile. 
+- Added Enforced Limestone Wall (Land version).
 - Added New configuration option: Packim Baggims.
 - Added New configuration option: Queen Womant.
+- Added New configuration option: Colorcubes.
+- Added Sounds for Fountain of Youth. 
+- Added Sounds for Smelter. 
+- Added Sounds for Iron Gate. 
+- Added Sounds for Safe. 
+- Added Sounds for Doydoy Nest.
+- Added Sounds for Queen Womant. 
+- Added Sounds for Wally Bird. 
+- Added Sounds for Regular Jungle Tree. 
+- Added Sounds for Thumper. 
+- Added Sounds for Sammy and Pipton. 
+- Added Sounds for Aporkalypse Calendar. 
+- Added Sounds for End's Well. 
+- Added Sounds for Gnat Mound. 
+- Added Sounds for Magic Flower. 
+- Added Sounds for Antcomb Home. 
+- Added Sounds for Honey Cache. 
+- Added Sounds for Oscilating Fan. 
+
 - Fixed Several bugs about the Packim Baggims.
 - Fixed Players not able to craft some recipes in tabs.
 - Fixed Ancient Wall dropping wrong loot when hammered.
 - Fixed Wicker Basket decal FX.
 - Fixed Stalacmite Throne Physics.
+- Fixed The Gorge structures placement.
+- Fixed Lamp Post not having light at night.
+- Fixed World Regrowth in modded Turfs. 
+- Fixed Doydoy Nest recipe. 
+- Fixed Missing Icons on Mini signs. 
+- Fixed Sandpile Animations. 
+- Fixed Sharkitten Den Animations. 
+- Fixed Magma Pile Animations. 
+- Fixed Sand Castle Animations. 
+
+- Removed Snow from Town Houses.
+- Removed Skyworthy and Seaworthy as prototyper machines.
+
 - Changed Many recipes of Hamlet and Shipwrecked.
 - Changed The Altar of Gnaw recipe.
 - Changed Skyworthy and Seaworthy recipes.
 - Changed Ancient Wall level when built.
-- Removed Skyworthy and Seaworthy as prototyper machines.
+- Changed Streelights light radius.
+- Changed Iron Gate Icon. 
+- Changed Tidal Pond Icon. 
+- Changed Streelights light radius. 
+- Changed Lamp Post light radius.
+
+- Charlie will not target Pig Braziers anymore. 
 - Ominous Carvning will open if the player is near and close if the player is far.
 - Fountain of Youth can be turned on/off by the player now.
-
-Version 1.0-C (Coming Soon)
-- Added New configuration option: Cosmetic Hats.
-- Added New configuration option: Ro Bin.
-- Added New configuration option: Golden Pitchfork.
-- Added New configuration option: Lantern Tweak.

@@ -48,8 +48,8 @@ local function addcoconut(name, spawn_prefab, bank, build, anim, winter_tree)
     local assets =
     {
         Asset("ANIM", "anim/"..build..".zip"),
-		Asset("IMAGE", "images/inventoryimages/kyno_inventoryimages_sw.tex"),
-		Asset("ATLAS", "images/inventoryimages/kyno_inventoryimages_sw.xml"),
+		Asset("IMAGE", "images/inventoryimages/kyno_minisign_icons.tex"),
+		Asset("ATLAS", "images/inventoryimages/kyno_minisign_icons.xml"),
     }
     if bank ~= build then
         table.insert("ANIM", "anim/"..bank..".zip")
@@ -103,7 +103,7 @@ local function addcoconut(name, spawn_prefab, bank, build, anim, winter_tree)
         MakeSmallPropagator(inst)
 
         inst:AddComponent("inventoryitem")
-		inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
+		inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_minisign_icons.xml"
 		--inst.components.inventoryitem:ChangeImageName("pinecone")
 
         MakeHauntableLaunchAndIgnite(inst)

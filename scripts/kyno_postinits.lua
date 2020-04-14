@@ -8,9 +8,9 @@ local Recipe = GLOBAL.Recipe
 local resolvefilepath = GLOBAL.resolvefilepath
 local ACTIONS = GLOBAL.ACTIONS
 local ActionHandler = GLOBAL.ActionHandler
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 modimport "scripts/kyno_assets"
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("coconut", function(inst)	
 	if inst.components.perishable ~= nil then
 	inst.components.perishable:SetPerishTime(TUNING.PERISH_PRESERVED)
@@ -18,7 +18,7 @@ AddPrefabPostInit("coconut", function(inst)
     inst.components.perishable.onperishreplacement = "spoiled_food"
 	end 
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("teatree_nut", function(inst)	
 	if inst.components.perishable ~= nil then
 	inst.components.perishable:SetPerishTime(TUNING.PERISH_PRESERVED)
@@ -26,158 +26,158 @@ AddPrefabPostInit("teatree_nut", function(inst)
     inst.components.perishable.onperishreplacement = "spoiled_food"
 	end 
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("wall_limestone_item", function(inst)
 	if inst.components.inventoryitem ~= nil then
 	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("wall_enforcedlimestone_item", function(inst)
 	if inst.components.inventoryitem ~= nil then
 	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("wall_pig_ruins_item", function(inst)
 	if inst.components.inventoryitem ~= nil then
 	inst.components.inventoryitem.atlasname = "images/inventoryimages/wall_pig_ruins_item.xml"
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("kyno_lamppost", function(inst)
 	local YOTP = GetModConfigData("hamlet_yotp")
 	if YOTP == 0 then
     inst.AnimState:AddOverrideBuild("lamp_post2_yotp_build")
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("kyno_pigshop_spa", function(inst)
 	local YOTP = GetModConfigData("hamlet_yotp")
 	if YOTP == 1 then
     inst.AnimState:Hide("YOTP")
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("kyno_pigshop_flower", function(inst)
     local YOTP = GetModConfigData("hamlet_yotp")
 	if YOTP == 1 then
     inst.AnimState:Hide("YOTP")
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("kyno_pigshop_general", function(inst)
     local YOTP = GetModConfigData("hamlet_yotp")
 	if YOTP == 1 then
     inst.AnimState:Hide("YOTP")
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("kyno_pigshop_deli", function(inst)
     local YOTP = GetModConfigData("hamlet_yotp")
 	if YOTP == 1 then
     inst.AnimState:Hide("YOTP")
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("kyno_pigshop_produce", function(inst)
     local YOTP = GetModConfigData("hamlet_yotp")
 	if YOTP == 1 then
     inst.AnimState:Hide("YOTP")
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("kyno_pigshop_antiquities", function(inst)
     local YOTP = GetModConfigData("hamlet_yotp")
 	if YOTP == 1 then
     inst.AnimState:Hide("YOTP")
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("kyno_pigshop_arcane", function(inst)
     local YOTP = GetModConfigData("hamlet_yotp")
 	if YOTP == 1 then
     inst.AnimState:Hide("YOTP")
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("kyno_pigshop_weapons", function(inst)
     local YOTP = GetModConfigData("hamlet_yotp")
 	if YOTP == 1 then
     inst.AnimState:Hide("YOTP")
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("kyno_pigshop_hatshop", function(inst)
     local YOTP = GetModConfigData("hamlet_yotp")
 	if YOTP == 1 then
     inst.AnimState:Hide("YOTP")
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("kyno_pigshop_bank", function(inst)
     local YOTP = GetModConfigData("hamlet_yotp")
 	if YOTP == 1 then
     inst.AnimState:Hide("YOTP")
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("kyno_pigshop_tinker", function(inst)
     local YOTP = GetModConfigData("hamlet_yotp")
 	if YOTP == 1 then
     inst.AnimState:Hide("YOTP")
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("kyno_pigshop_academy", function(inst)
     local YOTP = GetModConfigData("hamlet_yotp")
 	if YOTP == 1 then
     inst.AnimState:Hide("YOTP")
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("kyno_pigshop_cityhall", function(inst)
     local YOTP = GetModConfigData("hamlet_yotp")
 	if YOTP == 1 then
     inst.AnimState:Hide("YOTP")
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("kyno_pigtower", function(inst)
     local YOTP = GetModConfigData("hamlet_yotp")
 	if YOTP == 1 then
     inst.AnimState:Hide("YOTP")
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("kyno_pigpalacetower", function(inst)
     local YOTP = GetModConfigData("hamlet_yotp")
 	if YOTP == 1 then
     inst.AnimState:Hide("YOTP")
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("kyno_pigtower2", function(inst)
     local YOTP = GetModConfigData("hamlet_yotp")
 	if YOTP == 1 then
     inst.AnimState:Hide("YOTP")
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("kyno_pigtower3", function(inst)
     local YOTP = GetModConfigData("hamlet_yotp")
 	if YOTP == 1 then
     inst.AnimState:Hide("YOTP")
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("kyno_pighouse_city", function(inst)
     local YOTP = GetModConfigData("hamlet_yotp")
 	if YOTP == 1 then
     inst.AnimState:Hide("YOTP")
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 local function new_DoDelta(self, amount)
     local oldsection = self:GetCurrentSection()
     local newsection = (self:GetCurrentSection() + 1) % 5
@@ -212,43 +212,43 @@ local function InfiniteLight(inst)
 end
 
 AddPrefabPostInit("kyno_brazier", InfiniteLight)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("hedge_block_item", function(inst)
 	if inst.components.inventoryitem ~= nil then
 	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_ham.xml"
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("hedge_cone_item", function(inst)
 	if inst.components.inventoryitem ~= nil then
 	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_ham.xml"
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("hedge_layered_item", function(inst)
 	if inst.components.inventoryitem ~= nil then
 	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_ham.xml"
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("hedge_block_aged_item", function(inst)
 	if inst.components.inventoryitem ~= nil then
 	inst.components.inventoryitem.atlasname = "images/inventoryimages/hedge_block_aged_item.xml"
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("hedge_cone_aged_item", function(inst)
 	if inst.components.inventoryitem ~= nil then
 	inst.components.inventoryitem.atlasname = "images/inventoryimages/hedge_cone_aged_item.xml"
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("hedge_layered_aged_item", function(inst)
 	if inst.components.inventoryitem ~= nil then
 	inst.components.inventoryitem.atlasname = "images/inventoryimages/hedge_layered_aged_item.xml"
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddComponentPostInit(
     "locomotor",
     function(inst)
@@ -264,7 +264,7 @@ AddComponentPostInit(
         end
     end
 )
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 packim_chance = GetModConfigData("packim_baggims")
 GLOBAL.SetSharedLootTable("malbatross_packim",
 {
@@ -291,4 +291,10 @@ AddPrefabPostInit("malbatross", function(inst)
 		inst.components.lootdropper:SetChanceLootTable("malbatross_packim")
 	end
 end)
-------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_irongate_item", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_irongate_item.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------

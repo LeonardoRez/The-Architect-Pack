@@ -10,6 +10,11 @@ local assets =
 	
 	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_ham.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_ham.xml"),
+	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC003.fev"),
+	Asset("SOUND", "sound/DLC003_AMB_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_music_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_sfx.fsb"),
 }
 
 local prefabs =
@@ -115,6 +120,8 @@ local function gnatfn()
 	inst:AddTag("smallcreature")
 	inst:AddTag("notarget")
 	inst:AddTag("NOCLICK")
+	
+	inst.SoundEmitter:PlaySound("dontstarve_DLC003/creatures/enemy/gnat/LP","move")
 	
 	inst.entity:SetPristine()
 

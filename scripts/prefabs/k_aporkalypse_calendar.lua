@@ -13,6 +13,11 @@ local assets =
 	
 	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_ham.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_ham.xml"),
+	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC003.fev"),
+	Asset("SOUND", "sound/DLC003_AMB_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_music_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_sfx.fsb"),
 }
 
 local prefabs =
@@ -26,6 +31,10 @@ local function OnNight(inst, isnight)
 	if isnight then
 		inst.AnimState:PlayAnimation("idle_pre")
 		inst.AnimState:PushAnimation("idle_on", true)
+		inst:DoTaskInTime(1/30, function()
+		inst.SoundEmitter:KillSound("base_sound")
+		inst.SoundEmitter:KillSound("totem_sound")
+		end)
 	end
 end
 
@@ -41,6 +50,22 @@ local function OnDay(inst, isday)
 		inst.AnimState:PlayAnimation("idle_pst")
 		inst.AnimState:PushAnimation("idle_loop", true)
 	end
+end
+
+local function onnear(inst, isday)
+	if isday then
+		inst:DoTaskInTime(1/30, function()
+		inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/objects/aporkalypse_clock/totem_LP", "totem_sound")
+		inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/objects/aporkalypse_clock/base_LP", "base_sound")
+		end)
+	end
+end
+
+local function onfar(inst)
+	inst:DoTaskInTime(1/30, function()
+	inst.SoundEmitter:KillSound("base_sound")
+	inst.SoundEmitter:KillSound("totem_sound")
+	end)
 end
 
 local function OnDayFX(inst, isday)
@@ -109,6 +134,11 @@ local function fn(Sim)
 	inst.components.workable:SetOnFinishCallback(onhammered)
 	inst.components.workable:SetOnWorkCallback(onhit)
 	inst.components.workable:SetWorkLeft(3)
+	
+	inst:AddComponent("playerprox")
+    inst.components.playerprox:SetDist(8, 16)
+    inst.components.playerprox:SetOnPlayerNear(onnear)
+    inst.components.playerprox:SetOnPlayerFar(onfar)
 	
 	inst:AddComponent("savedrotation")
 	

@@ -12,6 +12,11 @@ local assets =
 	
 	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_ham.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_ham.xml"),
+	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC003.fev"),
+	Asset("SOUND", "sound/DLC003_AMB_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_music_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_sfx.fsb"),
 }
 
 local function onhammered(inst, worker)
@@ -47,6 +52,14 @@ end
 local function onbuilt_vortex(inst)
 	inst.AnimState:PlayAnimation("vortex_fill")
 	inst.AnimState:PushAnimation("vortex_idle_full", true)
+end
+
+local function onfar(inst)
+	inst.SoundEmitter:KillSound("doom")
+end
+
+local function onnear(inst)
+	inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/objects/endswell/hum_LP","doom")
 end
 
 local function onsave(inst, data)
@@ -132,6 +145,11 @@ local function endfn()
     if not TheWorld.ismastersim then
         return inst
     end
+	
+	inst:AddComponent("playerprox")
+    inst.components.playerprox:SetDist(5, 7)
+    inst.components.playerprox:SetOnPlayerNear(onnear)
+    inst.components.playerprox:SetOnPlayerFar(onfar)
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

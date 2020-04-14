@@ -72,10 +72,8 @@ local function baseFn(Sim)
     end
 
 	local function createExtras(inst)
-    -- local x, y, z = inst.Transform:GetWorldPosition()
 	inst.towerprefab =  SpawnPrefab("kyno_volcano_tower")
-	-- inst.towerprefab.Transform:SetPosition( x, y, z )
-	inst.towerprefab.entity:SetParent(inst.entity) -- ADAI GOD!
+	inst.towerprefab.entity:SetParent(inst.entity)
 	end
 	
 	inst:AddComponent("inspectable")

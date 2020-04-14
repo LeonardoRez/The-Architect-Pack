@@ -3,17 +3,37 @@ require "prefabutil"
 local assets =
 {
 	Asset("ANIM", "anim/sharkitten_den.zip"),
+	Asset("ANIM", "anim/tigershark_ground.zip"),
+	Asset("ANIM", "anim/tigershark_ground_build.zip"),
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_sharkittenden.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_sharkittenden.xml"),
 	
 	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_sw.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_sw.xml"),
+	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
+	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),
+}
+
+local prefabs = 
+{
+	"kyno_sharkittenden_low",
+	"kyno_tigershark",
 }
 
 local anims = {"idle_active", "idle_inactive"}
 
-local function dig_up(inst, worker, workleft)
+local function dig_up_active(inst, worker, workleft)
+	SpawnPrefab("sand_puff_large_front").Transform:SetPosition(inst.Transform:GetWorldPosition())
+	SpawnPrefab("sand_puff_large_back").Transform:SetPosition(inst.Transform:GetWorldPosition())
+	inst:Remove()
+	SpawnPrefab("kyno_sharkittenden_low").Transform:SetPosition(inst.Transform:GetWorldPosition())
+end
+
+local function dig_up_inactive(inst, worker, workleft)
+	SpawnPrefab("sand_puff_large_front").Transform:SetPosition(inst.Transform:GetWorldPosition())
+	SpawnPrefab("sand_puff_large_back").Transform:SetPosition(inst.Transform:GetWorldPosition())
 	inst.components.lootdropper:SpawnLootPrefab("spoiled_fish")
 	inst.components.lootdropper:SpawnLootPrefab("spoiled_fish_small")
 	inst.components.lootdropper:SpawnLootPrefab("turf_beach")
@@ -21,7 +41,20 @@ local function dig_up(inst, worker, workleft)
 	inst:Remove()
 end
 
-local function fn()
+local shark_front = 1
+
+local shark_defs = {
+	shark = { { -3.28, 0, -2.14 } },
+}
+
+local function Sleep(inst)
+if inst:HasTag("shark") then
+	inst:DoTaskInTime(4+math.random()*5, function() Sleep(inst) end)
+		inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/tiger_shark/sleep")
+	end
+end
+
+local function activefn()
 	local inst = CreateEntity()
     
 	inst.entity:AddTransform()
@@ -47,6 +80,18 @@ local function fn()
     if not TheWorld.ismastersim then
         return inst
     end
+	
+	local decor_items = shark_defs
+		inst.decor = {}
+		for item_name, data in pairs(decor_items) do
+			for l, offset in pairs(data) do
+				local item_inst = SpawnPrefab("kyno_tigershark")
+				item_inst.AnimState:PlayAnimation("sleep_loop", true)
+				item_inst.entity:SetParent(inst.entity)
+				item_inst.Transform:SetPosition(offset[1], offset[2], offset[3])
+				table.insert(inst.decor, item_inst)
+			end
+		end
 
 	inst:AddComponent("inspectable")
 	
@@ -57,11 +102,96 @@ local function fn()
     
 	inst:AddComponent("workable")
 	inst.components.workable:SetWorkAction(ACTIONS.DIG)
-	inst.components.workable:SetOnFinishCallback(dig_up)
+	inst.components.workable:SetOnFinishCallback(dig_up_active)
 	inst.components.workable:SetWorkLeft(5)
 	
 	return inst
 end
 
-return Prefab("kyno_sharkittenden", fn, assets, prefabs),
+local function sharkfn()
+	local inst = CreateEntity()
+    
+	inst.entity:AddTransform()
+    inst.entity:AddAnimState()
+    inst.entity:AddSoundEmitter()
+	inst.entity:AddDynamicShadow()
+	inst.entity:AddNetwork()
+	
+	inst.DynamicShadow:SetSize(6, 3)
+	inst.Transform:SetFourFaced()
+	
+	inst.AnimState:SetScale(.75, .75, .75)
+	
+	MakeObstaclePhysics(inst, .5)
+	
+	inst.AnimState:SetBank("tigershark")
+	inst.AnimState:SetBuild("tigershark_ground_build")
+	inst.AnimState:PlayAnimation("sleep_loop", true)
+	inst.persists = false
+		
+	inst:AddTag("shark")
+	inst:AddTag("animal")	
+	inst:AddTag("epic")	
+		
+	inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
+
+	inst:AddComponent("lootdropper")
+	
+	inst:AddComponent("hauntable")
+    inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
+	
+	Sleep(inst)
+
+	return inst
+end
+
+local function inactivefn()
+	local inst = CreateEntity()
+    
+	inst.entity:AddTransform()
+    inst.entity:AddAnimState()
+    inst.entity:AddSoundEmitter()
+	inst.entity:AddNetwork()
+
+	local minimap = inst.entity:AddMiniMapEntity()
+	minimap:SetIcon("sharkitten_den.png")
+	
+	inst.AnimState:SetBank("sharkittenden")
+	inst.AnimState:SetBuild("sharkitten_den")
+	inst.AnimState:PlayAnimation("idle_inactive")
+	
+	MakeObstaclePhysics(inst, 2)
+	
+	inst:AddTag("structure")
+	inst:AddTag("sharkhome")
+	inst:AddTag("scarytoprey")
+	
+	inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
+
+	inst:AddComponent("inspectable")
+	
+	inst:AddComponent("hauntable")
+    inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
+	
+    inst:AddComponent("lootdropper")
+    
+	inst:AddComponent("workable")
+	inst.components.workable:SetWorkAction(ACTIONS.DIG)
+	inst.components.workable:SetOnFinishCallback(dig_up_inactive)
+	inst.components.workable:SetWorkLeft(2)
+	
+	return inst
+end
+
+return Prefab("kyno_sharkittenden", activefn, assets, prefabs),
+Prefab("kyno_sharkittenden_low", inactivefn, assets, prefabs),
+Prefab("kyno_tigershark", sharkfn, assets, prefabs),
 MakePlacer("kyno_sharkittenden_placer", "sharkittenden", "sharkitten_den", "idle_active")

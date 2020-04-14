@@ -12,6 +12,12 @@ local assets =
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_piptoncart.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_piptoncart.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_sammywagon.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_sammywagon.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_piptoncart.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_piptoncart.xml"),
 }
 
 local prefabs =
@@ -55,6 +61,7 @@ end
 local function creepy(inst)
 if inst:HasTag("name_is_sammy") or inst:HasTag("name_is_pipton") then
 	inst:DoTaskInTime(8+math.random()*5, function() creepy(inst) end)
+		inst.SoundEmitter:PlaySound("dontstarve/creatures/merm/idle")
 		inst.AnimState:PlayAnimation("idle_creepy")
 		inst.AnimState:PushAnimation("idle_loop", true)
 	end
@@ -72,6 +79,9 @@ local function wagonfn()
 	inst.entity:AddAnimState()
 	inst.entity:AddSoundEmitter()
     inst.entity:AddNetwork()
+	
+	local minimap = inst.entity:AddMiniMapEntity()
+	minimap:SetIcon("kyno_sammywagon.tex")
 	
     inst.AnimState:SetBank("quagmire_mermcart")
     inst.AnimState:SetBuild("quagmire_mermcart")
@@ -168,6 +178,9 @@ local function cartfn()
 	inst.entity:AddAnimState()
 	inst.entity:AddSoundEmitter()
     inst.entity:AddNetwork()
+	
+	local minimap = inst.entity:AddMiniMapEntity()
+	minimap:SetIcon("kyno_piptoncart.tex")
 	
     inst.AnimState:SetBank("quagmire_mermcart")
     inst.AnimState:SetBuild("quagmire_mermcart")
