@@ -2162,23 +2162,23 @@ local DST = GLOBAL.TheSim:GetGameID() == "DST"
 				setval(v, "OnOverrideCCTable.UpdateAmbientCCTable.SEASON_COLOURCUBES",{
 					autumn =
 					{
-						day = resolvefilepath("images/colour_cubes/temperate_day_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/temperate_dusk_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/temperate_night_cc.tex"),
+						day = resolvefilepath("images/colour_cubes/pork_warm_day_cc.tex"),
+						dusk = resolvefilepath("images/colour_cubes/pork_warm_day_cc.tex"),
+						night = resolvefilepath("images/colour_cubes/pork_warm_night_cc.tex"),
 						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
 					},
 					winter =
 					{
 						day = resolvefilepath("images/colour_cubes/pork_cold_day_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/pork_cold_dusk_cc.tex"),
+						dusk = resolvefilepath("images/colour_cubes/pork_cold_day_cc.tex"),
 						night = resolvefilepath("images/colour_cubes/pork_cold_night_cc.tex"),
 						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
 					},
 					spring =
 					{
-						day = resolvefilepath("images/colour_cubes/pork_warm_day_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/pork_warm_day_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/pork_warm_night_cc.tex"),
+						day = resolvefilepath("images/colour_cubes/temperate_day_cc.tex"),
+						dusk = resolvefilepath("images/colour_cubes/temperate_day_cc.tex"),
+						night = resolvefilepath("images/colour_cubes/temperate_night_cc.tex"),
 						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
 					},
 					summer =
