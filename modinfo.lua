@@ -1,5 +1,5 @@
 name = " The Architect Pack"
-version = "1.5-B-Alpha-3"
+version = "1.5-B-Alpha-4"
 
 description = "This mod contains huge amount of decorative structures for Base Building! Remember: They're just replicas, static structures or not?...\n\nThis Mod Includes some Special Items, gotta craft 'em all! (Mostly decorative/utility items)\n\nThis includes content from: Shipwrecked, Hamlet, The Forge, The Gorge and exclusive DS/DST content!\n\nMod Version: "..version.."\n\nCredits on the mod page!"
 author = "The Building Society"
@@ -139,5 +139,16 @@ configuration_options =
 			{description = "Disabled", data = 1},
 		},
 		default = 1,
+	},
+	{
+		name = "shit",
+		label = "Shit Lord Mode",
+		hover = "GLERMZ SHIT CREW APPROACHES",
+		options =
+		{
+			{description = "Enabled", data = 0},
+			{description = "Disabled", data = 1},
+		},
+		default = 0,
 	},
 }

@@ -140,7 +140,7 @@ local function fn()
     inst.AnimState:SetBuild("ruins_torch")
     inst.AnimState:PlayAnimation("idle")
 
-    inst:AddTag("campfire")
+    -- inst:AddTag("campfire")
     inst:AddTag("structure")
     inst:AddTag("wildfireprotected")
 	inst:AddTag("notarget")

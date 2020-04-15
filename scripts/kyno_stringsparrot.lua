@@ -52,7 +52,7 @@ for i, parrot in ipairs(parrot_pirate) do
 					inst.components.talker:Say("Cracker!")
 					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp") 
 				elseif math.random() < 0.050 then
-					inst.components.talker:Say("Seu viadinho!")
+					inst.components.talker:Say("MERDA MERDA MERDA")
 					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp") 
 				elseif math.random() < 0.050 then
 					inst.components.talker:Say("CUT STONES!!!")

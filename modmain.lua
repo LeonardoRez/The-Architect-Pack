@@ -240,6 +240,13 @@ PrefabFiles = {
 	"k_gnawangel2",
 	"k_birdfountain",
 	"k_cottontree",
+	"k_spottyshrub",
+	"k_oven",
+	"k_grill",
+	"k_grill_large",
+	"k_pothanger",
+	"k_pothanger_small",
+	"k_pothanger_syrup",
 	-- SEA CONTENT (Currently disabled) --
 	"k_mangrovetrees",
 	"k_wrecks",
@@ -295,6 +302,9 @@ AddMinimapAtlas("images/minimapimages/kyno_stoneobelisk.xml")
 AddMinimapAtlas("images/minimapimages/kyno_worshipper.xml")
 AddMinimapAtlas("images/minimapimages/kyno_worshipper2.xml")
 AddMinimapAtlas("images/minimapimages/kyno_birdfountain.xml")
+AddMinimapAtlas("images/minimapimages/kyno_oven.xml")
+AddMinimapAtlas("images/minimapimages/kyno_grill.xml")
+AddMinimapAtlas("images/minimapimages/kyno_pothanger.xml")
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddIngredientValues({"kyno_coffeebeans_cooked"}, {fruit=1}, true)
 AddIngredientValues({"kyno_coffeebeans"}, {fruit=1}, true)
@@ -396,6 +406,17 @@ if GLOBAL.TheNet:GetIsMasterSimulation() then
         AddPrefabPostInit(item5_name, function(inst)
             inst.components.inventoryitem.imagename = item5_name
             inst.components.inventoryitem.atlasname = item5_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local item6_atlas = MODROOT.."images/inventoryimages/kyno_turfs_sw_2.xml"
+    for _, item6 in pairs({"wall_enforcedlimestone_land_item"}) do
+        local item6_name = item6
+        AddPrefabPostInit(item6_name, function(inst)
+            inst.components.inventoryitem.imagename = item6_name
+            inst.components.inventoryitem.atlasname = item6_atlas
         end)
     end
 end
@@ -847,8 +868,36 @@ AddRecipe("kyno_birdfountain", {Ingredient("cutstone", 1), Ingredient("redgem", 
 kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_birdfountain_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_birdfountain.xml", "kyno_birdfountain.tex")
 
 
-AddRecipe("cottontree_normal", {Ingredient("log", 3), Ingredient("pinecone", 1)},
+AddRecipe("cottontree_normal", {Ingredient("log", 1), Ingredient("pinecone", 1)},
 kyno_gorgetab, TECH.SCIENCE_TWO, "cottontree_normal_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_cottontree.xml", "kyno_cottontree.tex")
+
+
+AddRecipe("kyno_spottyshrub", {Ingredient("dug_berrybush", 1), Ingredient("poop", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_spottyshrub_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_spottyshrub.xml", "kyno_spottyshrub.tex")
+
+
+AddRecipe("kyno_oven", {Ingredient("cutstone", 2), Ingredient("charcoal", 3)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_oven_placer", 0, nil, nil, nil, "images/inventoryimages.xml", "quagmire_crate_oven.tex")
+
+
+AddRecipe("kyno_grill_small", {Ingredient("cutstone", 1), Ingredient("twigs", 3), Ingredient("charcoal", 3)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_grill_small_placer", 0, nil, nil, nil, "images/inventoryimages.xml", "quagmire_crate_grill_small.tex")
+
+
+AddRecipe("kyno_grill_large", {Ingredient("cutstone", 2), Ingredient("twigs", 4), Ingredient("charcoal", 4)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_grill_large_placer", 0, nil, nil, nil, "images/inventoryimages.xml", "quagmire_crate_grill.tex")
+
+
+AddRecipe("kyno_pothanger_potsmall", {Ingredient("cutstone", 1), Ingredient("twigs", 3), Ingredient("charcoal", 3)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_pothanger_potsmall_placer", 0, nil, nil, nil, "images/inventoryimages.xml", "quagmire_crate_pot_hanger.tex")
+
+
+AddRecipe("kyno_pothanger", {Ingredient("cutstone", 2), Ingredient("twigs", 4), Ingredient("charcoal", 4)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_pothanger_placer", 0, nil, nil, nil, "images/inventoryimages.xml", "quagmire_crate_pot_hanger.tex")
+
+
+AddRecipe("kyno_pothanger_syrup", {Ingredient("cutstone", 2), Ingredient("twigs", 3), Ingredient("honey", 3)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_pothanger_syrup_placer", 0, nil, nil, nil, "images/inventoryimages.xml", "quagmire_crate_pot_hanger.tex")
 
 
 AddRecipe("kyno_lamppost", {Ingredient("cutstone", 1), Ingredient("lantern", 1), Ingredient("transistor", 1)},
@@ -1100,7 +1149,7 @@ AddRecipe("kyno_pugaliskfountain", {Ingredient("cutstone", 4), Ingredient("ice",
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_pugaliskfountain_placer", 4, nil, nil, nil, "images/inventoryimages/kyno_fountainyouth.xml", "kyno_fountainyouth.tex")
 
 
-AddRecipe("kyno_trapdoor", {Ingredient("cutstone", 1)},
+AddRecipe("kyno_trapdoor", {Ingredient("cutstone", 2)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_trapdoor_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_trapdoor.xml", "kyno_trapdoor.tex")
 
 
@@ -1152,7 +1201,7 @@ AddRecipe("kyno_flytrap", {Ingredient("plantmeat", 2), Ingredient("houndstooth",
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_flytrap_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_flytrap.xml", "kyno_flytrap.tex")
 
 
-AddRecipe("kyno_dungball", {Ingredient("poop", 4), Ingredient("twigs", 4)},
+AddRecipe("kyno_dungball", {Ingredient("poop", 2), Ingredient("twigs", 4)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_dungball_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_dungball.xml", "kyno_dungball.tex")
 
 
@@ -1683,6 +1732,10 @@ AddRecipe("wall_limestone_item", {Ingredient("cutstone", 2)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "wall_limestone_item.tex")
 
 
+AddRecipe("wall_enforcedlimestone_land_item", {Ingredient("cutstone", 2), Ingredient("kelp", 1)},
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_turfs_sw_2.xml", "wall_enforcedlimestone_land_item.tex")
+
+
 AddRecipe("kyno_woodlegs_cage", {Ingredient("log", 5), Ingredient("rope", 2), Ingredient("goldnugget", 10)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_woodlegs_cage_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_woodlegs_cage.xml", "kyno_woodlegs_cage.tex")
 
@@ -1695,7 +1748,7 @@ AddRecipe("kyno_dragoonden", {Ingredient("cutstone", 2), Ingredient("charcoal", 
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_dragoonden_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "dragoonden.tex")
 
 
-AddRecipe("kyno_elephantcactus", {Ingredient("poop", 4), Ingredient("houndstooth", 4)},
+AddRecipe("kyno_elephantcactus", {Ingredient("poop", 1), Ingredient("houndstooth", 2)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_elephantcactus_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "dug_elephantcactus.tex")
 
 local COFFEE_PLANT = GetModConfigData("coffee_hack")
@@ -1704,7 +1757,7 @@ AddRecipe("dug_coffeebush", {Ingredient("ash", 5), Ingredient("dug_berrybush", 1
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages/dug_coffeebush.xml", "dug_coffeebush.tex")
 end
 
-AddRecipe("kyno_fakecoffeebush", {Ingredient("poop", 2), Ingredient("dug_berrybush", 1)},
+AddRecipe("kyno_fakecoffeebush", {Ingredient("poop", 1), Ingredient("dug_berrybush", 1)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_fakecoffeebush_placer", 1, nil, nil, nil, "images/inventoryimages/dug_coffeebush.xml", "dug_coffeebush.tex")
 
 
@@ -1790,7 +1843,7 @@ AddRecipe("kyno_wreck_4", {Ingredient("boards", 2)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_wreck_4_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_wreck_4.xml", "kyno_wreck_4.tex", IsOcean, nil, nil)
 
 
-AddRecipe("kyno_seaweed", {Ingredient("poop", 2), Ingredient("kelp", 1)},
+AddRecipe("kyno_seaweed", {Ingredient("poop", 1), Ingredient("kelp", 1)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_seaweed_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "seaweed.tex", IsOcean, nil, nil)
 
 
@@ -2164,21 +2217,21 @@ local DST = GLOBAL.TheSim:GetGameID() == "DST"
 					{
 						day = resolvefilepath("images/colour_cubes/sw_mild_day_cc.tex"),
 						dusk = resolvefilepath("images/colour_cubes/sw_mild_day_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/SW_mild_night_cc.tex"),
+						night = resolvefilepath("images/colour_cubes/SW_mild_day_cc.tex"),
 						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
 					},
 					winter =
 					{
 						day = resolvefilepath("images/colour_cubes/pork_cold_day_cc.tex"),
 						dusk = resolvefilepath("images/colour_cubes/pork_cold_day_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/pork_cold_night_cc.tex"),
+						night = resolvefilepath("images/colour_cubes/pork_cold_day_cc.tex"),
 						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
 					},
 					spring =
 					{
 						day = resolvefilepath("images/colour_cubes/temperate_day_cc.tex"),
 						dusk = resolvefilepath("images/colour_cubes/temperate_day_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/temperate_night_cc.tex"),
+						night = resolvefilepath("images/colour_cubes/temperate_day_cc.tex"),
 						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
 					},
 					summer =

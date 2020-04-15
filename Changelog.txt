@@ -45,6 +45,7 @@ Version 1.5-B-Alpha-3
 - Added Sounds for Antcomb Home. 
 - Added Sounds for Honey Cache. 
 - Added Sounds for Oscilating Fan. 
+- Added Sounds for Ominous Carving.
 
 - Fixed Several bugs about the Packim Baggims.
 - Fixed Players not able to craft some recipes in tabs.
@@ -54,6 +55,7 @@ Version 1.5-B-Alpha-3
 - Fixed The Gorge structures placement.
 - Fixed Lamp Post not having light at night.
 - Fixed World Regrowth in modded Turfs. 
+- Fixed Iron Gate dropping wrong items.
 - Fixed Doydoy Nest recipe. 
 - Fixed Missing Icons on Mini signs. 
 - Fixed Sandpile Animations. 
@@ -77,3 +79,6 @@ Version 1.5-B-Alpha-3
 - Charlie will not target Pig Braziers anymore. 
 - Ominous Carvning will open if the player is near and close if the player is far.
 - Fountain of Youth can be turned on/off by the player now.
+- Players can now delete items by giving them to Ominous Carving.
+- Cultivated Turf is no longer safe from regrowth.
+- Iron Gate can't be attacked now.

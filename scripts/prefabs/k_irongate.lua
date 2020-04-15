@@ -314,10 +314,11 @@ local function onworked(inst)
     GetAnimState(inst):PushAnimation(GetAnimName(inst, "idle"), false)
 end
 
+--[[
 local function onhit(inst, attacker, damage)
     inst.components.workable:WorkedBy(attacker)
 end
-
+]]--
 -------------------------------------------------------------------------------
 local function SetIsOpen(inst, isopen)
     inst._isopen:set(isopen)
@@ -532,7 +533,7 @@ local function MakeWall(name, anims, isdoor, klaussackkeyid)
         inst:AddComponent("lootdropper")
         inst.components.lootdropper:SetLoot(
             isdoor and
-            { "boards", "boards", "rope" } or
+            { "twigs", "twigs", "twigs", "flint" } or
             { "twigs" }
         )
 
@@ -543,6 +544,7 @@ local function MakeWall(name, anims, isdoor, klaussackkeyid)
             inst.components.workable:SetOnFinishCallback(onhammered)
             inst.components.workable:SetOnWorkCallback(onworked)
 
+			--[[
             inst:AddComponent("combat")
             inst.components.combat:SetKeepTargetFunction(keeptargetfn)
             inst.components.combat.onhitfn = onhit
@@ -554,6 +556,7 @@ local function MakeWall(name, anims, isdoor, klaussackkeyid)
             inst.components.health.canheal = false
             inst.components.health.nofadeout = true
             inst:ListenForEvent("death", onhammered)
+			]]--
 
             MakeMediumBurnable(inst)
             MakeMediumPropagator(inst)

@@ -147,7 +147,7 @@ AddTile(81, "fields", "mod_turfs", nil,
     },{
         noise_texture = "levels/textures/mini_noise_farmland.tex"
     }
-, true)
+)
 
 AddTile(82, "foundation", "mod_turfs", nil,
     {

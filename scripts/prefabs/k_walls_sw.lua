@@ -97,6 +97,8 @@ function MakeWallType(data)
 		
 		Asset("IMAGE", "images/inventoryimages/kyno_inventoryimages_sw.tex"),
 		Asset("ATLAS", "images/inventoryimages/kyno_inventoryimages_sw.xml"),
+		Asset("IMAGE", "images/inventoryimages/kyno_turfs_sw_2.tex"),
+		Asset("ATLAS", "images/inventoryimages/kyno_turfs_sw_2.xml"),
     }
 
     local prefabs =
@@ -166,7 +168,7 @@ function MakeWallType(data)
         inst:AddComponent("inventoryitem")
 
         inst:AddComponent("repairer")
-		inst.components.repairer.repairmaterial = data.name == "limestone" and MATERIALS.STONE or data.name
+		inst.components.repairer.repairmaterial = data.name == "limestone" and MATERIALS.STONE or data.name == "enforcedlimestone_land" and MATERIALS.STONE
         inst.components.repairer.healthrepairvalue = data.maxhealth / 6
 
         inst:AddComponent("deployable")
@@ -241,7 +243,7 @@ function MakeWallType(data)
         inst:AddComponent("lootdropper")
 
         inst:AddComponent("repairable")
-        inst.components.repairable.repairmaterial = data.name == "limestone" and MATERIALS.STONE or data.name
+        inst.components.repairable.repairmaterial = data.name == "limestone" and MATERIALS.STONE or data.name == "enforcedlimestone_land" and MATERIALS.STONE
         inst.components.repairable.onrepaired = onrepaired
 
         inst:AddComponent("combat")
@@ -279,6 +281,7 @@ local wallprefabs = {}
 local walldata =
 {   
     { name = "limestone",	material = "stone", tags = { "stone" },	loot = "rocks", maxloots = 2, maxhealth = TUNING.STONEWALL_HEALTH,	buildsound = "dontstarve/common/place_structure_stone" },
+	{ name = "enforcedlimestone_land",	material = "stone", tags = { "stone", "cutstone" },	loot = "rocks", "kelp", maxloots = 2, maxhealth = TUNING.STONEWALL_HEALTH,	buildsound = "dontstarve/common/place_structure_stone" },
 }
 
 for i, v in ipairs(walldata) do

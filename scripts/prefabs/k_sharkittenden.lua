@@ -3,8 +3,8 @@ require "prefabutil"
 local assets =
 {
 	Asset("ANIM", "anim/sharkitten_den.zip"),
-	Asset("ANIM", "anim/tigershark_ground.zip"),
-	Asset("ANIM", "anim/tigershark_ground_build.zip"),
+	Asset("ANIM", "anim/sharkitten_basic.zip"),
+	Asset("ANIM", "anim/sharkitten_build.zip"),
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_sharkittenden.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_sharkittenden.xml"),
@@ -19,7 +19,8 @@ local assets =
 local prefabs = 
 {
 	"kyno_sharkittenden_low",
-	"kyno_tigershark",
+	"kyno_sharkitten",
+	"kyno_sharkitten2",
 }
 
 local anims = {"idle_active", "idle_inactive"}
@@ -42,15 +43,20 @@ local function dig_up_inactive(inst, worker, workleft)
 end
 
 local shark_front = 1
+local shark_front_2 = 1
 
 local shark_defs = {
-	shark = { { -3.28, 0, -2.14 } },
+	shark = { { -2.28, 0, 2.14 } },
+}
+
+local shark_defs_2 = {
+	shark2 = { { 2.28, 0, -2.14 } },
 }
 
 local function Sleep(inst)
 if inst:HasTag("shark") then
 	inst:DoTaskInTime(4+math.random()*5, function() Sleep(inst) end)
-		inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/tiger_shark/sleep")
+		inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/tiger_kitten/idle", "idle")
 	end
 end
 
@@ -85,8 +91,20 @@ local function activefn()
 		inst.decor = {}
 		for item_name, data in pairs(decor_items) do
 			for l, offset in pairs(data) do
-				local item_inst = SpawnPrefab("kyno_tigershark")
-				item_inst.AnimState:PlayAnimation("sleep_loop", true)
+				local item_inst = SpawnPrefab("kyno_sharkitten")
+				item_inst.AnimState:PlayAnimation("idle", true)
+				item_inst.entity:SetParent(inst.entity)
+				item_inst.Transform:SetPosition(offset[1], offset[2], offset[3])
+				table.insert(inst.decor, item_inst)
+			end
+		end
+		
+	local decor_items_2 = shark_defs_2
+		inst.decor = {}
+		for item_name, data in pairs(decor_items_2) do
+			for l, offset in pairs(data) do
+				local item_inst = SpawnPrefab("kyno_sharkitten2")
+				item_inst.AnimState:PlayAnimation("idle", true)
 				item_inst.entity:SetParent(inst.entity)
 				item_inst.Transform:SetPosition(offset[1], offset[2], offset[3])
 				table.insert(inst.decor, item_inst)
@@ -117,16 +135,16 @@ local function sharkfn()
 	inst.entity:AddDynamicShadow()
 	inst.entity:AddNetwork()
 	
-	inst.DynamicShadow:SetSize(6, 3)
+	inst.DynamicShadow:SetSize(2.5, 1.5)
 	inst.Transform:SetFourFaced()
 	
 	inst.AnimState:SetScale(.75, .75, .75)
 	
 	MakeObstaclePhysics(inst, .5)
 	
-	inst.AnimState:SetBank("tigershark")
-	inst.AnimState:SetBuild("tigershark_ground_build")
-	inst.AnimState:PlayAnimation("sleep_loop", true)
+	inst.AnimState:SetBank("sharkitten")
+	inst.AnimState:SetBuild("sharkitten_build")
+	inst.AnimState:PlayAnimation("idle", true)
 	inst.persists = false
 		
 	inst:AddTag("shark")
@@ -193,5 +211,6 @@ end
 
 return Prefab("kyno_sharkittenden", activefn, assets, prefabs),
 Prefab("kyno_sharkittenden_low", inactivefn, assets, prefabs),
-Prefab("kyno_tigershark", sharkfn, assets, prefabs),
+Prefab("kyno_sharkitten", sharkfn, assets, prefabs),
+Prefab("kyno_sharkitten2", sharkfn, assets, prefabs),
 MakePlacer("kyno_sharkittenden_placer", "sharkittenden", "sharkitten_den", "idle_active")

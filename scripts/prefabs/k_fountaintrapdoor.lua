@@ -9,6 +9,16 @@ local assets =
 	
 	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_ham.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_ham.xml"),
+	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC003.fev"),
+	Asset("SOUND", "sound/DLC003_AMB_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_music_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_sfx.fsb"),
+}
+
+local prefabs =
+{
+	"atrium_key",
 }
 
 local STATES = {
@@ -45,11 +55,31 @@ end
 local function onnear(inst)
 	inst.AnimState:PlayAnimation("opening")
 	inst.AnimState:PushAnimation("open")
+	inst.SoundEmitter:PlaySound("dontstarve_DLC003/creatures/boss/pugalisk/trap_door")
 end
 
 local function onfar(inst)
 	inst.AnimState:PlayAnimation("closing")
 	inst.AnimState:PushAnimation("closed")
+	inst.SoundEmitter:PlaySound("dontstarve_DLC003/creatures/boss/pugalisk/trap_door")
+end
+
+local function ShouldAcceptItem(inst, item)
+	if item.components.inventoryitem ~= nil then
+	return true
+	end
+end
+
+local function OnGetItemFromPlayer(inst, giver, item)
+	if item.components.inventoryitem ~= nil and not item:HasTag("PUGALISK_CANT_EAT") then
+		inst.SoundEmitter:PlaySound("dontstarve_DLC003/creatures/boss/pugalisk/entrance")
+		item:Remove()
+	elseif
+		item:HasTag("KeyReplica") then
+		inst.components.lootdropper:SpawnLootPrefab("atrium_key")
+		inst.SoundEmitter:PlaySound("dontstarve_DLC003/creatures/boss/pugalisk/entrance")
+	end
+		print("ITEM REMOVED OR PUGALISK REFUSED IT")
 end
 
 local function fn()
@@ -69,6 +99,7 @@ local function fn()
 	inst.AnimState:SetSortOrder(3)
 	
 	inst:AddTag("structure")
+	inst:AddTag("alltrader")
 	inst:AddTag("pugalisk_trap_door")
 	
 	inst.entity:SetPristine()
@@ -89,7 +120,11 @@ local function fn()
 	inst.components.workable:SetOnWorkCallback(onhit)
 	inst.components.workable:SetWorkLeft(2)
 	
-	 inst:AddComponent("playerprox")
+	inst:AddComponent("trader")
+	inst.components.trader:SetAcceptTest(ShouldAcceptItem)
+    inst.components.trader.onaccept = OnGetItemFromPlayer
+	
+	inst:AddComponent("playerprox")
     inst.components.playerprox:SetDist(4, 5)
     inst.components.playerprox.onnear = onnear
     inst.components.playerprox.onfar = onfar

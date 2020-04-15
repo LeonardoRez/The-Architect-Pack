@@ -697,6 +697,18 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_cottontree.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_cottontree.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_spottyshrub.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_spottyshrub.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_oven.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_oven.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_grill.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_grill.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_pothanger.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_pothanger.xml"),
+	
 	-- Unlisted Assets --
 	Asset("ANIM", "anim/mod_turfs.zip"),
 	Asset("ANIM", "anim/kyno_catalogues.zip"), -- Unused.
@@ -778,8 +790,8 @@ Assets = {
 	Asset("ANIM", "anim/packim_fat_build.zip"),
 	Asset("ANIM", "anim/packim_fire_build.zip"),
 	Asset("ANIM", "anim/teleportato_shipwrecked.zip"),
-	Asset("ANIM", "anim/tigershark_ground.zip"),
-	Asset("ANIM", "anim/tigershark_ground_build.zip"),
+	Asset("ANIM", "anim/sharkitten_basic.zip"),
+	Asset("ANIM", "anim/sharkitten_build.zip"),
 	-- Hamlet Content --
 	Asset("ANIM", "anim/vamp_bat_entrance.zip"),
 	Asset("ANIM", "anim/portal_hamlet.zip"),
@@ -964,8 +976,11 @@ Assets = {
 	Asset("ANIM", "anim/quagmire_altar_statue2_left.zip"),
 	Asset("ANIM", "anim/quagmire_cemetery_left.zip"),
 	Asset("ANIM", "anim/kyno_irongate.zip"),
+	Asset("ANIM", "anim/kyno_oven.zip"),
 	Asset("ANIM", "anim/sugarwoodtree_build.zip"),
 	Asset("ANIM", "anim/sugarwoodtree_trunk_short_build.zip"),
+	Asset("ANIM", "anim/quagmire_syrup_hanger.zip"),
+	Asset("ANIM", "anim/quagmire_potsmall_hanger.zip"),
 	-- Sea Content --
 	Asset("ANIM", "anim/tree_mangrove_build.zip"),
 	Asset("ANIM", "anim/tree_mangrove_normal.zip"),
@@ -976,6 +991,7 @@ Assets = {
 	Asset("ANIM", "anim/brain_coral_rock.zip"),
 	Asset("ANIM", "anim/wall_sea.zip"),
 	Asset("ANIM", "anim/wall_enforcedlimestone.zip"),
+	Asset("ANIM", "anim/wall_enforcedlimestone_land.zip"),
 	Asset("ANIM", "anim/coral_rock.zip"),
 	Asset("ANIM", "anim/gunpowder_barrel.zip"),
 	Asset("ANIM", "anim/bermudatriangle.zip"),

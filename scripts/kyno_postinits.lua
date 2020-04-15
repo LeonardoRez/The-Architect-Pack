@@ -8,6 +8,7 @@ local Recipe = GLOBAL.Recipe
 local resolvefilepath = GLOBAL.resolvefilepath
 local ACTIONS = GLOBAL.ACTIONS
 local ActionHandler = GLOBAL.ActionHandler
+local SpawnPrefab = GLOBAL.SpawnPrefab
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 modimport "scripts/kyno_assets"
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -36,6 +37,12 @@ end)
 AddPrefabPostInit("wall_enforcedlimestone_item", function(inst)
 	if inst.components.inventoryitem ~= nil then
 	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("wall_enforcedlimestone_land_item", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_turfs_sw_2.xml"
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -297,4 +304,48 @@ AddPrefabPostInit("kyno_irongate_item", function(inst)
 	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_irongate_item.xml"
 	end
 end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+local function PugaliskTrapdoor(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	inst:AddTag("PUGALISK_CANT_EAT")
+end
+
+local function TagMe(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	inst:AddTag("KeyReplica")
+end
+
+AddPrefabPostInit("chester_eyebone", PugaliskTrapdoor)
+AddPrefabPostInit("packim_fishbone", PugaliskTrapdoor)
+AddPrefabPostInit("glommerflower", PugaliskTrapdoor)
+AddPrefabPostInit("moonrockseed", PugaliskTrapdoor)
+AddPrefabPostInit("hutch_fishbowl", PugaliskTrapdoor)
+AddPrefabPostInit("atrium_key", PugaliskTrapdoor)
+AddPrefabPostInit("atrium_key", TagMe)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInitAny(function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+    if inst.components.inventoryitem ~= nil and not inst.components.tradable and not inst:HasTag("PUGALISK_CANT_EAT") then 
+	inst:AddComponent("tradable")
+	inst:AddTag("PUGALISK_TEST")
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- MEEM HAAHAHA --
+local function PrecisoCagar(inst)
+inst:DoTaskInTime(480, function() PrecisoCagar(inst) end)
+	if math.random()<0.5 then
+		SpawnPrefab("poop").Transform:SetPosition(inst.Transform:GetWorldPosition())
+	end
+end
+
+if GetModConfigData("shit") == 0 then
+AddPlayerPostInit(PrecisoCagar)
+end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
