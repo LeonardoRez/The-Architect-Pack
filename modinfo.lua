@@ -140,15 +140,4 @@ configuration_options =
 		},
 		default = 1,
 	},
-	{
-		name = "shit",
-		label = "Shit Lord Mode",
-		hover = "GLERMZ SHIT CREW APPROACHES",
-		options =
-		{
-			{description = "Enabled", data = 0},
-			{description = "Disabled", data = 1},
-		},
-		default = 0,
-	},
 }

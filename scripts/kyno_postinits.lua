@@ -337,15 +337,3 @@ AddPrefabPostInitAny(function(inst)
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
--- MEEM HAAHAHA --
-local function PrecisoCagar(inst)
-inst:DoTaskInTime(480, function() PrecisoCagar(inst) end)
-	if math.random()<0.5 then
-		SpawnPrefab("poop").Transform:SetPosition(inst.Transform:GetWorldPosition())
-	end
-end
-
-if GetModConfigData("shit") == 0 then
-AddPlayerPostInit(PrecisoCagar)
-end
--------------------------------------------------------------------------------------------------------------------------------------------------------------------
