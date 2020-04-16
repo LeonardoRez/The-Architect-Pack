@@ -83,7 +83,7 @@ local function fn()
 	
 	inst.Light:SetFalloff(0.9)
     inst.Light:SetIntensity(INTENSITY)
-    inst.Light:SetRadius(6)
+    inst.Light:SetRadius(7)
     inst.Light:Enable(false)
     inst.Light:SetColour(197/255, 197/255, 10/255)
 	
