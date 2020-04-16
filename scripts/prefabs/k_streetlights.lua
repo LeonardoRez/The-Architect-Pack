@@ -12,6 +12,8 @@ local assets =
 	Asset("ATLAS", "images/inventoryimages/kyno_streetlight2.xml"),
 }
 
+local INTENSITY = 0.6
+
 local function onhammered(inst, worker)
 	inst.components.lootdropper:DropLoot()
 	SpawnPrefab("collapse_small").Transform:SetPosition(inst.Transform:GetWorldPosition())
@@ -37,8 +39,8 @@ local function tallfn()
 	inst.entity:AddSoundEmitter()
     inst.entity:AddNetwork()
 	
-	inst.Light:SetFalloff(1)
-    inst.Light:SetIntensity(.8)
+	inst.Light:SetFalloff(0.9)
+    inst.Light:SetIntensity(INTENSITY)
     inst.Light:SetRadius(7)
     inst.Light:Enable(true)
     inst.Light:SetColour(197/255, 197/255, 10/255)
@@ -83,8 +85,8 @@ local function shortfn()
 	inst.entity:AddSoundEmitter()
     inst.entity:AddNetwork()
 	
-	inst.Light:SetFalloff(1)
-    inst.Light:SetIntensity(.8)
+	inst.Light:SetFalloff(0.9)
+    inst.Light:SetIntensity(INTENSITY)
     inst.Light:SetRadius(7)
     inst.Light:Enable(true)
     inst.Light:SetColour(197/255, 197/255, 10/255)
