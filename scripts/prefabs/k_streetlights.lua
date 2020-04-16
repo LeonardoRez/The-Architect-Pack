@@ -84,8 +84,8 @@ local function shortfn()
     inst.entity:AddNetwork()
 	
 	inst.Light:SetFalloff(1)
-    inst.Light:SetIntensity(.7)
-    inst.Light:SetRadius(3)
+    inst.Light:SetIntensity(.8)
+    inst.Light:SetRadius(7)
     inst.Light:Enable(true)
     inst.Light:SetColour(197/255, 197/255, 10/255)
 	
