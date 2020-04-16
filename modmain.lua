@@ -2222,9 +2222,9 @@ local DST = GLOBAL.TheSim:GetGameID() == "DST"
 					},
 					winter =
 					{
-						day = resolvefilepath("images/colour_cubes/winter_day_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/winter_dusk_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/winter_night_cc.tex"),
+						day = resolvefilepath("images/colour_cubes/snow_cc.tex"),
+						dusk = resolvefilepath("images/colour_cubes/snow_cc.tex"),
+						night = resolvefilepath("images/colour_cubes/snow_cc.tex"),
 						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
 					},
 					spring =
