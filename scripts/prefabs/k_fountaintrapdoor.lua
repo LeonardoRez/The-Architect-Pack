@@ -73,6 +73,7 @@ end
 local function OnGetItemFromPlayer(inst, giver, item)
 	if item.components.inventoryitem ~= nil and not item:HasTag("PUGALISK_CANT_EAT") then
 		inst.SoundEmitter:PlaySound("dontstarve_DLC003/creatures/boss/pugalisk/entrance")
+		SpawnPrefab("sand_puff").Transform:SetPosition(inst.Transform:GetWorldPosition())
 		item:Remove()
 	elseif
 		item:HasTag("KeyReplica") then
