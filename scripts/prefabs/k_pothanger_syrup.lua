@@ -17,23 +17,23 @@ end
 
 local function onhit(inst, worker)
     inst.AnimState:PlayAnimation("hit")
-    inst.AnimState:PushAnimation("cooking_loop")
+    inst.AnimState:PushAnimation("cooking_loop", true)
 end
 
 local function onbuilt(inst)
     inst.AnimState:PlayAnimation("place")
-	inst.AnimState:PushAnimation("cooking_loop")
+	inst.AnimState:PushAnimation("cooking_loop", true)
 	inst.SoundEmitter:PlaySound("dontstarve/common/cook_pot_craft")
 end
 
 local function onnear(inst)
 	inst.AnimState:PushAnimation("cooking_loop", true)
-	inst.SoundEmitter:PlaySound("dontstarve/common/cookingpot_rattle", "snd")
+	-- inst.SoundEmitter:PlaySound("dontstarve/common/cookingpot_rattle", "snd")
 end
 
 local function onfar(inst)
 	inst.AnimState:PushAnimation("cooking_loop", true)
-	inst.SoundEmitter:PlaySound("dontstarve/common/cookingpot_rattle", "snd")
+	-- inst.SoundEmitter:PlaySound("dontstarve/common/cookingpot_rattle", "snd")
 end
 
 local function potfn()
@@ -51,7 +51,7 @@ local function potfn()
 	
 	inst.AnimState:SetBank("quagmire_syrup_hanger")
 	inst.AnimState:SetBuild("quagmire_syrup_hanger")
-	inst.AnimState:PlayAnimation("cooking_loop")
+	inst.AnimState:PlayAnimation("cooking_loop", true)
 	inst.AnimState:Hide("mouseover")
     inst.AnimState:Hide("goop")
     inst.AnimState:Hide("goop_small")

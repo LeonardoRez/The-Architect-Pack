@@ -27,13 +27,13 @@ local function onbuilt(inst)
 end
 
 local function onnear(inst)
-	inst.AnimState:PushAnimation("open", true)
-	inst.SoundEmitter:PlaySound("dontstarve/common/cookingpot_finish")
+	inst.AnimState:PushAnimation("idle")
+	--inst.SoundEmitter:PlaySound("dontstarve/common/cookingpot_finish")
 end
 
 local function onfar(inst)
-	inst.AnimState:PushAnimation("cooking_grill_big", true)
-	inst.SoundEmitter:PlaySound("dontstarve/common/cookingpot_rattle", "snd")
+	inst.AnimState:PushAnimation("idle")
+	-- inst.SoundEmitter:PlaySound("dontstarve/common/cookingpot_rattle", "snd")
 end
 
 local function largefn()
