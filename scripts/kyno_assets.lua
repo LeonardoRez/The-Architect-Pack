@@ -709,6 +709,27 @@ Assets = {
 	Asset("IMAGE", "images/minimapimages/kyno_pothanger.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_pothanger.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_mushstump.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_mushstump.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_swampmermhouse.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_swampmermhouse.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_swamppighouse.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_swamppighouse.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_swampmermhouserubble.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_swampmermhouserubble.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_pigelder.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_pigelder.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_pigelder.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_pigelder.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_turfs_gorge.tex"),
+    Asset("ATLAS", "images/inventoryimages/kyno_turfs_gorge.xml"),
+	
 	-- Unlisted Assets --
 	Asset("ANIM", "anim/mod_turfs.zip"),
 	Asset("ANIM", "anim/kyno_catalogues.zip"), -- Unused.
@@ -981,6 +1002,8 @@ Assets = {
 	Asset("ANIM", "anim/sugarwoodtree_trunk_short_build.zip"),
 	Asset("ANIM", "anim/quagmire_syrup_hanger.zip"),
 	Asset("ANIM", "anim/quagmire_potsmall_hanger.zip"),
+	Asset("ANIM", "anim/kyno_swamphouses.zip"),
+	Asset("ANIM", "anim/kyno_turfs3.zip"),
 	-- Sea Content --
 	Asset("ANIM", "anim/tree_mangrove_build.zip"),
 	Asset("ANIM", "anim/tree_mangrove_normal.zip"),

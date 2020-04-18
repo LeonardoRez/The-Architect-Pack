@@ -158,6 +158,7 @@ local function sharkfn()
     end
 
 	inst:AddComponent("lootdropper")
+	inst:AddComponent("inspectable")
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)

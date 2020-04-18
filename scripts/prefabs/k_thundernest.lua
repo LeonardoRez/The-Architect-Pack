@@ -105,6 +105,8 @@ local function birdfn()
         return inst
     end
 	
+	inst:AddComponent("inspectable")
+	
     return inst
 end
 

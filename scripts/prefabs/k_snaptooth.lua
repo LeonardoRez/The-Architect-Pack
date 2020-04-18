@@ -110,6 +110,7 @@ local function fn()
 	
 	inst:AddTag("structure")
 	inst:AddTag("plantkin")
+	-- inst:AddTag("notarget")
 	
 	inst.entity:SetPristine()
 

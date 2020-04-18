@@ -109,6 +109,7 @@ local function fn()
 	
 	inst:AddTag("structure")
 	inst:AddTag("grub")
+	-- inst:AddTag("notarget")
 	
 	inst.entity:SetPristine()
 

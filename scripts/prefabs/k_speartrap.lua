@@ -108,6 +108,7 @@ local function fn()
 	
 	inst:AddTag("structure")
 	inst:AddTag("spear_trap")
+	-- inst:AddTag("notarget")
 	
 	inst.entity:SetPristine()
 
