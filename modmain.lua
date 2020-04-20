@@ -222,6 +222,7 @@ PrefabFiles = {
 	"k_giantgrub",
 	"k_snaptooth",
 	"k_teleportato_hamlet",
+	"k_pigguards",
 	-- THE GORGE CONTENT --
 	"k_gorge_prototyper",
 	"k_bollard",
@@ -254,6 +255,13 @@ PrefabFiles = {
 	"k_mushroomstump",
 	"k_swamphouses",
 	"k_pigelder",
+	"k_planted_carrot",
+	"k_planted_potato",
+	"k_planted_turnip",
+	"k_planted_onion",
+	"k_planted_wheat",
+	"k_planted_garlic",
+	"k_planted_tomato",
 	-- SEA CONTENT (Currently disabled) --
 	"k_mangrovetrees",
 	"k_wrecks",
@@ -728,127 +736,127 @@ local function IsOcean(pt, rot)
 end
 
 AddRecipe("kyno_sw_prototyper", {Ingredient("boards", 4), Ingredient("pondfish", 4)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_sw_prototyper_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "shipwrecked_entrance.tex")
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_sw_prototyper_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "shipwrecked_entrance.tex")
 
 
 AddRecipe("kyno_ham_prototyper", {Ingredient("boards", 4), Ingredient("pigskin", 4)},
-kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_ham_prototyper_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "porkland_entrance.tex")
+kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_ham_prototyper_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "porkland_entrance.tex")
 
 
 AddRecipe("kyno_gorge_prototyper", {Ingredient("cutstone", 3), Ingredient("meatballs", 2)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_gorge_prototyper_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_gnawaltar.xml", "kyno_gnawaltar.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_gorge_prototyper_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_gnawaltar.xml", "kyno_gnawaltar.tex")
 
 
 AddRecipe("kyno_queenaltar", {Ingredient("cutstone", 4), Ingredient("redgem", 2)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_queenaltar_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_queenaltar.xml", "kyno_queenaltar.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_queenaltar_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_queenaltar.xml", "kyno_queenaltar.tex")
 
 
 AddRecipe("kyno_beaststatue", {Ingredient("cutstone", 1), Ingredient("redgem", 1)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_beaststatue_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_beaststatue1.xml", "kyno_beaststatue1.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_beaststatue_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_beaststatue1.xml", "kyno_beaststatue1.tex")
 
 
 AddRecipe("kyno_beaststatue_left", {Ingredient("cutstone", 1), Ingredient("redgem", 1)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_beaststatue_left_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_beaststatue1_left.xml", "kyno_beaststatue1_left.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_beaststatue_left_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_beaststatue1_left.xml", "kyno_beaststatue1_left.tex")
 
 
 AddRecipe("kyno_beaststatue2", {Ingredient("cutstone", 1), Ingredient("redgem", 1)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_beaststatue2_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_beaststatue2.xml", "kyno_beaststatue2.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_beaststatue2_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_beaststatue2.xml", "kyno_beaststatue2.tex")
 
 
 AddRecipe("kyno_beaststatue2_left", {Ingredient("cutstone", 1), Ingredient("redgem", 1)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_beaststatue2_left_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_beaststatue2_left.xml", "kyno_beaststatue2_left.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_beaststatue2_left_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_beaststatue2_left.xml", "kyno_beaststatue2_left.tex")
 
 
 AddRecipe("kyno_bollard", {Ingredient("cutstone", 1)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_bollard_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_bollard.xml", "kyno_bollard.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_bollard_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_bollard.xml", "kyno_bollard.tex")
 
 
 AddRecipe("kyno_ivy", {Ingredient("twigs", 4), Ingredient("cutgrass", 4)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_ivy_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_ivy.xml", "kyno_ivy.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_ivy_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_ivy.xml", "kyno_ivy.tex")
 
 
 AddRecipe("kyno_streetlight1", {Ingredient("lantern", 1), Ingredient("cutstone", 1), Ingredient("transistor", 1)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_streetlight1_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_streetlight1.xml", "kyno_streetlight1.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_streetlight1_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_streetlight1.xml", "kyno_streetlight1.tex")
 
 
 AddRecipe("kyno_streetlight2", {Ingredient("lantern", 1), Ingredient("cutstone", 1), Ingredient("transistor", 1)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_streetlight2_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_streetlight2.xml", "kyno_streetlight2.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_streetlight2_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_streetlight2.xml", "kyno_streetlight2.tex")
 
 
 AddRecipe("kyno_mossygateway", {Ingredient("cutstone", 2), Ingredient("nightmarefuel", 3)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_mossygateway_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_mossygateway.xml", "kyno_mossygateway.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_mossygateway_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_mossygateway.xml", "kyno_mossygateway.tex")
 
 
 AddRecipe("kyno_sammywagon", {Ingredient("boards", 1), Ingredient("cutgrass", 5)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_sammywagon_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_sammywagon.xml", "kyno_sammywagon.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_sammywagon_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_sammywagon.xml", "kyno_sammywagon.tex")
 
 
 AddRecipe("kyno_mealingstone", {Ingredient("cutstone", 1), Ingredient("rocks", 3)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_mealingstone_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_mealingstone.xml", "kyno_mealingstone.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_mealingstone_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_mealingstone.xml", "kyno_mealingstone.tex")
 
 
 AddRecipe("kyno_safechest", {Ingredient("cutstone", 2), Ingredient("goldnugget", 2)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_safechest_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_safe.xml", "kyno_safe.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_safechest_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_safe.xml", "kyno_safe.tex")
 
 
 AddRecipe("kyno_saltpond", {Ingredient("saltrock", 2), Ingredient("ice", 4), Ingredient("pondfish", 2)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_saltpond_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_saltpond.xml", "kyno_saltpond.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_saltpond_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_saltpond.xml", "kyno_saltpond.tex")
 
 
 AddRecipe("kyno_saltpond_rack", {Ingredient("saltrock", 2), Ingredient("ice", 4), Ingredient("twigs", 4)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_saltpond_rack_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_saltpond_rack.xml", "kyno_saltpond_rack.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_saltpond_rack_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_saltpond_rack.xml", "kyno_saltpond_rack.tex")
 
 
 AddRecipe("kyno_crabtrap", {Ingredient("boards", 1), Ingredient("silk", 2)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_crabtrap_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_crabtrap.xml", "kyno_crabtrap.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_crabtrap_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_crabtrap.xml", "kyno_crabtrap.tex")
 
 
 AddRecipe("kyno_rubble_carriage", {Ingredient("cutstone", 2)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_carriage_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_carriage.xml", "kyno_carriage.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_carriage_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_carriage.xml", "kyno_carriage.tex")
 
 
 AddRecipe("kyno_rubble_bike", {Ingredient("cutstone", 1)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_bike_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_bike.xml", "kyno_bike.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_bike_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_bike.xml", "kyno_bike.tex")
 
 
 AddRecipe("kyno_rubble_clock", {Ingredient("boards", 1), Ingredient("compass", 1)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_clock_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_gorgeclock.xml", "kyno_gorgeclock.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_clock_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_gorgeclock.xml", "kyno_gorgeclock.tex")
 
 
 AddRecipe("kyno_rubble_cathedral", {Ingredient("cutstone", 2)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_cathedral_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_cathedral.xml", "kyno_cathedral.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_cathedral_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_cathedral.xml", "kyno_cathedral.tex")
 
 
 AddRecipe("kyno_rubble_pubdoor", {Ingredient("cutstone", 2), Ingredient("boards", 1)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_pubdoor_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_pubdoor.xml", "kyno_pubdoor.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_pubdoor_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_pubdoor.xml", "kyno_pubdoor.tex")
 
 
 AddRecipe("kyno_rubble_door", {Ingredient("cutstone", 2)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_door_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_housedoor.xml", "kyno_housedoor.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_door_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_housedoor.xml", "kyno_housedoor.tex")
 
 
 AddRecipe("kyno_rubble_roof", {Ingredient("cutstone", 2), Ingredient("boards", 1)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_roof_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_roof.xml", "kyno_roof.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_roof_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_roof.xml", "kyno_roof.tex")
 
 
 AddRecipe("kyno_rubble_clocktower", {Ingredient("cutstone", 2), Ingredient("compass", 1)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_clocktower_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_clocktower.xml", "kyno_clocktower.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_clocktower_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_clocktower.xml", "kyno_clocktower.tex")
 
 
 AddRecipe("kyno_rubble_house", {Ingredient("cutstone", 2)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_house_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_house.xml", "kyno_house.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_house_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_house.xml", "kyno_house.tex")
 
 
 AddRecipe("kyno_rubble_chimney", {Ingredient("cutstone", 2)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_chimney_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_chimney1.xml", "kyno_chimney1.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_chimney_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_chimney1.xml", "kyno_chimney1.tex")
 
 
 AddRecipe("kyno_rubble_chimney2", {Ingredient("cutstone", 2), Ingredient("boards", 1)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_chimney2_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_chimney2.xml", "kyno_chimney2.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_rubble_chimney2_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_chimney2.xml", "kyno_chimney2.tex")
 
 
 AddRecipe("kyno_piptoncart", {Ingredient("cutstone", 1), Ingredient("bluegem", 2)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_piptoncart_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_piptoncart.xml", "kyno_piptoncart.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_piptoncart_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_piptoncart.xml", "kyno_piptoncart.tex")
 
 
 AddRecipe("kyno_irongate_item", {Ingredient("twigs", 6), Ingredient("flint", 2)},
@@ -864,35 +872,35 @@ kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_ironfencetall_placer", 0, nil, nil, nil, 
 
 
 AddRecipe("kyno_urn", {Ingredient("cutstone", 1), Ingredient("redgem", 1)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_urn_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_urn.xml", "kyno_urn.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_urn_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_urn.xml", "kyno_urn.tex")
 
 
 AddRecipe("kyno_worshipper", {Ingredient("cutstone", 1), Ingredient("redgem", 1)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_worshipper_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_worshipper.xml", "kyno_worshipper.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_worshipper_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_worshipper.xml", "kyno_worshipper.tex")
 
 
 AddRecipe("kyno_worshipper2", {Ingredient("cutstone", 1), Ingredient("redgem", 1)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_worshipper2_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_worshipper2.xml", "kyno_worshipper2.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_worshipper2_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_worshipper2.xml", "kyno_worshipper2.tex")
 
 
 AddRecipe("kyno_worshipper2_left", {Ingredient("cutstone", 1), Ingredient("redgem", 1)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_worshipper2_left_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_worshipper2_left.xml", "kyno_worshipper2_left.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_worshipper2_left_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_worshipper2_left.xml", "kyno_worshipper2_left.tex")
 
 
 AddRecipe("kyno_stoneobelisk", {Ingredient("cutstone", 2)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_stoneobelisk_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_stoneobelisk.xml", "kyno_stoneobelisk.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_stoneobelisk_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_stoneobelisk.xml", "kyno_stoneobelisk.tex")
 
 
 AddRecipe("kyno_birdfountain", {Ingredient("cutstone", 1), Ingredient("redgem", 1)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_birdfountain_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_birdfountain.xml", "kyno_birdfountain.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_birdfountain_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_birdfountain.xml", "kyno_birdfountain.tex")
 
 
 AddRecipe("cottontree_normal", {Ingredient("log", 1), Ingredient("pinecone", 1)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "cottontree_normal_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_cottontree.xml", "kyno_cottontree.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "cottontree_normal_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_cottontree.xml", "kyno_cottontree.tex")
 
 
-AddRecipe("kyno_spottyshrub", {Ingredient("dug_berrybush", 1), Ingredient("poop", 1)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_spottyshrub_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_spottyshrub.xml", "kyno_spottyshrub.tex")
+AddRecipe("kyno_spottyshrub", {Ingredient("dug_berrybush2", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_spottyshrub_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_spottyshrub.xml", "kyno_spottyshrub.tex")
 
 
 AddRecipe("kyno_oven", {Ingredient("cutstone", 2), Ingredient("charcoal", 3)},
@@ -920,23 +928,51 @@ kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_pothanger_syrup_placer", 0, nil, nil, nil
 
 
 AddRecipe("kyno_mushroomstump", {Ingredient("red_cap", 3), Ingredient("green_cap", 1)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_mushroomstump_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_mushstump.xml", "kyno_mushstump.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_mushroomstump_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_mushstump.xml", "kyno_mushstump.tex")
 
 
 AddRecipe("kyno_swampmermhouserubble", {Ingredient("rocks", 2), Ingredient("log", 2)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_swampmermhouserubble_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_swampmermhouserubble.xml", "kyno_swampmermhouserubble.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_swampmermhouserubble_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_swampmermhouserubble.xml", "kyno_swampmermhouserubble.tex")
 
 
 AddRecipe("kyno_swamppighouse", {Ingredient("boards", 4), Ingredient("cutstone", 3)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_swamppighouse_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_swamppighouse.xml", "kyno_swamppighouse.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_swamppighouse_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_swamppighouse.xml", "kyno_swamppighouse.tex")
 
 
 AddRecipe("kyno_swampmermhouse", {Ingredient("boards", 4), Ingredient("cutstone", 3), Ingredient("pondfish", 2)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_swampmermhouse_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_swampmermhouse.xml", "kyno_swampmermhouse.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_swampmermhouse_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_swampmermhouse.xml", "kyno_swampmermhouse.tex")
 
 
 AddRecipe("kyno_pigelder", {Ingredient("meat", 10), Ingredient("reviver", 1), Ingredient("pigskin", 4)},
-kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_pigelder_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_pigelder.xml", "kyno_pigelder.tex")
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_pigelder_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_pigelder.xml", "kyno_pigelder.tex")
+
+
+AddRecipe("kyno_potato_planted", {Ingredient("potato_seeds", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_potato_planted_placer", 1, nil, nil, nil, "images/inventoryimages.xml", "quagmire_seedpacket_2.tex")
+
+
+AddRecipe("kyno_turnip_planted", {Ingredient("eggplant_seeds", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_turnip_planted_placer", 1, nil, nil, nil, "images/inventoryimages.xml", "quagmire_seedpacket_5.tex")
+
+
+AddRecipe("kyno_carrot_planted", {Ingredient("carrot_seeds", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_carrot_planted_placer", 1, nil, nil, nil, "images/inventoryimages.xml", "quagmire_seedpacket_6.tex")
+
+
+AddRecipe("kyno_onion_planted", {Ingredient("onion_seeds", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_onion_planted_placer", 1, nil, nil, nil, "images/inventoryimages.xml", "quagmire_seedpacket_4.tex")
+
+
+AddRecipe("kyno_wheat_planted", {Ingredient("cutgrass", 2)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_wheat_planted_placer", 1, nil, nil, nil, "images/inventoryimages.xml", "quagmire_seedpacket_1.tex")
+
+
+AddRecipe("kyno_garlic_planted", {Ingredient("garlic_seeds", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_garlic_planted_placer", 1, nil, nil, nil, "images/inventoryimages.xml", "quagmire_seedpacket_7.tex")
+
+
+AddRecipe("kyno_tomato_planted", {Ingredient("tomato_seeds", 1)},
+kyno_gorgetab, TECH.SCIENCE_TWO, "Kyno_tomato_planted_placer", 1, nil, nil, nil, "images/inventoryimages.xml", "quagmire_seedpacket_3.tex")
 
 
 AddRecipe("turf_pinkpark", {Ingredient("turf_deciduous", 2)},
@@ -1075,6 +1111,26 @@ AddRecipe("kyno_pigpalacetower", {Ingredient("cutstone", 3), Ingredient("goldnug
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_pigpalacetower_placer", 2, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "pig_guard_tower.tex")
 
 
+AddRecipe("kyno_royalguard", {Ingredient("meat", 2), Ingredient("armorwood", 1), Ingredient("pigskin", 4)},
+kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_royalguard_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_royalguard.xml", "kyno_royalguard.tex")
+
+
+AddRecipe("kyno_royalguard_2", {Ingredient("meat", 2), Ingredient("armorwood", 1), Ingredient("pigskin", 4)},
+kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_royalguard_2_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_royalguard_2.xml", "kyno_royalguard_2.tex")
+
+
+AddRecipe("kyno_royalguard_rich", {Ingredient("meat", 2), Ingredient("armorwood", 1), Ingredient("pigskin", 4)},
+kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_royalguard_rich_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_royalguard_rich.xml", "kyno_royalguard_rich.tex")
+
+
+AddRecipe("kyno_royalguard_rich_2", {Ingredient("meat", 2), Ingredient("armorwood", 1), Ingredient("pigskin", 4)},
+kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_royalguard_rich_2_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_royalguard_rich_2.xml", "kyno_royalguard_rich_2.tex")
+
+
+AddRecipe("kyno_royalguard_palace", {Ingredient("meat", 2), Ingredient("armorwood", 1), Ingredient("pigskin", 4)},
+kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_royalguard_palace_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_royalguard_palace.xml", "kyno_royalguard_palace.tex")
+
+
 AddRecipe("kyno_cavecleft", {Ingredient("rocks", 5), Ingredient("flint", 5)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_cavecleft_placer", 2, nil, nil, nil, "images/inventoryimages/kyno_cavecleft.xml", "kyno_cavecleft.tex")
 
@@ -1110,11 +1166,10 @@ kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_mantqueenhill_placer", 3, nil, nil, nil,
 AddRecipe("kyno_antthrone", {Ingredient("rocks", 10), Ingredient("nitre", 5)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_antthrone_placer", 3, nil, nil, nil, "images/inventoryimages/kyno_antthrone.xml", "kyno_antthrone.tex")
 
-local ANT_QUEEN = GetModConfigData("ant_queen")
-if ANT_QUEEN == 0 then
-AddRecipe("kyno_ant_queen", {Ingredient("rocks", 10), Ingredient("nitre", 5), Ingredient("reviver", 1)},
+
+AddRecipe("kyno_ant_queen", {Ingredient("rocks", 10), Ingredient("nitre", 5), Ingredient("reviver", 2)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_ant_queen_placer", 3, nil, nil, nil, "images/inventoryimages/kyno_antqueen.xml", "kyno_antqueen.tex")
-end
+
 
 AddRecipe("kyno_antcombhome", {Ingredient("honey", 4), Ingredient("honeycomb", 1)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_antcombhome_placer", 2, nil, nil, nil, "images/inventoryimages/kyno_antcombhome.xml", "kyno_antcombhome.tex")
@@ -1177,11 +1232,11 @@ kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_brazier_placer", 1, nil, nil, nil, "imag
 
 
 AddRecipe("kyno_wishingwell", {Ingredient("cutstone", 2), Ingredient("ice", 4)},
-kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_wishingwell_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_wishingwell.xml", "kyno_wishingwell.tex")
+kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_wishingwell_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_wishingwell.xml", "kyno_wishingwell.tex")
 
 
 AddRecipe("kyno_endwell", {Ingredient("cutstone", 2), Ingredient("nightmarefuel", 3)},
-kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_endwell_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_endwell.xml", "kyno_endwell.tex")
+kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_endwell_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_endwell.xml", "kyno_endwell.tex")
 
 
 AddRecipe("kyno_strikingstatue", {Ingredient("cutstone", 1), Ingredient("gears", 1)},
@@ -1301,7 +1356,7 @@ kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_thundernest_placer", 1, nil, nil, nil, "
 
 
 AddRecipe("kyno_rocnest", {Ingredient("cutgrass", 10), Ingredient("twigs", 10), Ingredient("flint", 10)},
-kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_rocnest_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_rocnest.xml", "kyno_rocnest.tex")
+kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_rocnest_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_rocnest.xml", "kyno_rocnest.tex")
 
 
 AddRecipe("kyno_nest_house", {Ingredient("cutstone", 1), Ingredient("boards", 1)},
@@ -1388,19 +1443,19 @@ AddRecipe("kyno_ironhulk_large", {Ingredient("gears", 6), Ingredient("transistor
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_ironhulk_large_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_hulklarge.xml", "kyno_hulklarge.tex")
 
 
-AddRecipe("kyno_bramble1", {Ingredient("dug_marsh_bush", 1), Ingredient("poop", 1)},
+AddRecipe("kyno_bramble1", {Ingredient("dug_marsh_bush", 1)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_bramble1_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_bramble1.xml", "kyno_bramble1.tex")
 
 
-AddRecipe("kyno_bramble2", {Ingredient("dug_marsh_bush", 1) ,Ingredient("poop", 1)},
+AddRecipe("kyno_bramble2", {Ingredient("dug_marsh_bush", 1)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_bramble2_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_bramble2.xml", "kyno_bramble2.tex")
 
 
-AddRecipe("kyno_bramble3", {Ingredient("dug_marsh_bush", 1), Ingredient("poop", 1)},
+AddRecipe("kyno_bramble3", {Ingredient("dug_marsh_bush", 1)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_bramble3_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_bramble3.xml", "kyno_bramble3.tex")
 
 
-AddRecipe("kyno_bramblecore", {Ingredient("dug_marsh_bush", 1), Ingredient("petals", 5), Ingredient("poop", 2)},
+AddRecipe("kyno_bramblecore", {Ingredient("dug_marsh_bush", 1), Ingredient("petals", 5)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_bramblecore_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "bramble_bulb.tex")
 
 
@@ -1436,11 +1491,11 @@ AddRecipe("kyno_magicflower", {Ingredient("petals", 5), Ingredient("nightmarefue
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_magicflower_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_magicflower.xml", "kyno_magicflower.tex")
 
 
-AddRecipe("kyno_nettleplant", {Ingredient("cutlichen", 2), Ingredient("poop", 1)},
+AddRecipe("kyno_nettleplant", {Ingredient("cutlichen", 3)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_nettleplant_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "dug_nettle.tex")
 
 
-AddRecipe("kyno_tallgrass", {Ingredient("dug_grass", 1), Ingredient("poop", 1)},
+AddRecipe("kyno_tallgrass", {Ingredient("dug_grass", 1)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_tallgrass_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "dug_grass.tex")
 
 
@@ -1631,11 +1686,11 @@ AddRecipe("kyno_rock_limpet", {Ingredient("rocks", 4), Ingredient("nitre", 2)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_rock_limpet_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_rock_limpet.xml", "kyno_rock_limpet.tex")
 
 
-AddRecipe("kyno_vinebush", {Ingredient("dug_marsh_bush", 1), Ingredient("poop", 1)},
+AddRecipe("kyno_vinebush", {Ingredient("dug_marsh_bush", 1)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_vinebush_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "dug_bush_vine.tex")
 
 
-AddRecipe("kyno_bambootree", {Ingredient("dug_sapling", 1), Ingredient("poop", 1)},
+AddRecipe("kyno_bambootree", {Ingredient("dug_sapling", 1)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_bambootree_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "dug_bambootree.tex")
 
 
@@ -1807,7 +1862,11 @@ AddRecipe("kyno_dragoonden", {Ingredient("cutstone", 2), Ingredient("charcoal", 
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_dragoonden_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "dragoonden.tex")
 
 
-AddRecipe("kyno_elephantcactus", {Ingredient("poop", 1), Ingredient("houndstooth", 2)},
+AddRecipe("kyno_elephantcactus_active", {Ingredient("dug_marsh_bush", 1), Ingredient("houndstooth", 3)},
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_elephantcactus_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "dug_elephantcactus.tex")
+
+
+AddRecipe("kyno_elephantcactus", {Ingredient("dug_marsh_bush", 1), Ingredient("houndstooth", 3)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_elephantcactus_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "dug_elephantcactus.tex")
 
 local COFFEE_PLANT = GetModConfigData("coffee_hack")
@@ -1816,7 +1875,7 @@ AddRecipe("dug_coffeebush", {Ingredient("ash", 5), Ingredient("dug_berrybush", 1
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages/dug_coffeebush.xml", "dug_coffeebush.tex")
 end
 
-AddRecipe("kyno_fakecoffeebush", {Ingredient("poop", 1), Ingredient("dug_berrybush", 1)},
+AddRecipe("kyno_fakecoffeebush", {Ingredient("ash", 1), Ingredient("dug_berrybush", 1)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_fakecoffeebush_placer", 1, nil, nil, nil, "images/inventoryimages/dug_coffeebush.xml", "dug_coffeebush.tex")
 
 

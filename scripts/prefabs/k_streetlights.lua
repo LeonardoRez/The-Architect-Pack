@@ -2,8 +2,8 @@ require "prefabutil"
 
 local assets =
 {
-	Asset("ANIM", "anim/quagmire_lamp_post.zip"),
-	Asset("ANIM", "anim/quagmire_lamp_short.zip"),
+	Asset("ANIM", "anim/kyno_lamp_post.zip"),
+	Asset("ANIM", "anim/kyno_lamp_post_short.zip"),
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_streetlight1.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_streetlight1.xml"),
@@ -21,13 +21,48 @@ local function onhammered(inst, worker)
 	inst:Remove()
 end
 
+local function GetStatus(inst)
+    return not inst.lighton and "ON" or nil
+end
+
 local function onhit(inst, worker)
-    inst.AnimState:PlayAnimation("idle")
-    inst.AnimState:PushAnimation("idle")
+    inst.AnimState:PlayAnimation("idle_off", true)
+    inst.AnimState:PushAnimation("idle_off", true)
+end
+
+local function LightsOn(inst, isdusk, isnight)
+if isdusk then
+    inst.components.fader:StopAll()
+    inst.AnimState:PlayAnimation("idle_on")
+    inst.AnimState:PushAnimation("idle_on", true)
+	inst.AnimState:Show("glow")       
+    inst.Light:Enable(true)
+	if inst:IsAsleep() then
+		inst.Light:SetIntensity(INTENSITY)
+	else
+		inst.Light:SetIntensity(0)
+		inst.components.fader:Fade(0, INTENSITY, 3+math.random()*2, function(v) inst.Light:SetIntensity(v) end)
+		end
+	end
+end
+
+local function LightsOff(inst, isday)
+if isday then
+	inst.components.fader:StopAll()
+    inst.AnimState:PlayAnimation("idle_off")    
+    inst.AnimState:PushAnimation("idle_off", true)
+	inst.AnimState:Hide("glow")
+	inst.Light:Enable(false)
+	if inst:IsAsleep() then
+		inst.Light:SetIntensity(0)
+	else
+		inst.components.fader:Fade(INTENSITY, 0, .75+math.random()*1, function(v) inst.Light:SetIntensity(v) end)
+		end
+	end
 end
 
 local function onbuilt(inst)
-    inst.AnimState:PushAnimation("idle")
+    inst.AnimState:PlayAnimation("idle_on")
 end
 
 local function tallfn()
@@ -47,9 +82,9 @@ local function tallfn()
 	
     MakeObstaclePhysics(inst, .2)
 	
-    inst.AnimState:SetBank("quagmire_lamp_post")
-    inst.AnimState:SetBuild("quagmire_lamp_post")
-    inst.AnimState:PlayAnimation("idle")
+    inst.AnimState:SetBank("kyno_lamp_post")
+    inst.AnimState:SetBuild("kyno_lamp_post")
+    inst.AnimState:PlayAnimation("idle_on")
     
 	inst:AddTag("structure")
 	inst:AddTag("streetlamp")
@@ -69,9 +104,41 @@ local function tallfn()
 	inst.components.workable:SetOnFinishCallback(onhammered)
 	inst.components.workable:SetOnWorkCallback(onhit)
 	
+	inst:AddComponent("fader")
+	
 	inst:ListenForEvent("onbuilt", onbuilt)
 	
 	MakeHauntableWork(inst)
+	
+	inst:DoTaskInTime(1/30, function()
+	inst:WatchWorldState("isday", LightsOff)
+    LightsOff(inst, TheWorld.state.isday)
+	end)
+	
+	inst:DoTaskInTime(1/30, function()
+	inst:WatchWorldState("isdusk", LightsOn)
+	inst:WatchWorldState("isnight", LightsOn)
+    LightsOn(inst, TheWorld.state.isdusk)
+	LightsOn(inst, TheWorld.state.isnight)
+	end)
+	
+	inst.OnSave = function(inst, data)
+        if inst.lighton then
+            data.lighton = inst.lighton
+        end
+    end        
+
+    inst.OnLoad = function(inst, data)    
+        if data then
+            if data.lighton then 
+                fadein(inst)
+                inst.Light:Enable(true)
+                inst.Light:SetIntensity(INTENSITY)            
+                inst.AnimState:Show("glow")        
+                inst.lighton = true
+            end
+        end
+    end
 	
     return inst
 end
@@ -93,9 +160,9 @@ local function shortfn()
 	
     MakeObstaclePhysics(inst, .2)
 	
-    inst.AnimState:SetBank("quagmire_lamp_short")
-    inst.AnimState:SetBuild("quagmire_lamp_short")
-    inst.AnimState:PlayAnimation("idle")
+    inst.AnimState:SetBank("kyno_lamp_post_short")
+    inst.AnimState:SetBuild("kyno_lamp_post_short")
+    inst.AnimState:PlayAnimation("idle_on")
     
 	inst:AddTag("structure")
 	inst:AddTag("streetlamp_short")
@@ -115,14 +182,46 @@ local function shortfn()
 	inst.components.workable:SetOnFinishCallback(onhammered)
 	inst.components.workable:SetOnWorkCallback(onhit)
 	
+	inst:AddComponent("fader")
+	
 	inst:ListenForEvent("onbuilt", onbuilt)
 	
 	MakeHauntableWork(inst)
+	
+	inst:DoTaskInTime(1/30, function()
+	inst:WatchWorldState("isday", LightsOff)
+    LightsOff(inst, TheWorld.state.isday)
+	end)
+	
+	inst:DoTaskInTime(1/30, function()
+	inst:WatchWorldState("isdusk", LightsOn)
+	inst:WatchWorldState("isnight", LightsOn)
+    LightsOn(inst, TheWorld.state.isdusk)
+	LightsOn(inst, TheWorld.state.isnight)
+	end)
+	
+	inst.OnSave = function(inst, data)
+        if inst.lighton then
+            data.lighton = inst.lighton
+        end
+    end        
+
+    inst.OnLoad = function(inst, data)    
+        if data then
+            if data.lighton then 
+                fadein(inst)
+                inst.Light:Enable(true)
+                inst.Light:SetIntensity(INTENSITY)            
+                inst.AnimState:Show("glow")        
+                inst.lighton = true
+            end
+        end
+    end
 	
     return inst
 end
 
 return Prefab("kyno_streetlight1", tallfn, assets),
 Prefab("kyno_streetlight2", shortfn, assets),
-MakePlacer("kyno_streetlight1_placer", "quagmire_lamp_post", "quagmire_lamp_post", "idle"),
-MakePlacer("kyno_streetlight2_placer", "quagmire_lamp_short", "quagmire_lamp_short", "idle")
+MakePlacer("kyno_streetlight1_placer", "kyno_lamp_post", "kyno_lamp_post", "idle_off"),
+MakePlacer("kyno_streetlight2_placer", "kyno_lamp_post_short", "kyno_lamp_post_short", "idle_off")

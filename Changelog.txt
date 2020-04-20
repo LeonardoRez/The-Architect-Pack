@@ -14,8 +14,8 @@ Version 1.0-B
 
 - Magic Flower don't have death animation when far now.
 - Brambles now works like a structure instead of a wall.
-
-Version 1.5-B-Alpha-3
+----------------------------------------------------------------------------------------------------------------------
+Version 1.5-B
 - Added The Gorge Structures.
 - Added A Easter Egg about the Slot Machine.
 - Added Thunderbird around the Thundernest.
@@ -23,10 +23,19 @@ Version 1.5-B-Alpha-3
 - Added Wooden Thing of Shipwrecked and Hamlet.
 - Added Minimap Icons for Sammy and Pipton. 
 - Added Sharkitten around the Sharkitten Den.
+- Added Dragoon around the Dragoon Den.
+- Added Elder Mandrake around the Mandrake Hill.
 - Added Flies around Dung Ball and Dung Pile. 
 - Added Enforced Limestone Wall (Land version).
+- Added Elephant Cactus Replica.
+- Added Speed Boost for White Stone Turf.
+- Added Speed Boost for Pink Stone Turf.
+- Added Swinesbury Guard.
+- Added Swinesbury Mayor's Guard.
+- Added Palace City Guard.
+- Added Queen Palace's Guard.
+- Added Queen's Royal Guard.
 - Added New configuration option: Packim Baggims.
-- Added New configuration option: Queen Womant.
 - Added New configuration option: Colorcubes.
 - Added Sounds for Fountain of Youth. 
 - Added Sounds for Smelter. 
@@ -46,6 +55,11 @@ Version 1.5-B-Alpha-3
 - Added Sounds for Honey Cache. 
 - Added Sounds for Oscilating Fan. 
 - Added Sounds for Ominous Carving.
+- Added Sounds for Snaptooth Flytrap.
+- Added Sounds for Dragoon.
+- Added Sounds for Elephant Cactus.
+- Added Sounds for Royal Guards.
+- Added Sounds for Elder Mandrake.
 
 - Fixed Several bugs about the Packim Baggims.
 - Fixed Players not able to craft some recipes in tabs.
@@ -82,3 +96,8 @@ Version 1.5-B-Alpha-3
 - Players can now delete items by giving them to Ominous Carving.
 - Cultivated Turf is no longer safe from regrowth.
 - Iron Gate can't be attacked now.
+- Streetlights now turn off during the day and turn on during the dusk/night.
+- Snaptooth Flytrap will taunt if the player is near.
+- Elephant Cactus now attacks every entity in their range.
+- Mossy Gateway no longer block structures.
+----------------------------------------------------------------------------------------------------------------------

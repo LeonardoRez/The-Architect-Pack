@@ -19,6 +19,24 @@ local walk_marsh = "dontstarve/movement/walk_marsh"
 
 local run_snow = "dontstarve/movement/run_snow"
 
+AddTile(68, "pinkstone", "kyno_turfs3", nil,
+	{
+	name = "cave",
+	noise_texture = "levels/textures/quagmire_parkstone_noise.tex",
+	},{
+		noise_texture = "levels/textures/quagmire_parkstone_mini.tex",
+	}
+, true)
+
+AddTile(69, "stonecity", "kyno_turfs3", nil,
+	{
+	name = "cave",
+	noise_texture = "levels/textures/quagmire_citystone_noise.tex",
+	},{
+		noise_texture = "levels/textures/quagmire_citystone_mini.tex",
+	}
+, true)
+
 AddTile(70, "beach", "mod_turfs", nil,
     {
         name = "beach",
@@ -268,16 +286,7 @@ AddTile(91, "pinkpark", "kyno_turfs3", nil,
 	}
 , true)
 
-AddTile(92, "pinkstone", "kyno_turfs3", nil,
-	{
-	name = "cave",
-	noise_texture = "levels/textures/quagmire_parkstone_noise.tex",
-	},{
-		noise_texture = "levels/textures/quagmire_parkstone_mini.tex",
-	}
-, true)
-
-AddTile(93, "greyforest", "kyno_turfs3", nil,
+AddTile(92, "greyforest", "kyno_turfs3", nil,
 	{
 	name = "grass3",
 	noise_texture = "levels/textures/quagmire_gateway_noise.tex",
@@ -289,16 +298,7 @@ AddTile(93, "greyforest", "kyno_turfs3", nil,
 	}
 , true)
 
-AddTile(94, "stonecity", "kyno_turfs3", nil,
-	{
-	name = "cave",
-	noise_texture = "levels/textures/quagmire_citystone_noise.tex",
-	},{
-		noise_texture = "levels/textures/quagmire_citystone_mini.tex",
-	}
-, true)
-
-AddTile(95, "browncarpet", "kyno_turfs3", nil,
+AddTile(93, "browncarpet", "kyno_turfs3", nil,
 	{
 	name = "carpet",
 	noise_texture = "levels/textures/quagmire_soil_noise.tex",
@@ -310,7 +310,10 @@ AddTile(95, "browncarpet", "kyno_turfs3", nil,
 	}
 , true)
 
-ChangeTileTypeRenderOrder(GROUND.BEACH, GROUND.ROAD, true)
+
+ChangeTileTypeRenderOrder(GROUND.PINKSTONE, GROUND.ROAD, true)
+ChangeTileTypeRenderOrder(GROUND.STONECITY, GROUND.PINKSTONE, true)
+ChangeTileTypeRenderOrder(GROUND.BEACH, GROUND.PINKSTONE, true)
 ChangeTileTypeRenderOrder(GROUND.VOLCANO_ROCK, GROUND.BEACH, true)
 ChangeTileTypeRenderOrder(GROUND.TIDALMARSH, GROUND.MARSH, true)
 ChangeTileTypeRenderOrder(GROUND.MEADOW, GROUND.DIRT, true)
@@ -325,14 +328,12 @@ ChangeTileTypeRenderOrder(GROUND.PLAINS, GROUND.BOG, true)
 ChangeTileTypeRenderOrder(GROUND.RAINFOREST, GROUND.PLAINS, true)
 ChangeTileTypeRenderOrder(GROUND.FIELDS, GROUND.RAINFOREST, true)
 ChangeTileTypeRenderOrder(GROUND.PINKPARK, GROUND.FIELDS, true)
-ChangeTileTypeRenderOrder(GROUND.PINKSTONE, GROUND.PINKPARK, true)
-ChangeTileTypeRenderOrder(GROUND.GREYFOREST, GROUND.PINKSTONE, true)
-ChangeTileTypeRenderOrder(GROUND.STONECITY, GROUND.GREYFOREST, true)
-ChangeTileTypeRenderOrder(GROUND.MOSSY_BLOSSOM, GROUND.STONECITY, true)
+ChangeTileTypeRenderOrder(GROUND.GREYFOREST, GROUND.PINKPARK, true)
+ChangeTileTypeRenderOrder(GROUND.MOSSY_BLOSSOM, GROUND.GREYFOREST, true)
 ChangeTileTypeRenderOrder(GROUND.DEEPJUNGLE, GROUND.MOSSY_BLOSSOM, true)
 ChangeTileTypeRenderOrder(GROUND.GASJUNGLE, GROUND.DEEPJUNGLE, true)
 ChangeTileTypeRenderOrder(GROUND.FOUNDATION, GROUND.GASJUNGLE, true)
 ChangeTileTypeRenderOrder(GROUND.BEARD_HAIR, GROUND.SNAKESKINFLOOR, true)
 ChangeTileTypeRenderOrder(GROUND.BROWNCARPET, GROUND.BEARD_HAIR, true)
 ChangeTileTypeRenderOrder(GROUND.LAWN, GROUND.CARPET, true)
-ChangeTileTypeRenderOrder(GROUND.COBBLEROAD, GROUND.BEARD_HAIR, true)
+ChangeTileTypeRenderOrder(GROUND.COBBLEROAD, GROUND.BROWNCARPET, true)

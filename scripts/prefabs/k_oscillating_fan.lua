@@ -50,9 +50,11 @@ local function fn()
 
     inst.AnimState:SetBank("basefan")
     inst.AnimState:SetBuild("basefan")
-    inst.AnimState:PlayAnimation("off")
+    inst.AnimState:PlayAnimation("idle_loop", true)
 	
-	MakeObstaclePhysics(inst, 1)
+	inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/crafted/fan/on_LP", "firesuppressor_idle")
+	
+	MakeObstaclePhysics(inst, .2)
 
 	inst:AddTag("structure")
 	inst:AddTag("basefan")

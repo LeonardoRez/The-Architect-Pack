@@ -55,6 +55,7 @@ local function fn()
 	inst.Transform:SetEightFaced()
     
 	inst:AddTag("structure")
+	inst:AddTag("notarget")
 	inst:AddTag("the_gorge_gateway")
 	
 	inst.entity:SetPristine()
@@ -106,6 +107,7 @@ local function basefn()
 	
 	inst:AddTag("NOCLICK")
 	inst:AddTag("DECOR")
+	inst:AddTag("notarget")
 	
 	inst.entity:SetPristine()
 

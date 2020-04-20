@@ -10,6 +10,11 @@ local assets =
 	
 	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_ham.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_ham.xml"),
+	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC003.fev"),
+	Asset("SOUND", "sound/DLC003_AMB_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_music_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_sfx.fsb"),
 }
 
 local function OnIsPathFindingDirty(inst)    
@@ -79,6 +84,17 @@ local function onbuilt(inst)
 	inst.AnimState:PushAnimation("idle", true)
 end
 
+local function onnear(inst)
+	inst.AnimState:PlayAnimation("taunt")
+	inst.AnimState:PushAnimation("idle", true)
+	inst.SoundEmitter:PlaySound("dontstarve_DLC003/creatures/enemy/venus_flytrap/4/taunt")
+end
+
+local function onfar(inst)
+	inst.AnimState:PlayAnimation("idle", true)
+	inst.SoundEmitter:PlaySound("dontstarve_DLC003/creatures/enemy/venus_flytrap/4/breath_out")
+end
+
 local function fn()
 	local inst = CreateEntity()
     
@@ -86,6 +102,8 @@ local function fn()
     inst.entity:AddAnimState()
     inst.entity:AddSoundEmitter()
 	inst.entity:AddNetwork()
+	
+	inst.SoundEmitter:PlaySound("dontstarve_DLC003/creatures/enemy/venus_flytrap/4/breath_out")
 	
 	inst.AnimState:SetScale(1.5, 1.5, 1.5)
 
@@ -120,6 +138,11 @@ local function fn()
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
+	
+	inst:AddComponent("playerprox")
+    inst.components.playerprox:SetDist(3, 6)
+    inst.components.playerprox:SetOnPlayerNear(onnear)
+    inst.components.playerprox:SetOnPlayerFar(onfar)
 	
 	inst:AddComponent("health")
 	inst.components.health:SetMaxHealth(250)

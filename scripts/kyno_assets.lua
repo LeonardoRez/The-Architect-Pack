@@ -730,6 +730,21 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_turfs_gorge.tex"),
     Asset("ATLAS", "images/inventoryimages/kyno_turfs_gorge.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_royalguard.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_royalguard.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_royalguard_2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_royalguard_2.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_royalguard_rich.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_royalguard_rich.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_royalguard_rich_2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_royalguard_rich_2.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_royalguard_palace.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_royalguard_palace.xml"),
+	
 	-- Unlisted Assets --
 	Asset("ANIM", "anim/mod_turfs.zip"),
 	Asset("ANIM", "anim/kyno_catalogues.zip"), -- Unused.
@@ -813,6 +828,9 @@ Assets = {
 	Asset("ANIM", "anim/teleportato_shipwrecked.zip"),
 	Asset("ANIM", "anim/sharkitten_basic.zip"),
 	Asset("ANIM", "anim/sharkitten_build.zip"),
+	Asset("ANIM", "anim/dragoon_build.zip"),
+	Asset("ANIM", "anim/dragoon_actions.zip"),
+	Asset("ANIM", "anim/dragoon_basic.zip"),
 	-- Hamlet Content --
 	Asset("ANIM", "anim/vamp_bat_entrance.zip"),
 	Asset("ANIM", "anim/portal_hamlet.zip"),
@@ -992,6 +1010,19 @@ Assets = {
 	Asset("ANIM", "anim/venus_flytrap_planted.zip"),
 	Asset("ANIM", "anim/teleportato_hamlet.zip"),
 	Asset("ANIM", "anim/crickant_queen_basics.zip"),
+	Asset("ANIM", "anim/pig_royalguard.zip"),
+	Asset("ANIM", "anim/pig_royalguard_2.zip"),
+	Asset("ANIM", "anim/pig_royalguard_3.zip"),
+	Asset("ANIM", "anim/pig_royalguard_rich.zip"),
+	Asset("ANIM", "anim/pig_royalguard_rich_2.zip"),
+	Asset("ANIM", "anim/townspig_actions.zip"),
+	Asset("ANIM", "anim/townspig_attacks.zip"),
+	Asset("ANIM", "anim/townspig_basic.zip"),
+	Asset("ANIM", "anim/townspig_idle.zip"),
+	Asset("ANIM", "anim/elderdrake_basic.zip"),
+	Asset("ANIM", "anim/elderdrake_actions.zip"),
+	Asset("ANIM", "anim/elderdrake_attacks.zip"),
+    Asset("ANIM", "anim/elderdrake_build.zip"),  
 	-- The Gorge Content --
 	Asset("ANIM", "anim/quagmire_altar_statue1_left.zip"),
 	Asset("ANIM", "anim/quagmire_altar_statue2_left.zip"),
@@ -1004,6 +1035,8 @@ Assets = {
 	Asset("ANIM", "anim/quagmire_potsmall_hanger.zip"),
 	Asset("ANIM", "anim/kyno_swamphouses.zip"),
 	Asset("ANIM", "anim/kyno_turfs3.zip"),
+	Asset("ANIM", "anim/kyno_lamp_post.zip"),
+	Asset("ANIM", "anim/kyno_lamp_post_short.zip"),
 	-- Sea Content --
 	Asset("ANIM", "anim/tree_mangrove_build.zip"),
 	Asset("ANIM", "anim/tree_mangrove_normal.zip"),

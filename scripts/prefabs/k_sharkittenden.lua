@@ -112,16 +112,17 @@ local function activefn()
 		end
 
 	inst:AddComponent("inspectable")
+	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-    inst:AddComponent("lootdropper")
     
 	inst:AddComponent("workable")
 	inst.components.workable:SetWorkAction(ACTIONS.DIG)
 	inst.components.workable:SetOnFinishCallback(dig_up_active)
 	inst.components.workable:SetWorkLeft(5)
+	
+	inst:AddComponent("savedrotation")
 	
 	return inst
 end
@@ -214,4 +215,4 @@ return Prefab("kyno_sharkittenden", activefn, assets, prefabs),
 Prefab("kyno_sharkittenden_low", inactivefn, assets, prefabs),
 Prefab("kyno_sharkitten", sharkfn, assets, prefabs),
 Prefab("kyno_sharkitten2", sharkfn, assets, prefabs),
-MakePlacer("kyno_sharkittenden_placer", "sharkittenden", "sharkitten_den", "idle_active")
+MakePlacer("kyno_sharkittenden_placer", "sharkittenden", "sharkitten_den", "idle_active", false, nil, nil, nil, 90, nil)

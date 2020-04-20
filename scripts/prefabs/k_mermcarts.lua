@@ -119,7 +119,7 @@ local function wagonfn()
 	inst.components.workable:SetOnFinishCallback(onhammered_sammy)
 	inst.components.workable:SetOnWorkCallback(onhit_sammy)
 	
-	-- inst:AddComponent("savedrotation")
+	inst:AddComponent("savedrotation")
 	
 	inst:ListenForEvent("onbuilt", onbuilt_sammy)
 	
@@ -218,7 +218,7 @@ local function cartfn()
 	inst.components.workable:SetOnFinishCallback(onhammered_pipton)
 	inst.components.workable:SetOnWorkCallback(onhit_pipton)
 	
-	-- inst:AddComponent("savedrotation")
+	inst:AddComponent("savedrotation")
 	
 	inst:ListenForEvent("onbuilt", onbuilt_pipton)
 	
@@ -269,5 +269,5 @@ return Prefab("kyno_sammywagon", wagonfn, assets, prefabs),
 Prefab("kyno_sammy", sammyfn, assets, prefabs),
 Prefab("kyno_piptoncart", cartfn, assets, prefabs),
 Prefab("kyno_pipton", piptonfn, assets, prefabs),
-MakePlacer("kyno_sammywagon_placer", "quagmire_mermcart", "quagmire_mermcart", "idle1"),
-MakePlacer("kyno_piptoncart_placer", "quagmire_mermcart", "quagmire_mermcart", "idle2")
+MakePlacer("kyno_sammywagon_placer", "quagmire_mermcart", "quagmire_mermcart", "idle1", false, nil, nil, nil, 90, nil),
+MakePlacer("kyno_piptoncart_placer", "quagmire_mermcart", "quagmire_mermcart", "idle2", false, nil, nil, nil, 90, nil)
