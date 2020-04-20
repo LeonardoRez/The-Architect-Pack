@@ -164,6 +164,13 @@ local function fn()
 	inst:AddTag("pig_royalguard")
 	-- inst:AddTag("notarget")
 	
+	inst:AddComponent("talker")
+	-- inst.components.talker.ontalk = ontalk
+	inst.components.talker.fontsize = 30
+	inst.components.talker.font = TALKINGFONT
+	inst.components.talker.colour = Vector3(1, 1, 1)
+	inst.components.talker.offset = Vector3(0,-600,0)
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -182,12 +189,6 @@ local function fn()
 	inst:AddComponent("combat")
 	inst.components.combat:SetKeepTargetFunction(keeptargetfn)
 	inst.components.combat.onhitfn = onhit
-	
-	inst:AddComponent("talker")
-	inst.components.talker.fontsize = 30
-	inst.components.talker.font = TALKINGFONT
-	inst.components.talker.colour = Vector3(1, 1, 1)
-	inst.components.talker.offset = Vector3(0,-600,0)
 	
 	inst:AddComponent("playerprox")
     inst.components.playerprox:SetDist(5, 7)
@@ -234,6 +235,13 @@ local function fn2()
 	inst:AddTag("pig_royalguard")
 	-- inst:AddTag("notarget")
 	
+	inst:AddComponent("talker")
+	-- inst.components.talker.ontalk = ontalk
+	inst.components.talker.fontsize = 30
+	inst.components.talker.font = TALKINGFONT
+	inst.components.talker.colour = Vector3(1, 1, 1)
+	inst.components.talker.offset = Vector3(0,-600,0)
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -252,12 +260,6 @@ local function fn2()
 	inst:AddComponent("combat")
 	inst.components.combat:SetKeepTargetFunction(keeptargetfn)
 	inst.components.combat.onhitfn = onhit
-	
-	inst:AddComponent("talker")
-	inst.components.talker.fontsize = 30
-	inst.components.talker.font = TALKINGFONT
-	inst.components.talker.colour = Vector3(1, 1, 1)
-	inst.components.talker.offset = Vector3(0,-600,0)
 	
 	inst:AddComponent("playerprox")
     inst.components.playerprox:SetDist(5, 7)
@@ -304,6 +306,13 @@ local function fn3()
 	inst:AddTag("pig_royalguard")
 	-- inst:AddTag("notarget")
 	
+	inst:AddComponent("talker")
+	-- inst.components.talker.ontalk = ontalk
+	inst.components.talker.fontsize = 30
+	inst.components.talker.font = TALKINGFONT
+	inst.components.talker.colour = Vector3(1, 1, 1)
+	inst.components.talker.offset = Vector3(0,-600,0)
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -322,12 +331,6 @@ local function fn3()
 	inst:AddComponent("combat")
 	inst.components.combat:SetKeepTargetFunction(keeptargetfn)
 	inst.components.combat.onhitfn = onhit
-	
-	inst:AddComponent("talker")
-	inst.components.talker.fontsize = 30
-	inst.components.talker.font = TALKINGFONT
-	inst.components.talker.colour = Vector3(1, 1, 1)
-	inst.components.talker.offset = Vector3(0,-600,0)
 	
 	inst:AddComponent("playerprox")
     inst.components.playerprox:SetDist(5, 7)
@@ -374,6 +377,12 @@ local function fn4()
 	inst:AddTag("pig_royalguard")
 	-- inst:AddTag("notarget")
 	
+	inst:AddComponent("talker")
+	inst.components.talker.fontsize = 30
+	inst.components.talker.font = TALKINGFONT
+	inst.components.talker.colour = Vector3(1, 1, 1)
+	inst.components.talker.offset = Vector3(0,-600,0)
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -392,12 +401,6 @@ local function fn4()
 	inst:AddComponent("combat")
 	inst.components.combat:SetKeepTargetFunction(keeptargetfn)
 	inst.components.combat.onhitfn = onhit
-	
-	inst:AddComponent("talker")
-	inst.components.talker.fontsize = 30
-	inst.components.talker.font = TALKINGFONT
-	inst.components.talker.colour = Vector3(1, 1, 1)
-	inst.components.talker.offset = Vector3(0,-600,0)
 	
 	inst:AddComponent("playerprox")
     inst.components.playerprox:SetDist(5, 7)
@@ -444,6 +447,13 @@ local function fn5()
 	inst:AddTag("pig_royalguard")
 	-- inst:AddTag("notarget")
 	
+	inst:AddComponent("talker")
+	-- inst.components.talker.ontalk = ontalk
+	inst.components.talker.fontsize = 30
+	inst.components.talker.font = TALKINGFONT
+	inst.components.talker.colour = Vector3(1, 1, 1)
+	inst.components.talker.offset = Vector3(0,-600,0)
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -462,12 +472,6 @@ local function fn5()
 	inst:AddComponent("combat")
 	inst.components.combat:SetKeepTargetFunction(keeptargetfn)
 	inst.components.combat.onhitfn = onhit
-	
-	inst:AddComponent("talker")
-	inst.components.talker.fontsize = 30
-	inst.components.talker.font = TALKINGFONT
-	inst.components.talker.colour = Vector3(1, 1, 1)
-	inst.components.talker.offset = Vector3(0,-600,0)
 	
 	inst:AddComponent("playerprox")
     inst.components.playerprox:SetDist(5, 7)

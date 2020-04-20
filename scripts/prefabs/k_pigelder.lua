@@ -227,18 +227,18 @@ local function fn()
 	inst:AddTag("pigelder")
 	-- inst:AddTag("notarget")
 	
-	inst.entity:SetPristine()
-
-    if not TheWorld.ismastersim then
-        return inst
-    end
-	
 	inst:AddComponent("talker")
 	-- inst.components.talker.ontalk = ontalk
 	inst.components.talker.fontsize = 30
 	inst.components.talker.font = TALKINGFONT
 	inst.components.talker.colour = Vector3(1, 1, 1)
 	inst.components.talker.offset = Vector3(0,-600,0)
+	
+	inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
