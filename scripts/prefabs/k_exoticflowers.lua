@@ -29,7 +29,7 @@ local function onsave(inst, data)
 end
 
 local function onload(inst, data)
-    setflowertype(inst, data ~= nil and data.anim or nil)
+    setflowertype(inst, data ~= nil and data.anim or nil) -- Was data.anim that when unload and load again changes the animate.
     inst.planted = data ~= nil and data.planted or nil
 end
 
@@ -41,7 +41,7 @@ local function onpickedfn(inst, picker)
         end
     end
     inst:Remove()
-    TheWorld:PushEvent("plantkilled", { doer = picker, pos = pos })
+    -- TheWorld:PushEvent("plantkilled", { doer = picker, pos = pos }) -- I think this is why they keep regrowing?
 end
 
 local function testfortransformonload(inst)
@@ -85,7 +85,8 @@ local function fn()
 	inst.AnimState:PlayAnimation(inst.animname)
     inst.AnimState:SetRayTestOnBB(true)
 
-    inst:AddTag("flower")
+    inst:AddTag("structure")
+	inst:AddTag("flower")
 	inst:AddTag("exoticflower")
     inst:AddTag("cattoy")
 
@@ -108,8 +109,8 @@ local function fn()
 	MakeSmallPropagator(inst)
     inst.components.burnable:SetOnBurntFn(OnBurnt)
 
-	inst:AddComponent("halloweenmoonmutable")
-	inst.components.halloweenmoonmutable:SetPrefabMutated("moonbutterfly_sapling")
+	-- inst:AddComponent("halloweenmoonmutable")
+	-- inst.components.halloweenmoonmutable:SetPrefabMutated("moonbutterfly_sapling")
 
     if TheWorld:HasTag("cave") then
         inst:WatchWorldState("iscaveday", OnIsCaveDay)
@@ -117,9 +118,13 @@ local function fn()
 
     MakeHauntableChangePrefab(inst, "flower_evil")
 
+	--[[
     if not POPULATING then
         setflowertype(inst)
     end
+	]]--
+	
+	inst.planted = true
     
     inst.OnSave = onsave
     inst.OnLoad = onload

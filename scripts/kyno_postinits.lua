@@ -275,9 +275,9 @@ AddComponentPostInit(
 AddComponentPostInit(
     "locomotor",
     function(inst)
-        local old = inst.UpdateGroundSpeedMultiplier
+        local old2 = inst.UpdateGroundSpeedMultiplier
         inst.UpdateGroundSpeedMultiplier = function(self)
-            old(self)
+            old2(self)
             if
                 self.wasoncreep == false and self:FasterOnRoad() and
                     GLOBAL.TheWorld.Map:GetTileAtPoint(self.inst.Transform:GetWorldPosition()) == GROUND.PINKSTONE
@@ -291,9 +291,9 @@ AddComponentPostInit(
 AddComponentPostInit(
     "locomotor",
     function(inst)
-        local old = inst.UpdateGroundSpeedMultiplier
+        local old3 = inst.UpdateGroundSpeedMultiplier
         inst.UpdateGroundSpeedMultiplier = function(self)
-            old(self)
+            old3(self)
             if
                 self.wasoncreep == false and self:FasterOnRoad() and
                     GLOBAL.TheWorld.Map:GetTileAtPoint(self.inst.Transform:GetWorldPosition()) == GROUND.STONECITY
