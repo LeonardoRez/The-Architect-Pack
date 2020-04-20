@@ -174,7 +174,7 @@ local function fn()
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("health")
-	inst.components.health:SetMaxHealth(500)
+	inst.components.health:SetMaxHealth(100)
 	inst.components.health.ondelta = onhealthchange
 	inst.components.health.nofadeout = true
 	inst.components.health.canheal = false
@@ -244,7 +244,7 @@ local function fn2()
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("health")
-	inst.components.health:SetMaxHealth(500)
+	inst.components.health:SetMaxHealth(100)
 	inst.components.health.ondelta = onhealthchange
 	inst.components.health.nofadeout = true
 	inst.components.health.canheal = false
@@ -314,7 +314,7 @@ local function fn3()
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("health")
-	inst.components.health:SetMaxHealth(500)
+	inst.components.health:SetMaxHealth(100)
 	inst.components.health.ondelta = onhealthchange
 	inst.components.health.nofadeout = true
 	inst.components.health.canheal = false
@@ -384,7 +384,7 @@ local function fn4()
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("health")
-	inst.components.health:SetMaxHealth(500)
+	inst.components.health:SetMaxHealth(100)
 	inst.components.health.ondelta = onhealthchange
 	inst.components.health.nofadeout = true
 	inst.components.health.canheal = false
@@ -454,7 +454,7 @@ local function fn5()
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("health")
-	inst.components.health:SetMaxHealth(500)
+	inst.components.health:SetMaxHealth(100)
 	inst.components.health.ondelta = onhealthchange
 	inst.components.health.nofadeout = true
 	inst.components.health.canheal = false

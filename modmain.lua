@@ -1475,7 +1475,7 @@ AddRecipe("kyno_leafystalk", {Ingredient("log", 10), Ingredient("succulent_picke
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_leafystalk_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_leafystalk.xml", "kyno_leafystalk.tex")
 
 
-AddRecipe("kyno_cocoon", {Ingredient("butterfly", 1), Ingredient("ice", 2)},
+AddRecipe("kyno_cocoon", {Ingredient("lightbulb", 1), Ingredient("ice", 2)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_cocoon_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_cocoon.xml", "kyno_cocoon.tex")
 
 
