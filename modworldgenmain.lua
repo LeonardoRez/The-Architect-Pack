@@ -310,6 +310,23 @@ AddTile(93, "browncarpet", "kyno_turfs3", nil,
 	}
 , true)
 
+AddTile(94, "forgerock", "kyno_turfs4", nil,
+	{
+	name = "forge_trim_ms",
+	noise_texture = "levels/textures/forge_trim_noise.tex",
+	},{
+		noise_texture = "levels/textures/forge_trim_mini.tex",
+	}
+, true)
+
+AddTile(95, "forgeroad", "kyno_turfs4", nil,
+	{
+	name = "forge_floor_ms",
+	noise_texture = "levels/textures/forge_floor_noise.tex",
+	},{
+		noise_texture = "levels/textures/forge_floor_mini.tex",
+	}
+, true)
 
 ChangeTileTypeRenderOrder(GROUND.PINKSTONE, GROUND.ROAD, true)
 ChangeTileTypeRenderOrder(GROUND.STONECITY, GROUND.PINKSTONE, true)
@@ -336,4 +353,6 @@ ChangeTileTypeRenderOrder(GROUND.FOUNDATION, GROUND.GASJUNGLE, true)
 ChangeTileTypeRenderOrder(GROUND.BEARD_HAIR, GROUND.SNAKESKINFLOOR, true)
 ChangeTileTypeRenderOrder(GROUND.BROWNCARPET, GROUND.BEARD_HAIR, true)
 ChangeTileTypeRenderOrder(GROUND.LAWN, GROUND.CARPET, true)
-ChangeTileTypeRenderOrder(GROUND.COBBLEROAD, GROUND.BROWNCARPET, true)
+ChangeTileTypeRenderOrder(GROUND.FORGEROAD, GROUND.BROWNCARPET, true)
+ChangeTileTypeRenderOrder(GROUND.COBBLEROAD, GROUND.FORGEROAD, true)
+ChangeTileTypeRenderOrder(GROUND.FORGEROCK, GROUND.UNDERROCK, true)

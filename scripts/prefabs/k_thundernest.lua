@@ -48,6 +48,7 @@ local function fn()
 	inst.AnimState:SetBank("thunderbird_nest")
 	inst.AnimState:SetBuild("thunderbird_nest")
 	inst.AnimState:PlayAnimation("nest", false)
+	inst.AnimState:SetFinalOffset(2)
 	
 	inst:AddTag("structure")
 	inst:AddTag("thundernest")
@@ -93,7 +94,7 @@ local function birdfn()
     inst.AnimState:SetBank("thunderbird")
     inst.AnimState:SetBuild("thunderbird")
     inst.AnimState:PlayAnimation("CCW", true)
-	inst.AnimState:SetSortOrder(3)
+	inst.AnimState:SetFinalOffset(3)
 	
     inst.persists = false
 	

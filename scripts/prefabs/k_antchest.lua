@@ -10,6 +10,10 @@ local assets =
 	
 	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_ham.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_ham.xml"),
+	
+	Asset("SOUND", "sound/DLC003_AMB_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_music_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_sfx.fsb"),
 }
 
 local function testitem_honeychest(inst, item, slot)
@@ -19,14 +23,14 @@ end
 local function onopen(inst) 
 	if not inst:HasTag("burnt") then
 		inst.AnimState:PlayAnimation("open")
-		inst.SoundEmitter:PlaySound("dontstarve/wilson/chest_open")
+		inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/objects/honey_chest/open")
 	end
 end
 
 local function onclose(inst)
 	if not inst:HasTag("burnt") then
 		inst.AnimState:PlayAnimation("close")
-		inst.SoundEmitter:PlaySound("dontstarve/wilson/chest_close")
+		inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/objects/honey_chest/open")
 	end
 end
 

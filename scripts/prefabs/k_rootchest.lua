@@ -3,23 +3,27 @@ require "prefabutil"
 local assets =
 {
 	Asset("ANIM", "anim/treasure_chest_roottrunk.zip"),	
-	Asset("ANIM", "anim/ui_chest_3x2.zip"),
+	Asset("ANIM", "anim/ui_chester_shadow_3x4.zip"),
 	
 	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_ham.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_ham.xml"),
+	
+	Asset("SOUND", "sound/DLC003_AMB_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_music_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_sfx.fsb"),
 }
 
 local function onopen(inst) 
 	if not inst:HasTag("burnt") then
 		inst.AnimState:PlayAnimation("open")
-		inst.SoundEmitter:PlaySound("dontstarve/wilson/chest_open")
+		inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/crafted/root_trunk/open")
 	end
 end
 
 local function onclose(inst)
 	if not inst:HasTag("burnt") then
 		inst.AnimState:PlayAnimation("close")
-		inst.SoundEmitter:PlaySound("dontstarve/wilson/chest_close")
+		inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/crafted/root_trunk/open")
 	end
 end
 
@@ -48,7 +52,7 @@ end
 local function onbuilt(inst)
 	inst.AnimState:PlayAnimation("close")
 	inst.AnimState:PushAnimation("closed", true)
-	inst.SoundEmitter:PlaySound("dontstarve/common/craftable/chest")
+	inst.SoundEmitter:PlaySound("dontstarve_DLC003/common/crafted/root_trunk/place")
 end	
 
 local function onsave(inst, data)
@@ -95,7 +99,7 @@ local function fn()
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
 	
 	inst:AddComponent("container")
-    inst.components.container:WidgetSetup("treasurechest")
+    inst.components.container:WidgetSetup("shadowchester")
 
     inst.components.container.onopenfn = onopen
     inst.components.container.onclosefn = onclose

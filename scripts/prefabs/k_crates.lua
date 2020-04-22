@@ -21,9 +21,7 @@ local function onsave(inst, data)
 end
 
 local function onload(inst, data)
-	if data and data.anim then
-		setanim(inst, data.anim)
-	end
+	setanim(inst, data ~= nil and data.anim or nil)
 end
 
 

@@ -244,7 +244,7 @@ local function fn()
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("health")
-	inst.components.health:SetMaxHealth(1000)
+	inst.components.health:SetMaxHealth(100)
 	inst.components.health.ondelta = onhealthchange
 	inst.components.health.nofadeout = true
 	inst.components.health.canheal = false

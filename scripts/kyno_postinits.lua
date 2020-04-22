@@ -303,6 +303,22 @@ AddComponentPostInit(
         end
     end
 )
+
+AddComponentPostInit(
+    "locomotor",
+    function(inst)
+        local old4 = inst.UpdateGroundSpeedMultiplier
+        inst.UpdateGroundSpeedMultiplier = function(self)
+            old4(self)
+            if
+                self.wasoncreep == false and self:FasterOnRoad() and
+                    GLOBAL.TheWorld.Map:GetTileAtPoint(self.inst.Transform:GetWorldPosition()) == GROUND.FORGEROAD
+             then
+                self.groundspeedmultiplier = self.fastmultiplier
+            end
+        end
+    end
+)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 packim_chance = GetModConfigData("packim_baggims")
 GLOBAL.SetSharedLootTable("malbatross_packim",
@@ -369,12 +385,14 @@ AddPrefabPostInitAny(function(inst)
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-local function CactusFriend(inst)
-	if not GLOBAL.TheWorld.ismastersim then
-		return inst
-	end
-	inst:AddTag("armor_cactus")
-end 
+GLOBAL.DEPLOYSPACING.MIN = 6
+GLOBAL.DEPLOYSPACING_RADIUS[GLOBAL.DEPLOYSPACING.MIN] = .5
 
-AddPrefabPostInit("armor_dragonfly", CactusFriend)
+AddPrefabPostInit("butterfly", function(inst)
+	if GLOBAL.TheWorld.ismastersim then
+		inst.components.deployable:SetDeployMode(GLOBAL.DEPLOYMODE.PLANT)
+		inst.components.deployable:SetDeploySpacing(GLOBAL.DEPLOYSPACING.MIN)
+	end
+end
+)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -302,7 +302,7 @@ local function activefn()
 
     if not TheWorld.ismastersim then
         function inst.OnEntityReplicated(inst)
-            inst.replica.combat.notags = {"elephantcactus", "armor_cactus", "armor_dragonfly"}
+            inst.replica.combat.notags = {"elephantcactus", "armorbramble", "bramble_resistant"}
         end
         return inst
     end
@@ -325,7 +325,7 @@ local function activefn()
 	inst.components.combat:SetKeepTargetFunction(shouldKeepTarget)
     inst.components.combat:SetAreaDamage(3, 1.0)
 	inst.components.combat:SetHurtSound("dontstarve_DLC002/creatures/volcano_cactus/hit")
-    inst.components.combat.notags = {"elephantcactus", "armor_cactus", "armor_dragonfly"}
+    inst.components.combat.notags = {"elephantcactus", "armorbramble", "bramble_resistant"}
 
 	inst:AddComponent("timer")
 	inst:ListenForEvent("timerdone", ontimerdone)

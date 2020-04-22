@@ -745,6 +745,66 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_royalguard_palace.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_royalguard_palace.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_pugna.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_pugna.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_pugna.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_pugna.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_magmagolem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_magmagolem.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_magmagolem.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_magmagolem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_purplestandard.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_purplestandard.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_redstandard.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_redstandard.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_bluestandard.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_bluestandard.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_banner1.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_banner1.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_banner2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_banner2.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_banner3.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_banner3.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_lavagateway.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_lavagateway.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_anchorgateway.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_anchorgateway.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_lavagateway.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_lavagateway.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_healblossom.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_healblossom.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_lavahole.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_lavahole.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_moltenfence.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_moltenfence.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_moltenfence_item.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_moltenfence_item.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_turfs_forge.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_turfs_forge.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_lavaspawner.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_lavaspawner.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_lavaspawner.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_lavaspawner.xml"),
+	
 	-- Unlisted Assets --
 	Asset("ANIM", "anim/mod_turfs.zip"),
 	Asset("ANIM", "anim/kyno_catalogues.zip"), -- Unused.
@@ -1037,6 +1097,11 @@ Assets = {
 	Asset("ANIM", "anim/kyno_turfs3.zip"),
 	Asset("ANIM", "anim/kyno_lamp_post.zip"),
 	Asset("ANIM", "anim/kyno_lamp_post_short.zip"),
+	-- The Forge Content --
+	Asset("ANIM", "anim/kyno_battlestandard_heal_build.zip"),
+	Asset("ANIM", "anim/kyno_banner.zip"),
+	Asset("ANIM", "anim/kyno_moltenfence.zip"),
+	Asset("ANIM", "anim/kyno_turfs4.zip"),
 	-- Sea Content --
 	Asset("ANIM", "anim/tree_mangrove_build.zip"),
 	Asset("ANIM", "anim/tree_mangrove_normal.zip"),

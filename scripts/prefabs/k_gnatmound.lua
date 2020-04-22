@@ -57,6 +57,7 @@ local function fn()
 	inst.AnimState:SetBank("gnat_mound")
 	inst.AnimState:SetBuild("gnat_mound")
 	inst.AnimState:PlayAnimation("full", true)
+	inst.AnimState:SetFinalOffset(2)
 	
 	MakeObstaclePhysics(inst, .5)
 	
@@ -109,7 +110,7 @@ local function gnatfn()
 	inst.AnimState:SetBank("gnat")
 	inst.AnimState:SetBuild("gnat")
 	inst.AnimState:PlayAnimation("idle_loop", true)
-	inst.AnimState:SetSortOrder(3)
+	inst.AnimState:SetFinalOffset(3)
 	
 	inst.persists = false
 	

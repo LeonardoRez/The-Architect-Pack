@@ -156,8 +156,8 @@ local function commonfn()
 	
     inst:AddComponent("lootdropper")
     
-	inst:AddComponent("workable")
-	inst.components.workable:SetWorkAction(ACTIONS.DIG)
+	--	inst:AddComponent("workable")
+	-- inst.components.workable:SetWorkAction(ACTIONS.DIG)
 	-- inst.components.workable:SetOnWorkCallback(dig_up)
 	-- inst.components.workable:SetWorkLeft(#anims)
 

@@ -1,3 +1,18 @@
+Version 1.0-A 
+- Started working on the Mod.
+- Added Prefabs.
+- Added Postinits.
+- Added Images.
+- Added Animations.
+----------------------------------------------------------------------------------------------------------------------
+Version 1.5-A
+- Added Textures.
+- Added Libs.
+- Added Sounds.
+- Added Stategraphs.
+- Added Mod Options.
+- Added Recipes.
+----------------------------------------------------------------------------------------------------------------------
 Version 1.0-B
 - Added Giant Grub.
 - Added Gnat Swarm around Gnat Mound.
@@ -36,7 +51,7 @@ Version 1.5-B
 - Added Queen Palace's Guard.
 - Added Queen's Royal Guard.
 - Added New configuration option: Packim Baggims.
-- Added New configuration option: Colorcubes.
+- Added New configuration option: Colour Cubes.
 - Added Sounds for Fountain of Youth. 
 - Added Sounds for Smelter. 
 - Added Sounds for Iron Gate. 
@@ -75,7 +90,8 @@ Version 1.5-B
 - Fixed Sandpile Animations. 
 - Fixed Sharkitten Den Animations. 
 - Fixed Magma Pile Animations. 
-- Fixed Sand Castle Animations. 
+- Fixed Sand Castle Animations.
+- Fixed Exotic Flower Unload.
 
 - Removed Snow from Town Houses.
 - Removed Skyworthy and Seaworthy as prototyper machines.
@@ -101,3 +117,18 @@ Version 1.5-B
 - Elephant Cactus now attacks every entity in their range.
 - Mossy Gateway no longer block structures.
 ----------------------------------------------------------------------------------------------------------------------
+Version - 1.0-C
+- Added The Forge Structures.
+- Added Sounds for Cork Chest.
+- Added Sounds for Root Trunk.
+- Added Sounds for Honey Chest.
+- Added New Colour Cube: The Forge.
+- Added New Colour Cube: The Gorge.
+
+- Fixed Wooden Crate Unload.
+- Fixed Speed on Turfs.
+
+- Changed White Stone and Pink Stone Turfs recipes to Cobblestones.
+
+- Elephant Cactus will not attack players that are wearing a Bramble Husk.
+- Flowers can be planted much more closer now.
