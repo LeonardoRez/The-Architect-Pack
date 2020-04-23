@@ -51,6 +51,8 @@ Assets = { -- Some Assets don't show correctly if they're not set here.
 	Asset("ATLAS", "images/tabimages/kyno_gorgetab.xml"),
 	Asset("IMAGE", "images/tabimages/kyno_forgetab.tex"),
 	Asset("ATLAS", "images/tabimages/kyno_forgetab.xml"),
+	Asset("IMAGE", "images/tabimages/kyno_surfacetab.tex"),
+	Asset("ATLAS", "images/tabimages/kyno_surfacetab.xml"),
 	Asset("IMAGE", "images/inventoryimages/kyno_ruinspillar.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_ruinspillar.xml"),
 	Asset("IMAGE", "images/inventoryimages/kyno_thundernest.tex"),
@@ -67,6 +69,8 @@ Assets = { -- Some Assets don't show correctly if they're not set here.
 	Asset("ATLAS", "images/inventoryimages/kyno_moltenfence.xml"),
 	Asset("IMAGE", "images/inventoryimages/kyno_moltenfence_item.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_moltenfence_item.xml"),
+	Asset("IMAGE", "images/inventoryimages/kyno_burntmarsh.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_burntmarsh.xml"),
 	Asset("ANIM", "anim/kyno_turfs2.zip"),
 	Asset("ANIM", "anim/kyno_turfs3.zip"),
 	Asset("ANIM", "anim/kyno_turfs4.zip"),
@@ -234,6 +238,8 @@ PrefabFiles = {
 	"k_snaptooth",
 	"k_teleportato_hamlet",
 	"k_pigguards",
+	"k_ro_bin",
+	"k_ro_bin_gizzard_stone",
 	-- THE GORGE CONTENT --
 	"k_gorge_prototyper",
 	"k_bollard",
@@ -282,6 +288,8 @@ PrefabFiles = {
 	"k_lavahole",
 	"k_moltenfence",
 	"k_forge_spawner",
+	-- BASE GAME CONTENT -- 
+	"k_burntmarsh",
 	-- SEA CONTENT (Currently disabled) --
 	"k_mangrovetrees",
 	"k_wrecks",
@@ -386,7 +394,7 @@ end
 
 if GLOBAL.TheNet:GetIsMasterSimulation() then
     local kyno_turf_ham_atlas = MODROOT.."images/inventoryimages/kyno_turfs_ham.xml"
-    for _, turf in pairs({"rainforest", "plains", "deepjungle", "bog", "mossy_blossom", "gasjungle", "beard_hair"}) do
+    for _, turf in pairs({"rainforest", "plains", "deepjungle", "bog", "mossy_blossom", "gasjungle", "beard_hair", "antcave", "batcave"}) do
         local kyno_turf_ham_name = "turf_"..turf
         AddPrefabPostInit(kyno_turf_ham_name, function(inst)
             inst.components.inventoryitem.imagename = kyno_turf_ham_name
@@ -430,7 +438,7 @@ end
 
 if GLOBAL.TheNet:GetIsMasterSimulation() then
     local item2_atlas = MODROOT.."images/inventoryimages/kyno_minisign_icons_2.xml"
-    for _, item2 in pairs({"teatree_nut", "burr", "hedge_block_item", "hedge_cone_item", "hedge_layered_item"}) do
+    for _, item2 in pairs({"teatree_nut", "burr", "hedge_block_item", "hedge_cone_item", "hedge_layered_item", "ro_bin_gizzard_stone"}) do
         local item2_name = item2
         AddPrefabPostInit(item2_name, function(inst)
             inst.components.inventoryitem.imagename = item2_name
@@ -687,19 +695,39 @@ for y = 2, 0, -1 do
     end
 end
 
+params.ro_bin = -- Fix for ro_bin aka Ro Bin
+{
+    widget =
+    {
+        slotpos = {},
+        animbank = "ui_chester_shadow_3x4",
+        animbuild = "ui_chester_shadow_3x4",
+        pos = GLOBAL.Vector3(0, 200, 0),
+        side_align_tip = 160,
+    },
+    type = "chester",
+}
+for y = 2, 0, -1 do
+    for x = 0, 2 do
+        table.insert(params.ro_bin.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
+    end
+end
+
 for k, v in pairs(params) do
     containers.MAXITEMSLOTS = math.max(containers.MAXITEMSLOTS, v.widget.slotpos ~= nil and #v.widget.slotpos or 0)
 end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- For some fucking reason the Prototyper and TechTree don't work if the recipes aren't here.
--- AddNewTechTree("BARQUINHO", 3)
--- AddNewTechTree("CASINHA", 3)
+-- AddNewTechTree("BOAT", 3)
+-- AddNewTechTree("PIG", 3)
 -- AddNewTechTree("GNAW", 3)
 -- AddNewTechTree("PUGNA", 3)
+-- AddNewTechTree("CACTI", 3)
 local kyno_shipwreckedtab = AddRecipeTab("Shipwrecked", 998, "images/tabimages/kyno_shipwreckedtab.xml", "kyno_shipwreckedtab.tex", nil, true)
 local kyno_hamlettab = AddRecipeTab("Hamlet", 998, "images/tabimages/kyno_hamlettab.xml", "kyno_hamlettab.tex", nil, true)
 local kyno_gorgetab = AddRecipeTab("The Gorge", 998, "images/tabimages/kyno_gorgetab.xml", "kyno_gorgetab.tex", nil, true)
 local kyno_forgetab = AddRecipeTab("The Forge", 998, "images/tabimages/kyno_forgetab.xml", "kyno_forgetab.tex", nil, true)
+local kyno_surfacetab = AddRecipeTab("Surface", 998, "images/tabimages/kyno_surfacetab.xml", "kyno_surfacetab.tex", nil, true)
 
 local magmaingredient = Ingredient("turf_magmafield", 2)
 magmaingredient.atlas = "images/inventoryimages/kyno_turfs_sw.xml"
@@ -797,6 +825,46 @@ kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_gorge_prototyper_placer", 0, nil, nil, ni
 
 AddRecipe("kyno_pugna", {Ingredient("hambat", 1), Ingredient("meat", 10), Ingredient("reviver", 1)},
 kyno_forgetab, TECH.SCIENCE_TWO, "kyno_pugna_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_pugna.xml", "kyno_pugna.tex")
+
+
+AddRecipe("dug_berrybush", {Ingredient("berries", 1)},
+kyno_surfacetab, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "dug_berrybush.tex")
+
+
+AddRecipe("dug_berrybush2", {Ingredient("dug_berrybush", 1)},
+kyno_surfacetab, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "dug_berrybush2.tex")
+
+
+AddRecipe("dug_berrybush_juicy", {Ingredient("berries_juicy", 1)},
+kyno_surfacetab, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "dug_berrybush_juicy.tex")
+
+
+AddRecipe("dug_grass", {Ingredient("cutgrass", 1)},
+kyno_surfacetab, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "dug_grass.tex")
+
+
+AddRecipe("dug_sapling", {Ingredient("twigs", 1)},
+kyno_surfacetab, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "dug_sapling.tex")
+
+
+AddRecipe("dug_marsh_bush", {Ingredient("dug_sapling", 1), Ingredient("houndstooth", 1)},
+kyno_surfacetab, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "dug_marsh_bush.tex")
+
+
+AddRecipe("dug_sapling_moon", {Ingredient("dug_sapling", 1), Ingredient("moonrocknugget", 1)},
+kyno_surfacetab, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages1.xml", "dug_sapling_moon.tex")
+
+
+AddRecipe("dug_rock_avocado_bush", {Ingredient("rock_avocado_fruit", 3)},
+kyno_surfacetab, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages1.xml", "dug_rock_avocado_bush.tex")
+
+
+AddRecipe("dug_trap_starfish", {Ingredient("dug_marsh_bush", 1), Ingredient("houndstooth", 1)},
+kyno_surfacetab, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages1.xml", "dug_trap_starfish.tex")
+
+-- This shit wasn't working LOL.
+AddRecipe("kyno_burntmarsh", {Ingredient("ash", 2)},
+kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_burntmarsh_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_burntmarsh.xml", "kyno_burntmarsh.tex")
 
 
 AddRecipe("kyno_magmagolem", {Ingredient("rocks", 4), Ingredient("redgem", 2)},

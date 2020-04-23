@@ -1736,3 +1736,31 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.TURF_FORGEROAD = "The forge is mine!"
 STRINGS.NAMES.TURF_FORGEROCK = "Molten Rocky"
 STRINGS.RECIPE_DESC.TURF_FORGEROCK = "Melted rocks with magma."
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.TURF_FORGEROCK = "It's very hot."
+
+STRINGS.NAMES.TURF_BATCAVE = "Bat Cave Turf"
+STRINGS.RECIPE_DESC.TURF_BATCAVE = "Where is Robin?"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.TURF_BATCAVE = "Smells like vampire bats, eww."
+
+STRINGS.NAMES.TURF_ANTCAVE = "Mant Cave Turf"
+STRINGS.RECIPE_DESC.TURF_ANTCAVE = "Mant hill's turf."
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.TURF_ANTCAVE = "It smells like honey... but why?"
+
+STRINGS.NAMES.KYNO_BURNTMARSH = "Spiky Bush"
+STRINGS.RECIPE_DESC.KYNO_BURNTMARSH = "A burnt spiky bush."
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.KYNO_BURNTMARSH = "It's burnt..."
+
+STRINGS.NAMES.RO_BIN = "Ro Bin"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.RO_BIN = "Do you have to squeek all the time?"
+
+STRINGS.NAMES.RO_BIN_GIZZARD_STONE = "Ro Bin Gizzard Stone"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.RO_BIN_GIZZARD_STONE = "How this even happen?"
+
+STRINGS.RECIPE_DESC.DUG_BERRYBUSH = "Create a berry bush from almost nothing!"
+STRINGS.RECIPE_DESC.DUG_BERRYBUSH2 = "Transmute a berry bush into another!"
+STRINGS.RECIPE_DESC.DUG_BERRYBUSH_JUICY = "Create a berry bush from almost nothing!"
+STRINGS.RECIPE_DESC.DUG_GRASS = "Grass equals... grass."
+STRINGS.RECIPE_DESC.DUG_SAPLING = "It's just a bunch of sticks together."
+STRINGS.RECIPE_DESC.DUG_MARSH_BUSH = "It's a sapling with spikes."
+STRINGS.RECIPE_DESC.DUG_SAPLING_MOON = "Lets mix moon stuff with plants, why not?"
+STRINGS.RECIPE_DESC.DUG_ROCK_AVOCADO_BUSH = "Create a stone bush from rock fruits."
+STRINGS.RECIPE_DESC.DUG_TRAP_STARFISH = "Transmute a moon sapling into a trap!"

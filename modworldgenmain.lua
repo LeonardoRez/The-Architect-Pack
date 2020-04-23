@@ -328,6 +328,24 @@ AddTile(95, "forgeroad", "kyno_turfs4", nil,
 	}
 , true)
 
+AddTile(96, "antcave", "kyno_turfs4", nil,
+	{
+	name = "blocky",
+	noise_texture = "levels/textures/antcave_noise.tex",
+	},{
+		noise_texture = "levels/textures/antcave_mini.tex",
+	}
+, true)
+
+AddTile(97, "batcave", "kyno_turfs4", nil,
+	{
+	name = "blocky",
+	noise_texture = "levels/textures/batcave_noise.tex",
+	},{
+		noise_texture = "levels/textures/batcave_mini.tex",
+	}
+, true)
+
 ChangeTileTypeRenderOrder(GROUND.PINKSTONE, GROUND.ROAD, true)
 ChangeTileTypeRenderOrder(GROUND.STONECITY, GROUND.PINKSTONE, true)
 ChangeTileTypeRenderOrder(GROUND.BEACH, GROUND.PINKSTONE, true)
@@ -339,7 +357,9 @@ ChangeTileTypeRenderOrder(GROUND.VOLCANO, GROUND.DESERT_DIRT, true)
 ChangeTileTypeRenderOrder(GROUND.ASH, GROUND.VOLCANO, true)
 ChangeTileTypeRenderOrder(GROUND.MAGMAFIELD, GROUND.ASH, true)
 ChangeTileTypeRenderOrder(GROUND.SNAKESKINFLOOR, GROUND.LAWN, true)
-ChangeTileTypeRenderOrder(GROUND.PIGRUINS, GROUND.VOLCANO, true)
+ChangeTileTypeRenderOrder(GROUND.ANTCAVE, GROUND.VOLCANO, true)
+ChangeTileTypeRenderOrder(GROUND.BATCAVE, GROUND.ANTCAVE, true)
+ChangeTileTypeRenderOrder(GROUND.PIGRUINS, GROUND.BATCAVE, true)
 ChangeTileTypeRenderOrder(GROUND.BOG, GROUND.PIGRUINS, true)
 ChangeTileTypeRenderOrder(GROUND.PLAINS, GROUND.BOG, true)
 ChangeTileTypeRenderOrder(GROUND.RAINFOREST, GROUND.PLAINS, true)

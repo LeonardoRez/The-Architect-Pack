@@ -805,6 +805,12 @@ Assets = {
 	Asset("IMAGE", "images/minimapimages/kyno_lavaspawner.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_lavaspawner.xml"),
 	
+	Asset("IMAGE", "images/tabimages/kyno_surfacetab.tex"),
+	Asset("ATLAS", "images/tabimages/kyno_surfacetab.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_burntmarsh.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_burntmarsh.xml"),
+	
 	-- Unlisted Assets --
 	Asset("ANIM", "anim/mod_turfs.zip"),
 	Asset("ANIM", "anim/kyno_catalogues.zip"), -- Unused.
@@ -1083,6 +1089,10 @@ Assets = {
 	Asset("ANIM", "anim/elderdrake_actions.zip"),
 	Asset("ANIM", "anim/elderdrake_attacks.zip"),
     Asset("ANIM", "anim/elderdrake_build.zip"),  
+	Asset("ANIM", "anim/ro_bin.zip"),
+	Asset("ANIM", "anim/ro_bin_build.zip"),
+	Asset("ANIM", "anim/ro_bin_gem.zip"),
+	Asset("ANIM", "anim/ro_bin_water.zip"),
 	-- The Gorge Content --
 	Asset("ANIM", "anim/quagmire_altar_statue1_left.zip"),
 	Asset("ANIM", "anim/quagmire_altar_statue2_left.zip"),

@@ -122,13 +122,18 @@ Version - 1.0-C
 - Added Sounds for Cork Chest.
 - Added Sounds for Root Trunk.
 - Added Sounds for Honey Chest.
+- Added Ant and Bat Turfs.
 - Added New Colour Cube: The Forge.
 - Added New Colour Cube: The Gorge.
 
-- Fixed Wooden Crate Unload.
+- Fixed Wooden Crate unload.
 - Fixed Speed on Turfs.
 
 - Changed White Stone and Pink Stone Turfs recipes to Cobblestones.
 
 - Elephant Cactus will not attack players that are wearing a Bramble Husk.
 - Flowers can be planted much more closer now.
+----------------------------------------------------------------------------------------------------------------------
+Version 1.5-C
+- Added Base Game Structures.
+- Added New configuration option: Ro Bin.

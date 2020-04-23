@@ -84,9 +84,17 @@ local function fn()
     
 	inst.entity:AddTransform()
     inst.entity:AddAnimState()
+	inst.entity:AddLight()
     inst.entity:AddSoundEmitter()
 	inst.entity:AddDynamicShadow()
 	inst.entity:AddNetwork()
+	
+	inst.Light:SetFalloff(1)
+    inst.Light:SetIntensity(.5)
+    inst.Light:SetRadius(1)
+    inst.Light:Enable(true)
+    inst.Light:SetColour(185/255, 185/255, 20/255)
+	inst.lightson = true
 	
 	local minimap = inst.entity:AddMiniMapEntity()
     minimap:SetIcon("kyno_magmagolem.tex")
