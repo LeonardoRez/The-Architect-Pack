@@ -41,4 +41,10 @@ MakePlacer("kyno_turnip_planted_placer", "quagmire_soil", "quagmire_crop_turnip"
 MakePlacer("kyno_onion_planted_placer", "quagmire_soil", "quagmire_crop_onion", "crop_full", false, nil, nil, nil, nil, nil, plantedcarrotplacetestfn),
 MakePlacer("kyno_wheat_planted_placer", "quagmire_soil", "quagmire_crop_wheat", "crop_full", false, nil, nil, nil, nil, nil, plantedwheatplacetestfn),
 MakePlacer("kyno_garlic_planted_placer", "quagmire_soil", "quagmire_crop_garlic", "crop_full", false, nil, nil, nil, nil, nil, plantedcarrotplacetestfn),
-MakePlacer("kyno_tomato_planted_placer", "quagmire_soil", "quagmire_crop_tomato", "crop_full", false, nil, nil, nil, nil, plantedpotatoplacetestfn)
+MakePlacer("kyno_tomato_planted_placer", "quagmire_soil", "quagmire_crop_tomato", "crop_full", false, nil, nil, nil, nil, plantedpotatoplacetestfn),
+MakePlacer("kyno_red_mushroom_placer", "mushrooms", "mushrooms", "red"),
+MakePlacer("kyno_green_mushroom_placer", "mushrooms", "mushrooms", "green"),
+MakePlacer("kyno_blue_mushroom_placer", "mushrooms", "mushrooms", "blue"),
+MakePlacer("kyno_rose_placer", "flowers", "flowers", "rose"),
+MakePlacer("kyno_flower_withered_placer", "withered_flowers", "withered_flowers", "wf3"),
+MakePlacer("kyno_mandrake_planted_placer", "mandrake", "mandrake", "ground")

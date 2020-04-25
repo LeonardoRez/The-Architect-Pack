@@ -811,6 +811,39 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_burntmarsh.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_burntmarsh.xml"),
 	
+	Asset("IMAGE", "images/kyno_redmush.tex"),
+	Asset("ATLAS", "images/kyno_redmush.xml"),
+	
+	Asset("IMAGE", "images/kyno_greenmush.tex"),
+	Asset("ATLAS", "images/kyno_greenmush.xml"),
+	
+	Asset("IMAGE", "images/kyno_bluemush.tex"),
+	Asset("ATLAS", "images/kyno_bluemush.xml"),
+	
+	Asset("IMAGE", "images/kyno_rose.tex"),
+	Asset("ATLAS", "images/kyno_rose.xml"),
+	
+	Asset("IMAGE", "images/kyno_flowerwithered.tex"),
+	Asset("ATLAS", "images/kyno_flowerwithered.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_cactus.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_cactus.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_oasis_cactus.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_oasis_cactus.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_tumbleweed.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_tumbleweed.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_reeds.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_reeds.xml"),
+	
+	Asset("IMAGE", "images/kyno_mandrake_planted.tex"),
+	Asset("ATLAS", "images/kyno_mandrake_planted.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/toucan_hamlet.tex"),
+	Asset("ATLAS", "images/inventoryimages/toucan_hamlet.xml"),
+	
 	-- Unlisted Assets --
 	Asset("ANIM", "anim/mod_turfs.zip"),
 	Asset("ANIM", "anim/kyno_catalogues.zip"), -- Unused.
@@ -897,6 +930,13 @@ Assets = {
 	Asset("ANIM", "anim/dragoon_build.zip"),
 	Asset("ANIM", "anim/dragoon_actions.zip"),
 	Asset("ANIM", "anim/dragoon_basic.zip"),
+	Asset("ANIM", "anim/toucan_build.zip"),
+	Asset("ANIM", "anim/parrot_build.zip"),
+	Asset("ANIM", "anim/parrot_pirate.zip"),
+	Asset("ANIM", "anim/parrot_pirate_build.zip"),
+	Asset("ANIM", "anim/cormorant_build.zip"),
+	Asset("ANIM", "anim/seagull_build.zip"),
+	Asset("ANIM", "anim/seagull_water.zip"),
 	-- Hamlet Content --
 	Asset("ANIM", "anim/vamp_bat_entrance.zip"),
 	Asset("ANIM", "anim/portal_hamlet.zip"),
@@ -1093,6 +1133,10 @@ Assets = {
 	Asset("ANIM", "anim/ro_bin_build.zip"),
 	Asset("ANIM", "anim/ro_bin_gem.zip"),
 	Asset("ANIM", "anim/ro_bin_water.zip"),
+	Asset("ANIM", "anim/kingfisher_build.zip"),
+	Asset("ANIM", "anim/parrot_blue_build.zip"),
+	Asset("ANIM", "anim/toucan_hamlet_build.zip"),
+	Asset("ANIM", "anim/pigeon_build.zip"),
 	-- The Gorge Content --
 	Asset("ANIM", "anim/quagmire_altar_statue1_left.zip"),
 	Asset("ANIM", "anim/quagmire_altar_statue2_left.zip"),

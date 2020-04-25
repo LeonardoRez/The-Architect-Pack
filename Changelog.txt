@@ -135,5 +135,19 @@ Version - 1.0-C
 - Flowers can be planted much more closer now.
 ----------------------------------------------------------------------------------------------------------------------
 Version 1.5-C
-- Added Base Game Structures.
+- Added New Base Game structures.
+- Added New Birds.
 - Added New configuration option: Ro Bin.
+- Added New configuration option: End Table.
+- Added New configuration option: Glowcap, Mushlight and Festive Tree.
+- Added New Parrot strings.
+
+- Changed Limestone Wall and Enforced Limestone Wall recipe cost to 8.
+
+- Night Light is now infinite and stages can be changed with Nightmare Fuel.
+- Light Bulbs, Glow Berries and Flowers now lasts forever in End Table. 
+- Players can now change the appearance of End Table by hammering it.
+- Pumpkin Lantern is now infinite.
+- Festive Lights are now infinite.
+- Birds inside Birdcage will not sleep anymore.
+- Birds inside Birdcage will last forever now.

@@ -9,6 +9,8 @@ local resolvefilepath = GLOBAL.resolvefilepath
 local ACTIONS = GLOBAL.ACTIONS
 local ActionHandler = GLOBAL.ActionHandler
 local SpawnPrefab = GLOBAL.SpawnPrefab
+
+TUNING.BIRD_PERISH_TIME = 999999
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 modimport "scripts/kyno_assets"
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -219,6 +221,7 @@ local function InfiniteLight(inst)
 end
 
 AddPrefabPostInit("kyno_brazier", InfiniteLight)
+AddPrefabPostInit("nightlight", InfiniteLight)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("hedge_block_item", function(inst)
 	if inst.components.inventoryitem ~= nil then
@@ -451,6 +454,98 @@ end)
 AddPrefabPostInit("toadstool_dark", function(inst)
 	if GLOBAL.TheWorld.ismastersim and not TheSim:FindFirstEntityWithTag("ro_bin_gizzard_stone") then
 		inst.components.lootdropper:SetChanceLootTable("toadstool_dark_robin")
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+function InfiniteFestiveLight(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	inst:AddTag("festive_infinite")
+	if inst.components.fueled then
+		if inst.components.inventoryitem then
+			local old_ondropfn = inst.components.inventoryitem.ondropfn
+			inst.components.inventoryitem:SetOnDroppedFn(function(inst)
+				old_ondropfn(inst)
+				inst.components.fueled:StopConsuming()
+			end)
+		end
+		inst.components.fueled:StopConsuming()
+	end
+end
+
+AddPrefabPostInit("winter_ornament_light1", InfiniteFestiveLight)
+AddPrefabPostInit("winter_ornament_light2", InfiniteFestiveLight)
+AddPrefabPostInit("winter_ornament_light3", InfiniteFestiveLight)
+AddPrefabPostInit("winter_ornament_light4", InfiniteFestiveLight)
+AddPrefabPostInit("winter_ornament_light5", InfiniteFestiveLight)
+AddPrefabPostInit("winter_ornament_light6", InfiniteFestiveLight)
+AddPrefabPostInit("winter_ornament_light7", InfiniteFestiveLight)
+AddPrefabPostInit("winter_ornament_light8", InfiniteFestiveLight)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kingfisher", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_ham.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("pigeon", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_ham.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("parrot_blue", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_ham.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("toucan_hamlet", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/toucan_hamlet.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("toucan", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("parrot", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("parrot_pirate", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("seagull", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("cormorant", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("quagmire_pigeon", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("seagull_water", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
