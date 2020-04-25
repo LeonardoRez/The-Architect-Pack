@@ -400,60 +400,23 @@ end
 )
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 robin_chance = GetModConfigData("ro_bin")
-GLOBAL.SetSharedLootTable('toadstool_robin',
+GLOBAL.SetSharedLootTable("minotaur_robin",
 {
-    {"froglegs",      1.00},
-    {"meat",          1.00},
-    {"meat",          1.00},
-    {"meat",          1.00},
-    {"meat",          0.50},
-    {"meat",          0.25},
-    {"shroom_skin",   1.00},
-    {"red_cap",       1.00},
-    {"red_cap",       0.33},
-    {"red_cap",       0.33},
-    {"blue_cap",      1.00},
-    {"blue_cap",      0.33},
-    {"blue_cap",      0.33},
-    {"green_cap",     1.00},
-    {"green_cap",     0.33},
-    {"green_cap",     0.33},
+    {"meat",        1.00},
+    {"meat",        1.00},
+    {"meat",        1.00},
+    {"meat",        1.00},
+    {"meat",        1.00},
+    {"meat",        1.00},
+    {"meat",        1.00},
+    {"meat",        1.00},
+    {"minotaurhorn",1.00},
 	{"ro_bin_gizzard_stone", robin_chance},
 })
 
-GLOBAL.SetSharedLootTable('toadstool_dark_robin',
-{
-    {"froglegs",      1.00},
-    {"meat",          1.00},
-    {"meat",          1.00},
-    {"meat",          1.00},
-    {"meat",          0.50},
-    {"meat",          0.25},
-    {"shroom_skin",   1.00},
-    {"shroom_skin",   1.00},
-    {"red_cap",       1.00},
-    {"red_cap",       0.33},
-    {"red_cap",       0.33},
-    {"blue_cap",      1.00},
-    {"blue_cap",      0.33},
-    {"blue_cap",      0.33},
-    {"green_cap",     1.00},
-    {"green_cap",     0.33},
-    {"green_cap",     0.33},
-    {"mushroom_light2_blueprint", 1.00},
-    {"sleepbomb_blueprint", 1.00},
-	{"ro_bin_gizzard_stone", robin_chance},
-})
-
-AddPrefabPostInit("toadstool", function(inst)
+AddPrefabPostInit("minotaur", function(inst)
 	if GLOBAL.TheWorld.ismastersim and not TheSim:FindFirstEntityWithTag("ro_bin_gizzard_stone") then
-		inst.components.lootdropper:SetChanceLootTable("toadstool_robin")
-	end
-end)
-
-AddPrefabPostInit("toadstool_dark", function(inst)
-	if GLOBAL.TheWorld.ismastersim and not TheSim:FindFirstEntityWithTag("ro_bin_gizzard_stone") then
-		inst.components.lootdropper:SetChanceLootTable("toadstool_dark_robin")
+		inst.components.lootdropper:SetChanceLootTable("minotaur_robin")
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
