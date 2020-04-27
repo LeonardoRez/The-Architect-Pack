@@ -152,6 +152,13 @@ AddPrefabPostInit("kyno_pigshop_cityhall", function(inst)
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_pigshop_mycityhall", function(inst)
+    local YOTP = GetModConfigData("hamlet_yotp")
+	if YOTP == 1 then
+    inst.AnimState:Hide("YOTP")
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("kyno_pigtower", function(inst)
     local YOTP = GetModConfigData("hamlet_yotp")
 	if YOTP == 1 then
@@ -511,4 +518,65 @@ AddPrefabPostInit("seagull_water", function(inst)
 	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
 	end
 end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+local COFFEE = GetModConfigData("coffee_hack")
+if COFFEE == 0 then
+GLOBAL.SetSharedLootTable("dragonfly_coffee",
+{
+    {"dragon_scales",             1.00},
+    {"dragonflyfurnace_blueprint",1.00},
+    {"chesspiece_dragonfly_sketch", 1.00},
+    {"lavae_egg",                 0.33},
+
+    {"meat",             1.00},
+    {"meat",             1.00},
+    {"meat",             1.00},
+    {"meat",             1.00},
+    {"meat",             1.00},
+    {"meat",             1.00},
+
+    {"goldnugget",       1.00},
+    {"goldnugget",       1.00},
+    {"goldnugget",       1.00},
+    {"goldnugget",       1.00},
+
+    {"goldnugget",       0.50},
+    {"goldnugget",       0.50},
+    {"goldnugget",       0.50},
+    {"goldnugget",       0.50},
+
+    {"redgem",           1.00},
+    {"bluegem",          1.00},
+    {"purplegem",        1.00},
+    {"orangegem",        1.00},
+    {"yellowgem",        1.00},
+    {"greengem",         1.00},
+
+    {"redgem",           1.00},
+    {"bluegem",          1.00},
+    {"purplegem",        0.50},
+    {"orangegem",        0.50},
+    {"yellowgem",        0.50},
+    {"greengem",         0.50},
+	
+	{"dug_coffeebush", 1.00},
+	{"dug_coffeebush", 1.00},
+	{"dug_coffeebush", 1.00},
+	{"dug_coffeebush", 1.00},
+	{"dug_coffeebush", 1.00},
+	{"dug_coffeebush", 1.00},
+	{"dug_coffeebush", 1.00},
+	{"dug_coffeebush", 1.00},
+	{"dug_coffeebush", 1.00},
+	{"dug_coffeebush", 1.00},
+	{"dug_coffeebush", 1.00},
+	{"dug_coffeebush", 1.00},
+})
+
+	AddPrefabPostInit("dragonfly", function(inst)
+		if GLOBAL.TheWorld.ismastersim then
+			inst.components.lootdropper:SetChanceLootTable("dragonfly_coffee")
+		end
+	end)
+end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------

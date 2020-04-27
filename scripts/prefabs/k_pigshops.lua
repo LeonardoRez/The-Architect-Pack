@@ -1274,6 +1274,7 @@ local function Hallfn()
 	inst.AnimState:SetBank("pig_cityhall")
 	inst.AnimState:SetBuild("pig_cityhall")
 	inst.AnimState:PlayAnimation("idle", true)
+	inst.AnimState:AddOverrideBuild("flag_post_duster_build")
 	
 	MakeObstaclePhysics(inst, 1)
 	MakeSnowCoveredPristine(inst)
@@ -1330,10 +1331,105 @@ local function Hallfn()
 	return inst
 end
 
+local function Hall2fn()
+	local inst = CreateEntity()
+    
+	inst.entity:AddTransform()
+    inst.entity:AddAnimState()
+    inst.entity:AddSoundEmitter()
+	inst.entity:AddLight()
+	inst.entity:AddLightWatcher()
+	inst.entity:AddNetwork()
+
+	local minimap = inst.entity:AddMiniMapEntity()
+	minimap:SetIcon("pig_shop_cityhall.png")
+	
+	inst.Light:SetFalloff(1)
+    inst.Light:SetIntensity(.6)
+    inst.Light:SetRadius(3)
+    inst.Light:Enable(true)
+    inst.Light:SetColour(180/255, 195/255, 50/255)
+	
+	inst.AnimState:SetBank("pig_cityhall")
+	inst.AnimState:SetBuild("pig_cityhall")
+	inst.AnimState:PlayAnimation("idle", true)
+	inst.AnimState:AddOverrideBuild("flag_post_wilson_build") 
+	
+	MakeObstaclePhysics(inst, 1)
+	MakeSnowCoveredPristine(inst)
+	
+	inst:AddTag("structure")
+	inst:AddTag("pighouse")
+	inst:AddTag("pigshop")
+	
+	inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
+
+	inst:AddComponent("inspectable")
+	
+	inst:AddComponent("hauntable")
+    inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
+	
+    inst:AddComponent("lootdropper")
+    inst:AddComponent("workable")
+    inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
+	inst.components.workable:SetOnFinishCallback(onhammered)
+	inst.components.workable:SetOnWorkCallback(onhit)
+	inst.components.workable:SetWorkLeft(4)
+	
+	--[[
+	inst:AddComponent("spawner")
+    inst.components.spawner:Configure("pigman", TUNING.TOTAL_DAY_TIME*4)
+    inst.components.spawner.onoccupied = onoccupied
+    inst.components.spawner.onvacate = onvacate
+    inst.components.spawner:SetWaterSpawning(false, true)
+    inst.components.spawner:CancelSpawning()
+
+    inst:AddComponent("playerprox")
+    inst.components.playerprox:SetDist(10, 13)
+    inst.components.playerprox:SetOnPlayerNear(onnear)
+    inst.components.playerprox:SetOnPlayerFar(onfar_hall)
+	]]--
+	
+	MakeLargeBurnable(inst, nil, nil, true)
+    MakeLargePropagator(inst)
+    inst:ListenForEvent("burntup", onburntup)
+    inst:ListenForEvent("onignite", onignite)
+
+    inst.OnSave = onsave 
+    inst.OnLoad = onload
+
+    MakeHauntableWork(inst)
+	
+	MakeSnowCovered(inst, .01)
+
+    inst:ListenForEvent("onbuilt", onbuilt)
+    -- inst.inittask = inst:DoTaskInTime(0, oninit)
+
+	return inst
+end
+
 local function placetestfn(inst)
     inst.AnimState:Hide("YOTP")
     inst.AnimState:Hide("SNOW")
     return true
+end
+
+local function cityhallplacetestfn(inst)
+	inst.AnimState:AddOverrideBuild("flag_post_duster_build")
+	inst.AnimState:Hide("YOTP")
+    inst.AnimState:Hide("SNOW")
+	return true
+end
+
+local function mycityhallplacetestfn(inst)
+	inst.AnimState:AddOverrideBuild("flag_post_wilson_build_build")
+	inst.AnimState:Hide("YOTP")
+    inst.AnimState:Hide("SNOW")
+	return true
 end
 
 return Prefab("kyno_pigshop_spa", Spafn, assets, prefabs),
@@ -1373,4 +1469,7 @@ Prefab("kyno_pigshop_academy", Academyfn, assets, prefabs),
 MakePlacer("kyno_pigshop_academy_placer", "pig_shop", "pig_shop_accademia", "idle", false, nil, nil, nil, nil, nil, placetestfn),
 
 Prefab("kyno_pigshop_cityhall", Hallfn, assets, prefabs),
-MakePlacer("kyno_pigshop_cityhall_placer", "pig_cityhall", "pig_cityhall", "idle", false, nil, nil, nil, nil, nil, placetestfn)
+MakePlacer("kyno_pigshop_cityhall_placer", "pig_cityhall", "pig_cityhall", "idle", false, nil, nil, nil, nil, nil, cityhallplacetestfn),
+
+Prefab("kyno_pigshop_mycityhall", Hall2fn, assets, prefabs),
+MakePlacer("kyno_pigshop_mycityhall_placer", "pig_cityhall", "pig_cityhall", "idle", false, nil, nil, nil, nil, mycityhallplacetestfn)

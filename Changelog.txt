@@ -142,6 +142,8 @@ Version 1.5-C
 - Added New configuration option: Glowcap, Mushlight and Festive Tree.
 - Added New Parrot strings.
 
+- Fixed City Hall missing flags.
+
 - Changed Limestone Wall and Enforced Limestone Wall recipe cost to 8.
 
 - Night Light is now infinite and stages can be changed with Nightmare Fuel.
@@ -151,3 +153,5 @@ Version 1.5-C
 - Festive Lights are now infinite.
 - Birds inside Birdcage will not sleep anymore.
 - Birds inside Birdcage will last forever now.
+- Players can't craft Coffee Bush anymore.
+- Dragonfly drops 12 Coffee Bushes on death now.
