@@ -66,6 +66,11 @@ local grow_stump_anims =
 	"grow_stump_tall_to_short"
 }
 
+local function IsOcean(pt, rot)
+	local ground_tile = GLOBAL.TheWorld.Map:GetTileAtPoint(pt.x, pt.y, pt.z)
+	return ground_tile and ground_tile == GROUND.OCEAN_COASTAL_SHORE and ground_tile == GROUND.OCEAN_BRINEPOOL_SHORE and ground_tile == GROUND.OCEAN_COASTAL and ground_tile == GROUND.OCEAN_BRINEPOOL and ground_tile == GROUND.OCEAN_SWELL and ground_tile == GROUND.OCEAN_ROUGH and ground_tile == GROUND.OCEAN_HAZARDOUS and ground_tile == GROUND.SAVANNA
+end
+
 local function dig_up_stump(inst, chopper)
 	inst:Remove()
 	inst.components.lootdropper:SpawnLootPrefab("log")

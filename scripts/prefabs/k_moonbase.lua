@@ -617,6 +617,7 @@ local function fn()
     inst:AddTag("event_trigger")
     inst:AddTag("antlion_sinkhole_blocker")
     inst:AddTag("NPC_workable")
+	inst:AddTag("_named")
 
     inst._music = net_tinybyte(inst.GUID, "moonbase._music", "musicdirty")
 
@@ -654,6 +655,10 @@ local function fn()
     inst.components.trader:Disable()
 
     inst:AddComponent("lootdropper")
+	
+	inst:AddComponent("named")
+    inst.components.named.possiblenames = { "Moon Stone" }
+    inst.components.named:PickNewName()
 
     inst:AddComponent("timer")
     inst:ListenForEvent("timerdone", OnTimerDone)

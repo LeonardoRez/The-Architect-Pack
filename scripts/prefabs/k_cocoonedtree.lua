@@ -166,8 +166,10 @@ local function SetShort(inst)
 	if inst.components.workable then
 		inst.components.workable:SetWorkLeft(TUNING.EVERGREEN_CHOPS_SMALL)
 	end
-	-- if inst:HasTag("shelter") then inst:RemoveTag("shelter") end
-
+	local my_x, my_y, my_z = inst.Transform:GetWorldPosition()
+    if TheWorld.Map:GetPlatformAtPoint(my_x, my_z) == nil then
+        inst.GroundCreepEntity:SetRadius(5)
+    end
 	inst.components.lootdropper:SetLoot(GetBuild(inst).short_loot)
 	Sway(inst)
 end
@@ -184,8 +186,10 @@ local function SetNormal(inst)
 	if inst.components.workable then
 		inst.components.workable:SetWorkLeft(TUNING.EVERGREEN_CHOPS_NORMAL)
 	end
-	-- if inst:HasTag("shelter") then inst:RemoveTag("shelter") end
-
+	local my_x, my_y, my_z = inst.Transform:GetWorldPosition()
+    if TheWorld.Map:GetPlatformAtPoint(my_x, my_z) == nil then
+        inst.GroundCreepEntity:SetRadius(9)
+    end
 	inst.components.lootdropper:SetLoot(GetBuild(inst).normal_loot)
 	Sway(inst)
 end
@@ -201,7 +205,10 @@ local function SetTall(inst)
 	if inst.components.workable then
 		inst.components.workable:SetWorkLeft(TUNING.EVERGREEN_CHOPS_TALL)
 	end
-	-- inst:AddTag("shelter")
+	local my_x, my_y, my_z = inst.Transform:GetWorldPosition()
+    if TheWorld.Map:GetPlatformAtPoint(my_x, my_z) == nil then
+        inst.GroundCreepEntity:SetRadius(9)
+    end
 	inst.components.lootdropper:SetLoot(GetBuild(inst).tall_loot)
 	Sway(inst)
 end
@@ -403,7 +410,7 @@ local function makefn(build, stage, data)
 		inst.entity:AddTransform()
 		inst.entity:AddAnimState()
 		inst.entity:AddSoundEmitter()
-		inst.entity:AddMiniMapEntity()
+		inst.entity:AddGroundCreepEntity()
 		inst.entity:AddNetwork()
 		
 		MakeObstaclePhysics(inst, .25)

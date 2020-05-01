@@ -7,6 +7,9 @@ local assets =
     Asset("ANIM", "anim/ro_bin.zip"),
     Asset("ANIM", "anim/ro_bin_water.zip"),
     Asset("ANIM", "anim/ro_bin_build.zip"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_ham.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_ham.xml"),
 }
 
 local prefabs =
@@ -89,7 +92,7 @@ local function create_ro_bin()
 	inst.entity:AddNetwork()
 	
 	local minimap = inst.entity:AddMiniMapEntity()
-	inst.MiniMapEntity:SetIcon("ro_bin_icon.tex")
+	inst.MiniMapEntity:SetIcon("ro_bin.png")
 	
 	inst.DynamicShadow:SetSize(2, 1.5)
 	inst.Transform:SetFourFaced()

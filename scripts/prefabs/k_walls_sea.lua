@@ -87,13 +87,13 @@ local function onhealthchange(inst, old_percent, new_percent)
         if old_percent <= 0 then
             makeobstacle(inst)
         end
-        inst.AnimState:PlayAnimation(anim_to_play.."_hit", false)
-        inst.AnimState:PushAnimation(anim_to_play, false)
+        inst.AnimState:PlayAnimation(anim_to_play.."_hit", true)
+        inst.AnimState:PushAnimation(anim_to_play, true)
     else
         if old_percent > 0 then
             clearobstacle(inst)
         end
-        inst.AnimState:PlayAnimation(anim_to_play, false)
+        inst.AnimState:PlayAnimation(anim_to_play, true)
     end
 end
 
@@ -220,8 +220,8 @@ function MakeWallType(data)
         local healthpercent = inst.components.health:GetPercent()
         if healthpercent > 0 then
             local anim_to_play = resolveanimtoplay(inst, healthpercent)
-            inst.AnimState:PlayAnimation(anim_to_play.."_hit", false)
-            inst.AnimState:PushAnimation(anim_to_play, false)
+            inst.AnimState:PlayAnimation(anim_to_play.."_hit", true)
+            inst.AnimState:PushAnimation(anim_to_play, true)
         end
     end
 
@@ -254,7 +254,7 @@ function MakeWallType(data)
 
         inst.AnimState:SetBank("wall")
         inst.AnimState:SetBuild("wall_"..data.name)
-        inst.AnimState:PlayAnimation("water_half", false)
+        inst.AnimState:PlayAnimation("water_half", true)
 
         for i, v in ipairs(data.tags) do
             inst:AddTag(v)

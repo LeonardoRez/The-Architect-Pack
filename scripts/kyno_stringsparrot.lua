@@ -94,7 +94,7 @@ for i, parrot in ipairs(parrot_pirate) do
 					inst.components.talker:Say("Nice farm chump! I'll steal this.")
 					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp", "talk")
 				elseif math.random() < 0.050 then
-					inst.components.talker:Say("Arrr! Klei Forums!!!")
+					inst.components.talker:Say("Klei Forums 󰀅󰀆󰀅")
 					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp", "talk")
 				elseif math.random() < 0.050 then
 					inst.components.talker:Say("Hey guys, keyboard again.")
@@ -113,7 +113,13 @@ for i, parrot in ipairs(parrot_pirate) do
 					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp", "talk")
 				elseif math.random() < 0.050 then
 					inst.components.talker:Say("I know where is James Bucket's discord, chump!")
-					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp", "talk")	
+					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp", "talk")
+				elseif math.random() < 0.050 then
+					inst.components.talker:Say("Jazzy big nose!")
+					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp", "talk")
+				elseif math.random() < 0.050 then
+					inst.components.talker:Say("Hey, weeabo!")
+					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp", "talk")
 				end
 			end
 		end)
@@ -205,7 +211,7 @@ for i, parrot2 in ipairs(parrot_pirate2) do
 					inst.components.talker:Say("Nice farm chump! I'll steal this.")
 					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp", "talk")
 				elseif math.random() < 0.050 then
-					inst.components.talker:Say("Arrr! Klei Forums!!!")
+					inst.components.talker:Say("Klei Forums 󰀅󰀆󰀅")
 					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp", "talk")
 				elseif math.random() < 0.050 then
 					inst.components.talker:Say("Hey guys, keyboard again.")
@@ -224,7 +230,13 @@ for i, parrot2 in ipairs(parrot_pirate2) do
 					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp", "talk")
 				elseif math.random() < 0.050 then
 					inst.components.talker:Say("I know where is James Bucket's discord, chump!")
+					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp", "talk")
+				elseif math.random() < 0.050 then
+					inst.components.talker:Say("Jazzy big nose!")
 					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp", "talk")	
+				elseif math.random() < 0.050 then
+					inst.components.talker:Say("Hey, weeabo!")
+					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp", "talk")
 				end
 			end
 		end)

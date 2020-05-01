@@ -1,27 +1,17 @@
 require "prefabutil"
 
-local notags = {'NOBLOCK', 'player', 'FX'}
-
-local function IsVolcanicLand(pt)
-    local ground_tile = TheWorld.Map:GetTileAtPoint(pt.x, pt.y, pt.z)
-    return ground_tile and ground_tile == GROUND.VOLCANO or ground_tile == GROUND.ASH
-end
-
-local function candeploy(inst, pt)
-    if IsVolcanicLand(pt) then
-        local ents = TheSim:FindEntities(pt.x,pt.y,pt.z, 1, nil, notags)
-        local min_spacing = inst.components.deployable.min_spacing or 1
-        for k, v in pairs(ents) do
-            print(k, v)
-            if v ~= inst and v:IsValid() and v.entity:IsVisible() and not v.components.placer and v.parent == nil then
-                if distsq( Vector3(v.Transform:GetWorldPosition()), pt) < min_spacing*min_spacing then
-                    return false
-                end
-            end
-        end
-        return true
-    end
-    return false
+local function ondeploy(inst, pt, deployer)
+local tree = SpawnPrefab(data.name)
+	if tree ~= nil then
+		tree.Transform:SetPosition(pt:Get())
+		inst.components.stackable:Get():Remove()
+	if tree.components.pickable ~= nil then
+		tree.components.pickable:OnTransplant()
+	end
+	if deployer ~= nil and deployer.SoundEmitter ~= nil then
+		deployer.SoundEmitter:PlaySound("dontstarve/common/plant")
+		end
+	end
 end
 
 local function make_plantable(data)
@@ -108,6 +98,8 @@ local function make_plantable(data)
         inst.AnimState:SetBank(data.bank or data.name)
         inst.AnimState:SetBuild(data.build or data.name)
         inst.AnimState:PlayAnimation("dropped")
+		
+		inst:AddTag("coffeebush")
 
         inst.entity:SetPristine()
 
@@ -132,9 +124,8 @@ local function make_plantable(data)
         MakeHauntableLaunchAndIgnite(inst)
 
         inst:AddComponent("deployable")
-        inst.components.deployable:SetDeployMode(DEPLOYMODE.CUSTOM)
-        inst._custom_candeploy_fn = candeploy
         inst.components.deployable.ondeploy = ondeploy
+        inst.components.deployable:SetDeployMode(DEPLOYMODE.PLANT)
         if data.mediumspacing then
             inst.components.deployable:SetDeploySpacing(DEPLOYSPACING.MEDIUM)
         end

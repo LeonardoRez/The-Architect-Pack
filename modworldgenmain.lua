@@ -330,7 +330,7 @@ AddTile(95, "forgeroad", "kyno_turfs4", nil,
 
 AddTile(96, "antcave", "kyno_turfs4", nil,
 	{
-	name = "blocky",
+	name = "cave",
 	noise_texture = "levels/textures/antcave_noise.tex",
 	},{
 		noise_texture = "levels/textures/antcave_mini.tex",
@@ -339,7 +339,7 @@ AddTile(96, "antcave", "kyno_turfs4", nil,
 
 AddTile(97, "batcave", "kyno_turfs4", nil,
 	{
-	name = "blocky",
+	name = "cave",
 	noise_texture = "levels/textures/batcave_noise.tex",
 	},{
 		noise_texture = "levels/textures/batcave_mini.tex",

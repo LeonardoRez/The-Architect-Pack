@@ -123,7 +123,7 @@ end
 local function retargetfn(inst)
 	local newtarget = FindEntity(inst, 4, function(guy)
 			return guy.components.health and not guy.components.health:IsDead()
-	end, nil, {"elephantcactus", "FX", "NOCLICK", "CLASSIFIED"})
+	end, nil, {"elephantcactus", "FX", "NOCLICK", "CLASSIFIED", "bramble_resistant", "player"})
 
 	return newtarget
 end
@@ -302,7 +302,7 @@ local function activefn()
 
     if not TheWorld.ismastersim then
         function inst.OnEntityReplicated(inst)
-            inst.replica.combat.notags = {"elephantcactus", "armorbramble", "bramble_resistant"}
+            inst.replica.combat.notags = {"elephantcactus", "armorbramble", "bramble_resistant", "player"}
         end
         return inst
     end
@@ -325,7 +325,7 @@ local function activefn()
 	inst.components.combat:SetKeepTargetFunction(shouldKeepTarget)
     inst.components.combat:SetAreaDamage(3, 1.0)
 	inst.components.combat:SetHurtSound("dontstarve_DLC002/creatures/volcano_cactus/hit")
-    inst.components.combat.notags = {"elephantcactus", "armorbramble", "bramble_resistant"}
+    inst.components.combat.notags = {"elephantcactus", "armorbramble", "bramble_resistant", "player"}
 
 	inst:AddComponent("timer")
 	inst:ListenForEvent("timerdone", ontimerdone)

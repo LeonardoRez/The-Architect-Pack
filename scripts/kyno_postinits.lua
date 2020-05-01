@@ -422,7 +422,7 @@ GLOBAL.SetSharedLootTable("minotaur_robin",
 })
 
 AddPrefabPostInit("minotaur", function(inst)
-	if GLOBAL.TheWorld.ismastersim and not TheSim:FindFirstEntityWithTag("ro_bin_gizzard_stone") then
+	if GLOBAL.TheWorld.ismastersim and not GLOBAL.TheSim:FindFirstEntityWithTag("ro_bin_gizzard_stone") then
 		inst.components.lootdropper:SetChanceLootTable("minotaur_robin")
 	end
 end)
@@ -579,4 +579,74 @@ GLOBAL.SetSharedLootTable("dragonfly_coffee",
 		end
 	end)
 end
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+local function rename_it(inst)
+    inst.components.named:PickNewName()
+end
+
+AddPrefabPostInit("mandrake_planted", function(inst)
+	inst:AddTag("_named")
+	if GLOBAL.TheWorld.ismastersim then
+		inst:RemoveTag("_named")
+		inst:AddComponent("named")
+		inst.components.named.possiblenames = { "Green Carrot", "Talking Carrot", "Mandrake" }
+		inst.components.named:PickNewName()
+		inst:DoPeriodicTask(5, rename_it)
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_altar_seed", function(inst)
+	inst:AddTag("_named")
+	if GLOBAL.TheWorld.ismastersim then
+		inst:RemoveTag("_named")
+		inst:AddComponent("named")
+		inst.components.named.possiblenames = { "Celestial Altar Orb", "They will save you" }
+		inst.components.named:PickNewName()
+		inst:DoPeriodicTask(5, rename_it)
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_altar_idol", function(inst)
+	inst:AddTag("_named")
+	if GLOBAL.TheWorld.ismastersim then
+		inst:RemoveTag("_named")
+		inst:AddComponent("named")
+		inst.components.named.possiblenames = { "Celestial Altar Idol", "Impending doom approaches" }
+		inst.components.named:PickNewName()
+		inst:DoPeriodicTask(5, rename_it)
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_altar_glass", function(inst)
+	inst:AddTag("_named")
+	if GLOBAL.TheWorld.ismastersim then
+		inst:RemoveTag("_named")
+		inst:AddComponent("named")
+		inst.components.named.possiblenames = { "Celestial Altar Base", "You don't know them" }
+		inst.components.named:PickNewName()
+		inst:DoPeriodicTask(5, rename_it)
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_altar_crown", function(inst)
+	inst:AddTag("_named")
+	if GLOBAL.TheWorld.ismastersim then
+		inst:RemoveTag("_named")
+		inst:AddComponent("named")
+		inst.components.named.possiblenames = { "Celestial Tribute", "They are coming" }
+		inst.components.named:PickNewName()
+		inst:DoPeriodicTask(5, rename_it)
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("critterlab", function(inst)
+	inst:AddTag("_named")
+	if GLOBAL.TheWorld.ismastersim then
+		inst:RemoveTag("_named")
+		inst:AddComponent("named")
+		inst.components.named.possiblenames = { "Devil's Den", "Demons Crew", "Rock Den", "Waste Your Food Here" }
+		inst.components.named:PickNewName()
+		inst:DoPeriodicTask(5, rename_it)
+	end
+end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------

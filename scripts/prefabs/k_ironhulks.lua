@@ -109,7 +109,7 @@ local function legfn()
 	
 	inst.AnimState:SetBank("metal_leg")
 	inst.AnimState:SetBuild("metal_leg")
-	inst.AnimState:PlayAnimation("full", true)
+	inst.AnimState:PlayAnimation("mossy_full", true)
 	
 	MakeObstaclePhysics(inst, 1.2)
 	
@@ -155,7 +155,7 @@ local function headfn()
 	
 	inst.AnimState:SetBank("metal_head")
 	inst.AnimState:SetBuild("metal_head")
-	inst.AnimState:PlayAnimation("full", true)
+	inst.AnimState:PlayAnimation("mossy_full", true)
 	
 	MakeObstaclePhysics(inst, 2)
 	
