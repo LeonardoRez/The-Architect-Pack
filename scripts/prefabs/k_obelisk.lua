@@ -5,6 +5,9 @@ local assets =
     Asset("ANIM", "anim/blocker_sanity.zip"),
     Asset("ANIM", "anim/blocker_sanity_fx.zip"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_obelisk.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_obelisk.xml"),
+	
 	Asset("IMAGE", "images/inventoryimages/kyno_obelisksanity.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_obelisksanity.xml"),
 	
@@ -202,6 +205,11 @@ local function onhit(inst, worker)
     inst.AnimState:PushAnimation("idle_inactive", true)
 end
 
+local function onhit_obelisk(inst, worker)
+    inst.AnimState:PlayAnimation("idle_active")
+    inst.AnimState:PushAnimation("idle_active", true)
+end
+
 local function commonfn(tags)
     local inst = CreateEntity()
 
@@ -284,7 +292,51 @@ local function sanityrock()
     return inst
 end
 
+local function obeliskfn()
+	local inst = CreateEntity()
+
+    inst.entity:AddTransform()
+    inst.entity:AddAnimState()
+    inst.entity:AddSoundEmitter()
+    inst.entity:AddNetwork()
+
+    MakeObstaclePhysics(inst, 1)
+
+	local minimap = inst.entity:AddMiniMapEntity()
+    minimap:SetIcon("obelisk.png")
+
+    inst.AnimState:SetBank("blocker_sanity")
+    inst.AnimState:SetBuild("blocker_sanity")
+    inst.AnimState:PlayAnimation("idle_active")
+
+	inst:AddTag("structure")
+	inst:AddTag("obelisco")
+    inst:AddTag("antlion_sinkhole_blocker")
+
+    inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
+	
+	inst:AddComponent("lootdropper")
+    inst:AddComponent("inspectable")
+	
+	inst:AddComponent("workable")
+    inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
+    inst.components.workable:SetWorkLeft(3)
+	inst.components.workable:SetOnFinishCallback(onhammered)
+	inst.components.workable:SetOnWorkCallback(onhit_obelisk)
+
+    inst:AddComponent("inspectable")
+    inst.components.inspectable.getstatus = getstatus
+
+    return inst
+end
+
 return Prefab("kyno_insanityrock", insanityrock, assets, prefabs),
 Prefab("kyno_sanityrock", sanityrock, assets, prefabs),
+Prefab("kyno_obelisk", obeliskfn, assets, prefabs),
 MakePlacer("kyno_insanityrock_placer", "blocker_sanity", "blocker_sanity", "idle_inactive"),
-MakePlacer("kyno_sanityrock_placer", "blocker_sanity", "blocker_sanity", "idle_inactive")
+MakePlacer("kyno_sanityrock_placer", "blocker_sanity", "blocker_sanity", "idle_inactive"),
+MakePlacer("kyno_obelisk_placer", "blocker_sanity", "blocker_sanity", "idle_active")

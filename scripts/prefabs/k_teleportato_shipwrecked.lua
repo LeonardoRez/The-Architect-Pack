@@ -27,6 +27,7 @@ local function DoLaugh(inst)
 if inst:HasTag("teleporter_hamlet") then
 	inst:DoTaskInTime(8+math.random()*5, function() DoLaugh(inst) end)
 		inst.AnimState:PlayAnimation("laugh")
+		inst.SoundEmitter:PlaySound("dontstarve/common/teleportato/teleportato_maxwelllaugh", "teleportato_laugh")
 		inst.AnimState:PushAnimation("active_idle")
 	end
 end
@@ -62,6 +63,8 @@ local function fn()
     if not TheWorld.ismastersim then
         return inst
     end
+	
+	inst.SoundEmitter:PlaySound("dontstarve/common/teleportato/teleportato_activeidle_LP", "teleportato_active_idle")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

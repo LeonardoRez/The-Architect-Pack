@@ -1,6 +1,9 @@
 local assets =
 {
     Asset("ANIM", "anim/moonrock_pieces.zip"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_moonrubble.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_moonrubble.xml"),
 }
 
 local prefabs =
@@ -68,4 +71,5 @@ local function fn()
     return inst
 end
 
-return Prefab("moonrock_pieces", fn, assets, prefabs)
+return Prefab("kyno_moonrock_pieces", fn, assets, prefabs),
+MakePlacer("kyno_moonrubble_placer", "moonrock_pieces", "moonrock_pieces", "s3")

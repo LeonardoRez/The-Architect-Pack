@@ -145,6 +145,7 @@ Version 1.5-C
 
 - Fixed City Hall missing flags.
 - Fixed Iron Hulk missing mossy animations.
+- Fixed Invisible Marble Trees.
 
 - Changed Limestone Wall and Enforced Limestone Wall recipe cost to 8.
 
