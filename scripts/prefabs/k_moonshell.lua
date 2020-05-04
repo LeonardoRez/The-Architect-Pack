@@ -49,6 +49,8 @@ local function fn()
 	inst:AddTag("structure")
 	inst:AddTag("boulder")
 	
+	inst:SetPrefabNameOverride("rock_moon_shell")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then

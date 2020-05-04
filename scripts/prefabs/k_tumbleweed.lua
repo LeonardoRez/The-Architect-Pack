@@ -203,6 +203,8 @@ local function burntfxfn()
     inst.AnimState:PlayAnimation("break")
 
     inst:AddTag("FX")
+	
+	inst:SetPrefabNameOverride("tumbleweed")
 
     inst.entity:SetPristine()
 

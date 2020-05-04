@@ -82,6 +82,8 @@ local function fn()
 
     inst:AddTag("plant")
     inst:AddTag("thorny")
+	
+	inst:SetPrefabNameOverride("burnt_marsh_bush")
 
     inst.entity:SetPristine()
 

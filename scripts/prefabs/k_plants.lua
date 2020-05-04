@@ -35,6 +35,8 @@ local function fn1()
 		
 	inst:AddTag("kyno_plant")
 	inst:AddTag("structure")
+	
+	inst:SetPrefabNameOverride("marsh_plant")
 
 	inst.entity:SetPristine()
 	
@@ -76,6 +78,8 @@ local function fn2()
 		
 	inst:AddTag("kyno_plant")
 	inst:AddTag("structure")
+	
+	inst:SetPrefabNameOverride("pond_algae")
 
 	inst.entity:SetPristine()
 	

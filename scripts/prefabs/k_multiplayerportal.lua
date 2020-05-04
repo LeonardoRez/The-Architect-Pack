@@ -5,6 +5,10 @@ local assets =
 	Asset("ANIM", "anim/portal_stone.zip"),
 	Asset("ANIM", "anim/portal_stone_construction.zip"),
 	Asset("ANIM", "anim/portal_moonrock.zip"),
+	Asset("ANIM", "anim/portal_juryrigged.zip"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_juryrigged.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_juryrigged.xml"),
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_floridpostern.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_floridpostern.xml"),
@@ -16,33 +20,14 @@ local assets =
 	Asset("ATLAS", "images/inventoryimages/kyno_celestialportal.xml"),
 }
 
-local STONE_SOUNDS =
-{
-    idle_loop = "dontstarve/common/together/spawn_vines/spawnportal_idle_LP",
-    idle = "dontstarve/common/together/spawn_vines/spawnportal_idle",
-    scratch = "dontstarve/common/together/spawn_vines/spawnportal_scratch",
-    jacob = "dontstarve/common/together/spawn_vines/spawnportal_jacob",
-    blink = "dontstarve/common/together/spawn_vines/spawnportal_blink",
-    vines = "dontstarve/common/together/spawn_vines/vines",
-    spawning_loop = "dontstarve/common/together/spawn_vines/spawnportal_spawning",
-    armswing = "dontstarve/common/together/spawn_vines/spawnportal_armswing",
-    shake = "dontstarve/common/together/spawn_vines/spawnportal_shake",
-    open = "dontstarve/common/together/spawn_vines/spawnportal_open",
-}
-
-local MOONROCK_SOUNDS =
-{
-    idle = "dontstarve/common/together/spawn_vines/spawnportal_idle",
-    jacob = "dontstarve/common/together/spawn_vines/spawnportal_jacob",
-    spawning_loop = "dontstarve/common/together/spawn_vines/spawnportal_spawning",
-    shake = "dontstarve/common/together/spawn_vines/spawnportal_shake",
-    open = "dontstarve/common/together/spawn_vines/spawnportal_open",
-}
+local INTENSITY = 0.6
 
 local function onhammered(inst, worker)
 	inst.components.lootdropper:DropLoot()
 	SpawnPrefab("collapse_big").Transform:SetPosition(inst.Transform:GetWorldPosition())
 	inst.SoundEmitter:PlaySound("dontstarve/common/destroy_stone")
+	inst.SoundEmitter:KillSound("spawnportal_idle_LP")
+	inst.SoundEmitter:KillSound("spawnportal_idle")
 	inst:Remove()
 end
 
@@ -52,9 +37,7 @@ local function onhit(inst, worker)
 end
 
 local function onbuilt(inst)
-	inst.AnimState:PlayAnimation("pre_fx")
-	inst.AnimState:PlayAnimation("fx")
-    inst.AnimState:PlayAnimation("pst_fx")
+	inst.AnimState:PlayAnimation("idle_loop")
 	inst.AnimState:PushAnimation("idle_loop", true)
 	-- inst.SoundEmitter:PlaySound("dontstarve/common/together/spawn_vines/spawnportal_spawning")
 end
@@ -66,12 +49,55 @@ local function onbuilt_moon(inst)
 end
 	
 local function Scratch(inst)
-if inst:HasTag("portal_dst") then
+if inst:HasTag("dstmultiplayerportal") then
 	inst:DoTaskInTime(10+math.random()*5, function() Scratch(inst) end)
 		inst.AnimState:PlayAnimation("idle_eyescratch")
 		-- inst.SoundEmitter:PlaySound("dontstarve/common/together/spawn_vines/spawnportal_scratch")
 		inst.AnimState:PushAnimation("idle_loop", true)
 	end
+end
+
+local function LightsOn(inst, isdusk, isnight)
+if isdusk then
+    inst.components.fader:StopAll()
+    inst.AnimState:PlayAnimation("idle_loop")
+    inst.AnimState:PushAnimation("idle_loop", true)
+	inst.AnimState:Show("glow")       
+    inst.Light:Enable(true)
+	if inst:IsAsleep() then
+		inst.Light:SetIntensity(INTENSITY)
+	else
+		inst.Light:SetIntensity(0)
+		inst.components.fader:Fade(0, INTENSITY, 3+math.random()*2, function(v) inst.Light:SetIntensity(v) end)
+		end
+	end
+end
+
+local function LightsOff(inst, isday)
+if isday then
+	inst.components.fader:StopAll()
+    inst.AnimState:PlayAnimation("idle_loop")    
+    inst.AnimState:PushAnimation("idle_loop", true)
+	inst.AnimState:Hide("glow")
+	inst.Light:Enable(false)
+	if inst:IsAsleep() then
+		inst.Light:SetIntensity(0)
+	else
+		inst.components.fader:Fade(INTENSITY, 0, .75+math.random()*1, function(v) inst.Light:SetIntensity(v) end)
+		end
+	end
+end
+
+local function GetStatus(inst)
+    return not inst.lighton and "ON" or nil
+end
+
+local function IdleSound(inst)
+	inst.SoundEmitter:PlaySound("dontstarve/common/together/spawn_vines/spawnportal_idle_LP")
+end
+
+local function IdleSoundMoon(inst)
+	inst.SoundEmitter:PlaySound("dontstarve/common/together/spawn_vines/spawnportal_idle")
 end
 
 local function charliefn()
@@ -90,7 +116,7 @@ local function charliefn()
     inst.AnimState:PlayAnimation("idle_loop", true)
     
 	inst:AddTag("structure")
-	inst:AddTag("portal_dst")
+	inst:AddTag("dstmultiplayerportal")
 	inst:AddTag("resurrector")
 	
 	inst.entity:SetPristine()
@@ -98,8 +124,6 @@ local function charliefn()
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst.SoundEmitter:PlaySound("dontstarve/common/together/spawn_vines/spawnportal_idle_LP")
 	
 	-- inst:SetStateGraph("SGmultiplayerportal")
 	
@@ -120,6 +144,7 @@ local function charliefn()
 	inst:ListenForEvent("onbuilt", onbuilt)
 	
 	Scratch(inst)
+	IdleSound(inst)
 	
     return inst
 end
@@ -163,8 +188,6 @@ local function buildfn()
         return inst
     end
 	
-	inst.SoundEmitter:PlaySound("dontstarve/common/together/spawn_vines/spawnportal_idle_LP")
-	
 	-- inst:SetStateGraph("SGmultiplayerportal")
 	
 	inst:AddComponent("lootdropper")
@@ -184,6 +207,7 @@ local function buildfn()
 	inst:ListenForEvent("onbuilt", onbuilt)
 	
 	Scratch(inst)
+	IdleSound(inst)
 	
     return inst
 end
@@ -204,7 +228,7 @@ local function celestialfn()
     inst.AnimState:PlayAnimation("idle_loop", true)
     
 	inst:AddTag("structure")
-	inst:AddTag("portal_dst")
+	inst:AddTag("dstmultiplayerportal")
 	inst:AddTag("resurrector")
 	
 	inst.entity:SetPristine()
@@ -212,8 +236,6 @@ local function celestialfn()
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	inst.SoundEmitter:PlaySound("dontstarve/common/together/spawn_vines/spawnportal_idle")
 	
 	-- inst:SetStateGraph("SGmultiplayerportal")
 	
@@ -234,6 +256,96 @@ local function celestialfn()
 	inst:ListenForEvent("onbuilt", onbuilt_moon)
 	
 	Scratch(inst)
+	IdleSoundMoon(inst)
+	
+    return inst
+end
+
+local function legacyfn()
+	local inst = CreateEntity()
+	
+	inst.entity:AddTransform()
+	inst.entity:AddAnimState()
+	inst.entity:AddSoundEmitter()
+	inst.entity:AddLight()
+    inst.entity:AddNetwork()
+	
+	inst.Light:SetFalloff(0.9)
+    inst.Light:SetIntensity(INTENSITY)
+    inst.Light:SetRadius(4)
+    inst.Light:Enable(true)
+    inst.Light:SetColour(197/255, 197/255, 10/255)
+	
+	local minimap = inst.entity:AddMiniMapEntity()
+	minimap:SetIcon("portal_dst.png")
+	
+    inst.AnimState:SetBank("portal_legacy")
+    inst.AnimState:SetBuild("portal_juryrigged")
+    inst.AnimState:PlayAnimation("idle_loop", true)
+	inst.AnimState:Hide("portaldoormagic_cycle")
+	
+	inst:AddTag("structure")
+	inst:AddTag("dstmultiplayerportal")
+	inst:AddTag("resurrector")
+	
+	inst.entity:SetPristine()
+	
+    if not TheWorld.ismastersim then
+        return inst
+    end
+	
+	-- inst:SetStateGraph("SGmultiplayerportal")
+	
+	inst:AddComponent("lootdropper")
+    inst:AddComponent("inspectable")
+	
+	inst:AddComponent("workable")
+    inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
+    inst.components.workable:SetWorkLeft(4)
+	inst.components.workable:SetOnFinishCallback(onhammered)
+	inst.components.workable:SetOnWorkCallback(onhit)
+	
+	inst:AddComponent("hauntable")
+	inst.components.hauntable:SetHauntValue(TUNING.HAUNT_INSTANT_REZ)
+	
+	inst:AddComponent("fader")
+	
+	MakeHauntableWork(inst)
+	
+	inst:ListenForEvent("onbuilt", onbuilt)
+	
+	inst:DoTaskInTime(1/30, function()
+	inst:WatchWorldState("isday", LightsOff)
+    LightsOff(inst, TheWorld.state.isday)
+	end)
+	
+	inst:DoTaskInTime(1/30, function()
+	inst:WatchWorldState("isdusk", LightsOn)
+	inst:WatchWorldState("isnight", LightsOn)
+    LightsOn(inst, TheWorld.state.isdusk)
+	LightsOn(inst, TheWorld.state.isnight)
+	end)
+	
+	inst.OnSave = function(inst, data)
+        if inst.lighton then
+            data.lighton = inst.lighton
+        end
+    end        
+
+    inst.OnLoad = function(inst, data)    
+        if data then
+            if data.lighton then 
+                fadein(inst)
+                inst.Light:Enable(true)
+                inst.Light:SetIntensity(INTENSITY)            
+                inst.AnimState:Show("glow")        
+                inst.lighton = true
+            end
+        end
+    end
+	
+	Scratch(inst)
+	IdleSound(inst)
 	
     return inst
 end
@@ -255,8 +367,10 @@ local function buildingplacetestfn(inst)
 end
 
 return Prefab("kyno_portalstone", charliefn, assets),
+Prefab("kyno_juryriggedportal", legacyfn, assets),
 Prefab("kyno_portalbuilding", buildfn, assets),
 Prefab("kyno_celestialportal", celestialfn, assets),
+MakePlacer("kyno_juryriggedportal_placer", "portal_legacy", "portal_juryrigged", "idle_loop"),
 MakePlacer("kyno_portalstone_placer", "portal_dst", "portal_stone", "idle_loop"),
 MakePlacer("kyno_portalbuilding_placer", "portal_construction_dst", "portal_stone_construction", "idle_loop", false, nil, nil, nil, nil, nil, buildingplacetestfn),
 MakePlacer("kyno_celestialportal_placer", "portal_moonrock_dst", "portal_moonrock", "idle_loop")

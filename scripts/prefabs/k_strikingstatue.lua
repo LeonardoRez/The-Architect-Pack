@@ -42,6 +42,9 @@ local function fn()
     inst.entity:AddSoundEmitter()
 	inst.entity:AddNetwork()
 	
+	local minimap = inst.entity:AddMiniMapEntity()
+	minimap:SetIcon("pig_ruins_dart_statue.png")
+	
 	inst.AnimState:SetBank("pig_ruins_dart_statue")
 	inst.AnimState:SetBuild("pig_ruins_dart_statue")
 	inst.AnimState:PlayAnimation("CCW", true)

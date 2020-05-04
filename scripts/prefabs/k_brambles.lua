@@ -98,6 +98,9 @@ local function bramble1fn()
     inst.entity:AddSoundEmitter()
 	inst.entity:AddNetwork()
 	
+	local minimap = inst.entity:AddMiniMapEntity()
+	minimap:SetIcon("bramble.png")
+	
 	inst.Transform:SetTwoFaced()
 	local rotation = math.random()*360
     inst.Transform:SetRotation(rotation)
@@ -159,6 +162,9 @@ local function bramble2fn()
     inst.entity:AddSoundEmitter()
 	inst.entity:AddNetwork()
 	
+	local minimap = inst.entity:AddMiniMapEntity()
+	minimap:SetIcon("bramble.png")
+	
 	inst.Transform:SetTwoFaced()
 	local rotation = math.random()*360
     inst.Transform:SetRotation(rotation)
@@ -219,6 +225,9 @@ local function bramble3fn()
     inst.entity:AddAnimState()
     inst.entity:AddSoundEmitter()
 	inst.entity:AddNetwork()
+	
+	local minimap = inst.entity:AddMiniMapEntity()
+	minimap:SetIcon("bramble.png")
 	
 	inst.Transform:SetTwoFaced()
 	local rotation = math.random()*360

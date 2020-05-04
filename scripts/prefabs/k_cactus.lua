@@ -82,66 +82,121 @@ local function OnEntityWake(inst)
     end
 end
 
-local function MakeCactus(name)
-    local function cactusfn()
-        local inst = CreateEntity()
+local function c1fn()
+	local inst = CreateEntity()
+	
+	inst.entity:AddTransform()
+	inst.entity:AddAnimState()
+	inst.entity:AddMiniMapEntity()
+	inst.entity:AddSoundEmitter()
+    inst.entity:AddNetwork()
+	
+	local minimap = inst.entity:AddMiniMapEntity()
+	minimap:SetIcon("cactus.png")
+	
+    inst.AnimState:SetBuild("cactus")
+	inst.AnimState:SetBank("cactus")
+	inst.AnimState:PlayAnimation("idle", true)
 
-        inst.entity:AddTransform()
-        inst.entity:AddAnimState()
-        inst.entity:AddMiniMapEntity()
-        inst.entity:AddNetwork()
+	inst:AddTag("plant")
+	inst:AddTag("thorny")
 
-        inst.MiniMapEntity:SetIcon(name..".png")
+	MakeObstaclePhysics(inst, .3)
 
-        inst.AnimState:SetBuild(name)
-        inst.AnimState:SetBank(name)
-        inst.AnimState:PlayAnimation("idle", true)
+	inst:SetPrefabNameOverride("cactus")
 
-        inst:AddTag("plant")
-        inst:AddTag("thorny")
+	inst.entity:SetPristine()
 
-        MakeObstaclePhysics(inst, .3)
+	if not TheWorld.ismastersim then
+		return inst
+	end
 
-        inst:SetPrefabNameOverride("cactus")
+	inst.AnimState:SetTime(math.random() * 2)
 
-        inst.entity:SetPristine()
+	inst:AddComponent("pickable")
+	inst.components.pickable.picksound = "dontstarve/wilson/harvest_sticks"
 
-        if not TheWorld.ismastersim then
-            return inst
-        end
+	inst.components.pickable:SetUp("cactus_meat", TUNING.CACTUS_REGROW_TIME)
+	inst.components.pickable.onregenfn = onregenfn
+	inst.components.pickable.onpickedfn = onpickedfn
+	inst.components.pickable.makeemptyfn = makeemptyfn
+	inst.components.pickable.ontransplantfn = ontransplantfn
 
-        inst.AnimState:SetTime(math.random() * 2)
-
-        inst:AddComponent("pickable")
-        inst.components.pickable.picksound = "dontstarve/wilson/harvest_sticks"
-
-        inst.components.pickable:SetUp("cactus_meat", TUNING.CACTUS_REGROW_TIME)
-        inst.components.pickable.onregenfn = onregenfn
-        inst.components.pickable.onpickedfn = onpickedfn
-        inst.components.pickable.makeemptyfn = makeemptyfn
-        inst.components.pickable.ontransplantfn = ontransplantfn
-
-        inst:AddComponent("inspectable")
+	inst:AddComponent("inspectable")
 		
-		inst:AddComponent("workable")
-		inst.components.workable:SetWorkAction(ACTIONS.DIG)
-		inst.components.workable:SetOnFinishCallback(dig_up)
-		inst.components.workable:SetWorkLeft(1)
+	inst:AddComponent("workable")
+	inst.components.workable:SetWorkAction(ACTIONS.DIG)
+	inst.components.workable:SetOnFinishCallback(dig_up)
+	inst.components.workable:SetWorkLeft(1)
 
-        MakeLargeBurnable(inst)
-        MakeMediumPropagator(inst)
+	MakeLargeBurnable(inst)
+	MakeMediumPropagator(inst)
 
-        inst.OnEntityWake = OnEntityWake
+	inst.OnEntityWake = OnEntityWake
 
-        MakeHauntableIgnite(inst)
-
-        return inst
-    end
-
-    return Prefab(name, cactusfn, assets, prefabs)
+	MakeHauntableIgnite(inst)
+	
+    return inst
 end
 
-return MakeCactus("cactus"),
-MakeCactus("oasis_cactus"),
+local function c2fn()
+	local inst = CreateEntity()
+	
+	inst.entity:AddTransform()
+	inst.entity:AddAnimState()
+	inst.entity:AddMiniMapEntity()
+	inst.entity:AddSoundEmitter()
+    inst.entity:AddNetwork()
+	
+	local minimap = inst.entity:AddMiniMapEntity()
+	minimap:SetIcon("oasis_cactus.png")
+	
+    inst.AnimState:SetBuild("oasis_cactus")
+	inst.AnimState:SetBank("oasis_cactus")
+	inst.AnimState:PlayAnimation("idle", true)
+
+	inst:AddTag("plant")
+	inst:AddTag("thorny")
+
+	MakeObstaclePhysics(inst, .3)
+
+	inst:SetPrefabNameOverride("cactus")
+
+	inst.entity:SetPristine()
+
+	if not TheWorld.ismastersim then
+		return inst
+	end
+
+	inst.AnimState:SetTime(math.random() * 2)
+
+	inst:AddComponent("pickable")
+	inst.components.pickable.picksound = "dontstarve/wilson/harvest_sticks"
+
+	inst.components.pickable:SetUp("cactus_meat", TUNING.CACTUS_REGROW_TIME)
+	inst.components.pickable.onregenfn = onregenfn
+	inst.components.pickable.onpickedfn = onpickedfn
+	inst.components.pickable.makeemptyfn = makeemptyfn
+	inst.components.pickable.ontransplantfn = ontransplantfn
+
+	inst:AddComponent("inspectable")
+		
+	inst:AddComponent("workable")
+	inst.components.workable:SetWorkAction(ACTIONS.DIG)
+	inst.components.workable:SetOnFinishCallback(dig_up)
+	inst.components.workable:SetWorkLeft(1)
+
+	MakeLargeBurnable(inst)
+	MakeMediumPropagator(inst)
+
+	inst.OnEntityWake = OnEntityWake
+
+	MakeHauntableIgnite(inst)
+	
+    return inst
+end
+
+return Prefab("kyno_cactus", c1fn, assets, prefabs),
+Prefab("kyno_oasis_cactus", c2fn, assets, prefabs),
 MakePlacer("kyno_cactus_placer", "cactus", "cactus", "idle"),
 MakePlacer("kyno_oasis_cactus_placer", "oasis_cactus", "oasis_cactus", "idle")

@@ -142,6 +142,8 @@ Version 1.5-C
 - Added New configuration option: Glowcap, Mushlight and Festive Tree.
 - Added New Parrot strings.
 - Added Mant Cave and Bat Cave turfs.
+- Added Sounds for Teleportators.
+- Added Static Obelisk.
 
 - Fixed City Hall missing flags.
 - Fixed Iron Hulk missing mossy animations.

@@ -1267,6 +1267,90 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_gravestone4.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_gravestone4.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_wormhole.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_wormhole.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_wormhole_sick.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_wormhole_sick.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_moonfissure.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_moonfissure.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_propsign.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_propsign.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_friendomatic.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_friendomatic.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_potatorog.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_potatorog.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_potatoadventure.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_potatoadventure.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_skullchest.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_skullchest.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_skullchest.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_skullchest.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_sunkboat.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_sunkboat.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_whitemoonrock.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_whitemoonrock.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_legacy_inventoryimages.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_legacy_inventoryimages.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_legacywall.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_legacywall.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_juryrigged.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_juryrigged.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shopkeeper1.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shopkeeper1.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_shopkeeper1.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_shopkeeper1.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shopkeeper2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shopkeeper2.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_shopkeeper2.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_shopkeeper2.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_sunkboat2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_sunkboat2.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_bonfire.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_bonfire.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_bonfire.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_bonfire.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_unbuilt.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_unbuilt.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_snowman.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_snowman.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_snowman.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_snowman.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_bucket.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_bucket.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_bag.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_bag.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_scarecrow.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_scarecrow.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_scarecrow.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_scarecrow.xml"),
+	
 	-- Unlisted Assets --
 	Asset("ANIM", "anim/mod_turfs.zip"),
 	Asset("ANIM", "anim/kyno_catalogues.zip"), -- Unused.
@@ -1587,6 +1671,22 @@ Assets = {
 	Asset("ANIM", "anim/kyno_sculpture_bishop.zip"),
 	Asset("ANIM", "anim/bunny_head.zip"),
 	Asset("ANIM", "anim/kyno_statueangel_build.zip"),
+	Asset("ANIM", "anim/accomplishment_shrine.zip"),
+	Asset("ANIM", "anim/accomplishment_fireworks.zip"),
+	Asset("ANIM", "anim/skull_chest.zip"),
+	Asset("ANIM", "anim/boat_sunk.zip"),
+	Asset("ANIM", "anim/kyno_white_moonrock.zip"),
+	Asset("ANIM", "anim/wall_legacy_moonrock.zip"),
+	Asset("ANIM", "anim/portal_juryrigged.zip"),
+	Asset("ANIM", "anim/shopkeeper1.zip"),
+	Asset("ANIM", "anim/shopkeeper2.zip"),
+	Asset("ANIM", "anim/boat_sunk2.zip"),
+	Asset("ANIM", "anim/kyno_bonfire.zip"),
+	Asset("ANIM", "anim/unbuilt_house.zip"),
+	Asset("ANIM", "anim/kyno_snowman.zip"),
+	Asset("ANIM", "anim/jamesbucket.zip"),
+	Asset("ANIM", "anim/kyno_bag.zip"),
+	Asset("ANIM", "anim/kyno_scarecrow.zip"),
 	-- Sea Content --
 	Asset("ANIM", "anim/tree_mangrove_build.zip"),
 	Asset("ANIM", "anim/tree_mangrove_normal.zip"),

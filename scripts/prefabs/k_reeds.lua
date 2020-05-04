@@ -51,6 +51,8 @@ local function fn()
 	
 	inst:AddTag("plant")
 	inst:AddTag("structure")
+	
+	inst:SetPrefabNameOverride("reeds")
 
     inst.entity:SetPristine()
 

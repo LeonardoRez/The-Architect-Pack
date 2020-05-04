@@ -620,6 +620,8 @@ local function fn()
 	inst:AddTag("_named")
 
     inst._music = net_tinybyte(inst.GUID, "moonbase._music", "musicdirty")
+	
+	inst:SetPrefabNameOverride("moonbase")
 
     inst.entity:SetPristine()
 
