@@ -82,4 +82,5 @@ MakePlacer("kyno_driftwood2_placer", "driftwood_small2", "driftwood_small2", "id
 MakePlacer("kyno_driftwood3_placer", "driftwood_tall", "driftwood_tall", "idle"),
 MakePlacer("kyno_houndbone_placer", "hound_base", "houndbase", "piece2"),
 MakePlacer("kyno_seabones_placer", "fishbones", "fishbones", "idle_1"),
-MakePlacer("kyno_skeleton_placer", "skeleton", "skeletons", "idle6")
+MakePlacer("kyno_skeleton_placer", "skeleton", "skeletons", "idle6"),
+MakePlacer("kyno_oceandebris_placer", "flotsam", "flotsam", "idle_land")

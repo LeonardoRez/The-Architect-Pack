@@ -17,7 +17,7 @@ local function onopen(inst)
 		inst.AnimState:PlayAnimation("open")
 		inst.SoundEmitter:PlaySound("dontstarve/wilson/chest_open")
 		inst.SoundEmitter:PlaySound("dontstarve/common/together/chest_retrap")
-		SpawnPrefab("pandorachest_reset").Transform:SetPosition(inst.Transform:GetWorldPosition())
+		SpawnPrefab("sanity_lower").Transform:SetPosition(inst.Transform:GetWorldPosition())
 	end
 end
 

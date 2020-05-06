@@ -33,6 +33,8 @@ local function fn()
 	
     MakeObstaclePhysics(inst, .3)
 	
+	inst.AnimState:SetScale(1.1, 1.1, 1.1)
+	
     inst.AnimState:SetBank("jamesbucket")
     inst.AnimState:SetBuild("jamesbucket")
     inst.AnimState:PlayAnimation("idle")
@@ -70,5 +72,9 @@ local function fn()
     return inst
 end
 
+local function bucketplacetestfn(inst)
+	inst.AnimState:SetScale(1.1, 1.1, 1.1)
+end
+
 return Prefab("kyno_bucket", fn, assets),
-MakePlacer("kyno_bucket_placer", "jamesbucket", "jamesbucket", "idle")
+MakePlacer("kyno_bucket_placer", "jamesbucket", "jamesbucket", "idle", false, nil, nil, nil, nil, nil, bucketplacetestfn)

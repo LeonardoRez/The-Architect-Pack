@@ -77,9 +77,6 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_sharkittenden.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_sharkittenden.xml"),
 	
-	Asset("IMAGE", "images/inventoryimages/kyno_potato.tex"),
-	Asset("ATLAS", "images/inventoryimages/kyno_potato.xml"),
-	
 	Asset("IMAGE", "images/inventoryimages/kyno_mermhut.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_mermhut.xml"),
 	
@@ -1351,6 +1348,105 @@ Assets = {
 	Asset("IMAGE", "images/minimapimages/kyno_scarecrow.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_scarecrow.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_minitree.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_minitree.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_treeclump.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_treeclump.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_treeclump.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_treeclump.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_bbq.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_bbq.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_truffles.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_truffles.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_biigfoot.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_biigfoot.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_biigfoot_footprint.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_biigfoot_footprint.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_waxwelldoor.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_waxwelldoor.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_trapteeth.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_trapteeth.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_gramaphone.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_gramaphone.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_waxwelltorch.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_waxwelltorch.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_waxwelllock.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_waxwelllock.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_adventurelock.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_adventurelock.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_nightmarethrone.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_nightmarethrone.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_nightmarethrone.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_nightmarethrone.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_maxwellthrone.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_maxwellthrone.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shadowportal.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shadowportal.xml"),
+	
+	Asset("SOUNDPACKAGE", "sound/shadwell_sfx.fev"),
+	Asset("SOUND", "sound/shadwell_sfx.fsb"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_meatrack_hermit.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_meatrack_hermit.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_beebox_hermit.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_beebox_hermit.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_moonfissure_plugged.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_moonfissure_plugged.xml"),
+	
+	Asset("IMAGE", "images/kyno_sunkenchest.tex"),
+	Asset("ATLAS", "images/kyno_sunkenchest.xml"),
+	
+	Asset("IMAGE", "images/kyno_shellcluster.tex"),
+	Asset("ATLAS", "images/kyno_shellcluster.xml"),
+	
+	Asset("IMAGE", "images/kyno_oceandebris.tex"),
+	Asset("ATLAS", "images/kyno_oceandebris.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/potato.tex"),
+	Asset("ATLAS", "images/inventoryimages/potato.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/singingshell_octave3.tex"),
+	Asset("ATLAS", "images/inventoryimages/singingshell_octave3.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/singingshell_octave4.tex"),
+	Asset("ATLAS", "images/inventoryimages/singingshell_octave4.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/singingshell_octave5.tex"),
+	Asset("ATLAS", "images/inventoryimages/singingshell_octave5.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/rock_avocado_fruit.tex"),
+	Asset("ATLAS", "images/inventoryimages/rock_avocado_fruit.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_hermithouse1.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_hermithouse1.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_hermithouse2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_hermithouse2.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_hermithouse3.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_hermithouse3.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_hermithouse4.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_hermithouse4.xml"),
+	
 	-- Unlisted Assets --
 	Asset("ANIM", "anim/mod_turfs.zip"),
 	Asset("ANIM", "anim/kyno_catalogues.zip"), -- Unused.
@@ -1646,6 +1742,11 @@ Assets = {
 	Asset("ANIM", "anim/parrot_blue_build.zip"),
 	Asset("ANIM", "anim/toucan_hamlet_build.zip"),
 	Asset("ANIM", "anim/pigeon_build.zip"),
+	Asset("ANIM", "anim/relics.zip"),
+	Asset("ANIM", "anim/pheromone_stone.zip"),
+	Asset("ANIM", "anim/pig_coin.zip"),
+	Asset("ANIM", "anim/pig_coin_silver.zip"),
+	Asset("ANIM", "anim/pig_coin_jade.zip"),
 	-- The Gorge Content --
 	Asset("ANIM", "anim/quagmire_altar_statue1_left.zip"),
 	Asset("ANIM", "anim/quagmire_altar_statue2_left.zip"),
@@ -1687,6 +1788,21 @@ Assets = {
 	Asset("ANIM", "anim/jamesbucket.zip"),
 	Asset("ANIM", "anim/kyno_bag.zip"),
 	Asset("ANIM", "anim/kyno_scarecrow.zip"),
+	Asset("ANIM", "anim/kyno_minitree.zip"),
+	Asset("ANIM", "anim/kyno_treeclump.zip"),
+	Asset("ANIM", "anim/kyno_bbq.zip"),
+	Asset("ANIM", "anim/kyno_truffles.zip"),
+	Asset("ANIM", "anim/foot_build.zip"),
+	Asset("ANIM", "anim/foot_basic.zip"),
+	Asset("ANIM", "anim/foot_print.zip"),
+	Asset("ANIM", "anim/foot_shadow.zip"),
+	Asset("ANIM", "anim/kyno_foot.zip"),
+	Asset("ANIM", "anim/phonograph.zip"),
+	Asset("ANIM", "anim/maxwell_torch.zip"),
+	Asset("ANIM", "anim/diviningrod_maxwell.zip"),
+	Asset("ANIM", "anim/maxwell_throne.zip"),
+	Asset("ANIM", "anim/maxwell_endgame.zip"),
+	Asset("ANIM", "anim/shadow_portal.zip"),
 	-- Sea Content --
 	Asset("ANIM", "anim/tree_mangrove_build.zip"),
 	Asset("ANIM", "anim/tree_mangrove_normal.zip"),

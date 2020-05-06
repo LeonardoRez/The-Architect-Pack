@@ -12,6 +12,9 @@ local assets =
 local assets_plugged = 
 {
     Asset("ANIM", "anim/plugged_fissure.zip"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_moonfissure_plugged.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_moonfissure_plugged.xml"),
 }
 
 local prefabs =
@@ -188,6 +191,9 @@ local function fn()
 
 	inst:AddTag("structure")
 	inst:AddTag("antlion_sinkhole_blocker")
+	
+	inst:SetPrefabNameOverride("moon_fissure")
+	
     inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -219,5 +225,63 @@ local function fn()
     return inst
 end
 
+local function pluggedfn()
+	local inst = CreateEntity()
+
+    inst.entity:AddTransform()
+    inst.entity:AddAnimState()
+    inst.entity:AddSoundEmitter()
+    inst.entity:AddNetwork()
+	
+	MakeObstaclePhysics(inst, .4)
+	
+	inst.AnimState:SetBank("plugged_fissure")
+    inst.AnimState:SetBuild("plugged_fissure")
+    inst.AnimState:PlayAnimation("idle", true)
+	
+	inst:AddTag("structure")
+	inst:AddTag("antlion_sinkhole_blocker")
+	
+	inst:SetPrefabNameOverride("moon_fissure_plugged")
+	
+    inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
+	
+	inst:AddComponent("inspectable")
+    inst:AddComponent("lootdropper")
+
+    inst:AddComponent("workable")
+    inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
+    inst.components.workable:SetWorkLeft(3)
+	inst.components.workable:SetOnFinishCallback(onhammered)
+	
+	inst:AddComponent("timer")
+    inst.components.timer:StartTimer("toot",(math.random()*10)* TUNING.SEG_TIME )
+
+    inst:ListenForEvent("timerdone", function(inst, data) 
+        if data.name == "toot" then            
+            inst.AnimState:PlayAnimation("toot_pre")
+        end
+    end)
+
+    inst:ListenForEvent("animover", function()
+        if inst.AnimState:IsCurrentAnimation("toot_pre") then
+            inst.SoundEmitter:PlaySound("hookline_2/characters/hermit/plugged_fissure/"..math.random(1,3))
+            inst.AnimState:PlayAnimation("toot")
+            inst.AnimState:PushAnimation("toot_pst",false)
+            inst.AnimState:PushAnimation("idle",true)
+            inst.components.timer:StartTimer("toot",(6 + (math.random()*4)) * TUNING.SEG_TIME )
+            TheWorld:PushEvent("moonfissurevent",inst)            
+        end
+    end)
+	
+	return inst
+end
+	
 return Prefab("kyno_moonfissure", fn, assets, prefabs),
-MakePlacer("kyno_moonfissure_placer", "moon_fissure", "moon_fissure", "crack_idle")
+Prefab("kyno_moonfissure_plugged", pluggedfn, assets_plugged, prefabs),
+MakePlacer("kyno_moonfissure_placer", "moon_fissure", "moon_fissure", "crack_idle"),
+MakePlacer("kyno_moonfissure_plugged_placer", "plugged_fissure", "plugged_fissure", "idle")

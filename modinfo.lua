@@ -181,6 +181,21 @@ configuration_options =
     },
 	Title("Extras", "Note: Some options below may affect your gameplay if enabled."),
 	{
+		name = "vanity_items",
+		label = "Vanity Items",
+		hover = "Enable vanity items to increase your decoration power!",
+		options =
+		{
+			{description = "Enabled", 
+			hover = "Enable vanity items such as oincs, relics etc.",
+			data = 0},
+			{description = "Disabled", 
+			hover = "Disable vanity items such as oincs, relics etc.",
+			data = 1},
+		},
+		default = 1,
+	},
+	{
 		name = "coffee_hack",
 		label = "Coffee",
 		hover = "Enables Coffee now fully working with Warly's spices!",

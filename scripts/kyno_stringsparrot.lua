@@ -120,6 +120,9 @@ for i, parrot in ipairs(parrot_pirate) do
 				elseif math.random() < 0.050 then
 					inst.components.talker:Say("Hey, weeabo!")
 					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp", "talk")
+				elseif math.random() < 0.050 then
+					inst.components.talker:Say("Wes is bes")
+					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp", "talk")
 				end
 			end
 		end)
@@ -236,6 +239,9 @@ for i, parrot2 in ipairs(parrot_pirate2) do
 					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp", "talk")	
 				elseif math.random() < 0.050 then
 					inst.components.talker:Say("Hey, weeabo!")
+					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp", "talk")
+				elseif math.random() < 0.050 then
+					inst.components.talker:Say("Wes is bes")
 					inst.SoundEmitter:PlaySound("dontstarve_DLC002/creatures/parrot/chirp", "talk")
 				end
 			end

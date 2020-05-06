@@ -38,7 +38,7 @@ local function fn()
 	inst.entity:AddNetwork()
 
 	local minimap = inst.entity:AddMiniMapEntity()
-	minimap:SetIcon("rock_moon.png")
+	minimap:SetIcon("rock_moon_shell.png")
 	
 	inst.AnimState:SetBank("moonrock_shell")
 	inst.AnimState:SetBuild("moonrock_shell")

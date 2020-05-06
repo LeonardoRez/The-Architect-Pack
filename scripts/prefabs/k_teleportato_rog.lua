@@ -29,7 +29,7 @@ local function DoLaugh(inst)
 if inst:HasTag("teleporter_rog") then
 	inst:DoTaskInTime(8+math.random()*5, function() DoLaugh(inst) end)
 		inst.AnimState:PlayAnimation("laugh")
-		inst.SoundEmitter:PlaySound("dontstarve/common/teleportato/teleportato_maxwelllaugh", "teleportato_laugh")
+		-- inst.SoundEmitter:PlaySound("dontstarve/common/teleportato/teleportato_maxwelllaugh", "teleportato_laugh")
 		inst.AnimState:PushAnimation("active_idle")
 	end
 end

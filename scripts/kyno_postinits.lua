@@ -650,3 +650,57 @@ AddPrefabPostInit("critterlab", function(inst)
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_relic_1", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_minisign_icons_2.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_relic_2", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_minisign_icons_2.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_relic_3", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_minisign_icons_2.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_relic_4", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_minisign_icons_2.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_relic_5", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_minisign_icons_2.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_pherostone", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_minisign_icons_2.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_oinc1", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_minisign_icons_2.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_oinc10", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_minisign_icons_2.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_oinc100", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_minisign_icons_2.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------

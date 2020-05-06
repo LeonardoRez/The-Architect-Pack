@@ -36,6 +36,9 @@ local function fn()
 	
     MakeObstaclePhysics(inst, .5)
 	
+	local minimap = inst.entity:AddMiniMapEntity()
+    minimap:SetIcon("kyno_scarecrow.tex")
+	
     inst.AnimState:SetBank("kyno_scarecrow")
     inst.AnimState:SetBuild("kyno_scarecrow")
     inst.AnimState:PlayAnimation("idle")
@@ -61,7 +64,7 @@ local function fn()
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
 	
 	inst:AddComponent("named")
-    inst.components.named.possiblenames = { "Fiddlesticks", "Legacy Scacrecrow", "reD The Scacrecrow", "Thalz The Scacrecrow" }
+    inst.components.named.possiblenames = { "Fiddlesticks", "Legacy Scarecrow", "reD The Scarecrow", "Thalz The Scarecrow" }
     inst.components.named:PickNewName()
     inst:DoPeriodicTask(5, rename)
 	

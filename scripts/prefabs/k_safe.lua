@@ -62,7 +62,7 @@ local function fn()
 	inst.entity:AddNetwork()
 
 	local minimap = inst.entity:AddMiniMapEntity()
-	minimap:SetIcon("kyno_safe.tex")
+	minimap:SetIcon("quagmire_safe.png")
 	
 	inst.AnimState:SetBank("quagmire_safe")
 	inst.AnimState:SetBuild("quagmire_safe")

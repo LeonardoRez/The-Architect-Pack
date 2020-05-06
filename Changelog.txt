@@ -140,16 +140,21 @@ Version 1.5-C
 - Added New configuration option: Ro Bin.
 - Added New configuration option: End Table.
 - Added New configuration option: Glowcap, Mushlight and Festive Tree.
+- Added New configuration option: Vanity Items.
 - Added New Parrot strings.
 - Added Mant Cave and Bat Cave turfs.
 - Added Sounds for Teleportators.
 - Added Static Obelisk.
+- Added Special Items.
 
 - Fixed City Hall missing flags.
 - Fixed Iron Hulk missing mossy animations.
 - Fixed Invisible Marble Trees.
+- Fixed Missing minimap icons for some structures.
 
 - Changed Limestone Wall and Enforced Limestone Wall recipe cost to 8.
+
+- Removed Teleportato sounds due to a bug.
 
 - Night Light is now infinite and stages can be changed with Nightmare Fuel.
 - Light Bulbs, Glow Berries and Flowers now lasts forever in End Table. 
@@ -161,3 +166,4 @@ Version 1.5-C
 - Players can't craft Coffee Bush anymore.
 - Dragonfly drops 12 Coffee Bushes on death now.
 - Cocooned Trees grows silk in the ground now.
+- Crabby Hermit now sells blueprint for her structures now.

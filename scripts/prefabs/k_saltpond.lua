@@ -116,7 +116,7 @@ local function saltpondfn()
     inst.entity:AddNetwork()
 	
 	local minimap = inst.entity:AddMiniMapEntity()
-	minimap:SetIcon("kyno_saltpond.tex")
+	minimap:SetIcon("quagmire_salt_rack.png")
 	
 	MakeObstaclePhysics(inst, 1.95)
 	
