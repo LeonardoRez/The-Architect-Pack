@@ -20,6 +20,12 @@ local assets =
 	
 	Asset("ANIM", "anim/tree_marsh.zip"),
 	
+	Asset("ANIM", "anim/mushroom_tree_small.zip"),
+	
+	Asset("ANIM", "anim/mushroom_tree_med.zip"),
+	
+	Asset("ANIM", "anim/mushroom_tree_tall.zip"),
+	
 	Asset("IMAGE", "images/inventoryimages/kyno_stump_short.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_stump_short.xml"),
 	
@@ -62,6 +68,15 @@ local assets =
 	Asset("IMAGE", "images/inventoryimages/kyno_stump5.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_stump5.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_stump6.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_stump6.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_stump7.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_stump7.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_stump8.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_stump8.xml"),
+	
 	Asset("SOUND", "sound/forest.fsb"),
 	Asset("SOUND", "sound/deciduous.fsb"),
 }
@@ -94,6 +109,8 @@ local function shortfn()
 	inst:AddTag("stump_tree")
 	inst:AddTag("structure")
 	inst:AddTag("workable")
+	
+	inst:SetPrefabNameOverride("evergreen")
 	
 	inst.entity:SetPristine()
 
@@ -131,6 +148,8 @@ local function normalfn()
 	inst:AddTag("structure")
 	inst:AddTag("workable")
 	
+	inst:SetPrefabNameOverride("evergreen")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -166,6 +185,8 @@ local function tallfn()
 	inst:AddTag("stump_tree")
 	inst:AddTag("structure")
 	inst:AddTag("workable")
+	
+	inst:SetPrefabNameOverride("evergreen")
 	
 	inst.entity:SetPristine()
 
@@ -203,6 +224,8 @@ local function short_deciduousfn()
 	inst:AddTag("structure")
 	inst:AddTag("workable")
 	
+	inst:SetPrefabNameOverride("deciduoustree")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -238,6 +261,8 @@ local function normal_deciduousfn()
 	inst:AddTag("stump_tree")
 	inst:AddTag("structure")
 	inst:AddTag("workable")
+	
+	inst:SetPrefabNameOverride("deciduoustree")
 	
 	inst.entity:SetPristine()
 
@@ -275,6 +300,8 @@ local function tall_deciduousfn()
 	inst:AddTag("structure")
 	inst:AddTag("workable")
 	
+	inst:SetPrefabNameOverride("deciduoustree")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -310,6 +337,8 @@ local function short_twiggyfn()
 	inst:AddTag("stump_tree")
 	inst:AddTag("structure")
 	inst:AddTag("workable")
+	
+	inst:SetPrefabNameOverride("twiggytree")
 	
 	inst.entity:SetPristine()
 
@@ -347,6 +376,8 @@ local function normal_twiggyfn()
 	inst:AddTag("structure")
 	inst:AddTag("workable")
 	
+	inst:SetPrefabNameOverride("twiggytree")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -382,6 +413,8 @@ local function tall_twiggyfn()
 	inst:AddTag("stump_tree")
 	inst:AddTag("structure")
 	inst:AddTag("workable")
+	
+	inst:SetPrefabNameOverride("twiggytree")
 	
 	inst.entity:SetPristine()
 
@@ -419,6 +452,8 @@ local function old_twiggyfn()
 	inst:AddTag("structure")
 	inst:AddTag("workable")
 	
+	inst:SetPrefabNameOverride("twiggytree")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -454,6 +489,8 @@ local function short_moonfn()
 	inst:AddTag("stump_tree")
 	inst:AddTag("structure")
 	inst:AddTag("workable")
+	
+	inst:SetPrefabNameOverride("moon_tree")
 	
 	inst.entity:SetPristine()
 
@@ -491,6 +528,8 @@ local function normal_moonfn()
 	inst:AddTag("structure")
 	inst:AddTag("workable")
 	
+	inst:SetPrefabNameOverride("moon_tree")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -527,6 +566,8 @@ local function tall_moonfn()
 	inst:AddTag("structure")
 	inst:AddTag("workable")
 	
+	inst:SetPrefabNameOverride("moon_tree")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -562,6 +603,122 @@ local function tall_marshfn()
 	inst:AddTag("stump_tree")
 	inst:AddTag("structure")
 	inst:AddTag("workable")
+	
+	inst:SetPrefabNameOverride("marsh_tree")
+	
+	inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
+
+	inst:AddComponent("inspectable")
+	inst:AddComponent("lootdropper")
+
+	inst:AddComponent("workable")
+	inst.components.workable:SetWorkAction(ACTIONS.DIG)
+	inst.components.workable:SetWorkLeft(1)
+	inst.components.workable:SetOnFinishCallback(dig_up)
+	
+	return inst
+end
+
+local function red_mush()
+    local inst = CreateEntity()
+
+    inst.entity:AddTransform()
+    inst.entity:AddAnimState()
+    inst.entity:AddSoundEmitter()
+    inst.entity:AddNetwork()
+
+	local minimap = inst.entity:AddMiniMapEntity()
+	minimap:SetIcon("mushroom_tree_stump.png")
+
+	inst.AnimState:SetBank("mushroom_tree_med")
+	inst.AnimState:SetBuild("mushroom_tree_med")
+	inst.AnimState:PlayAnimation("idle_stump", true)
+	
+	inst:AddTag("stump_tree")
+	inst:AddTag("structure")
+	inst:AddTag("workable")
+	
+	inst:SetPrefabNameOverride("mushtree_medium")
+	
+	inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
+
+	inst:AddComponent("inspectable")
+	inst:AddComponent("lootdropper")
+
+	inst:AddComponent("workable")
+	inst.components.workable:SetWorkAction(ACTIONS.DIG)
+	inst.components.workable:SetWorkLeft(1)
+	inst.components.workable:SetOnFinishCallback(dig_up)
+	
+	return inst
+end
+
+local function green_mush()
+    local inst = CreateEntity()
+
+    inst.entity:AddTransform()
+    inst.entity:AddAnimState()
+    inst.entity:AddSoundEmitter()
+    inst.entity:AddNetwork()
+
+	local minimap = inst.entity:AddMiniMapEntity()
+	minimap:SetIcon("mushroom_tree_stump.png")
+
+	inst.AnimState:SetBank("mushroom_tree_small")
+	inst.AnimState:SetBuild("mushroom_tree_small")
+	inst.AnimState:PlayAnimation("idle_stump", true)
+	
+	inst:AddTag("stump_tree")
+	inst:AddTag("structure")
+	inst:AddTag("workable")
+	
+	inst:SetPrefabNameOverride("mushtree_small")
+	
+	inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
+
+	inst:AddComponent("inspectable")
+	inst:AddComponent("lootdropper")
+
+	inst:AddComponent("workable")
+	inst.components.workable:SetWorkAction(ACTIONS.DIG)
+	inst.components.workable:SetWorkLeft(1)
+	inst.components.workable:SetOnFinishCallback(dig_up)
+	
+	return inst
+end
+
+local function blue_mush()
+    local inst = CreateEntity()
+
+    inst.entity:AddTransform()
+    inst.entity:AddAnimState()
+    inst.entity:AddSoundEmitter()
+    inst.entity:AddNetwork()
+
+	local minimap = inst.entity:AddMiniMapEntity()
+	minimap:SetIcon("mushroom_tree_stump.png")
+
+	inst.AnimState:SetBank("mushroom_tree")
+	inst.AnimState:SetBuild("mushroom_tree_tall")
+	inst.AnimState:PlayAnimation("idle_stump", true)
+	
+	inst:AddTag("stump_tree")
+	inst:AddTag("structure")
+	inst:AddTag("workable")
+	
+	inst:SetPrefabNameOverride("mushtree_tall")
 	
 	inst.entity:SetPristine()
 
@@ -611,4 +768,13 @@ Prefab("kyno_stump4_tall", tall_moonfn, assets, prefabs),
 MakePlacer("kyno_stump4_tall_placer", "moon_tree", "moon_tree", "stump_tall"),
 
 Prefab("kyno_stump5", tall_marshfn, assets, prefabs),
-MakePlacer("kyno_stump5_placer", "marsh_tree", "tree_marsh", "stump")
+MakePlacer("kyno_stump5_placer", "marsh_tree", "tree_marsh", "stump"),
+
+Prefab("kyno_stump6", red_mush, assets, prefabs),
+MakePlacer("kyno_stump6_placer", "mushroom_tree_med", "mushroom_tree_med", "idle_stump"),
+
+Prefab("kyno_stump7", green_mush, assets, prefabs),
+MakePlacer("kyno_stump7_placer", "mushroom_tree_small", "mushroom_tree_small", "idle_stump"),
+
+Prefab("kyno_stump8", blue_mush, assets, prefabs),
+MakePlacer("kyno_stump8_placer", "mushroom_tree", "mushroom_tree_tall", "idle_stump")

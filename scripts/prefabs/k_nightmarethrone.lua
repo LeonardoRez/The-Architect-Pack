@@ -165,7 +165,7 @@ local function maxwellfn(Sim)
     
     inst.AnimState:SetBank("maxwellthrone")
     inst.AnimState:SetBuild("maxwell_endgame")
-    inst.AnimState:PlayAnimation("idle_loop")
+    inst.AnimState:PlayAnimation("idle_loop", true)
 	
 	inst:AddTag("locked_maxwell")
 	

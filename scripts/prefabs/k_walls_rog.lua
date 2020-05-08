@@ -176,7 +176,7 @@ function MakeWallType(data)
 
         inst:AddComponent("repairer")
 
-        inst.components.repairer.repairmaterial = data.name == "legacy_moonrock" and MATERIALS.MOONROCK or data.name
+        inst.components.repairer.repairmaterial = data.name == "legacy_moonrock" and MATERIALS.MOONROCK or data.name == "legacyruins" and MATERIALS.THULECITE or data.name
         inst.components.repairer.healthrepairvalue = data.maxhealth / 6
 
         if data.flammable then
@@ -232,8 +232,10 @@ function MakeWallType(data)
 
         MakeObstaclePhysics(inst, .5)
         inst.Physics:SetDontRemoveOnSleep(true)
-
+	
+		if data.name == "legacy_moonrock" then
         inst.AnimState:SetScale(1.1, 1, 1.1)
+		end
 
         inst:AddTag("wall")
         inst:AddTag("noauradamage")
@@ -267,7 +269,7 @@ function MakeWallType(data)
         inst:AddComponent("lootdropper")
 
         inst:AddComponent("repairable")
-        inst.components.repairable.repairmaterial = data.name == "legacy_moonrock" and MATERIALS.MOONROCK or data.name
+        inst.components.repairable.repairmaterial = data.name == "legacy_moonrock" and MATERIALS.MOONROCK or data.name == "legacyruins" and MATERIALS.THULECITE or data.name
         inst.components.repairable.onrepaired = onrepaired
 
         inst:AddComponent("combat")
@@ -315,7 +317,8 @@ function MakeWallType(data)
 
     return Prefab("wall_"..data.name, fn, assets, prefabs),
         Prefab("wall_"..data.name.."_item", itemfn, assets, { "wall_"..data.name, "wall_"..data.name.."_item_placer" }),
-        MakePlacer("wall_"..data.name.."_item_placer", "wall", "wall_"..data.name, "half", false, false, true, nil, nil, "eight", wallplacetestfn)
+        MakePlacer("wall_"..data.name.."_item_placer", "wall", "wall_"..data.name, "half", false, false, true, nil, nil, "eight"),
+		MakePlacer("wall_legacy_moonrock_item_placer", "wall", "wall_legacy_moonrock", "half", false, false, true, nil, nil, "eight", wallplacetestfn)
 end
 
 local wallprefabs = {}
@@ -324,7 +327,8 @@ local wallprefabs = {}
 --NOTE: Stacksize is now set in the actual recipe for the item.
 local walldata =
 {
-    { name = "legacy_moonrock", material = "stone", tags = { "stone", "moonrock" }, loot = "moonrocknugget",   maxloots = 2, maxhealth = TUNING.MOONROCKWALL_HEALTH,                   buildsound = "dontstarve/common/place_structure_stone" },
+    { name = "legacy_moonrock", material = "stone", tags = { "stone", "moonrock" }, loot = "moonrocknugget",   maxloots = 2, maxhealth = TUNING.MOONROCKWALL_HEALTH, buildsound = "dontstarve/common/place_structure_stone" },
+	{ name = "legacyruins", material = "stone", tags = { "stone", "ruins" }, loot = "thulecite_pieces", maxloots = 2, maxhealth = TUNING.RUINSWALL_HEALTH, buildsound = "dontstarve/common/place_structure_stone" },
 }
 
 for i, v in ipairs(walldata) do

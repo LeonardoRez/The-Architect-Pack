@@ -418,6 +418,7 @@ GLOBAL.SetSharedLootTable("minotaur_robin",
     {"meat",        1.00},
     {"meat",        1.00},
     {"minotaurhorn",1.00},
+	{"kyno_ornatechest_large_blueprint", 1.00},
 	{"ro_bin_gizzard_stone", robin_chance},
 })
 
@@ -701,6 +702,125 @@ end)
 AddPrefabPostInit("kyno_oinc100", function(inst)
 	if inst.components.inventoryitem ~= nil then
 	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_minisign_icons_2.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("cavein_boulder", function(inst)
+	inst:AddTag("_named")
+	if GLOBAL.TheWorld.ismastersim then
+		inst:RemoveTag("_named")
+		inst:AddComponent("named")
+		inst.components.named.possiblenames = { "Boulder", "Antlion's Boulder", "Forever Alone Boulder" }
+		inst.components.named:PickNewName()
+		inst:DoPeriodicTask(5, rename_it)
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+GLOBAL.SetSharedLootTable("shadow_creature_new",
+{
+    { "nightmarefuel",  1.0 },
+    { "nightmarefuel",  0.5 },
+	{ "kyno_shadowportal_blueprint", .10 }, -- 1% Drop Chance
+})
+
+AddPrefabPostInit("crawlinghorror", function(inst)
+	if GLOBAL.TheWorld.ismastersim then
+		inst.components.lootdropper:SetChanceLootTable("shadow_creature_new")
+	end
+end)
+
+AddPrefabPostInit("terrorbeak", function(inst)
+	if GLOBAL.TheWorld.ismastersim then
+		inst.components.lootdropper:SetChanceLootTable("shadow_creature_new")
+	end
+end)
+
+AddPrefabPostInit("crawlingnightmare", function(inst)
+	if GLOBAL.TheWorld.ismastersim then
+		inst.components.lootdropper:SetChanceLootTable("shadow_creature_new")
+	end
+end)
+
+AddPrefabPostInit("nightmarebeak", function(inst)
+	if GLOBAL.TheWorld.ismastersim then
+		inst.components.lootdropper:SetChanceLootTable("shadow_creature_new")
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+GLOBAL.SetSharedLootTable("moose_new",
+{
+    {'meat',             1.00},
+    {'meat',             1.00},
+    {'meat',             1.00},
+    {'meat',             1.00},
+    {'meat',             1.00},
+    {'meat',             1.00},
+    {'drumstick',        1.00},
+    {'drumstick',        1.00},
+    {'goose_feather',    1.00},
+    {'goose_feather',    1.00},
+    {'goose_feather',    1.00},
+    {'goose_feather',    0.33},
+    {'goose_feather',    0.33},
+    {'chesspiece_moosegoose_sketch', 1.00},
+	{'oceanfishingbobber_goose_tacklesketch', 1.00},
+	{'kyno_goosenestegg_blueprint', 1.00},
+})
+
+AddPrefabPostInit("moose", function(inst)
+	if GLOBAL.TheWorld.ismastersim then
+		inst.components.lootdropper:SetChanceLootTable("moose_new")
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+GLOBAL.SetSharedLootTable("beequeen_new",
+{
+    {'royal_jelly',      1.00},
+    {'royal_jelly',      1.00},
+    {'royal_jelly',      1.00},
+    {'royal_jelly',      1.00},
+    {'royal_jelly',      1.00},
+    {'royal_jelly',      1.00},
+    {'royal_jelly',      0.50},
+    {'honeycomb',        1.00},
+    {'honeycomb',        0.50},
+    {'honey',            1.00},
+    {'honey',            1.00},
+    {'honey',            1.00},
+    {'honey',            0.50},
+    {'stinger',          1.00},
+    {'hivehat',          1.00},
+    {'bundlewrap_blueprint', 1.00},
+	{'kyno_antchest_blueprint', 1.00},
+})
+
+AddPrefabPostInit("beequeen", function(inst)
+	if GLOBAL.TheWorld.ismastersim then
+		inst.components.lootdropper:SetChanceLootTable("beequeen_new")
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("leif", function(inst)
+	if GLOBAL.TheWorld.ismastersim then
+	inst.components.lootdropper:AddChanceLoot("kyno_treeclump_blueprint", 0.10) -- 10% Drop Chance
+	end
+end)
+
+AddPrefabPostInit("leif_sparse", function(inst)
+	if GLOBAL.TheWorld.ismastersim then
+	inst.components.lootdropper:AddChanceLoot("kyno_treeclump_blueprint", 0.10) -- 10% Drop Chance
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("spiderqueen", function(inst)
+	if GLOBAL.TheWorld.ismastersim then
+	inst.components.lootdropper:AddChanceLoot("cocoonedtree_short_blueprint", 0.33) -- 33% Drop Chance
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("deerclops", function(inst)
+	if GLOBAL.TheWorld.ismastersim then
+	inst.components.lootdropper:AddChanceLoot("kyno_snowman_blueprint", 1.00)
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------

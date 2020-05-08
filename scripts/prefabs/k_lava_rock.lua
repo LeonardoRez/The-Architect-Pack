@@ -47,6 +47,8 @@ local function fn()
     inst.AnimState:SetBuild("scorched_rock")
 	inst.AnimState:PlayAnimation(inst.piece)
 
+	inst:SetPrefabNameOverride("lava_pond_rock")
+	
     inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then

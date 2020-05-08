@@ -346,6 +346,78 @@ AddTile(97, "batcave", "kyno_turfs4", nil,
 	}
 , true)
 
+AddTile(98, "ruinsbricktrim", "kyno_turfs4", nil,
+	{
+	name = "cave",
+	noise_texture = "levels/textures/noise_ruinsbrickglow.tex",
+	runsound = "dontstarve/movement/run_moss",
+	walksound = "dontstarve/movement/walk_moss",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/mini_ruinsbrick_noise",
+	}
+, true)
+
+AddTile(99, "ruinsbrick", "kyno_turfs4", nil,
+	{
+	name = "cave",
+	noise_texture = "levels/textures/noise_ruinsbrick.tex",
+	runsound = "dontstarve/movement/run_moss",
+	walksound = "dontstarve/movement/walk_moss",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/mini_ruinsbrick_noise",
+	}
+, true)
+
+AddTile(100, "ruinstiletrim", "kyno_turfs4", nil,
+	{
+	name = "cave",
+	noise_texture = "levels/textures/noise_ruinstileglow.tex",
+	runsound = "dontstarve/movement/run_moss",
+	walksound = "dontstarve/movement/walk_moss",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/mini_ruinstile_noise",
+	}
+, true)
+
+AddTile(101, "ruinstile", "kyno_turfs4", nil,
+	{
+	name = "cave",
+	noise_texture = "levels/textures/noise_ruinstile.tex",
+	runsound = "dontstarve/movement/run_moss",
+	walksound = "dontstarve/movement/walk_moss",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/mini_ruinstile_noise",
+	}
+, true)
+
+AddTile(102, "ruinstrimtrim", "kyno_turfs4", nil,
+	{
+	name = "cave",
+	noise_texture = "levels/textures/noise_ruinstrimglow.tex",
+	runsound = "dontstarve/movement/run_moss",
+	walksound = "dontstarve/movement/walk_moss",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/mini_ruinstrim_noise",
+	}
+, true)
+
+AddTile(103, "ruinstrim", "kyno_turfs4", nil,
+	{
+	name = "cave",
+	noise_texture = "levels/textures/noise_ruinstrim.tex",
+	runsound = "dontstarve/movement/run_moss",
+	walksound = "dontstarve/movement/walk_moss",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/mini_ruinstrim_noise",
+	}
+, true)
+
 ChangeTileTypeRenderOrder(GROUND.PINKSTONE, GROUND.ROAD, true)
 ChangeTileTypeRenderOrder(GROUND.STONECITY, GROUND.PINKSTONE, true)
 ChangeTileTypeRenderOrder(GROUND.BEACH, GROUND.PINKSTONE, true)
@@ -376,3 +448,9 @@ ChangeTileTypeRenderOrder(GROUND.LAWN, GROUND.CARPET, true)
 ChangeTileTypeRenderOrder(GROUND.FORGEROAD, GROUND.BROWNCARPET, true)
 ChangeTileTypeRenderOrder(GROUND.COBBLEROAD, GROUND.FORGEROAD, true)
 ChangeTileTypeRenderOrder(GROUND.FORGEROCK, GROUND.UNDERROCK, true)
+ChangeTileTypeRenderOrder(GROUND.RUINSBRICK, GROUND.FORGEROCK, true)
+ChangeTileTypeRenderOrder(GROUND.RUINSBRICKTRIM, GROUND.RUINSBRICK, true)
+ChangeTileTypeRenderOrder(GROUND.RUINSTILE, GROUND.RUINSBRICKTRIM, true)
+ChangeTileTypeRenderOrder(GROUND.RUINSTILETRIM, GROUND.RUINSTILE, true)
+ChangeTileTypeRenderOrder(GROUND.RUINSTRIM, GROUND.RUINSTILETRIM, true)
+ChangeTileTypeRenderOrder(GROUND.RUINSTRIMTRIM, GROUND.RUINSTRIM, true)

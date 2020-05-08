@@ -9,8 +9,8 @@ local assets =
 	Asset("IMAGE", "images/inventoryimages/kyno_pondmarsh.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_pondmarsh.xml"),
 	
-	-- Asset("IMAGE", "images/inventoryimages/kyno_pondcave.tex"),
-	-- Asset("ATLAS", "images/inventoryimages/kyno_pondcave.xml"),
+	Asset("IMAGE", "images/inventoryimages/kyno_pondcave.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_pondcave.xml"),
 }
 
 local prefabs =
@@ -130,6 +130,11 @@ local function onhit_marsh(inst, worker)
     inst.AnimState:PushAnimation("idle_mos", true)
 end
 
+local function onhit_cave(inst, worker)
+	inst.AnimState:PlayAnimation("splash_cave")
+	inst.AnimState:PushAnimation("idle_cave", true)
+end
+
 local function OnSave(inst, data)
     data.plants = inst.plants
 end
@@ -232,6 +237,8 @@ end
 
 local function pondmos()
     local inst = commonfn("_mos")
+	
+	inst:SetPrefabNameOverride("pond")
 
     if not TheWorld.ismastersim then
         return inst
@@ -255,6 +262,8 @@ end
 
 local function pondfrog()
     local inst = commonfn("")
+	
+	inst:SetPrefabNameOverride("pond")
 
     if not TheWorld.ismastersim then
         return inst
@@ -278,6 +287,8 @@ end
 
 local function pondcave()
     local inst = commonfn("_cave")
+	
+	inst:SetPrefabNameOverride("pond")
 
     if not TheWorld.ismastersim then
         return inst
@@ -288,11 +299,18 @@ local function pondcave()
     inst.planttype = "pond_algae"
     inst.task = inst:DoTaskInTime(0, SpawnPlants)
 
-    --These spawn nothing at this time.
+    inst:AddComponent("workable")
+    inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
+    inst.components.workable:SetWorkLeft(4)
+	inst.components.workable:SetOnFinishCallback(onhammered)
+	inst.components.workable:SetOnWorkCallback(onhit_cave)
+	
     return inst
 end
 
 return Prefab("kyno_pond", pondfrog, assets, prefabs),
-Prefab("kyno_pondmarsh", pondmos, assets, prefabs),    
+Prefab("kyno_pondmarsh", pondmos, assets, prefabs),
+Prefab("kyno_pondcave", pondcave, assets, prefabs),
 MakePlacer("kyno_pond_placer", "marsh_tile", "marsh_tile", "idle", true, nil, nil, nil, 90, nil),
-MakePlacer("kyno_pondmarsh_placer", "marsh_tile", "marsh_tile", "idle_mos", true, nil, nil, nil, 90, nil)
+MakePlacer("kyno_pondmarsh_placer", "marsh_tile", "marsh_tile", "idle_mos", true, nil, nil, nil, 90, nil),
+MakePlacer("kyno_pondcave_placer", "marsh_tile", "marsh_tile", "idle_cave", true, nil, nil, nil, 90, nil)

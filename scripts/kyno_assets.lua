@@ -1447,6 +1447,309 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_hermithouse4.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_hermithouse4.xml"),
 	
+	Asset("IMAGE", "images/tabimages/kyno_cavetab.tex"),
+	Asset("ATLAS", "images/tabimages/kyno_cavetab.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_sinkhole_ruins.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_sinkhole_ruins.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_flowerlightone.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_flowerlightone.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_flowerlightspringy.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_flowerlightspringy.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_flowerlighttwo.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_flowerlighttwo.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_flowerlightthree.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_flowerlightthree.xml"),
+	
+	Asset("IMAGE", "images/kyno_redmushtree.tex"),
+	Asset("ATLAS", "images/kyno_redmushtree.xml"),
+	
+	Asset("IMAGE", "images/kyno_greenmushtree.tex"),
+	Asset("ATLAS", "images/kyno_greenmushtree.xml"),
+	
+	Asset("IMAGE", "images/kyno_bluemushtree.tex"),
+	Asset("ATLAS", "images/kyno_bluemushtree.xml"),
+	
+	Asset("IMAGE", "images/kyno_webbedmushtree.tex"),
+	Asset("ATLAS", "images/kyno_webbedmushtree.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_stump6.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_stump6.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_stump7.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_stump7.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_stump8.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_stump8.xml"),
+	
+	Asset("IMAGE", "images/kyno_stalagmitefull.tex"),
+	Asset("ATLAS", "images/kyno_stalagmitefull.xml"),
+	
+	Asset("IMAGE", "images/kyno_stalagmitemed.tex"),
+	Asset("ATLAS", "images/kyno_stalagmitemed.xml"),
+	
+	Asset("IMAGE", "images/kyno_stalagmitelow.tex"),
+	Asset("ATLAS", "images/kyno_stalagmitelow.xml"),
+	
+	Asset("IMAGE", "images/kyno_stalagmitetall_full.tex"),
+	Asset("ATLAS", "images/kyno_stalagmitetall_full.xml"),
+	
+	Asset("IMAGE", "images/kyno_stalagmitetall_med.tex"),
+	Asset("ATLAS", "images/kyno_stalagmitetall_med.xml"),
+	
+	Asset("IMAGE", "images/kyno_stalagmitetall_low.tex"),
+	Asset("ATLAS", "images/kyno_stalagmitetall_low.xml"),
+	
+	Asset("IMAGE", "images/kyno_spiderhole.tex"),
+	Asset("ATLAS", "images/kyno_spiderhole.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_batiliskden.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_batiliskden.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_pondcave.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_pondcave.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_toadstoolcap.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_toadstoolcap.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_toadstoolcap_dark.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_toadstoolcap_dark.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_toadhole.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_toadhole.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_sporecap.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_sporecap.xml"),
+		
+	Asset("IMAGE", "images/inventoryimages/kyno_sporecap_dark.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_sporecap_dark.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_boomshroom.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_boomshroom.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_boomshroom_dark.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_boomshroom_dark.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_bigtentacle.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_bigtentacle.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_tentaclehole.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_tentaclehole.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_nightmarefissure.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_nightmarefissure.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_nightmarefissure_ruins.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_nightmarefissure_ruins.xml"),
+	
+	Asset("IMAGE", "images/kyno_slurtlehole.tex"),
+	Asset("ATLAS", "images/kyno_slurtlehole.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_wormlight.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_wormlight.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_caveholeitems.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_caveholeitems.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_lichenplant.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_lichenplant.xml"),
+	
+	Asset("IMAGE", "images/kyno_bananatree.tex"),
+	Asset("ATLAS", "images/kyno_bananatree.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_lichenplant_legacy.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_lichenplant_legacy.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_splumonkeypod.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_splumonkeypod.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_monkeybarrel.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_monkeybarrel.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_ruinsbowl.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_ruinsbowl.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_ruinschair.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_ruinschair.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_ruinschipbowl.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_ruinschipbowl.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_ruinsplate.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_ruinsplate.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_ruinstable.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_ruinstable.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_ruinsvase.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_ruinsvase.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_brokenbits.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_brokenbits.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_statueruins_bluegem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_statueruins_bluegem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_statueruins_bluegem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_statueruins_bluegem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_statueruins_redgem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_statueruins_redgem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_statueruins_purplegem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_statueruins_purplegem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_statueruins_orangegem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_statueruins_orangegem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_statueruins_yellowgem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_statueruins_yellowgem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_statueruins_greengem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_statueruins_greengem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_statueruins_nogem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_statueruins_nogem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_statueruins_small_nogem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_statueruins_small_nogem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_statueruins_small_bluegem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_statueruins_small_bluegem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_statueruins_small_redgem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_statueruins_small_redgem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_statueruins_small_purplegem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_statueruins_small_purplegem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_statueruins_small_orangegem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_statueruins_small_orangegem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_statueruins_small_yellowgem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_statueruins_small_yellowgem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_statueruins_small_greengem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_statueruins_small_greengem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_ruinsnightmarelight.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_ruinsnightmarelight.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_brokenclockwork1.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_brokenclockwork1.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_brokenclockwork2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_brokenclockwork2.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_brokenclockwork3.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_brokenclockwork3.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_ornatechest.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_ornatechest.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_ornatechest_large.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_ornatechest_large.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_apss_broken.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_apss_broken.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_pillar_ruins.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_pillar_ruins.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_pillar_algae.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_pillar_algae.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_pillar_atrium.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_pillar_atrium.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_pillar_atrium_on.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_pillar_atrium_on.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_pillar_cave.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_pillar_cave.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_pillar_rock.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_pillar_rock.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_pillar_flintless.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_pillar_flintless.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_pillar_stalactite.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_pillar_stalactite.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_surfacestairs.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_surfacestairs.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_surfacestairs_closed.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_surfacestairs_closed.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_surfacestairs_vip.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_surfacestairs_vip.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_legacyruins_nogem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_legacyruins_nogem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_legacyruins_bluegem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_legacyruins_bluegem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_legacyruins_redgem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_legacyruins_redgem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_legacyruins_purplegem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_legacyruins_purplegem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_legacyruins_orangegem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_legacyruins_orangegem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_legacyruins_yellowgem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_legacyruins_yellowgem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_legacyruins_greengem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_legacyruins_greengem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_legacyruins_small_nogem.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_legacyruins_small_nogem.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_legacyruins_wall.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_legacyruins_wall.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shadowhand.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shadowhand.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_statueatrium.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_statueatrium.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_atriumrubble1.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_atriumrubble1.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_atriumrubble2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_atriumrubble2.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_atriumbeacon.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_atriumbeacon.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_atriumobelisk.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_atriumobelisk.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_atriumfence.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_atriumfence.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_ancientgateway.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_ancientgateway.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_ancientgateway_wip.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_ancientgateway_wip.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_eyeplant.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_eyeplant.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_contrarregra.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_contrarregra.xml"),
+	
 	-- Unlisted Assets --
 	Asset("ANIM", "anim/mod_turfs.zip"),
 	Asset("ANIM", "anim/kyno_catalogues.zip"), -- Unused.
@@ -1803,6 +2106,11 @@ Assets = {
 	Asset("ANIM", "anim/maxwell_throne.zip"),
 	Asset("ANIM", "anim/maxwell_endgame.zip"),
 	Asset("ANIM", "anim/shadow_portal.zip"),
+	-- Caves Content --
+	Asset("ANIM", "anim/kyno_algae_bush.zip"),
+	Asset("ANIM", "anim/kyno_monkey_barrel.zip"),
+	Asset("ANIM", "anim/wall_legacyruins.zip"),
+	Asset("ANIM", "anim/kyno_ancientgateway.zip"),
 	-- Sea Content --
 	Asset("ANIM", "anim/tree_mangrove_build.zip"),
 	Asset("ANIM", "anim/tree_mangrove_normal.zip"),

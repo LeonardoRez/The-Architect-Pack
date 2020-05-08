@@ -4,6 +4,7 @@ local assets =
 {
 	Asset("ANIM", "anim/treasure_chest_cork.zip"),
 	Asset("ANIM", "anim/ui_chest_3x2.zip"),
+	Asset("ANIM", "anim/ui_lamp_1x4.zip"),
 	
 	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_ham.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_ham.xml"),

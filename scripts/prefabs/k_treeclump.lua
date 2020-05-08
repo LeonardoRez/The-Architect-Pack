@@ -33,10 +33,10 @@ local function onworkfinish(inst, chopper)
     local hispos = Vector3(chopper.Transform:GetWorldPosition())
     local he_right = (hispos - pt):Dot(TheCamera:GetRightVec()) > 0
     if he_right then
-        inst.AnimState:PlayAnimation("fallleft")
+        -- inst.AnimState:PlayAnimation("fallleft")
         inst.components.lootdropper:DropLoot(pt - TheCamera:GetRightVec())
     else
-        inst.AnimState:PlayAnimation("fallright")
+        -- inst.AnimState:PlayAnimation("fallright")
         inst.components.lootdropper:DropLoot(pt + TheCamera:GetRightVec())
     end
 end

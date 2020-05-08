@@ -42,6 +42,7 @@ local function fn()
 	
 	inst:AddTag("structure")
 	inst:AddTag("nettle")
+	inst:AddTag("plant")
 	
 	inst.entity:SetPristine()
 

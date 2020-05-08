@@ -101,6 +101,8 @@ local function tree1fn()
 	
 	inst.entity:AddTag("statue")
 	inst.entity:AddTag("structure")
+	
+	inst:SetPrefabNameOverride("marbletree")
 
     inst.entity:SetPristine()
 
@@ -144,6 +146,8 @@ local function tree2fn()
 	
 	inst.entity:AddTag("statue")
 	inst.entity:AddTag("structure")
+	
+	inst:SetPrefabNameOverride("marbletree")
 
     inst.entity:SetPristine()
 
@@ -187,6 +191,8 @@ local function tree3fn()
 	
 	inst.entity:AddTag("statue")
 	inst.entity:AddTag("structure")
+	
+	inst:SetPrefabNameOverride("marbletree")
 
     inst.entity:SetPristine()
 
@@ -230,6 +236,8 @@ local function tree4fn()
 	
 	inst.entity:AddTag("statue")
 	inst.entity:AddTag("structure")
+	
+	inst:SetPrefabNameOverride("marbletree")
 
     inst.entity:SetPristine()
 
