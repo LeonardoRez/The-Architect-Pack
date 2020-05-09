@@ -21,8 +21,6 @@ People that I wanted to credit for making this mod work!
 
 • eXiGe: Turfs Code. (I hope he doesn't get mad at me :P)
 
-• DarkXero: Prototyper Code.
-
 • Adai: Helping with Codes and functions.
 
 • ogait87: Fixing File Names for Linux users.
