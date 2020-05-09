@@ -4070,20 +4070,20 @@ end
 
 local DST = GLOBAL.TheSim:GetGameID() == "DST"
 if GetModConfigData("colourcubes") == 1 then
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/temperate_day_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/temperate_dusk_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/temperate_night_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_cold_day_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_cold_dusk_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_cold_night_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_cold_bloodmoon_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_warm_day_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_warm_dusk_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_warm_night_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_dry_day_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_dry_dusk_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_dry_night_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/purple_moon_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/temperate_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/temperate_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/temperate_night_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_night_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_bloodmoon_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_warm_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_warm_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_warm_night_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_dry_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_dry_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_dry_night_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/purple_moon_cc.tex") )
 	
 	AddComponentPostInit("colourcube", function(self)
 		for _,v in pairs(GLOBAL.TheWorld.event_listeners["playerdeactivated"][GLOBAL.TheWorld]) do
@@ -4091,31 +4091,31 @@ if GetModConfigData("colourcubes") == 1 then
 				setval(v, "OnOverrideCCTable.UpdateAmbientCCTable.SEASON_COLOURCUBES",{
 					autumn =
 					{
-						day = resolvefilepath("images/colour_cubes/temperate_day_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/temperate_dusk_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/temperate_night_cc.tex"),
-						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
+						day = resolvefilepath("images/colourcubes/temperate_day_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/temperate_dusk_cc.tex"),
+						night = resolvefilepath("images/colourcubes/temperate_night_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
 					},
 					winter =
 					{
-						day = resolvefilepath("images/colour_cubes/pork_cold_day_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/pork_cold_dusk_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/pork_cold_night_cc.tex"),
-						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
+						day = resolvefilepath("images/colourcubes/pork_cold_day_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/pork_cold_dusk_cc.tex"),
+						night = resolvefilepath("images/colourcubes/pork_cold_night_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
 					},
 					spring =
 					{
-						day = resolvefilepath("images/colour_cubes/pork_warm_day_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/pork_warm_dusk_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/pork_warm_night_cc.tex"),
-						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
+						day = resolvefilepath("images/colourcubes/pork_warm_day_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/pork_warm_dusk_cc.tex"),
+						night = resolvefilepath("images/colourcubes/pork_warm_night_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
 					},
 					summer =
 					{
-						day = resolvefilepath("images/colour_cubes/SW_dry_day_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/SW_dry_dusk_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/SW_dry_night_cc.tex"),
-						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
+						day = resolvefilepath("images/colourcubes/SW_dry_day_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/SW_dry_dusk_cc.tex"),
+						night = resolvefilepath("images/colourcubes/SW_dry_night_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
 					},
 				})
 				break
@@ -4124,18 +4124,18 @@ if GetModConfigData("colourcubes") == 1 then
 	end)
 elseif GetModConfigData("colourcubes") == 2 then
 local DST = GLOBAL.TheSim:GetGameID() == "DST"
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/sw_mild_day_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_mild_dusk_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_mild_night_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_wet_day_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_wet_dusk_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_wet_night_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/sw_green_day_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/sw_green_dusk_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_dry_day_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_dry_dusk_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/SW_dry_night_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/purple_moon_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/sw_mild_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_mild_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_mild_night_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_wet_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_wet_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_wet_night_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/sw_green_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/sw_green_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_dry_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_dry_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_dry_night_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/purple_moon_cc.tex") )
 
 	AddComponentPostInit("colourcube", function(self)
 		for _,v in pairs(GLOBAL.TheWorld.event_listeners["playerdeactivated"][GLOBAL.TheWorld]) do
@@ -4143,31 +4143,31 @@ local DST = GLOBAL.TheSim:GetGameID() == "DST"
 				setval(v, "OnOverrideCCTable.UpdateAmbientCCTable.SEASON_COLOURCUBES",{
 					autumn =
 					{
-						day = resolvefilepath("images/colour_cubes/sw_mild_day_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/SW_mild_dusk_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/SW_mild_night_cc.tex"),
-						full_moon = resolvefilepath("images/colour_cubes/purple_moon_cc.tex"),
+						day = resolvefilepath("images/colourcubes/sw_mild_day_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/SW_mild_dusk_cc.tex"),
+						night = resolvefilepath("images/colourcubes/SW_mild_night_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/purple_moon_cc.tex"),
 					},
 					winter =
 					{
-						day = resolvefilepath("images/colour_cubes/SW_wet_day_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/SW_wet_dusk_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/SW_wet_night_cc.tex"),
-						full_moon = resolvefilepath("images/colour_cubes/purple_moon_cc.tex"),
+						day = resolvefilepath("images/colourcubes/SW_wet_day_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/SW_wet_dusk_cc.tex"),
+						night = resolvefilepath("images/colourcubes/SW_wet_night_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/purple_moon_cc.tex"),
 					},
 					spring =
 					{
-						day = resolvefilepath("images/colour_cubes/sw_green_day_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/sw_green_dusk_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/sw_green_dusk_cc.tex"),
-						full_moon = resolvefilepath("images/colour_cubes/purple_moon_cc.tex"),
+						day = resolvefilepath("images/colourcubes/sw_green_day_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/sw_green_dusk_cc.tex"),
+						night = resolvefilepath("images/colourcubes/sw_green_dusk_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/purple_moon_cc.tex"),
 					},
 					summer =
 					{
-						day = resolvefilepath("images/colour_cubes/SW_dry_day_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/SW_dry_dusk_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/SW_dry_night_cc.tex"),
-						full_moon = resolvefilepath("images/colour_cubes/purple_moon_cc.tex"),
+						day = resolvefilepath("images/colourcubes/SW_dry_day_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/SW_dry_dusk_cc.tex"),
+						night = resolvefilepath("images/colourcubes/SW_dry_night_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/purple_moon_cc.tex"),
 					},
 				})
 				break
@@ -4176,12 +4176,12 @@ local DST = GLOBAL.TheSim:GetGameID() == "DST"
 	end)
 elseif GetModConfigData("colourcubes") == 3 then
 local DST = GLOBAL.TheSim:GetGameID() == "DST"
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/sw_mild_day_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/snow_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_cold_day_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_cold_bloodmoon_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_warm_day_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/purple_moon_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/sw_mild_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/snow_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_bloodmoon_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_warm_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/purple_moon_cc.tex") )
 
 	AddComponentPostInit("colourcube", function(self)
 		for _,v in pairs(GLOBAL.TheWorld.event_listeners["playerdeactivated"][GLOBAL.TheWorld]) do
@@ -4189,31 +4189,31 @@ local DST = GLOBAL.TheSim:GetGameID() == "DST"
 				setval(v, "OnOverrideCCTable.UpdateAmbientCCTable.SEASON_COLOURCUBES",{
 					autumn =
 					{
-						day = resolvefilepath("images/colour_cubes/sw_mild_day_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/sw_mild_day_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/sw_mild_day_cc.tex"),
-						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
+						day = resolvefilepath("images/colourcubes/sw_mild_day_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/sw_mild_day_cc.tex"),
+						night = resolvefilepath("images/colourcubes/sw_mild_day_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
 					},
 					winter =
 					{
-						day = resolvefilepath("images/colour_cubes/snow_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/snow_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/snow_cc.tex"),
-						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
+						day = resolvefilepath("images/colourcubes/snow_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/snow_cc.tex"),
+						night = resolvefilepath("images/colourcubes/snow_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
 					},
 					spring =
 					{
-						day = resolvefilepath("images/colour_cubes/pork_cold_day_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/pork_cold_day_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/pork_cold_day_cc.tex"),
-						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
+						day = resolvefilepath("images/colourcubes/pork_cold_day_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/pork_cold_day_cc.tex"),
+						night = resolvefilepath("images/colourcubes/pork_cold_day_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
 					},
 					summer =
 					{
-						day = resolvefilepath("images/colour_cubes/pork_warm_day_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/pork_warm_day_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/pork_warm_day_cc.tex"),
-						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
+						day = resolvefilepath("images/colourcubes/pork_warm_day_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/pork_warm_day_cc.tex"),
+						night = resolvefilepath("images/colourcubes/pork_warm_day_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
 					},
 				})
 				break
@@ -4222,9 +4222,9 @@ local DST = GLOBAL.TheSim:GetGameID() == "DST"
 	end)
 elseif GetModConfigData("colourcubes") == 4 then
 local DST = GLOBAL.TheSim:GetGameID() == "DST"
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/lavaarena2_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_cold_bloodmoon_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/purple_moon_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/lavaarena2_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_bloodmoon_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/purple_moon_cc.tex") )
 
 	AddComponentPostInit("colourcube", function(self)
 		for _,v in pairs(GLOBAL.TheWorld.event_listeners["playerdeactivated"][GLOBAL.TheWorld]) do
@@ -4232,31 +4232,31 @@ local DST = GLOBAL.TheSim:GetGameID() == "DST"
 				setval(v, "OnOverrideCCTable.UpdateAmbientCCTable.SEASON_COLOURCUBES",{
 					autumn =
 					{
-						day = resolvefilepath("images/colour_cubes/lavaarena2_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/lavaarena2_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/lavaarena2_cc.tex"),
-						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
+						day = resolvefilepath("images/colourcubes/lavaarena2_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/lavaarena2_cc.tex"),
+						night = resolvefilepath("images/colourcubes/lavaarena2_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
 					},
 					winter =
 					{
-						day = resolvefilepath("images/colour_cubes/lavaarena2_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/lavaarena2_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/lavaarena2_cc.tex"),
-						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
+						day = resolvefilepath("images/colourcubes/lavaarena2_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/lavaarena2_cc.tex"),
+						night = resolvefilepath("images/colourcubes/lavaarena2_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
 					},
 					spring =
 					{
-						day = resolvefilepath("images/colour_cubes/lavaarena2_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/lavaarena2_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/lavaarena2_cc.tex"),
-						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
+						day = resolvefilepath("images/colourcubes/lavaarena2_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/lavaarena2_cc.tex"),
+						night = resolvefilepath("images/colourcubes/lavaarena2_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
 					},
 					summer =
 					{
-						day = resolvefilepath("images/colour_cubes/lavaarena2_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/lavaarena2_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/lavaarena2_cc.tex"),
-						full_moon = resolvefilepath("images/colour_cubes/pork_cold_bloodmoon_cc.tex"),
+						day = resolvefilepath("images/colourcubes/lavaarena2_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/lavaarena2_cc.tex"),
+						night = resolvefilepath("images/colourcubes/lavaarena2_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
 					},
 				})
 				break
@@ -4265,9 +4265,9 @@ local DST = GLOBAL.TheSim:GetGameID() == "DST"
 	end)
 elseif GetModConfigData("colourcubes") == 5 then
 local DST = GLOBAL.TheSim:GetGameID() == "DST"
-	table.insert( Assets, Asset("IMAGE", "images/colour_cubes/quagmire_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/purple_moon_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colour_cubes/pork_cold_bloodmoon_cc.tex") )
+	table.insert( Assets, Asset("IMAGE", "images/colourcubes/quagmire_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/purple_moon_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_bloodmoon_cc.tex") )
 
 	AddComponentPostInit("colourcube", function(self)
 		for _,v in pairs(GLOBAL.TheWorld.event_listeners["playerdeactivated"][GLOBAL.TheWorld]) do
@@ -4275,31 +4275,31 @@ local DST = GLOBAL.TheSim:GetGameID() == "DST"
 				setval(v, "OnOverrideCCTable.UpdateAmbientCCTable.SEASON_COLOURCUBES",{
 					autumn =
 					{
-						day = resolvefilepath("images/colour_cubes/quagmire_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/quagmire_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/quagmire_cc.tex"),
-						full_moon = resolvefilepath("images/colour_cubes/purple_moon_cc.tex"),
+						day = resolvefilepath("images/colourcubes/quagmire_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/quagmire_cc.tex"),
+						night = resolvefilepath("images/colourcubes/quagmire_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/purple_moon_cc.tex"),
 					},
 					winter =
 					{
-						day = resolvefilepath("images/colour_cubes/quagmire_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/quagmire_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/quagmire_cc.tex"),
-						full_moon = resolvefilepath("images/colour_cubes/purple_moon_cc.tex"),
+						day = resolvefilepath("images/colourcubes/quagmire_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/quagmire_cc.tex"),
+						night = resolvefilepath("images/colourcubes/quagmire_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/purple_moon_cc.tex"),
 					},
 					spring =
 					{
-						day = resolvefilepath("images/colour_cubes/quagmire_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/quagmire_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/quagmire_cc.tex"),
-						full_moon = resolvefilepath("images/colour_cubes/purple_moon_cc.tex"),
+						day = resolvefilepath("images/colourcubes/quagmire_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/quagmire_cc.tex"),
+						night = resolvefilepath("images/colourcubes/quagmire_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/purple_moon_cc.tex"),
 					},
 					summer =
 					{
-						day = resolvefilepath("images/colour_cubes/quagmire_cc.tex"),
-						dusk = resolvefilepath("images/colour_cubes/quagmire_cc.tex"),
-						night = resolvefilepath("images/colour_cubes/quagmire_cc.tex"),
-						full_moon = resolvefilepath("images/colour_cubes/purple_moon_cc.tex"),
+						day = resolvefilepath("images/colourcubes/quagmire_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/quagmire_cc.tex"),
+						night = resolvefilepath("images/colourcubes/quagmire_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/purple_moon_cc.tex"),
 					},
 				})
 				break
