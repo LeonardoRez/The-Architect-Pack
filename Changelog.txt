@@ -1,2 +1,17 @@
 Version 2.0-A-BETA
 - Changed Mod Icon.
+
+Version 2.0-B-BETA
+- Fixed Colourcubes.
+- Fixed Nightmare Throne missing animation.
+
+Version 2.1-B-BETA
+- Fixed Bigfoot examination quotes.
+- Fixed Underground turfs missing recipe descriptions.
+- Fixed Cactus crash.
+- Fixed Walrus Camp crash.
+- Fixed Sunken Chest missing inventory icon.
+- Coffee Bush is no longer burnable.
+- Coffee Bushes can grow during winter now.
+- Added A New secret. 
+

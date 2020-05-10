@@ -301,6 +301,7 @@ PrefabFiles = {
 	"k_packim",
 	"k_packim_fishbone",
 	"k_teleportato_shipwrecked",
+	"k_bootybag",
 	-- HAMLET CONTENT --
 	"k_ham_prototyper",
 	"k_cavecleft",

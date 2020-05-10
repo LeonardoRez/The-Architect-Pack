@@ -208,8 +208,8 @@ local function createbush(name, inspectname, berryname, master_postinit)
 
         inst:AddComponent("witherable")
 
-        MakeHauntableIgnite(inst)
-        AddHauntableCustomReaction(inst, OnHaunt, false, false, true)
+        -- MakeHauntableIgnite(inst)
+        -- AddHauntableCustomReaction(inst, OnHaunt, false, false, true)
 
         inst:AddComponent("lootdropper")
         inst:AddComponent("workable")
@@ -223,7 +223,7 @@ local function createbush(name, inspectname, berryname, master_postinit)
 
         inst:ListenForEvent("onwenthome", shake)
         MakeSnowCovered(inst)
-        MakeNoGrowInWinter(inst)
+        -- MakeNoGrowInWinter(inst)
 
         master_postinit(inst)
 

@@ -427,6 +427,8 @@ local function create()
 
     inst.data = { children = {} }
 
+	inst:AddComponent("lootdropper")
+	
     inst:AddComponent("inspectable")
     inst.components.inspectable.getstatus = GetStatus
 	

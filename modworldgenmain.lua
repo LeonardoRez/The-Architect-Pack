@@ -32,6 +32,7 @@ AddTile(69, "stonecity", "kyno_turfs3", nil,
 	{
 	name = "cave",
 	noise_texture = "levels/textures/quagmire_citystone_noise.tex",
+	snowsound = run_snow,
 	},{
 		noise_texture = "levels/textures/quagmire_citystone_mini.tex",
 	}
@@ -53,6 +54,7 @@ AddTile(71, "volcano_rock", "mod_turfs", nil,
     {
         name = "rocky",
         noise_texture = "levels/textures/ground_volcano_noise.tex",
+		snowsound = run_snow,
     },
 	{
         noise_texture = "levels/textures/mini_ground_volcano_noise.tex"
@@ -99,6 +101,7 @@ AddTile(75, "volcano", "mod_turfs", nil,
     {
         name = "cave",
         noise_texture = "levels/textures/ground_lava_rock.tex",
+		snowsound = run_snow,
     },
 	{
         noise_texture = "levels/textures/mini_ground_lava_rock.tex"
@@ -109,6 +112,7 @@ AddTile(76, "ash", "mod_turfs", nil,
     {
         name = "cave",
         noise_texture = "levels/textures/ground_ash.tex",
+		snowsound = run_snow,
     },
 	{
         noise_texture = "levels/textures/mini_ash.tex"
@@ -119,6 +123,7 @@ AddTile(77, "magmafield", "mod_turfs", nil,
     {
         name = "cave",
         noise_texture = "levels/textures/Ground_noise_magmafield.tex",
+		snowsound = run_snow,
     },
 	{
         noise_texture = "levels/textures/mini_magmafield_noise.tex"
@@ -141,6 +146,7 @@ AddTile(79, "cobbleroad", "mod_turfs", nil,
     {
         name = "stoneroad",
         noise_texture = "levels/textures/Ground_noise_cobbleroad.tex",
+		snowsound = run_snow,
     },{
         noise_texture = "levels/textures/mini_brickroad_noise.tex"
     }
@@ -150,6 +156,7 @@ AddTile(80, "pigruins", "mod_turfs", nil,
     {
         name = "blocky",
         noise_texture = "levels/textures/ground_ruins_slab.tex",
+		snowsound = run_snow,
     },{
         noise_texture = "levels/textures/mini_ruins_slab.tex"
     }
@@ -314,6 +321,7 @@ AddTile(94, "forgerock", "kyno_turfs4", nil,
 	{
 	name = "forge_trim_ms",
 	noise_texture = "levels/textures/forge_trim_noise.tex",
+	snowsound = run_snow,
 	},{
 		noise_texture = "levels/textures/forge_trim_mini.tex",
 	}
@@ -323,6 +331,7 @@ AddTile(95, "forgeroad", "kyno_turfs4", nil,
 	{
 	name = "forge_floor_ms",
 	noise_texture = "levels/textures/forge_floor_noise.tex",
+	snowsound = run_snow,
 	},{
 		noise_texture = "levels/textures/forge_floor_mini.tex",
 	}
@@ -332,6 +341,7 @@ AddTile(96, "antcave", "kyno_turfs4", nil,
 	{
 	name = "cave",
 	noise_texture = "levels/textures/antcave_noise.tex",
+	snowsound = run_snow,
 	},{
 		noise_texture = "levels/textures/antcave_mini.tex",
 	}
@@ -341,6 +351,7 @@ AddTile(97, "batcave", "kyno_turfs4", nil,
 	{
 	name = "cave",
 	noise_texture = "levels/textures/batcave_noise.tex",
+	snowsound = run_snow,
 	},{
 		noise_texture = "levels/textures/batcave_mini.tex",
 	}

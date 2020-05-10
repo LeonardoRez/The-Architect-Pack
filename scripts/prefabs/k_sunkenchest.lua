@@ -68,6 +68,9 @@ local function MakeChest(name, bank, build, indestructible, master_postinit, pre
 		
 		Asset("IMAGE", "images/kyno_sunkenchest.tex"),
 		Asset("ATLAS", "images/kyno_sunkenchest.xml"),
+		
+		Asset("IMAGE", "images/inventoryimages/kyno_inventoryimages_dst.tex"),
+		Asset("ATLAS", "images/inventoryimages/kyno_inventoryimages_dst.xml"),
     }
     assets = assets ~= nil and JoinArrays(assets, default_assets) or default_assets
 
@@ -243,6 +246,7 @@ local function sunken_master_postinit(inst)
 	inst.components.heavyobstaclephysics:SetRadius(SUNKEN_PHYSICS_RADIUS)
 	
     inst:AddComponent("inventoryitem")
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_dst.xml"
     inst.components.inventoryitem.cangoincontainer = false
 
     inst:AddComponent("equippable")

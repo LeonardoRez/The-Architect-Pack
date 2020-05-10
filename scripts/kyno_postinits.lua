@@ -720,7 +720,7 @@ GLOBAL.SetSharedLootTable("shadow_creature_new",
 {
     { "nightmarefuel",  1.0 },
     { "nightmarefuel",  0.5 },
-	{ "kyno_shadowportal_blueprint", .10 }, -- 1% Drop Chance
+	{ "kyno_shadowportal_blueprint", .01 }, -- 1% Drop Chance
 })
 
 AddPrefabPostInit("crawlinghorror", function(inst)
@@ -821,6 +821,33 @@ end)
 AddPrefabPostInit("deerclops", function(inst)
 	if GLOBAL.TheWorld.ismastersim then
 	inst.components.lootdropper:AddChanceLoot("kyno_snowman_blueprint", 1.00)
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+GLOBAL.SetSharedLootTable("bearger_new",
+{
+    {'meat',             1.00},
+    {'meat',             1.00},
+    {'meat',             1.00},
+    {'meat',             1.00},
+    {'meat',             1.00},
+    {'meat',             1.00},
+    {'meat',             1.00},
+    {'meat',             1.00},
+    {'bearger_fur',      1.00},
+    {'chesspiece_bearger_sketch', 1.00},
+	{'piratepack', .01}, -- 1% Drop Chance
+})
+
+AddPrefabPostInit("bearger", function(inst)
+	if GLOBAL.TheWorld.ismastersim then
+		inst.components.lootdropper:SetChanceLootTable("bearger_new")
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("piratepack", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -118,10 +118,10 @@ local function make_plantable(data)
         inst:AddComponent("fuel")
         inst.components.fuel.fuelvalue = TUNING.LARGE_FUEL
 
-        MakeMediumBurnable(inst, TUNING.LARGE_BURNTIME)
-        MakeSmallPropagator(inst)
+        -- MakeMediumBurnable(inst, TUNING.LARGE_BURNTIME)
+        -- MakeSmallPropagator(inst)
 
-        MakeHauntableLaunchAndIgnite(inst)
+        -- MakeHauntableLaunchAndIgnite(inst)
 
         inst:AddComponent("deployable")
         inst.components.deployable.ondeploy = ondeploy

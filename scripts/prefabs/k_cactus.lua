@@ -123,6 +123,7 @@ local function c1fn()
 	inst.components.pickable.ontransplantfn = ontransplantfn
 
 	inst:AddComponent("inspectable")
+	inst:AddComponent("lootdropper")
 		
 	inst:AddComponent("workable")
 	inst.components.workable:SetWorkAction(ACTIONS.DIG)
@@ -180,6 +181,7 @@ local function c2fn()
 	inst.components.pickable.ontransplantfn = ontransplantfn
 
 	inst:AddComponent("inspectable")
+	inst:AddComponent("lootdropper")
 		
 	inst:AddComponent("workable")
 	inst.components.workable:SetWorkAction(ACTIONS.DIG)

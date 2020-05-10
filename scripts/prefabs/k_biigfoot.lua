@@ -126,6 +126,8 @@ local function fn()
 	inst:AddTag("structure")
 	inst:AddTag("biigfoot")
 	
+	inst:SetPrefabNameOverride("bigfoot")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -172,8 +174,6 @@ local function footfn()
 	
 	inst:AddTag("structure")
 	inst:AddTag("biigfoot_footprint")
-	
-	inst:SetPrefabNameOverride("bigfoot")
 	
 	inst.entity:SetPristine()
 

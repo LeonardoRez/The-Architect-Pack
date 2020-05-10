@@ -1750,6 +1750,9 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_contrarregra.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_contrarregra.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_inventoryimages_dst.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_inventoryimages_dst.xml"),
+	
 	-- Unlisted Assets --
 	Asset("ANIM", "anim/mod_turfs.zip"),
 	Asset("ANIM", "anim/kyno_catalogues.zip"), -- Unused.
@@ -1843,6 +1846,7 @@ Assets = {
 	Asset("ANIM", "anim/cormorant_build.zip"),
 	Asset("ANIM", "anim/seagull_build.zip"),
 	Asset("ANIM", "anim/seagull_water.zip"),
+	Asset("ANIM", "anim/swap_pirate_booty_bag.zip"),
 	-- Hamlet Content --
 	Asset("ANIM", "anim/vamp_bat_entrance.zip"),
 	Asset("ANIM", "anim/portal_hamlet.zip"),
