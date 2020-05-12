@@ -9,10 +9,12 @@ local resolvefilepath = GLOBAL.resolvefilepath
 local ACTIONS = GLOBAL.ACTIONS
 local ActionHandler = GLOBAL.ActionHandler
 local SpawnPrefab = GLOBAL.SpawnPrefab
+local KENV = env
 
 TUNING.BIRD_PERISH_TIME = 999999
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 modimport "scripts/kyno_assets"
+modimport "libs/env"
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("coconut", function(inst)	
 	if inst.components.perishable ~= nil then
@@ -352,7 +354,7 @@ GLOBAL.SetSharedLootTable("malbatross_packim",
 })
 
 AddPrefabPostInit("malbatross", function(inst)
-	if GLOBAL.TheWorld.ismastersim and not TheSim:FindFirstEntityWithTag("packim_fishbone") then
+	if GLOBAL.TheWorld.ismastersim and not GLOBAL.TheSim:FindFirstEntityWithTag("packim_fishbone") then
 		inst.components.lootdropper:SetChanceLootTable("malbatross_packim")
 	end
 end)
@@ -848,6 +850,28 @@ end)
 AddPrefabPostInit("piratepack", function(inst)
 	if inst.components.inventoryitem ~= nil then
 	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+local _onequipfn
+local function onequipfn(self, owner)
+	owner:AddTag("bramble_resistant")
+	return _onequipfn(self, owner)
+end
+
+local _onunequipfn
+local function onunequipfn(self, owner)
+	owner:RemoveTag("bramble_resistant")
+	return _onunequipfn(self, owner)
+end 
+
+KENV.AddPrefabPostInit("armor_bramble", function(inst)
+	if TheWorld.ismastersim then
+	_onequipfn = inst.components.equippable.onequipfn
+	inst.components.equippable.onequipfn = onequipfn
+	
+	_onunequipfn = inst.components.equippable.onunequipfn
+	inst.components.equippable.onunequipfn = onunequipfn	
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------

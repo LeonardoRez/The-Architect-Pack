@@ -123,7 +123,7 @@ end
 local function retargetfn(inst)
 	local newtarget = FindEntity(inst, 4, function(guy)
 			return guy.components.health and not guy.components.health:IsDead()
-	end, nil, {"elephantcactus", "FX", "NOCLICK", "CLASSIFIED", "bramble_resistant", "player"})
+	end, nil, {"elephantcactus", "bramble_resistant", "armor_bramble"})
 
 	return newtarget
 end
@@ -223,24 +223,7 @@ local function fn()
     if not TheWorld.ismastersim then
         return inst
     end
-
-	--[[
-	inst:AddComponent("pickable")
-	inst.components.pickable.picksound = "dontstarve/wilson/harvest_sticks"
-    inst.components.pickable.onpickedfn = onpickedfn
-    inst.components.pickable.makeemptyfn = makeemptyfn
-    inst.components.pickable.makebarrenfn = makebarrenfn
-    inst.components.pickable.makefullfn = makefullfn
-    inst.components.pickable.ontransplantfn = ontransplantfn
-	inst.components.pickable:SetUp("houndstooth", TUNING.BERRY_REGROW_TIME)
-	inst.components.pickable.getregentimefn = getregentimefn
-	inst.components.pickable.max_cycles = TUNING.BERRYBUSH_CYCLES + math.random(2)
-	inst.components.pickable.cycles_left = inst.components.pickable.max_cycles
-	]]--
-
-    -- inst:AddComponent("witherable")
-    -- inst.components.witherable.volcanic = true
-        
+    
     AddHauntableCustomReaction(inst, OnHaunt, false, false, true)
 
     inst:AddComponent("lootdropper")
@@ -302,7 +285,7 @@ local function activefn()
 
     if not TheWorld.ismastersim then
         function inst.OnEntityReplicated(inst)
-            inst.replica.combat.notags = {"elephantcactus", "armorbramble", "bramble_resistant", "player"}
+            inst.replica.combat.notags = {"elephantcactus", "bramble_resistant", "armor_bramble"}
         end
         return inst
     end
@@ -315,7 +298,8 @@ local function activefn()
 	-- inst.components.lootdropper:SetLoot({"houndstooth", "dug_marsh_bush"})
 
 	inst:AddComponent("health")
-	inst.components.health:SetMaxHealth(400)
+	inst.components.health:SetMaxHealth(650)
+	inst.components.health:StartRegen(50, 8)
 
 	inst:AddComponent("combat")
     inst.components.combat:SetDefaultDamage(30)
@@ -325,7 +309,7 @@ local function activefn()
 	inst.components.combat:SetKeepTargetFunction(shouldKeepTarget)
     inst.components.combat:SetAreaDamage(3, 1.0)
 	inst.components.combat:SetHurtSound("dontstarve_DLC002/creatures/volcano_cactus/hit")
-    inst.components.combat.notags = {"elephantcactus", "armorbramble", "bramble_resistant", "player"}
+    inst.components.combat.notags = {"elephantcactus", "bramble_resistant", "armor_bramble"}
 
 	inst:AddComponent("timer")
 	inst:ListenForEvent("timerdone", ontimerdone)
@@ -338,8 +322,6 @@ local function activefn()
 	inst:SetBrain(brain)
 	inst:SetStateGraph("SGelephantcactus")
 	inst.sg:GoToState("grow_spike")
-
-	-- inst:WatchWorldState("season", function(inst, season) onseasonchange_active(inst) end)
 
 	inst.OnLoad = OnLoadActive
 	inst.OnSave = OnSaveActive

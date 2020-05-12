@@ -7,6 +7,9 @@ local assets =
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_sandbagsmall_item.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_sandbagsmall_item.xml"),
+	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
+	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),
 }
 
 local prefabs =
@@ -15,45 +18,21 @@ local prefabs =
 	"kyno_sandbagsmall_item",
 }
 
-local anims =
-{
-    { threshold = 0, anim = "rubble" },
-    { threshold = 0.4, anim = "heavy_damage" },
-    { threshold = 0.5, anim = "half" },
-    { threshold = 0.99, anim = "light_damage" },
-    { threshold = 1, anim = { "full", "full", "full" } },
-}
-
-local function resolveanimtoplay(inst, percent)
-	for i, v in ipairs(anims) do
-		if percent <= v.threshold then
-			if type(v.anim) == "table" then
-				local x, y, z = inst.Transform:GetWorldPosition()
-				local x = math.floor(x)
-				local z = math.floor(z)
-				local q1 = #v.anim + 1
-				local q2 = #v.anim + 4
-				local t = ( ((x%q1)*(x+3)%q2) + ((z%q1)*(z+3)%q2) )% #v.anim + 1
-				return v.anim[t]
-			else
-				return v.anim
-			end
-		end
-	end
-end
-
-local function OnIsPathFindingDirty(inst)    
-    local wall_x, wall_y, wall_z = inst.Transform:GetWorldPosition()
-    if TheWorld.Map:GetPlatformAtPoint(wall_x, wall_z) == nil then        
-        if inst._ispathfinding:value() then
-            if inst._pfpos == nil then
-                inst._pfpos = Point(wall_x, wall_y, wall_z)
-                TheWorld.Pathfinder:AddWall(wall_x, wall_y, wall_z)
-            end
-        elseif inst._pfpos ~= nil then
-            TheWorld.Pathfinder:RemoveWall(wall_x, wall_y, wall_z)
-            inst._pfpos = nil
+local function OnIsPathFindingDirty(inst)
+    if inst._ispathfinding:value() then
+        if inst._pfpos == nil then
+            inst._pfpos = inst:GetPosition()
+			TheWorld.Pathfinder:AddWall(inst._pfpos.x + 0.5, inst._pfpos.y, inst._pfpos.z + 0.5)
+			TheWorld.Pathfinder:AddWall(inst._pfpos.x + 0.5, inst._pfpos.y, inst._pfpos.z - 0.5)
+			TheWorld.Pathfinder:AddWall(inst._pfpos.x - 0.5, inst._pfpos.y, inst._pfpos.z + 0.5)
+			TheWorld.Pathfinder:AddWall(inst._pfpos.x - 0.5, inst._pfpos.y, inst._pfpos.z - 0.5)
         end
+    elseif inst._pfpos ~= nil then
+		TheWorld.Pathfinder:RemoveWall(inst._pfpos.x + 0.5, inst._pfpos.y, inst._pfpos.z + 0.5)
+		TheWorld.Pathfinder:RemoveWall(inst._pfpos.x + 0.5, inst._pfpos.y, inst._pfpos.z - 0.5)
+		TheWorld.Pathfinder:RemoveWall(inst._pfpos.x - 0.5, inst._pfpos.y, inst._pfpos.z + 0.5)
+		TheWorld.Pathfinder:RemoveWall(inst._pfpos.x - 0.5, inst._pfpos.y, inst._pfpos.z - 0.5)
+        inst._pfpos = nil
     end
 end
 
@@ -72,17 +51,83 @@ local function clearobstacle(inst)
     inst._ispathfinding:set(false)
 end
 
+local anims =
+{
+	{ threshold = 0, anim = "rubble" },
+	{ threshold = 0.4, anim = "heavy_damage" },
+	{ threshold = 0.5, anim = "half" },
+	{ threshold = 0.99, anim = "light_damage" },
+	{ threshold = 1, anim = "full" },
+}
+
+local function resolveanimtoplay(inst, percent)
+    for i, v in ipairs(anims) do
+        if percent <= v.threshold then
+            return v.anim
+        end
+    end
+end
+
+local function onhealthchange(inst, old_percent, new_percent)
+    local anim_to_play = resolveanimtoplay(inst, new_percent)
+	inst.AnimState:PlayAnimation(anim_to_play)
+	if new_percent > 0 and old_percent <= 0 then makeobstacle(inst) end
+	if old_percent > 0 and new_percent <= 0 then clearobstacle(inst) end
+end
+
+local function keeptargetfn()
+    return false
+end
+
+local function onload(inst)
+    if inst.components.health:IsDead() then
+        clearobstacle(inst)
+	else
+		makeobstacle(inst)
+    end
+end
+
+local function onremove(inst)
+    inst._ispathfinding:set_local(false)
+    clearobstacle(inst)
+end
+
+local function quantizepos(pt)
+	local x, y, z = TheWorld.Map:GetTileCenterPoint(pt:Get())
+
+	if pt.x > x then
+		x = x + 1
+	else
+		x = x - 1
+	end
+
+	if pt.z > z then
+		z = z + 1
+	else
+		z = z - 1
+	end
+
+	return Vector3(x,y,z)
+end
+
+local function quantizeplacer(inst)
+	inst.Transform:SetPosition(quantizepos(inst:GetPosition()):Get())
+end
+
+local function sandbagplacetestfn(inst)
+	inst.components.placer.onupdatetransform = quantizeplacer
+end
+
 local function ondeploy(inst, pt, deployer)
 	local wall = SpawnPrefab("kyno_sandbagsmall") 
-	if wall ~= nil then 
-		local x = math.floor(pt.x) + .5
-		local z = math.floor(pt.z) + .5
+	if wall then
+		pt = quantizepos(pt)
 		wall.Physics:SetCollides(false)
-		wall.Physics:Teleport(x, 0, z)
+		wall.Physics:Teleport(pt.x, pt.y, pt.z) 
 		wall.Physics:SetCollides(true)
-		wall.SoundEmitter:PlaySound("dontstarve/common/place_structure_straw")
 		inst.components.stackable:Get():Remove()
-        makeobstacle(wall)    
+		wall.SoundEmitter:PlaySound("dontstarve_DLC002/common/sandbag")
+		makeobstacle(wall)
 	end
 end
 
@@ -104,20 +149,15 @@ local function onhealthchange(inst, old_percent, new_percent)
 end
 
 local function onhit(inst)
-	inst.SoundEmitter:PlaySound("dontstarve/common/destroy_straw")
+	inst.SoundEmitter:PlaySound("dontstarve_DLC002/common/sandbag")
 	local healthpercent = inst.components.health:GetPercent()
 	local anim_to_play = resolveanimtoplay(inst, healthpercent)
-	inst.AnimState:PlayAnimation(anim_to_play)		
+	inst.AnimState:PushAnimation(anim_to_play)
 end
 
 local function onrepaired(inst)
-	inst.SoundEmitter:PlaySound("dontstarve/common/place_structure_straw")		
+	inst.SoundEmitter:PlaySound("dontstarve_DLC002/common/sandbag")		
 	makeobstacle(inst)
-end
-
-local function onremoveentity(inst)
-	clearobstacle(inst)
-	inst._ispathfinding:set_local(false)
 end
 
 local function onload(inst, data)
@@ -146,14 +186,11 @@ local function fn()
 	
 	inst._pfpos = nil
 	inst._ispathfinding = net_bool(inst.GUID, "_ispathfinding", "onispathfindingdirty")
-	makeobstacle(inst)
-	--Delay this because makeobstacle sets pathfinding on by default
-	--but we don't to handle it until after our position is set
+	inst:DoTaskInTime(0, makeobstacle)
 	inst:DoTaskInTime(0, InitializePathFinding)
+	inst.OnRemoveEntity = onremove
 	
 	inst:AddTag("structure")
-	inst:AddTag("floodblocker")
-	inst:AddTag("sandbag")
 	inst:AddTag("wall")
 	inst:AddTag("noauradamage")
 	
@@ -167,7 +204,7 @@ local function fn()
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("repairable")
-	inst.components.repairable.repairmaterial = "kyno_sandbagsmall_item"
+	inst.components.repairable.repairmaterial = "kyno_sandbagsmall"
 	inst.components.repairable.onrepaired = onrepaired
 	
 	inst:AddComponent("hauntable")
@@ -175,6 +212,7 @@ local function fn()
 	
 	inst:AddComponent("combat")
 	inst.components.combat.onhitfn = onhit
+	inst.components.combat:SetKeepTargetFunction(keeptargetfn)
 	
 	inst:AddComponent("health")
 	inst.components.health:SetMaxHealth(300)
@@ -196,7 +234,7 @@ local function fn()
 	inst.components.propagator.flashpoint = 30 + math.random() * 10
 	
 	inst.OnLoad = onload
-	inst.OnRemoveEntity = onremoveentity
+	MakeHauntableWork(inst)
 
 	return inst
 end
@@ -236,13 +274,13 @@ local function itemfn()
 	
 	inst:AddComponent("deployable")
 	inst.components.deployable:SetDeployMode(DEPLOYMODE.WALL)
-	-- inst.components.deployable:SetDeploySpacing(DEPLOYSPACING.MEDIUM)
-	-- inst._custom_candeploy_fn = candeploy
 	inst.components.deployable.ondeploy = ondeploy
+	
+	MakeHauntableLaunch(inst)
 	
 	return inst
 end
 
 return Prefab("kyno_sandbagsmall", fn, assets, prefabs),
 Prefab("kyno_sandbagsmall_item", itemfn, assets, prefabs),
-MakePlacer("kyno_sandbagsmall_item_placer", "sandbag_small", "sandbag_small", "full", false, false, true, nil, nil, nil, nil, nil, nil)
+MakePlacer("kyno_sandbagsmall_item_placer", "sandbag_small", "sandbag_small", "full", false, false, true, nil, nil, "eight", sandbagplacetestfn)

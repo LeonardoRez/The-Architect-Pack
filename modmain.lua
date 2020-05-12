@@ -19,6 +19,9 @@ modimport("scripts/kyno_stringsmaxwell")
 modimport("scripts/kyno_postinits")
 modimport("scripts/kyno_endtable")
 modimport("scripts/kyno_lights")
+modimport("scripts/kyno_combat")
+modimport("scripts/kyno_combat_replica")
+modimport("libs/env")
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Assets = { -- Some Assets don't show correctly if they're not set here.
 	-- Assets for Mini Signs.
@@ -248,7 +251,7 @@ PrefabFiles = {
 	"k_dug_coffeebush",
 	"k_fakecoffeebush",
 	"k_coffeebeans",
-	"k_coffee",
+	"k_coffeebuff",
 	"k_foods",
 	"k_altar_pillar",
 	"k_volcano_altar",
@@ -548,6 +551,7 @@ PrefabFiles = {
 	"k_skeleton",
 	"k_eyeplant",
 	"k_stagehand",
+	"k_rabbithole",
 	"plant_normal",
 	"stalker",
 	-- CAVES CONTENT --
@@ -664,7 +668,7 @@ AddMinimapAtlas("images/minimapimages/kyno_treeclump.xml")
 AddMinimapAtlas("images/minimapimages/kyno_nightmarethrone.xml")
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddIngredientValues({"kyno_coffeebeans_cooked"}, {fruit=1}, true)
-AddIngredientValues({"kyno_coffeebeans"}, {fruit=1}, true)
+AddIngredientValues({"kyno_coffeebeans"}, {fruit=.5}, true)
 AddIngredientValues({"coconut"}, {fruit=2}, true)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 for k, v in pairs(require("kyno_foods")) do
@@ -1256,7 +1260,7 @@ kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_gorge_prototyper_placer", 0, nil, nil, ni
 
 
 AddRecipe("kyno_pugna", {Ingredient("hambat", 1), Ingredient("meat", 10), Ingredient("reviver", 1)},
-kyno_forgetab, TECH.SCIENCE_TWO, "kyno_pugna_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_pugna.xml", "kyno_pugna.tex")
+kyno_forgetab, TECH.SCIENCE_TWO, "kyno_pugna_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_pugna.xml", "kyno_pugna.tex")
 
 
 AddRecipe("cave_fern", {Ingredient("foliage", 1)},
@@ -2047,7 +2051,7 @@ AddRecipe("kyno_walrus_camp", {Ingredient("cutstone", 3), Ingredient("walrus_tus
 kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_walrus_camp_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_igloo.xml", "kyno_igloo.tex")
 
 
-AddRecipe("rabbithole", {Ingredient("rabbit", 1)},
+AddRecipe("kyno_rabbithole", {Ingredient("rabbit", 1)},
 kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_rabbithole_placer", 1, nil, nil, nil, "images/kyno_rabbithole.xml", "kyno_rabbithole.tex")
 
 
@@ -4093,29 +4097,29 @@ if GetModConfigData("colourcubes") == 1 then
 					autumn =
 					{
 						day = resolvefilepath("images/colourcubes/temperate_day_cc.tex"),
-						dusk = resolvefilepath("images/colourcubes/temperate_dusk_cc.tex"),
-						night = resolvefilepath("images/colourcubes/temperate_night_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/temperate_day_cc.tex"),
+						night = resolvefilepath("images/colourcubes/temperate_day_cc.tex"),
 						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
 					},
 					winter =
 					{
 						day = resolvefilepath("images/colourcubes/pork_cold_day_cc.tex"),
-						dusk = resolvefilepath("images/colourcubes/pork_cold_dusk_cc.tex"),
-						night = resolvefilepath("images/colourcubes/pork_cold_night_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/pork_cold_day_cc.tex"),
+						night = resolvefilepath("images/colourcubes/pork_cold_day_cc.tex"),
 						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
 					},
 					spring =
 					{
 						day = resolvefilepath("images/colourcubes/pork_warm_day_cc.tex"),
-						dusk = resolvefilepath("images/colourcubes/pork_warm_dusk_cc.tex"),
-						night = resolvefilepath("images/colourcubes/pork_warm_night_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/pork_warm_day_cc.tex"),
+						night = resolvefilepath("images/colourcubes/pork_warm_day_cc.tex"),
 						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
 					},
 					summer =
 					{
 						day = resolvefilepath("images/colourcubes/SW_dry_day_cc.tex"),
-						dusk = resolvefilepath("images/colourcubes/SW_dry_dusk_cc.tex"),
-						night = resolvefilepath("images/colourcubes/SW_dry_night_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/SW_dry_day_cc.tex"),
+						night = resolvefilepath("images/colourcubes/SW_dry_day_cc.tex"),
 						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
 					},
 				})
@@ -4145,29 +4149,29 @@ local DST = GLOBAL.TheSim:GetGameID() == "DST"
 					autumn =
 					{
 						day = resolvefilepath("images/colourcubes/sw_mild_day_cc.tex"),
-						dusk = resolvefilepath("images/colourcubes/SW_mild_dusk_cc.tex"),
-						night = resolvefilepath("images/colourcubes/SW_mild_night_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/SW_mild_day_cc.tex"),
+						night = resolvefilepath("images/colourcubes/SW_mild_day_cc.tex"),
 						full_moon = resolvefilepath("images/colourcubes/purple_moon_cc.tex"),
 					},
 					winter =
 					{
 						day = resolvefilepath("images/colourcubes/SW_wet_day_cc.tex"),
-						dusk = resolvefilepath("images/colourcubes/SW_wet_dusk_cc.tex"),
-						night = resolvefilepath("images/colourcubes/SW_wet_night_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/SW_wet_day_cc.tex"),
+						night = resolvefilepath("images/colourcubes/SW_wet_day_cc.tex"),
 						full_moon = resolvefilepath("images/colourcubes/purple_moon_cc.tex"),
 					},
 					spring =
 					{
 						day = resolvefilepath("images/colourcubes/sw_green_day_cc.tex"),
-						dusk = resolvefilepath("images/colourcubes/sw_green_dusk_cc.tex"),
-						night = resolvefilepath("images/colourcubes/sw_green_dusk_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/sw_green_day_cc.tex"),
+						night = resolvefilepath("images/colourcubes/sw_green_day_cc.tex"),
 						full_moon = resolvefilepath("images/colourcubes/purple_moon_cc.tex"),
 					},
 					summer =
 					{
 						day = resolvefilepath("images/colourcubes/SW_dry_day_cc.tex"),
-						dusk = resolvefilepath("images/colourcubes/SW_dry_dusk_cc.tex"),
-						night = resolvefilepath("images/colourcubes/SW_dry_night_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/SW_dry_day_cc.tex"),
+						night = resolvefilepath("images/colourcubes/SW_dry_day_cc.tex"),
 						full_moon = resolvefilepath("images/colourcubes/purple_moon_cc.tex"),
 					},
 				})
@@ -4223,6 +4227,60 @@ local DST = GLOBAL.TheSim:GetGameID() == "DST"
 	end)
 elseif GetModConfigData("colourcubes") == 4 then
 local DST = GLOBAL.TheSim:GetGameID() == "DST"
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/day05_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/dusk03_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/night03_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_night_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_warm_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_warm_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_warm_night_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_dry_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_dry_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_dry_night_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/purple_moon_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_bloodmoon_cc.tex") )
+	
+	AddComponentPostInit("colourcube", function(self)
+		for _,v in pairs(GLOBAL.TheWorld.event_listeners["playerdeactivated"][GLOBAL.TheWorld]) do
+			if getval(v,"OnOverrideCCTable") then
+				setval(v, "OnOverrideCCTable.UpdateAmbientCCTable.SEASON_COLOURCUBES",{
+					autumn =
+					{
+						day = resolvefilepath("images/colourcubes/day05_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/dusk03_cc.tex"),
+						night = resolvefilepath("images/colourcubes/night03_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
+					},
+					winter =
+					{
+						day = resolvefilepath("images/colourcubes/pork_cold_day_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/pork_cold_dusk_cc.tex"),
+						night = resolvefilepath("images/colourcubes/pork_cold_dusk_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
+					},
+					spring =
+					{
+						day = resolvefilepath("images/colourcubes/pork_warm_day_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/pork_warm_dusk_cc.tex"),
+						night = resolvefilepath("images/colourcubes/pork_warm_dusk_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
+					},
+					summer =
+					{
+						day = resolvefilepath("images/colourcubes/SW_dry_day_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/SW_dry_dusk_cc.tex"),
+						night = resolvefilepath("images/colourcubes/SW_dry_dusk_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
+					},
+				})
+				break
+			end
+		end
+	end)
+elseif GetModConfigData("colourcubes") == 5 then
+local DST = GLOBAL.TheSim:GetGameID() == "DST"
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/lavaarena2_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_bloodmoon_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/purple_moon_cc.tex") )
@@ -4264,7 +4322,7 @@ local DST = GLOBAL.TheSim:GetGameID() == "DST"
 			end
 		end
 	end)
-elseif GetModConfigData("colourcubes") == 5 then
+elseif GetModConfigData("colourcubes") == 6 then
 local DST = GLOBAL.TheSim:GetGameID() == "DST"
 	table.insert( Assets, Asset("IMAGE", "images/colourcubes/quagmire_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/purple_moon_cc.tex") )
@@ -4323,5 +4381,21 @@ function Map:CanDeployPlantAtPoint(pt, inst, ...)
     else
         return _CanDeployPlantAtPoint(self, pt, inst, ...)
     end
+end
+
+local _CanDeploySandbagAtPoint = Map.CanDeploySandbagAtPoint
+function Map:CanDeploySandbagAtPoint(pt, inst, ...)
+	for i, v in ipairs(TheSim:FindEntities(pt.x, 0, pt.z, 2, {"kyno_sandbagsmall_item"})) do
+        if v ~= inst and
+            v.entity:IsVisible() and
+            v.components.placer == nil and
+            v.entity:GetParent() == nil then
+			local opt = v:GetPosition()
+			if math.abs(math.abs(opt.x) - math.abs(pt.x)) < 1 and math.abs(math.abs(opt.z) - math.abs(pt.z)) < 1 then
+				return false
+			end
+        end
+    end
+    return _CanDeploySandbagAtPoint(self, pt, inst, ...)
 end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

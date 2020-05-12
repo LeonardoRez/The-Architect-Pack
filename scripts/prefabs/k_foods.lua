@@ -10,8 +10,28 @@ local assets =
 
 local prefabs = 
 {
-	"spoiled_food"
+	"spoiled_food",
+	"coffeebuff",
 }
+
+local spiced_buffs = {SPICE_CHILI = "buff_attack", SPICE_GARLIC = "buff_playerabsorption", SPICE_SUGAR = "buff_workeffectiveness"}
+local function OnEatCoffee(inst, eater)
+    if not eater.components.health or eater.components.health:IsDead() or eater:HasTag("playerghost") then
+        return
+    elseif eater.components.debuffable and eater.components.debuffable:IsEnabled() then
+        eater.coffeebuff_duration = 480
+        eater.components.debuffable:AddDebuff("coffeebuff", "coffeebuff")
+        local spiced_buff = spiced_buffs[inst.components.edible.spice]
+        if spiced_buff then
+            eater.components.debuffable:AddDebuff(spiced_buff, spiced_buff)
+        end
+    else
+        eater.components.locomotor:SetExternalSpeedMultiplier(eater, "coffeebuff", 1.83)
+        eater:DoTaskInTime(480, function()
+            eater.components.locomotor:RemoveExternalSpeedMultiplier(eater, "coffeebuff")
+        end)
+    end
+end
 
 local function MakePreparedFood(data)
 	local foodname = data.basename or data.name
@@ -44,9 +64,6 @@ local function MakePreparedFood(data)
 			inst.AnimState:OverrideSymbol("swap_garnish", "spices", spicename)
 
 			inst:AddTag("spicedfood")
-		--[[
-			inst.drawnameoverride = STRINGS.NAMES[string.upper(data.basename)]
-		]]--	
 			inst.inv_image_bg = { atlas = "images/inventoryimages/kyno_inventoryimages_sw.xml", image = foodname..".tex" }
 		else
 			inst.AnimState:SetBuild(data.name)
@@ -90,7 +107,7 @@ local function MakePreparedFood(data)
 		inst.components.edible.temperatureduration = data.temperatureduration or 0
 		inst.components.edible.nochill = data.nochill or nil
 		inst.components.edible.spice = data.spice
-		inst.components.edible:SetOnEatenFn(data.oneatenfn)
+		inst.components.edible:SetOnEatenFn(OnEatCoffee)
 
 		inst:AddComponent("inspectable")
 		inst.wet_prefix = data.wet_prefix

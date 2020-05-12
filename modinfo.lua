@@ -1,5 +1,5 @@
 name = "   The Architect Pack"
-version = "2.1-B-BETA"
+version = "2.2-B-BETA"
 
 description = "󰀂 This mod contains huge amount of decorative structures for Base Building!\n\Remember: They're just replicas, static structures or not?\n\n󰀅 Also includes some special structures and easter eggs, go find em' all!\n\n󰀏 Includes contents from: Shipwrecked, Hamlet, The Forge, The Gorge and exclusive contents!\n\n󰀖 Credits on the mod page!\n\󰀌 Mod Version: "..version..""
 author = "The Builders Society"
@@ -312,12 +312,15 @@ configuration_options =
 			{description = "Glermz Edition", 
 			hover = "Colors of Glermz's choices. | Mild | Winter | Humid | Lush",
 			data = 3},
+			{description = "Thalz Edition",
+			hover=  "Colors of Thalz's choices. | Autumn | Humid | Lush | Dry",
+			data = 4},
 			{description = "The Forge", 
 			hover = "Colors from The Forge Event. | Lava Arena",
-			data = 4},
+			data = 5},
 			{description = "The Gorge", 
 			hover = "Colors from The Gorge Event. | Quagmire",
-			data = 5},
+			data = 6},
 		},
 		default = 0,
 	},

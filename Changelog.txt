@@ -15,3 +15,15 @@ Version 2.1-B-BETA
 - Coffee Bushes can grow during winter now.
 - Added A New secret. 
 
+Version 2.2-B-BETA
+- Fixed a possible Rabbit Hole bug.
+- Fixed a possible Thumper bug.
+- Fixed Lava Hole crash.
+- Fixed Packim Baggims crash.
+- Fixed Coffee speed not persisting when entering/exiting oasis sandstorm.
+- Fixed Elephant Cactuses attacking dealing damage to each other.
+- Added new Colourcube: Thalz Edition.
+- Added Sounds for Ice Maker 3000.
+- Adjusted Sandbag placement grid.
+- Elephant Cactus will not attack players wearing Bramble Husk.
+- Reduced Coffee Speed a bit.

@@ -9,6 +9,9 @@ local assets =
 	
 	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_sw.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_sw.xml"),
+	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
+	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),
 }
 
 local prefabs =
@@ -37,10 +40,6 @@ local function spawnice(inst)
     local sp = 3 + math.random()
     ice.Physics:SetVel(sp*math.cos(angle), math.random()*2+8, sp*math.sin(angle))
    
-	--[[
-	We need to setup something here to drop the ice.
-	]]--
-   
 	inst.components.fueled:StartConsuming()
 	inst.AnimState:PlayAnimation("idle_on", true)
 end
@@ -54,13 +53,13 @@ end
 
 local function fueltaskfn(inst)
 	inst.AnimState:PlayAnimation("use")
-	-- inst.SoundEmitter:PlaySound("dontstarve_DLC002/common/icemachine_start")
+	inst.SoundEmitter:PlaySound("dontstarve_DLC002/common/icemachine_start")
 	inst.components.fueled:StopConsuming() 
 	inst:ListenForEvent("animover", spawnice)
 end
 
 local function ontakefuelfn(inst)
-	-- inst.SoundEmitter:PlaySound("dontstarve_DLC001/common/machine_fuel")
+	inst.SoundEmitter:PlaySound("dontstarve_DLC001/common/machine_fuel")
 	inst.components.fueled:StartConsuming()
 end
 
@@ -92,6 +91,9 @@ local function fuelsectioncallback(new, old, inst)
 		inst.machinestate = MACHINESTATES.ON
 		inst.AnimState:PlayAnimation("turn"..inst.machinestate)
 		inst.AnimState:PushAnimation("idle"..inst.machinestate, true)
+		if not inst.SoundEmitter:PlayingSound("loop") then
+			inst.SoundEmitter:PlaySound("dontstarve_DLC002/common/icemachine_lp", "loop")
+		end
 		if inst.fueltask == nil then
 			inst.fueltask = inst:DoPeriodicTask(ICEMAKER_SPAWN_TIME, fueltaskfn)
 		end
@@ -111,7 +113,7 @@ end
 local function onbuilt(inst)
 	inst.AnimState:PlayAnimation("place")
 	inst.AnimState:PushAnimation("idle"..inst.machinestate)
-	-- inst.SoundEmitter:PlaySound("dontstarve_DLC002/common/icemaker_place")
+	inst.SoundEmitter:PlaySound("dontstarve_DLC002/common/icemaker_place")
 end
 
 local function fn()
