@@ -20,6 +20,7 @@ Version 2.2-B-BETA
 - Fixed a possible Thumper bug.
 - Fixed Lava Hole crash.
 - Fixed Packim Baggims crash.
+- Fixed Maxwell's Phonograph crash.
 - Fixed Coffee speed not persisting when entering/exiting oasis sandstorm.
 - Fixed Elephant Cactuses attacking dealing damage to each other.
 - Added new Colourcube: Thalz Edition.
