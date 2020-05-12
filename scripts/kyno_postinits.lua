@@ -718,6 +718,7 @@ AddPrefabPostInit("cavein_boulder", function(inst)
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--[[ -- Moved to Shadow Pieces!
 GLOBAL.SetSharedLootTable("shadow_creature_new",
 {
     { "nightmarefuel",  1.0 },
@@ -748,6 +749,7 @@ AddPrefabPostInit("nightmarebeak", function(inst)
 		inst.components.lootdropper:SetChanceLootTable("shadow_creature_new")
 	end
 end)
+]]--
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 GLOBAL.SetSharedLootTable("moose_new",
 {

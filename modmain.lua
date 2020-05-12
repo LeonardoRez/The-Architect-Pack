@@ -554,6 +554,7 @@ PrefabFiles = {
 	"k_rabbithole",
 	"plant_normal",
 	"stalker",
+	"shadowchesspieces",
 	-- CAVES CONTENT --
 	"k_flowerlight",
 	"k_batiliskden",
