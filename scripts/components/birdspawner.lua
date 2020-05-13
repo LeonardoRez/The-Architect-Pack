@@ -24,7 +24,7 @@ local BIRD_TYPES =
 	-- Hamlet Birds --
 	[GROUND.RAINFOREST] = { "kingfisher", "parrot_blue", "toucan_hamlet" },
 	[GROUND.PLAINS] = { "toucan_hamlet", "parrot_blue" },
-	[GROUND.BOG] = { "toucan_hamlet "},
+	[GROUND.BOG] = { "toucan_hamlet" },
 	[GROUND.PIGRUINS] = { "parrot_blue" },
 	[GROUND.DECIDUOUS] = { "toucan_hamlet" },
 	[GROUND.LAWN] = { "pigeon" },

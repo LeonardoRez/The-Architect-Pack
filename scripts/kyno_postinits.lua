@@ -828,24 +828,35 @@ AddPrefabPostInit("deerclops", function(inst)
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-GLOBAL.SetSharedLootTable("bearger_new",
+GLOBAL.SetSharedLootTable("antlion_new",
 {
-    {'meat',             1.00},
-    {'meat',             1.00},
-    {'meat',             1.00},
-    {'meat',             1.00},
-    {'meat',             1.00},
-    {'meat',             1.00},
-    {'meat',             1.00},
-    {'meat',             1.00},
-    {'bearger_fur',      1.00},
-    {'chesspiece_bearger_sketch', 1.00},
-	{'piratepack', .01}, -- 1% Drop Chance
+    {'townportal_blueprint',    1.00},
+
+    {'townportaltalisman',  1.00},
+    {'townportaltalisman',  1.00},
+    {'townportaltalisman',  1.00},
+    {'townportaltalisman',  1.00},
+    {'townportaltalisman',  1.00},
+    {'townportaltalisman',  1.00},
+    {'townportaltalisman',  0.50},
+    {'townportaltalisman',  0.50},
+
+    {'meat',                1.00},
+    {'meat',                1.00},
+    {'meat',                1.00},
+    {'meat',                1.00},
+
+    {'rocks',               1.00},
+    {'rocks',               1.00},
+    {'rocks',               0.50},
+    {'rocks',               0.50},
+	
+	{"piratepack",		   .01}, -- 1% Drop Chance
 })
 
-AddPrefabPostInit("bearger", function(inst)
+AddPrefabPostInit("antlion", function(inst)
 	if GLOBAL.TheWorld.ismastersim then
-		inst.components.lootdropper:SetChanceLootTable("bearger_new")
+		inst.components.lootdropper:SetChanceLootTable("antlion_new")
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
