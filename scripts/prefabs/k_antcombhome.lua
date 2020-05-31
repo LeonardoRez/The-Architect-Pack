@@ -71,6 +71,7 @@ local function fn()
 	inst.AnimState:PlayAnimation("idle", true)
 	
 	MakeObstaclePhysics(inst, 1)
+	MakeSnowCoveredPristine(inst)
 	
 	inst:AddTag("structure")
 	inst:AddTag("anthouse")

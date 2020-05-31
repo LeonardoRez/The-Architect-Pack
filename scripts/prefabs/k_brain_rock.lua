@@ -146,6 +146,8 @@ local function fn()
 	inst:AddTag("brain")
 	inst:AddTag("rock")
 	
+	MakeSnowCoveredPristine(inst)
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -176,6 +178,8 @@ local function fn()
 
 	inst.OnSave = onsave
 	inst.OnLoad = onload
+	
+	MakeSnowCovered(inst, .01)
 
 	return inst
 end

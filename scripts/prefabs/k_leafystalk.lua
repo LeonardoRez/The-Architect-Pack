@@ -11,6 +11,10 @@ local assets =
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_ham.xml"),
 }
 
+local prefabs = {
+	"kyno_canopy_shadow",
+}
+
 local function chop_tree(inst, chopper, chops)
 
 	if chopper and chopper.components.beaverness and chopper.components.beaverness:IsBeaver() then
@@ -18,7 +22,7 @@ local function chop_tree(inst, chopper, chops)
 	else
 		inst.SoundEmitter:PlaySound("dontstarve/wilson/use_axe_tree")
 	end
-	inst.AnimState:PlayAnimation(idle)
+	inst.AnimState:PlayAnimation("idle", true)
 end
 
 local function chop_down_tree(inst, chopper)
@@ -35,6 +39,12 @@ local function chop_down_tree(inst, chopper)
 	RemovePhysicsColliders(inst)
 	inst:Remove()
 end
+
+local shadow_front = 1
+
+local shadow_defs = {
+	shadow = { { -0, 0, 0 } },
+}
 
 local function fn()
 	local inst = CreateEntity()
@@ -61,6 +71,18 @@ local function fn()
     if not TheWorld.ismastersim then
         return inst
     end
+	
+	local decor_items = shadow_defs
+		inst.decor = {}
+		for item_name, data in pairs(decor_items) do
+			for l, offset in pairs(data) do
+				local item_inst = SpawnPrefab("kyno_canopy_shadow")
+				item_inst.AnimState:PushAnimation("idle")
+				item_inst.entity:SetParent(inst.entity)
+				item_inst.Transform:SetPosition(offset[1], offset[2], offset[3])
+				table.insert(inst.decor, item_inst)
+			end
+		end
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)

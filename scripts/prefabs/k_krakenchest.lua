@@ -106,10 +106,14 @@ local function fn()
 
 	inst:AddTag("structure")
     inst:AddTag("chest")
+	inst:AddTag("wet")
 	
     inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
+		inst.OnEntityReplicated = function(inst)
+			inst.replica.container:WidgetSetup("dragonflychest")
+		end
         return inst
     end
 

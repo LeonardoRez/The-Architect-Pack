@@ -4,6 +4,9 @@ local assets =
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_healblossom.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_healblossom.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_healblossom2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_healblossom2.xml"),
 }
 
 local prefabs =
@@ -43,7 +46,6 @@ local function onpickedfn(inst, picker)
         end
     end
     inst:Remove()
-    -- TheWorld:PushEvent("plantkilled", { doer = picker, pos = pos }) -- I think this is why they keep regrowing?
 end
 
 local function testfortransformonload(inst)
@@ -109,7 +111,6 @@ local function fn()
     inst:AddComponent("pickable")
     inst.components.pickable.picksound = "dontstarve/wilson/pickup_plants"
     inst.components.pickable:SetUp("petals", 10)
-	inst.components.pickable:SetUp("nightmarefuel", 10)
     inst.components.pickable.onpickedfn = onpickedfn
     inst.components.pickable.quickpick = true
     inst.components.pickable.wildfirestarter = true
@@ -118,8 +119,58 @@ local function fn()
 	MakeSmallPropagator(inst)
     inst.components.burnable:SetOnBurntFn(OnBurnt)
 
-	-- inst:AddComponent("halloweenmoonmutable")
-	-- inst.components.halloweenmoonmutable:SetPrefabMutated("moonbutterfly_sapling")
+    if TheWorld:HasTag("cave") then
+        inst:WatchWorldState("iscaveday", OnIsCaveDay)
+    end
+
+    MakeHauntableChangePrefab(inst, "flower_evil")
+	
+	inst:ListenForEvent("onbuilt", onbuilt)
+	
+	inst.planted = true
+    
+    inst.OnSave = onsave
+    inst.OnLoad = onload
+
+    return inst
+end
+
+local function artificialfn()
+    local inst = CreateEntity()
+
+    inst.entity:AddTransform()
+    inst.entity:AddAnimState()
+    inst.entity:AddNetwork()
+
+	inst.animname = names[math.random(#names)]
+	
+    inst.AnimState:SetBank("lavaarena_heal_flowers")
+    inst.AnimState:SetBuild("lavaarena_heal_flowers_fx")
+	inst.AnimState:PlayAnimation(inst.animname, true)
+    inst.AnimState:SetRayTestOnBB(true)
+
+    inst:AddTag("structure")
+	inst:AddTag("flowerheal")
+    inst:AddTag("cattoy")
+
+    inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
+
+    inst:AddComponent("inspectable")
+
+    inst:AddComponent("pickable")
+    inst.components.pickable.picksound = "dontstarve/wilson/pickup_plants"
+    inst.components.pickable:SetUp("petals", 10)
+    inst.components.pickable.onpickedfn = onpickedfn
+    inst.components.pickable.quickpick = true
+    inst.components.pickable.wildfirestarter = true
+
+    MakeSmallBurnable(inst)
+	MakeSmallPropagator(inst)
+    inst.components.burnable:SetOnBurntFn(OnBurnt)
 
     if TheWorld:HasTag("cave") then
         inst:WatchWorldState("iscaveday", OnIsCaveDay)
@@ -128,12 +179,6 @@ local function fn()
     MakeHauntableChangePrefab(inst, "flower_evil")
 	
 	inst:ListenForEvent("onbuilt", onbuilt)
-
-	--[[
-    if not POPULATING then
-        setflowertype(inst)
-    end
-	]]--
 	
 	inst.planted = true
     
@@ -144,8 +189,10 @@ local function fn()
 end
 
 local function healflowerplacetestfn(inst)
-	inst.AnimState:Hide("drops")
+	inst.AnimState:Hide("drop")
 end
 
 return Prefab("kyno_healflower", fn, assets, prefabs),
-MakePlacer("kyno_healflower_placer", "lavaarena_heal_flowers", "lavaarena_heal_flowers_fx", "idle_1", false, nil, nil, nil, nil, nil, healflowerplacetestfn)
+Prefab("kyno_artificial_healflower", artificialfn, assets, prefabs),
+MakePlacer("kyno_healflower_placer", "lavaarena_heal_flowers", "lavaarena_heal_flowers_fx", "idle_1", false, nil, nil, nil, nil, nil, healflowerplacetestfn),
+MakePlacer("kyno_artificial_healflower_placer", "lavaarena_heal_flowers", "lavaarena_heal_flowers_fx", "idle_4", false, nil, nil, nil, nil, nil, healflowerplacetestfn)

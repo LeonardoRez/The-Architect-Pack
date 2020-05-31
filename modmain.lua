@@ -21,6 +21,8 @@ modimport("scripts/kyno_endtable")
 modimport("scripts/kyno_lights")
 modimport("scripts/kyno_combat")
 modimport("scripts/kyno_combat_replica")
+modimport("scripts/kyno_fx")
+modimport("scripts/kyno_foods")
 modimport("libs/env")
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Assets = { -- Some Assets don't show correctly if they're not set here.
@@ -30,6 +32,7 @@ Assets = { -- Some Assets don't show correctly if they're not set here.
 	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_turfs_ham.xml", 256),
 	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_turfs_gorge.xml", 256),
 	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_turfs_forge.xml", 256),
+	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_coffee.xml", 256),
 	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_minisign_icons.xml", 256),
 	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_minisign_icons_2.xml", 256),
 	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_minisign_icons_3.xml", 256),
@@ -37,6 +40,13 @@ Assets = { -- Some Assets don't show correctly if they're not set here.
 	Asset("ATLAS_BUILD", "images/inventoryimages/wall_pig_ruins_item.xml", 256),
 	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_moltenfence_item.xml", 256),
 	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_legacy_inventoryimages.xml", 256),
+	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_redflies.xml", 256),
+	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_orangeflies.xml", 256),
+	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_yellowflies.xml", 256),
+	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_greenflies.xml", 256),
+	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_blueflies.xml", 256),
+	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_cyanflies.xml", 256),
+	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_purpleflies.xml", 256),
 	-- Common Assets.
     Asset("IMAGE", "images/inventoryimages/kyno_turfs_sw.tex"),
     Asset("ATLAS", "images/inventoryimages/kyno_turfs_sw.xml"),
@@ -52,6 +62,20 @@ Assets = { -- Some Assets don't show correctly if they're not set here.
     Asset("ATLAS", "images/inventoryimages/kyno_minisign_icons_3.xml"),
 	Asset("IMAGE", "images/inventoryimages/kyno_legacy_inventoryimages.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_legacy_inventoryimages.xml"),
+	Asset("IMAGE", "images/inventoryimages/kyno_redflies.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_redflies.xml"),
+	Asset("IMAGE", "images/inventoryimages/kyno_orangeflies.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_orangeflies.xml"),
+	Asset("IMAGE", "images/inventoryimages/kyno_yellowflies.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_yellowflies.xml"),
+	Asset("IMAGE", "images/inventoryimages/kyno_greenflies.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_greenflies.xml"),
+	Asset("IMAGE", "images/inventoryimages/kyno_blueflies.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_blueflies.xml"),
+	Asset("IMAGE", "images/inventoryimages/kyno_cyanflies.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_cyanflies.xml"),
+	Asset("IMAGE", "images/inventoryimages/kyno_purpleflies.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_purpleflies.xml"),
 	Asset("IMAGE", "images/tabimages/kyno_shipwreckedtab.tex"),
 	Asset("ATLAS", "images/tabimages/kyno_shipwreckedtab.xml"),
 	Asset("IMAGE", "images/tabimages/kyno_hamlettab.tex"),
@@ -82,9 +106,20 @@ Assets = { -- Some Assets don't show correctly if they're not set here.
 	Asset("ATLAS", "images/inventoryimages/kyno_moltenfence_item.xml"),
 	Asset("IMAGE", "images/inventoryimages/kyno_burntmarsh.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_burntmarsh.xml"),
+    Asset("IMAGE", "images/inventoryimages/kyno_coffee.tex"),
+    Asset("ATLAS", "images/inventoryimages/kyno_coffee.xml"),
 	Asset("ANIM", "anim/kyno_turfs2.zip"),
 	Asset("ANIM", "anim/kyno_turfs3.zip"),
 	Asset("ANIM", "anim/kyno_turfs4.zip"),
+	Asset("ANIM", "anim/leaves_canopy.zip"),
+	Asset("ANIM", "anim/leaves_canopy_test.zip"),
+	Asset("ANIM", "anim/leaves_canopy2.zip"),
+	Asset("ANIM", "anim/red_clawling.zip"),
+	Asset("ANIM", "anim/cave_exit_rope.zip"),
+	Asset("ANIM", "anim/copycreep_build.zip"),
+	Asset("ANIM", "anim/vine01_build.zip"),
+	Asset("ANIM", "anim/vine02_build.zip"),
+	Asset("ANIM", "anim/vines_rainforest_border.zip"), 
 	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
 	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),
 	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC003.fev"),
@@ -352,6 +387,8 @@ PrefabFiles = {
 	"k_brambles",
 	"k_clawtree",
 	"k_clawtree_sapling",
+	"k_redclawtree",
+	"k_red_clawtree_sapling",
 	"k_aloe",
 	"k_asparagus",
 	"k_leafystalk",
@@ -400,6 +437,9 @@ PrefabFiles = {
 	"k_relics",
 	"k_pherostone",
 	"k_oincs",
+	"k_canopy_shadow",
+	"k_pomegranate_tree",
+	"k_rock_bat",
 	-- THE GORGE CONTENT --
 	"k_gorge_prototyper",
 	"k_bollard",
@@ -552,6 +592,10 @@ PrefabFiles = {
 	"k_eyeplant",
 	"k_stagehand",
 	"k_rabbithole",
+	"k_truesaltlick",
+	"k_fireflies",
+	"k_teslapost",
+	"k_wigfridge",
 	"plant_normal",
 	"stalker",
 	"shadowchesspieces",
@@ -596,7 +640,7 @@ PrefabFiles = {
 	"k_spiderhole",
 	"k_slurtlehole",
 	"k_cave_banana_tree",
-	-- SEA CONTENT (Currently disabled) --
+	-- SEA CONTENT --
 	"k_mangrovetrees",
 	"k_wrecks",
 	"k_seaweed",
@@ -621,6 +665,15 @@ PrefabFiles = {
 	"k_waterchest",
 	"k_watercrates",
 	"k_tarpit",
+	"k_seastack",
+	"k_saltstack",
+	"k_wobster_den",
+	"k_sea_grass",
+	"k_sea_reeds",
+	"k_volcano",
+	"k_lilypad",
+	"k_lotusplant",
+	"k_lotusflower",
 }
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 local atlas = (src and src.components.inventoryitem and src.components.inventoryitem.atlasname and resolvefilepath(src.components.inventoryitem.atlasname) ) or "images/inventoryimages/kyno_inventoryimages_ham.xml"
@@ -667,443 +720,8 @@ AddMinimapAtlas("images/minimapimages/kyno_snowman.xml")
 AddMinimapAtlas("images/minimapimages/kyno_scarecrow.xml")
 AddMinimapAtlas("images/minimapimages/kyno_treeclump.xml")
 AddMinimapAtlas("images/minimapimages/kyno_nightmarethrone.xml")
+AddMinimapAtlas("images/minimapimages/kyno_appletree.xml")
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-AddIngredientValues({"kyno_coffeebeans_cooked"}, {fruit=1}, true)
-AddIngredientValues({"kyno_coffeebeans"}, {fruit=.5}, true)
-AddIngredientValues({"coconut"}, {fruit=2}, true)
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-for k, v in pairs(require("kyno_foods")) do
-	if not v.tags then
-		AddCookerRecipe("cookpot", v)
-	end
-	AddCookerRecipe("portablecookpot", v)
-end
-
-for k, v in pairs(require("kyno_food_spicer")) do
-	AddCookerRecipe("portablespicer", v)
-end
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
--- I Took the turfs code from eXiGe's mod. I hope he doesn't get mad at me xd
-if GLOBAL.TheNet:GetIsMasterSimulation() then
-    local turf_atlas = MODROOT.."images/inventoryimages/kyno_turfs_sw.xml"
-    for _, turf in pairs({"ash", "magmafield", "volcano", "volcano_rock", "jungle", "meadow", "snakeskinfloor", "beach", "foundation", "fields", "cobbleroad", "pigruins", "lawn"}) do
-        local turf_name = "turf_"..turf
-        AddPrefabPostInit(turf_name, function(inst)
-            inst.components.inventoryitem.imagename = turf_name
-            inst.components.inventoryitem.atlasname = turf_atlas
-        end)
-    end
-end
-
-if GLOBAL.TheNet:GetIsMasterSimulation() then
-    local kyno_turf_atlas = MODROOT.."images/inventoryimages/kyno_turfs_sw_2.xml"
-    for _, turf in pairs({"tidalmarsh"}) do
-        local kyno_turf_name = "turf_"..turf
-        AddPrefabPostInit(kyno_turf_name, function(inst)
-            inst.components.inventoryitem.imagename = kyno_turf_name
-            inst.components.inventoryitem.atlasname = kyno_turf_atlas
-        end)
-    end
-end
-
-if GLOBAL.TheNet:GetIsMasterSimulation() then
-    local kyno_turf_ham_atlas = MODROOT.."images/inventoryimages/kyno_turfs_ham.xml"
-    for _, turf in pairs({"rainforest", "plains", "deepjungle", "bog", "mossy_blossom", "gasjungle", "beard_hair", "antcave", "batcave"}) do
-        local kyno_turf_ham_name = "turf_"..turf
-        AddPrefabPostInit(kyno_turf_ham_name, function(inst)
-            inst.components.inventoryitem.imagename = kyno_turf_ham_name
-            inst.components.inventoryitem.atlasname = kyno_turf_ham_atlas
-        end)
-    end
-end
-
-if GLOBAL.TheNet:GetIsMasterSimulation() then
-    local kyno_turf_gorge_atlas = MODROOT.."images/inventoryimages/kyno_turfs_gorge.xml"
-    for _, turf in pairs({"pinkpark", "pinkstone", "greyforest", "stonecity", "browncarpet"}) do
-        local kyno_turf_gorge_name = "turf_"..turf
-        AddPrefabPostInit(kyno_turf_gorge_name, function(inst)
-            inst.components.inventoryitem.imagename = kyno_turf_gorge_name
-            inst.components.inventoryitem.atlasname = kyno_turf_gorge_atlas
-        end)
-    end
-end
-
-if GLOBAL.TheNet:GetIsMasterSimulation() then
-    local kyno_turf_forge_atlas = MODROOT.."images/inventoryimages/kyno_turfs_forge.xml"
-    for _, turf in pairs({"forgeroad", "forgerock", "ruinsbrick", "ruinsbricktrim", "ruinstile", "ruinstiletrim", "ruinstrim", "ruinstrimtrim"}) do
-        local kyno_turf_forge_name = "turf_"..turf
-        AddPrefabPostInit(kyno_turf_forge_name, function(inst)
-            inst.components.inventoryitem.imagename = kyno_turf_forge_name
-            inst.components.inventoryitem.atlasname = kyno_turf_forge_atlas
-        end)
-    end
-end
-
-if GLOBAL.TheNet:GetIsMasterSimulation() then
-    local item_atlas = MODROOT.."images/inventoryimages/kyno_minisign_icons.xml"
-    for _, item in pairs({"coconut", "wall_enforcedlimestone_item", "wall_limestone_item", "jungletreeseed", "seashell", "kyno_sandbagsmall_item", "dug_coffeebush", "coffee", "kyno_coffeebeans", "kyno_coffeebeans_cooked", "packim_fishbone"}) do
-        local item_name = item
-        AddPrefabPostInit(item_name, function(inst)
-            inst.components.inventoryitem.imagename = item_name
-            inst.components.inventoryitem.atlasname = item_atlas
-        end)
-    end
-end
-
-if GLOBAL.TheNet:GetIsMasterSimulation() then
-    local item2_atlas = MODROOT.."images/inventoryimages/kyno_minisign_icons_2.xml"
-    for _, item2 in pairs({"teatree_nut", "burr", "hedge_block_item", "hedge_cone_item", "hedge_layered_item", "ro_bin_gizzard_stone", "kyno_relic_1", "kyno_relic_2", "kyno_relic_3", "kyno_relic_4", "kyno_relic_5", "kyno_pherostone", "kyno_oinc1", "kyno_oinc10", "kyno_oinc100"}) do
-        local item2_name = item2
-        AddPrefabPostInit(item2_name, function(inst)
-            inst.components.inventoryitem.imagename = item2_name
-            inst.components.inventoryitem.atlasname = item2_atlas
-        end)
-    end
-end
-
-if GLOBAL.TheNet:GetIsMasterSimulation() then
-    local item3_atlas = MODROOT.."images/inventoryimages/wall_pig_ruins_item.xml"
-    for _, item3 in pairs({"wall_pig_ruins_item"}) do
-        local item3_name = item3
-        AddPrefabPostInit(item3_name, function(inst)
-            inst.components.inventoryitem.imagename = item3_name
-            inst.components.inventoryitem.atlasname = item3_atlas
-        end)
-    end
-end
-
-if GLOBAL.TheNet:GetIsMasterSimulation() then
-    local item4_atlas = MODROOT.."images/inventoryimages/kyno_minisign_icons_3.xml"
-    for _, item4 in pairs({"hedge_block_aged_item", "hedge_cone_aged_item", "hedge_layered_aged_item"}) do
-        local item4_name = item4
-        AddPrefabPostInit(item4_name, function(inst)
-            inst.components.inventoryitem.imagename = item4_name
-            inst.components.inventoryitem.atlasname = item4_atlas
-        end)
-    end
-end
-
-if GLOBAL.TheNet:GetIsMasterSimulation() then
-    local item5_atlas = MODROOT.."images/inventoryimages/kyno_irongate_item.xml"
-    for _, item5 in pairs({"kyno_irongate_item"}) do
-        local item5_name = item5
-        AddPrefabPostInit(item5_name, function(inst)
-            inst.components.inventoryitem.imagename = item5_name
-            inst.components.inventoryitem.atlasname = item5_atlas
-        end)
-    end
-end
-
-if GLOBAL.TheNet:GetIsMasterSimulation() then
-    local item6_atlas = MODROOT.."images/inventoryimages/kyno_turfs_sw_2.xml"
-    for _, item6 in pairs({"wall_enforcedlimestone_land_item"}) do
-        local item6_name = item6
-        AddPrefabPostInit(item6_name, function(inst)
-            inst.components.inventoryitem.imagename = item6_name
-            inst.components.inventoryitem.atlasname = item6_atlas
-        end)
-    end
-end
-
-if GLOBAL.TheNet:GetIsMasterSimulation() then
-    local item7_atlas = MODROOT.."images/inventoryimages/kyno_moltenfence_item.xml"
-    for _, item7 in pairs({"kyno_moltenfence_item"}) do
-        local item7_name = item7
-        AddPrefabPostInit(item7_name, function(inst)
-            inst.components.inventoryitem.imagename = item7_name
-            inst.components.inventoryitem.atlasname = item7_atlas
-        end)
-    end
-end
-
-if GLOBAL.TheNet:GetIsMasterSimulation() then
-    local item8_atlas = MODROOT.."images/inventoryimages/kyno_legacy_inventoryimages.xml"
-    for _, item8 in pairs({"wall_legacy_moonrock_item", "wall_legacyruins_item"}) do
-        local item8_name = item8
-        AddPrefabPostInit(item8_name, function(inst)
-            inst.components.inventoryitem.imagename = item8_name
-            inst.components.inventoryitem.atlasname = item8_atlas
-        end)
-    end
-end
-
--- Wall Code
-local function IsNearOther(other, pt, min_spacing_sq)
-    local spacing_sq = min_spacing_sq
-    if other:HasTag("wall") then
-        spacing_sq = 1
-    elseif other.deploy_extra_spacing then
-        spacing_sq = math.max(other.deploy_extra_spacing * other.deploy_extra_spacing, min_spacing_sq)
-    end
-    return other:GetDistanceSqToPoint(pt.x, 0, pt.z) < spacing_sq
-end
-
-require("components/map")
-local Map = _G.Map
-local MapIsDeployPointClear = Map.IsDeployPointClear
-function Map:IsDeployPointClear(pt, inst, min_spacing, min_spacing_sq_fn, near_other_fn)
-    return MapIsDeployPointClear(Map, pt, inst, min_spacing, min_spacing_sq_fn, near_other_fn or IsNearOther)
-end
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-local KEEP_FOOD = GetModConfigData("keep_food_on_cookpot")
--- finished food will not spoil on crock pot 
-if KEEP_FOOD == 1 then
-    AddPrefabPostInit("cookpot", function(inst)
-        if inst.components.stewer then
-            inst.components.stewer.onspoil = function() 
-                inst.components.stewer.spoiltime = 1
-                inst.components.stewer.targettime = GLOBAL.GetTime()
-                inst.components.stewer.product_spoilage = 0
-            end
-        end
-    end)
-end
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-local containers = require "containers" -- Fix for containers.
-
-local params = {}
-
-local containers_widgetsetup_base = containers.widgetsetup
-function containers.widgetsetup(container, prefab, data, ...)
-    local t = params[prefab or container.inst.prefab]
-    if t ~= nil then
-        for k, v in pairs(t) do
-            container[k] = v
-        end
-        container:SetNumSlots(container.widget.slotpos ~= nil and #container.widget.slotpos or 0)
-    else
-        containers_widgetsetup_base(container, prefab, data, ...)
-    end
-end
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-params.kyno_luggagechest = -- Fix for luggagechest aka Steamer Trunk.
-{
-    widget =
-    {
-        slotpos = {},
-        animbank = "ui_chest_3x3",
-        animbuild = "ui_chest_3x3",
-        pos = GLOBAL.Vector3(0, 200, 0),
-        side_align_tip = 160,
-    },
-    type = "chest",
-}
-for y = 2, 0, -1 do
-    for x = 0, 2 do
-        table.insert(params.kyno_luggagechest.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
-    end
-end
-
-params.kyno_krakenchest = -- Fix for krakenchest aka Chest from the Depths.
-{
-    widget =
-    {
-        slotpos = {},
-        animbank = "ui_chester_shadow_3x4",
-        animbuild = "ui_chester_shadow_3x4",
-        pos = GLOBAL.Vector3(0, 200, 0),
-        side_align_tip = 160,
-    },
-    type = "dragonflychest",
-}
-for y = 2, 0, -1 do
-    for x = 0, 2 do
-        table.insert(params.kyno_krakenchest.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
-    end
-end
-
-params.kyno_waterchest = -- Fix for waterchest aka Sea Chest.
-{
-    widget =
-    {
-        slotpos = {},
-        animbank = "ui_chest_3x3",
-        animbuild = "ui_chest_3x3",
-        pos = GLOBAL.Vector3(0, 200, 0),
-        side_align_tip = 160,
-    },
-    type = "chest",
-}
-for y = 2, 0, -1 do
-    for x = 0, 2 do
-        table.insert(params.kyno_waterchest.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
-    end
-end
-
-params.kyno_antchest = -- Fix for antchest aka Honey Chest.
-{
-    widget =
-    {
-        slotpos = {},
-        animbank = "ui_chest_3x3",
-        animbuild = "ui_chest_3x3",
-        pos = GLOBAL.Vector3(0, 200, 0),
-        side_align_tip = 160,
-    },
-    type = "chest",
-}
-for y = 2, 0, -1 do
-    for x = 0, 2 do
-        table.insert(params.kyno_antchest.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
-    end
-end
-
-params.kyno_corkchest = -- Fix for corkchest aka Cork Barrel.
-{
-    widget =
-    {
-        slotpos = {},
-        animbank = "ui_chest_3x3",
-        animbuild = "ui_chest_3x3",
-        pos = GLOBAL.Vector3(0, 200, 0),
-        side_align_tip = 160,
-    },
-    type = "chest",
-}
-for y = 2, 0, -1 do
-    for x = 0, 2 do
-        table.insert(params.kyno_corkchest.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
-    end
-end
-
-params.kyno_rootchest = -- Fix for rootchest aka Root Trunk
-{
-    widget =
-    {
-        slotpos = {},
-        animbank = "ui_chest_3x3",
-        animbuild = "ui_chest_3x3",
-        pos = GLOBAL.Vector3(0, 200, 0),
-        side_align_tip = 160,
-    },
-    type = "chest",
-}
-for y = 2, 0, -1 do
-    for x = 0, 2 do
-        table.insert(params.kyno_rootchest.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
-    end
-end
-
-params.packim = -- Fix for packim aka Packim Baggims
-{
-    widget =
-    {
-        slotpos = {},
-        animbank = "ui_chest_3x3",
-        animbuild = "ui_chest_3x3",
-        pos = GLOBAL.Vector3(0, 200, 0),
-        side_align_tip = 160,
-    },
-    type = "chester",
-}
-for y = 2, 0, -1 do
-    for x = 0, 2 do
-        table.insert(params.packim.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
-    end
-end
-
-params.kyno_safechest = -- Fix for safechest aka Safe
-{
-    widget =
-    {
-        slotpos = {},
-        animbank = "ui_chest_3x3",
-        animbuild = "ui_chest_3x3",
-        pos = GLOBAL.Vector3(0, 200, 0),
-        side_align_tip = 160,
-    },
-    type = "chest",
-}
-for y = 2, 0, -1 do
-    for x = 0, 2 do
-        table.insert(params.kyno_safechest.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
-    end
-end
-
-params.ro_bin = -- Fix for ro_bin aka Ro Bin
-{
-    widget =
-    {
-        slotpos = {},
-        animbank = "ui_chester_shadow_3x4",
-        animbuild = "ui_chester_shadow_3x4",
-        pos = GLOBAL.Vector3(0, 200, 0),
-        side_align_tip = 160,
-    },
-    type = "chester",
-}
-for y = 2, 0, -1 do
-    for x = 0, 2 do
-        table.insert(params.ro_bin.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
-    end
-end
-
-params.kyno_skullchest = -- Fix for skullchest aka Skull Chest
-{
-    widget =
-    {
-        slotpos = {},
-        animbank = "ui_chest_3x3",
-        animbuild = "ui_chest_3x3",
-        pos = GLOBAL.Vector3(0, 200, 0),
-        side_align_tip = 160,
-    },
-    type = "chest",
-}
-for y = 2, 0, -1 do
-    for x = 0, 2 do
-        table.insert(params.kyno_skullchest.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
-    end
-end
-
-params.kyno_ornatechest = -- Fix for ornatechest aka Ornate Chest
-{
-    widget =
-    {
-        slotpos = {},
-        animbank = "ui_chest_3x3",
-        animbuild = "ui_chest_3x3",
-        pos = GLOBAL.Vector3(0, 200, 0),
-        side_align_tip = 160,
-    },
-    type = "chest",
-}
-for y = 2, 0, -1 do
-    for x = 0, 2 do
-        table.insert(params.kyno_ornatechest.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
-    end
-end
-
-params.kyno_ornatechest_large = -- Fix for ornatechest_large aka Large Ornate Chest
-{
-    widget =
-    {
-        slotpos = {},
-        animbank = "ui_chester_shadow_3x4",
-        animbuild = "ui_chester_shadow_3x4",
-        pos = GLOBAL.Vector3(0, 200, 0),
-        side_align_tip = 160,
-    },
-    type = "dragonflychest",
-}
-for y = 2, 0, -1 do
-    for x = 0, 2 do
-        table.insert(params.kyno_ornatechest_large.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
-    end
-end
-
-for k, v in pairs(params) do
-    containers.MAXITEMSLOTS = math.max(containers.MAXITEMSLOTS, v.widget.slotpos ~= nil and #v.widget.slotpos or 0)
-end
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
--- For some fucking reason the Prototyper and TechTree don't work if the recipes aren't here.
--- AddNewTechTree("BOAT", 3)
--- AddNewTechTree("PIG", 3)
--- AddNewTechTree("GNAW", 3)
--- AddNewTechTree("PUGNA", 3)
--- AddNewTechTree("CACTI", 3)
--- AddNewTechTree("LIGHTBULB", 3)
-
 local kyno_shipwreckedtab = AddRecipeTab("Shipwrecked", 998, "images/tabimages/kyno_shipwreckedtab.xml", "kyno_shipwreckedtab.tex", nil, true)
 local kyno_hamlettab = AddRecipeTab("Hamlet", 998, "images/tabimages/kyno_hamlettab.xml", "kyno_hamlettab.tex", nil, true)
 local kyno_gorgetab = AddRecipeTab("The Gorge", 998, "images/tabimages/kyno_gorgetab.xml", "kyno_gorgetab.tex", nil, true)
@@ -1247,6 +865,11 @@ local KynHouse4 = AddRecipe("kyno_hermithouse4_blueprint", {Ingredient("messageb
 RECIPETABS.HERMITCRABSHOP, TECH.HERMITCRABSHOP_SEVEN, nil, nil, true, nil, nil, nil, "blueprint_rare.tex", nil, "kyno_hermithouse4_blueprint")
 local hermit4_sortkey = AllRecipes["kyno_hermithouse3_blueprint"]["sortkey"]
 KynHouse4.sortkey = hermit4_sortkey + 0.1
+
+local KynFridge = AddRecipe("kyno_wigfridge", {Ingredient("cutstone", 1), Ingredient("gears", 1), Ingredient("meat", 2)},
+RECIPETABS.FARM, TECH.LOST, "kyno_wigfridge_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_wigfridge.xml", "kyno_wigfridge.tex")
+local wigfridge_sortkey = AllRecipes["icebox"]["sortkey"]
+KynFridge.sortkey = wigfridge_sortkey + 0.1
 
 AddRecipe("kyno_sw_prototyper", {Ingredient("boards", 4), Ingredient("pondfish", 4)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_sw_prototyper_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "shipwrecked_entrance.tex")
@@ -1716,7 +1339,7 @@ AddRecipe("dug_marsh_bush", {Ingredient("dug_sapling", 1), Ingredient("houndstoo
 kyno_surfacetab, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "dug_marsh_bush.tex")
 
 
-AddRecipe("kyno_reeds", {Ingredient("cutreeds", 1)},
+AddRecipe("kyno_reeds", {Ingredient("cutreeds", 4)},
 kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_reeds_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_reeds.xml", "kyno_reeds.tex")
 
 
@@ -2283,9 +1906,9 @@ kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_pighead_placer", 1, nil, nil, nil, "ima
 AddRecipe("kyno_mermhead", {Ingredient("twigs", 2), Ingredient("pondfish", 1)},
 kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_mermhead_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_mermhead.xml", "kyno_mermhead.tex")
 
--- Currently disabled because this one is from authority of JustJasper. I need to ask him if I can use this!!!
--- AddRecipe("kyno_bunnyhead", {Ingredient("twigs", 2), Ingredient("manrabbit_tail", 1)},
--- kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_bunnyhead_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_bunnyhead.xml", "kyno_bunnyhead.tex")
+-- This one is from authority of JustJasper. I need to ask him if I can use this!!!
+AddRecipe("kyno_bunnyhead", {Ingredient("twigs", 2), Ingredient("manrabbit_tail", 1)},
+kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_bunnyhead_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_bunnyhead.xml", "kyno_bunnyhead.tex")
 
 
 AddRecipe("kyno_touchstone", {Ingredient("rocks", 10), Ingredient("marble", 10), Ingredient("nightmarefuel", 10)},
@@ -2532,6 +2155,10 @@ AddRecipe("kyno_bbq", {Ingredient("log", 2), Ingredient("rocks", 12), Ingredient
 kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_bbq_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_bbq.xml", "kyno_bbq.tex")
 
 
+AddRecipe("kyno_teslapost", {Ingredient("lantern", 1), Ingredient("gears", 1), Ingredient("transistor", 1)},
+kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_teslapost_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_teslapost.xml", "kyno_teslapost.tex")
+
+
 AddRecipe("kyno_truffles", {Ingredient("blue_cap", 2), Ingredient("green_cap", 1)},
 kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_truffles_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_truffles.xml", "kyno_truffles.tex")
 
@@ -2578,6 +2205,10 @@ kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_maxwellthrone_placer", 1, nil, nil, nil
 
 AddRecipe("kyno_shadowportal", {Ingredient("livinglog", 4), Ingredient("nightmarefuel", 4), Ingredient("purplegem", 1)},
 kyno_surfacetab, TECH.LOST, "kyno_shadowportal_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_shadowportal.xml", "kyno_shadowportal.tex")
+
+
+AddRecipe("kyno_truesaltlick", {Ingredient("boards", 2), Ingredient("saltrock", 4)},
+RECIPETABS.TOOLS, TECH.SCIENCE_TWO, "kyno_truesaltlick_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_salt_lick.xml", "kyno_salt_lick.tex")
 
 
 AddRecipe("turf_grass", {Ingredient("cutgrass", 2)},
@@ -2656,8 +2287,12 @@ AddRecipe("kyno_lavahole", {Ingredient("cutstone", 1), Ingredient("redgem", 1)},
 kyno_forgetab, TECH.SCIENCE_TWO, "kyno_lavahole_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_lavahole.xml", "kyno_lavahole.tex")
 
 
-AddRecipe("kyno_healflower", {Ingredient("petals", 1), Ingredient("nightmarefuel", 1)},
+AddRecipe("kyno_healflower", {Ingredient("petals", 1)},
 kyno_forgetab, TECH.SCIENCE_TWO, "kyno_healflower_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_healblossom.xml", "kyno_healblossom.tex")
+
+
+AddRecipe("kyno_artificial_healflower", {Ingredient("petals", 1)},
+kyno_forgetab, TECH.SCIENCE_TWO, "kyno_artificial_healflower_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_healblossom2.xml", "kyno_healblossom2.tex")
 
 
 AddRecipe("turf_forgerock", {Ingredient("turf_rocky", 2), Ingredient("redgem", 1)},
@@ -2724,7 +2359,7 @@ AddRecipe("kyno_saltpond", {Ingredient("saltrock", 2), Ingredient("ice", 4), Ing
 kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_saltpond_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_saltpond.xml", "kyno_saltpond.tex")
 
 
-AddRecipe("kyno_saltpond_rack", {Ingredient("saltrock", 2), Ingredient("ice", 4), Ingredient("twigs", 4)},
+AddRecipe("kyno_saltpond_rack", {Ingredient("saltrock", 4), Ingredient("ice", 4), Ingredient("twigs", 4)},
 kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_saltpond_rack_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_saltpond_rack.xml", "kyno_saltpond_rack.tex")
 
 
@@ -3204,12 +2839,20 @@ AddRecipe("kyno_exoticflower", {Ingredient("petals", 1)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_exoticflower_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_exoticflower.xml", "kyno_exoticflower.tex")
 
 
+AddRecipe("kyno_artificial_exoticflower", {Ingredient("petals", 1)},
+kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_artificial_exoticflower_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_exoticflower2.xml", "kyno_exoticflower2.tex")
+
+
 AddRecipe("kyno_rock_eruption", {Ingredient("rocks", 3), Ingredient("nitre", 2), Ingredient("flint", 3)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_rock_eruption_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_eruption.xml", "kyno_eruption.tex")
 
 
 AddRecipe("kyno_rockplug", {Ingredient("rocks", 3), Ingredient("nitre", 2), Ingredient("flint", 3)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_rockplug_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_rockplug.xml", "kyno_rockplug.tex")
+
+
+AddRecipe("kyno_rock_batboulder", {Ingredient("rocks", 5)},
+kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_rock_batboulder_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_batboulder.xml", "kyno_batboulder.tex")
 
 
 AddRecipe("kyno_antrock", {Ingredient("rocks", 3), Ingredient("nitre", 3)},
@@ -3408,6 +3051,18 @@ AddRecipe("kyno_leafystalk", {Ingredient("log", 10), Ingredient("succulent_picke
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_leafystalk_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_leafystalk.xml", "kyno_leafystalk.tex")
 
 
+AddRecipe("kyno_vine1", {Ingredient("rope", 2), Ingredient("plantmeat", 1)},
+kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_vineone_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_vine1.xml", "kyno_vine1.tex")
+
+
+AddRecipe("kyno_vine2", {Ingredient("rope", 2), Ingredient("cutgrass", 1)},
+kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_vinetwo_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_vine2.xml", "kyno_vine2.tex")
+
+
+AddRecipe("kyno_vine3", {Ingredient("rope", 2), Ingredient("cutgrass", 1)},
+kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_vinethree_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_vine3.xml", "kyno_vine3.tex")
+
+
 AddRecipe("kyno_cocoon", {Ingredient("lightbulb", 1), Ingredient("ice", 2)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_cocoon_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_cocoon.xml", "kyno_cocoon.tex")
 
@@ -3444,6 +3099,10 @@ AddRecipe("kyno_clawtree_sapling", {Ingredient("pinecone", 1)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_clawtree_sapling_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "clawpalmtree_sapling.tex")
 
 
+AddRecipe("kyno_clawtree2_sapling", {Ingredient("pinecone", 1)},
+kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_clawtree2_sapling_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_red_clawtree.xml", "kyno_red_clawtree.tex")
+
+
 AddRecipe("teatree_nut", {Ingredient("acorn", 1)},
 kyno_hamlettab, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "teatree_nut.tex")
 
@@ -3464,12 +3123,20 @@ AddRecipe("cocoonedtree_short", { burringredient, Ingredient("silk", 1)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "cocoonedtree_short_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_cocoonedtree.xml", "kyno_cocoonedtree.tex")
 
 
+AddRecipe("kyno_pomegranate_tree", {Ingredient("pomegranate", 3), Ingredient("log", 2), Ingredient("twigs", 2)},
+kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_pomegranate_tree_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_appletree.xml", "kyno_appletree.tex")
+
+
 AddRecipe("kyno_corkchest", {Ingredient("boards", 2), Ingredient("rope", 2)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_corkchest_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "corkchest.tex")
 
 
 AddRecipe("kyno_rootchest", {Ingredient("boards", 3), Ingredient("nightmarefuel", 5)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_rootchest_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "roottrunk.tex")
+
+
+AddRecipe("kyno_truerootchest", {Ingredient("boards", 3), Ingredient("livinglog", 3), Ingredient("nightmarefuel", 5)},
+kyno_hamlettab, TECH.LOST, "kyno_rootchest_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "roottrunk.tex")
 
 
 AddRecipe("kyno_hogusporkusator", {Ingredient("boards", 4), Ingredient("pigskin", 4), Ingredient("feather_robin_winter", 4)},
@@ -3660,6 +3327,46 @@ AddRecipe("kyno_oinc100", {Ingredient("goldnugget", 1)},
 RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "oinc100.tex")
 end
 
+AddRecipe("fossil_piece", {Ingredient("boneshard", 3)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "fossil_piece.tex")
+
+
+AddRecipe("bullkelp_root", {Ingredient("kelp", 3)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages1.xml", "bullkelp_root.tex")
+
+
+AddRecipe("fireflies", {Ingredient("lightbulb", 1)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "fireflies.tex")
+
+
+AddRecipe("kyno_redflies", {Ingredient("fireflies", 1), Ingredient("redgem", 1)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages/kyno_redflies.xml", "kyno_redflies.tex")
+
+
+AddRecipe("kyno_orangeflies", {Ingredient("fireflies", 1), Ingredient("orangegem", 1)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages/kyno_orangeflies.xml", "kyno_orangeflies.tex")
+
+
+AddRecipe("kyno_yellowflies", {Ingredient("fireflies", 1), Ingredient("yellowgem", 1)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages/kyno_yellowflies.xml", "kyno_yellowflies.tex")
+
+
+AddRecipe("kyno_greenflies", {Ingredient("fireflies", 1), Ingredient("greengem", 1)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages/kyno_greenflies.xml", "kyno_greenflies.tex")
+
+
+AddRecipe("kyno_blueflies", {Ingredient("fireflies", 1), Ingredient("bluegem", 1)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages/kyno_blueflies.xml", "kyno_blueflies.tex")
+
+
+AddRecipe("kyno_cyanflies", {Ingredient("fireflies", 1), Ingredient("moonrocknugget", 1)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages/kyno_cyanflies.xml", "kyno_cyanflies.tex")
+
+
+AddRecipe("kyno_purpleflies", {Ingredient("fireflies", 1), Ingredient("purplegem", 1)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages/kyno_purpleflies.xml", "kyno_purpleflies.tex")
+
+
 AddRecipe("kyno_rock_limpet", {Ingredient("rocks", 4), Ingredient("nitre", 2)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_rock_limpet_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_rock_limpet.xml", "kyno_rock_limpet.tex")
 
@@ -3772,7 +3479,7 @@ AddRecipe("kyno_chiminea", {Ingredient("cutstone", 2), Ingredient("log", 2), Ing
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_chiminea_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "chiminea.tex")
 
 
-AddRecipe("kyno_obsidian_firepit", {Ingredient("log", 10), Ingredient("redgem", 2), Ingredient("charcoal", 5)},
+AddRecipe("kyno_obsidian_firepit", {Ingredient("rocks", 12), Ingredient("redgem", 8), Ingredient("log", 2)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_obsidian_firepit_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "obsidianfirepit.tex")
 
 
@@ -3847,13 +3554,6 @@ kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_elephantcactus_placer", 1, nil, nil
 AddRecipe("kyno_elephantcactus", {Ingredient("dug_marsh_bush", 1), Ingredient("houndstooth", 3)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_elephantcactus_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "dug_elephantcactus.tex")
 
---[[
-local COFFEE_PLANT = GetModConfigData("coffee_hack")
-if COFFEE_PLANT == 0 then
-AddRecipe("dug_coffeebush", {Ingredient("ash", 5), Ingredient("dug_berrybush", 1)},
-kyno_shipwreckedtab, TECH.LOST, nil, nil, nil, 1, nil, "images/inventoryimages/dug_coffeebush.xml", "dug_coffeebush.tex")
-end
-]]--
 
 AddRecipe("kyno_fakecoffeebush", {Ingredient("ash", 1), Ingredient("dug_berrybush", 1)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_fakecoffeebush_placer", 1, nil, nil, nil, "images/inventoryimages/dug_coffeebush.xml", "dug_coffeebush.tex")
@@ -3918,121 +3618,145 @@ kyno_shipwreckedtab, TECH.SCIENCE_TWO, nil, nil, nil, 4, nil, "images/inventoryi
 AddRecipe("turf_snakeskinfloor", {Ingredient("turf_carpetfloor", 2)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_turfs_sw.xml", "turf_snakeskinfloor.tex")
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
---[[
--- Debug Mode (Recipes that currently don't have full support)
+-- (Recipes that currently don't have full support)
 local SEA_STRUCTURES = GetModConfigData("ocean_structures")
 if SEA_STRUCTURES == 0 then
 AddRecipe("mangrovetree_short", {Ingredient("log", 4), Ingredient("twigs", 4)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "mangrovetree_short_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_mangrovetree.xml", "kyno_mangrovetree.tex", IsOcean, nil, nil)
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "mangrovetree_short_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_mangrovetree.xml", "kyno_mangrovetree.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
 AddRecipe("kyno_wreck_1", {Ingredient("boards", 2)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_wreck_1_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_wreck_1.xml", "kyno_wreck_1.tex", IsOcean, nil, nil)
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_wreck_1_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_wreck_1.xml", "kyno_wreck_1.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
 AddRecipe("kyno_wreck_2", {Ingredient("boards", 2)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_wreck_2_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_wreck_2.xml", "kyno_wreck_2.tex", IsOcean, nil, nil)
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_wreck_2_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_wreck_2.xml", "kyno_wreck_2.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
 AddRecipe("kyno_wreck_3", {Ingredient("boards", 2)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_wreck_3_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_wreck_3.xml", "kyno_wreck_3.tex", IsOcean, nil, nil)
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_wreck_3_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_wreck_3.xml", "kyno_wreck_3.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
 AddRecipe("kyno_wreck_4", {Ingredient("boards", 2)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_wreck_4_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_wreck_4.xml", "kyno_wreck_4.tex", IsOcean, nil, nil)
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_wreck_4_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_wreck_4.xml", "kyno_wreck_4.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
-AddRecipe("kyno_seaweed", {Ingredient("poop", 1), Ingredient("kelp", 1)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_seaweed_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "seaweed.tex", IsOcean, nil, nil)
+AddRecipe("kyno_seaweed", {Ingredient("kelp", 1)},
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_seaweed_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "seaweed.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
-AddRecipe("kyno_brain_rock", {Ingredient("rocks", 3), Ingredient("meat", 4)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_brain_rock_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_brain_rock.xml", "kyno_brain_rock.tex", IsOcean, nil, nil)
+AddRecipe("kyno_brain_rock", {Ingredient("rocks", 3), Ingredient("meat", 4), Ingredient(GLOBAL.CHARACTER_INGREDIENT.SANITY, 50)},
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_brain_rock_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_brain_rock.xml", "kyno_brain_rock.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
 AddRecipe("wall_enforcedlimestone_item", {Ingredient("cutstone", 2), Ingredient("kelp", 2)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "wall_enforcedlimestone_item.tex", IsOcean, nil, nil)
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "wall_enforcedlimestone_item.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
 AddRecipe("kyno_rock_coral_1", {Ingredient("rocks", 4), Ingredient("flint", 4)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_rock_coral_1_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_rock_coral_1.xml", "kyno_rock_coral_1.tex", IsOcean, nil, nil)
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_rock_coral_1_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_rock_coral_1.xml", "kyno_rock_coral_1.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
 AddRecipe("kyno_rock_coral_2", {Ingredient("rocks", 4), Ingredient("flint", 4)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_rock_coral_2_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_rock_coral_2.xml", "kyno_rock_coral_2.tex", IsOcean, nil, nil)
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_rock_coral_2_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_rock_coral_2.xml", "kyno_rock_coral_2.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
 AddRecipe("kyno_rock_coral_3", {Ingredient("rocks", 4), Ingredient("flint", 4)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_rock_coral_3_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_rock_coral_3.xml", "kyno_rock_coral_3.tex", IsOcean, nil, nil)
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_rock_coral_3_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_rock_coral_3.xml", "kyno_rock_coral_3.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
 AddRecipe("kyno_redbarrel", {Ingredient("boards", 2), Ingredient("gunpowder", 2)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_redbarrel_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_redbarrel.xml", "kyno_redbarrel.tex", IsOcean, nil, nil)
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_redbarrel_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_redbarrel.xml", "kyno_redbarrel.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
 AddRecipe("kyno_bermudatriangle", {Ingredient("nightmarefuel", 4), Ingredient("transistor", 2)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_bermudatriangle_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_bermudatriangle.xml", "kyno_bermudatriangle.tex", IsOcean, nil, nil)
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_bermudatriangle_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_bermudatriangle.xml", "kyno_bermudatriangle.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
-AddRecipe("kyno_ballphinhouse", {Ingredient("cutstone", 3), Ingredient("kelp", 4), Ingredient("flint", 3)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_ballphinhouse_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "ballphinhouse.tex", IsOcean, nil, nil)
+AddRecipe("kyno_ballphinhouse", {Ingredient("cutstone", 3), Ingredient("fishmeat_small", 4), Ingredient("flint", 3)},
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_ballphinhouse_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "ballphinhouse.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
-AddRecipe("kyno_octopusking", {Ingredient("cutstone", 5), Ingredient("kelp", 5), Ingredient("goldnugget", 10)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_octopusking_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_octopusking.xml", "kyno_octopusking.tex", IsOcean, nil, nil)
+AddRecipe("kyno_octopusking", {Ingredient("cutstone", 5), Ingredient("fishmeat", 10), Ingredient("goldnugget", 10)},
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_octopusking_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_octopusking.xml", "kyno_octopusking.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
 AddRecipe("kyno_luggagechest", {Ingredient("boards", 3)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_luggagechest_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_luggagechest.xml", "kyno_luggagechest.tex", IsOcean, nil, nil)
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_luggagechest_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_luggagechest.xml", "kyno_luggagechest.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
-AddRecipe("kyno_fishinhole", {Ingredient("pondfish", 4), Ingredient("kelp", 2)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_fishinhole_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_fishinhole.xml", "kyno_fishinhole.tex", IsOcean, nil, nil)
+AddRecipe("kyno_fishinhole", {Ingredient("pondfish", 4), Ingredient("eel", 2)},
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_fishinhole_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_fishinhole.xml", "kyno_fishinhole.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
 AddRecipe("kyno_buoy", {Ingredient("lantern", 1), Ingredient("twigs", 4), Ingredient("boards", 2)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_buoy_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "buoy.tex", IsOcean, nil, nil)
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_buoy_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "buoy.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 AddRecipe("kyno_sea_chiminea", {Ingredient("cutstone", 2), Ingredient("log", 2), Ingredient("transistor", 2)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_sea_chiminea_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "sea_chiminea.tex", IsOcean, nil, nil)
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_sea_chiminea_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "sea_chiminea.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
 AddRecipe("kyno_seayard", {Ingredient("log", 4), Ingredient("cutstone", 6), Ingredient("kelp", 2)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_seayard_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "sea_yard.tex", IsOcean, nil, nil)
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_seayard_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "sea_yard.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
 AddRecipe("kyno_extractor", {Ingredient("boards", 2), Ingredient("cutstone", 2), Ingredient("transistor", 2)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_extractor_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "tar_extractor.tex", IsOcean, nil, nil)
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_extractor_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "tar_extractor.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
 AddRecipe("kyno_musselfarm", {Ingredient("boards", 1), Ingredient("twigs", 2), Ingredient("cutgrass", 2)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_musselfarm_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "mussel_stick.tex", IsOcean, nil, nil)
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_musselfarm_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "mussel_stick.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
 AddRecipe("kyno_fishfarm", {Ingredient("silk", 2), Ingredient("rope", 2), Ingredient("pondfish", 2)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_fishfarm_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "fish_farm.tex", IsOcean, nil, nil)
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_fishfarm_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "fish_farm.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
 AddRecipe("kyno_sealab", {Ingredient("cutstone", 4), Ingredient("transistor", 2), Ingredient("kelp", 2)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_sealab_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "researchlab5.tex", IsOcean, nil, nil)
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_sealab_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "researchlab5.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
-AddRecipe("kyno_krakenchest", {Ingredient("boards", 4), Ingredient("boneshard", 4)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_krakenchest_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_krakenchest.xml", "kyno_krakenchest.tex", IsOcean, nil, nil)
+AddRecipe("kyno_krakenchest", {Ingredient("boards", 4), Ingredient("boneshard", 6)},
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_krakenchest_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_krakenchest.xml", "kyno_krakenchest.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
 AddRecipe("kyno_waterchest", {Ingredient("boards", 3), Ingredient("kelp", 2)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_waterchest_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "waterchest.tex", IsOcean, nil, nil)
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_waterchest_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "waterchest.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
 AddRecipe("kyno_watercrate", {Ingredient("boards", 2), Ingredient("kelp", 2)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_watercrate_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_watercrate.xml", "kyno_watercrate.tex", IsOcean, nil, nil)
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_watercrate_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_watercrate.xml", "kyno_watercrate.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
 
 
 AddRecipe("kyno_tarpit", {Ingredient("charcoal", 2), Ingredient("ash", 2), Ingredient("boneshard", 2)},
-kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_tarpit_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_tarpit.xml", "kyno_tarpit.tex")
-end
-]]--
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_tarpit_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_tarpit.xml", "kyno_tarpit.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
+
+AddRecipe("kyno_seastack", {Ingredient("rocks", 4)},
+kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_seastack_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_seastack.xml", "kyno_seastack.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end) 
+
+AddRecipe("kyno_saltstack", {Ingredient("rocks", 2), Ingredient("saltrock", 4)},
+kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_saltstack_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_saltstack.xml", "kyno_saltstack.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end) 
+
+AddRecipe("kyno_wobster_den", {Ingredient("rocks", 4), Ingredient("wobster_sheller_land", 3)},
+kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_wobster_den_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_wobster_den.xml", "kyno_wobster_den.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end) 
+
+AddRecipe("kyno_moon_wobster_den", {Ingredient("rocks", 4), Ingredient("moonglass", 2), Ingredient("wobster_moonglass_land", 3)},
+kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_moon_wobster_den_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_wobster_den_moon.xml", "kyno_wobster_den_moon.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
+
+AddRecipe("kyno_sea_grass", {Ingredient("dug_grass", 1), Ingredient("poop", 1)},
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_sea_grass_placer", 1, nil, nil, nil, "images/inventoryimages.xml", "dug_grass.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
+
+AddRecipe("kyno_sea_reeds", {Ingredient("cutreeds", 1), Ingredient("poop", 1)},
+kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_sea_reeds_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_reeds.xml", "kyno_reeds.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
+
+AddRecipe("kyno_volcano", {Ingredient("rocks", 400), Ingredient("redgem", 20), Ingredient("oceanfish_small_8_inv", 2)},
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_volcano_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_volcano.xml", "kyno_volcano.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end) 
+
+AddRecipe("kyno_lilypad", {Ingredient("kelp", 6)},
+kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_lilypad_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_lilypad.xml", "kyno_lilypad.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end)
+
+AddRecipe("kyno_lotusplant", {Ingredient("kelp", 2), Ingredient("petals", 4)},
+kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_lotusplant_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_lotusplant.xml", "kyno_lotusplant.tex", function(pt) return not GLOBAL.TheWorld.Map:IsAboveGroundAtPoint(pt:Get()) end) end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Colour Cubes
 local function getval(fn, path)
@@ -4077,19 +3801,11 @@ end
 local DST = GLOBAL.TheSim:GetGameID() == "DST"
 if GetModConfigData("colourcubes") == 1 then
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/temperate_day_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colourcubes/temperate_dusk_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colourcubes/temperate_night_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_day_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_dusk_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_night_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_bloodmoon_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_warm_day_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_warm_dusk_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_warm_night_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_dry_day_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_dry_dusk_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_dry_night_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/purple_moon_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_bloodmoon_cc.tex") )
 	
 	AddComponentPostInit("colourcube", function(self)
 		for _,v in pairs(GLOBAL.TheWorld.event_listeners["playerdeactivated"][GLOBAL.TheWorld]) do
@@ -4131,16 +3847,9 @@ if GetModConfigData("colourcubes") == 1 then
 elseif GetModConfigData("colourcubes") == 2 then
 local DST = GLOBAL.TheSim:GetGameID() == "DST"
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/sw_mild_day_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_mild_dusk_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_mild_night_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_wet_day_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_wet_dusk_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_wet_night_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/sw_green_day_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colourcubes/sw_green_dusk_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_dry_day_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_dry_dusk_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_dry_night_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/purple_moon_cc.tex") )
 
 	AddComponentPostInit("colourcube", function(self)
@@ -4150,8 +3859,8 @@ local DST = GLOBAL.TheSim:GetGameID() == "DST"
 					autumn =
 					{
 						day = resolvefilepath("images/colourcubes/sw_mild_day_cc.tex"),
-						dusk = resolvefilepath("images/colourcubes/SW_mild_day_cc.tex"),
-						night = resolvefilepath("images/colourcubes/SW_mild_day_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/sw_mild_day_cc.tex"),
+						night = resolvefilepath("images/colourcubes/sw_mild_day_cc.tex"),
 						full_moon = resolvefilepath("images/colourcubes/purple_moon_cc.tex"),
 					},
 					winter =
@@ -4185,9 +3894,9 @@ local DST = GLOBAL.TheSim:GetGameID() == "DST"
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/sw_mild_day_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/snow_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_day_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_bloodmoon_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_warm_day_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/purple_moon_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_bloodmoon_cc.tex") )
 
 	AddComponentPostInit("colourcube", function(self)
 		for _,v in pairs(GLOBAL.TheWorld.event_listeners["playerdeactivated"][GLOBAL.TheWorld]) do
@@ -4233,13 +3942,10 @@ local DST = GLOBAL.TheSim:GetGameID() == "DST"
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/night03_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_day_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_dusk_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_night_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_warm_day_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_warm_dusk_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_warm_night_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_dry_day_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_dry_dusk_cc.tex") )
-	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_dry_night_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/purple_moon_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_bloodmoon_cc.tex") )
 	
@@ -4282,6 +3988,56 @@ local DST = GLOBAL.TheSim:GetGameID() == "DST"
 	end)
 elseif GetModConfigData("colourcubes") == 5 then
 local DST = GLOBAL.TheSim:GetGameID() == "DST"
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/sw_mild_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_mild_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_wet_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_wet_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_warm_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_warm_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_dry_day_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/SW_dry_dusk_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/purple_moon_cc.tex") )
+	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_bloodmoon_cc.tex") )
+	
+	AddComponentPostInit("colourcube", function(self)
+		for _,v in pairs(GLOBAL.TheWorld.event_listeners["playerdeactivated"][GLOBAL.TheWorld]) do
+			if getval(v,"OnOverrideCCTable") then
+				setval(v, "OnOverrideCCTable.UpdateAmbientCCTable.SEASON_COLOURCUBES",{
+					autumn =
+					{
+						day = resolvefilepath("images/colourcubes/sw_mild_day_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/SW_mild_dusk_cc.tex"),
+						night = resolvefilepath("images/colourcubes/SW_mild_dusk_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
+					},
+					winter =
+					{
+						day = resolvefilepath("images/colourcubes/SW_wet_day_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/SW_wet_dusk_cc.tex"),
+						night = resolvefilepath("images/colourcubes/SW_wet_dusk_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
+					},
+					spring =
+					{
+						day = resolvefilepath("images/colourcubes/pork_warm_day_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/pork_warm_dusk_cc.tex"),
+						night = resolvefilepath("images/colourcubes/pork_warm_dusk_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
+					},
+					summer =
+					{
+						day = resolvefilepath("images/colourcubes/SW_dry_day_cc.tex"),
+						dusk = resolvefilepath("images/colourcubes/SW_dry_dusk_cc.tex"),
+						night = resolvefilepath("images/colourcubes/SW_dry_dusk_cc.tex"),
+						full_moon = resolvefilepath("images/colourcubes/pork_cold_bloodmoon_cc.tex"),
+					},
+				})
+				break
+			end
+		end
+	end)
+elseif GetModConfigData("colourcubes") == 6 then
+local DST = GLOBAL.TheSim:GetGameID() == "DST"
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/lavaarena2_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/pork_cold_bloodmoon_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/purple_moon_cc.tex") )
@@ -4323,7 +4079,7 @@ local DST = GLOBAL.TheSim:GetGameID() == "DST"
 			end
 		end
 	end)
-elseif GetModConfigData("colourcubes") == 6 then
+elseif GetModConfigData("colourcubes") == 7 then
 local DST = GLOBAL.TheSim:GetGameID() == "DST"
 	table.insert( Assets, Asset("IMAGE", "images/colourcubes/quagmire_cc.tex") )
 	table.insert( Assets, Asset("IMAGE","images/colourcubes/purple_moon_cc.tex") )
@@ -4398,5 +4154,364 @@ function Map:CanDeploySandbagAtPoint(pt, inst, ...)
         end
     end
     return _CanDeploySandbagAtPoint(self, pt, inst, ...)
+end
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- I Took the turfs code from eXiGe's mod. I hope he doesn't get mad at me xd
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local turf_atlas = MODROOT.."images/inventoryimages/kyno_turfs_sw.xml"
+    for _, turf in pairs({"ash", "magmafield", "volcano", "volcano_rock", "jungle", "meadow", "snakeskinfloor", "beach", "foundation", "fields", "cobbleroad", "pigruins", "lawn"}) do
+        local turf_name = "turf_"..turf
+        AddPrefabPostInit(turf_name, function(inst)
+            inst.components.inventoryitem.imagename = turf_name
+            inst.components.inventoryitem.atlasname = turf_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local kyno_turf_atlas = MODROOT.."images/inventoryimages/kyno_turfs_sw_2.xml"
+    for _, turf in pairs({"tidalmarsh"}) do
+        local kyno_turf_name = "turf_"..turf
+        AddPrefabPostInit(kyno_turf_name, function(inst)
+            inst.components.inventoryitem.imagename = kyno_turf_name
+            inst.components.inventoryitem.atlasname = kyno_turf_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local kyno_turf_ham_atlas = MODROOT.."images/inventoryimages/kyno_turfs_ham.xml"
+    for _, turf in pairs({"rainforest", "plains", "deepjungle", "bog", "mossy_blossom", "gasjungle", "beard_hair", "antcave", "batcave"}) do
+        local kyno_turf_ham_name = "turf_"..turf
+        AddPrefabPostInit(kyno_turf_ham_name, function(inst)
+            inst.components.inventoryitem.imagename = kyno_turf_ham_name
+            inst.components.inventoryitem.atlasname = kyno_turf_ham_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local kyno_turf_gorge_atlas = MODROOT.."images/inventoryimages/kyno_turfs_gorge.xml"
+    for _, turf in pairs({"pinkpark", "pinkstone", "greyforest", "stonecity", "browncarpet"}) do
+        local kyno_turf_gorge_name = "turf_"..turf
+        AddPrefabPostInit(kyno_turf_gorge_name, function(inst)
+            inst.components.inventoryitem.imagename = kyno_turf_gorge_name
+            inst.components.inventoryitem.atlasname = kyno_turf_gorge_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local kyno_turf_forge_atlas = MODROOT.."images/inventoryimages/kyno_turfs_forge.xml"
+    for _, turf in pairs({"forgeroad", "forgerock", "ruinsbrick", "ruinsbricktrim", "ruinstile", "ruinstiletrim", "ruinstrim", "ruinstrimtrim"}) do
+        local kyno_turf_forge_name = "turf_"..turf
+        AddPrefabPostInit(kyno_turf_forge_name, function(inst)
+            inst.components.inventoryitem.imagename = kyno_turf_forge_name
+            inst.components.inventoryitem.atlasname = kyno_turf_forge_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local item_atlas = MODROOT.."images/inventoryimages/kyno_minisign_icons.xml"
+    for _, item in pairs({"coconut", "wall_enforcedlimestone_item", "wall_limestone_item", "jungletreeseed", "seashell", "kyno_sandbagsmall_item", "dug_coffeebush", "coffee", "kyno_coffeebeans", "kyno_coffeebeans_cooked", "packim_fishbone", "piratepack"}) do
+        local item_name = item
+        AddPrefabPostInit(item_name, function(inst)
+            inst.components.inventoryitem.imagename = item_name
+            inst.components.inventoryitem.atlasname = item_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local item2_atlas = MODROOT.."images/inventoryimages/kyno_minisign_icons_2.xml"
+    for _, item2 in pairs({"teatree_nut", "burr", "hedge_block_item", "hedge_cone_item", "hedge_layered_item", "ro_bin_gizzard_stone", "kyno_relic_1", "kyno_relic_2", "kyno_relic_3", "kyno_relic_4", "kyno_relic_5", "kyno_pherostone", "kyno_oinc1", "kyno_oinc10", "kyno_oinc100"}) do
+        local item2_name = item2
+        AddPrefabPostInit(item2_name, function(inst)
+            inst.components.inventoryitem.imagename = item2_name
+            inst.components.inventoryitem.atlasname = item2_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local item3_atlas = MODROOT.."images/inventoryimages/wall_pig_ruins_item.xml"
+    for _, item3 in pairs({"wall_pig_ruins_item"}) do
+        local item3_name = item3
+        AddPrefabPostInit(item3_name, function(inst)
+            inst.components.inventoryitem.imagename = item3_name
+            inst.components.inventoryitem.atlasname = item3_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local item4_atlas = MODROOT.."images/inventoryimages/kyno_minisign_icons_3.xml"
+    for _, item4 in pairs({"hedge_block_aged_item", "hedge_cone_aged_item", "hedge_layered_aged_item"}) do
+        local item4_name = item4
+        AddPrefabPostInit(item4_name, function(inst)
+            inst.components.inventoryitem.imagename = item4_name
+            inst.components.inventoryitem.atlasname = item4_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local item5_atlas = MODROOT.."images/inventoryimages/kyno_irongate_item.xml"
+    for _, item5 in pairs({"kyno_irongate_item"}) do
+        local item5_name = item5
+        AddPrefabPostInit(item5_name, function(inst)
+            inst.components.inventoryitem.imagename = item5_name
+            inst.components.inventoryitem.atlasname = item5_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local item6_atlas = MODROOT.."images/inventoryimages/kyno_turfs_sw_2.xml"
+    for _, item6 in pairs({"wall_enforcedlimestone_land_item"}) do
+        local item6_name = item6
+        AddPrefabPostInit(item6_name, function(inst)
+            inst.components.inventoryitem.imagename = item6_name
+            inst.components.inventoryitem.atlasname = item6_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local item7_atlas = MODROOT.."images/inventoryimages/kyno_moltenfence_item.xml"
+    for _, item7 in pairs({"kyno_moltenfence_item"}) do
+        local item7_name = item7
+        AddPrefabPostInit(item7_name, function(inst)
+            inst.components.inventoryitem.imagename = item7_name
+            inst.components.inventoryitem.atlasname = item7_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local item8_atlas = MODROOT.."images/inventoryimages/kyno_legacy_inventoryimages.xml"
+    for _, item8 in pairs({"wall_legacy_moonrock_item", "wall_legacyruins_item"}) do
+        local item8_name = item8
+        AddPrefabPostInit(item8_name, function(inst)
+            inst.components.inventoryitem.imagename = item8_name
+            inst.components.inventoryitem.atlasname = item8_atlas
+        end)
+    end
+end
+
+-- Wall Code
+local function IsNearOther(other, pt, min_spacing_sq)
+    local spacing_sq = min_spacing_sq
+    if other:HasTag("wall") then
+        spacing_sq = 1
+    elseif other.deploy_extra_spacing then
+        spacing_sq = math.max(other.deploy_extra_spacing * other.deploy_extra_spacing, min_spacing_sq)
+    end
+    return other:GetDistanceSqToPoint(pt.x, 0, pt.z) < spacing_sq
+end
+
+require("components/map")
+local Map = _G.Map
+local MapIsDeployPointClear = Map.IsDeployPointClear
+function Map:IsDeployPointClear(pt, inst, min_spacing, min_spacing_sq_fn, near_other_fn)
+    return MapIsDeployPointClear(Map, pt, inst, min_spacing, min_spacing_sq_fn, near_other_fn or IsNearOther)
+end
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+local KEEP_FOOD = GetModConfigData("keep_food_on_cookpot")
+-- Finished food will not spoil on crock pot 
+if KEEP_FOOD == 1 then
+    AddPrefabPostInit("cookpot", function(inst)
+        if inst.components.stewer then
+            inst.components.stewer.onspoil = function() 
+                inst.components.stewer.spoiltime = 1
+                inst.components.stewer.targettime = GLOBAL.GetTime()
+                inst.components.stewer.product_spoilage = 0
+            end
+        end
+    end)
+end
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+local containers = require "containers" -- Fix for containers.
+
+local params = {}
+
+local containers_widgetsetup_base = containers.widgetsetup
+function containers.widgetsetup(container, prefab, data, ...)
+    local t = params[prefab or container.inst.prefab]
+    if t ~= nil then
+        for k, v in pairs(t) do
+            container[k] = v
+        end
+        container:SetNumSlots(container.widget.slotpos ~= nil and #container.widget.slotpos or 0)
+    else
+        containers_widgetsetup_base(container, prefab, data, ...)
+    end
+end
+
+params.kyno_luggagechest = -- Fix for luggagechest aka Steamer Trunk.
+{
+    widget =
+    {
+        slotpos = {},
+        animbank = "ui_chest_3x3",
+        animbuild = "ui_chest_3x3",
+        pos = GLOBAL.Vector3(0, 200, 0),
+        side_align_tip = 160,
+    },
+    type = "chest",
+}
+for y = 2, 0, -1 do
+    for x = 0, 2 do
+        table.insert(params.kyno_luggagechest.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
+    end
+end
+
+params.kyno_waterchest = -- Fix for waterchest aka Sea Chest.
+{
+    widget =
+    {
+        slotpos = {},
+        animbank = "ui_chest_3x3",
+        animbuild = "ui_chest_3x3",
+        pos = GLOBAL.Vector3(0, 200, 0),
+        side_align_tip = 160,
+    },
+    type = "chest",
+}
+for y = 2, 0, -1 do
+    for x = 0, 2 do
+        table.insert(params.kyno_waterchest.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
+    end
+end
+
+params.kyno_antchest = -- Fix for antchest aka Honey Chest.
+{
+    widget =
+    {
+        slotpos = {},
+        animbank = "ui_chest_3x3",
+        animbuild = "ui_chest_3x3",
+        pos = GLOBAL.Vector3(0, 200, 0),
+        side_align_tip = 160,
+    },
+    type = "chest",
+}
+for y = 2, 0, -1 do
+    for x = 0, 2 do
+        table.insert(params.kyno_antchest.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
+    end
+end
+
+params.kyno_corkchest = -- Fix for corkchest aka Cork Barrel.
+{
+    widget =
+    {
+        slotpos = {},
+        animbank = "ui_chest_3x3",
+        animbuild = "ui_chest_3x3",
+        pos = GLOBAL.Vector3(0, 200, 0),
+        side_align_tip = 160,
+    },
+    type = "chest",
+}
+for y = 2, 0, -1 do
+    for x = 0, 2 do
+        table.insert(params.kyno_corkchest.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
+    end
+end
+
+params.packim = -- Fix for packim aka Packim Baggims
+{
+    widget =
+    {
+        slotpos = {},
+        animbank = "ui_chest_3x3",
+        animbuild = "ui_chest_3x3",
+        pos = GLOBAL.Vector3(0, 200, 0),
+        side_align_tip = 160,
+    },
+    type = "chester",
+}
+for y = 2, 0, -1 do
+    for x = 0, 2 do
+        table.insert(params.packim.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
+    end
+end
+
+params.kyno_safechest = -- Fix for safechest aka Safe
+{
+    widget =
+    {
+        slotpos = {},
+        animbank = "ui_chest_3x3",
+        animbuild = "ui_chest_3x3",
+        pos = GLOBAL.Vector3(0, 200, 0),
+        side_align_tip = 160,
+    },
+    type = "chest",
+}
+for y = 2, 0, -1 do
+    for x = 0, 2 do
+        table.insert(params.kyno_safechest.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
+    end
+end
+
+params.ro_bin = -- Fix for ro_bin aka Ro Bin
+{
+    widget =
+    {
+        slotpos = {},
+        animbank = "ui_chester_shadow_3x4",
+        animbuild = "ui_chester_shadow_3x4",
+        pos = GLOBAL.Vector3(0, 200, 0),
+        side_align_tip = 160,
+    },
+    type = "chester",
+}
+for y = 2, 0, -1 do
+    for x = 0, 2 do
+        table.insert(params.ro_bin.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
+    end
+end
+
+params.kyno_skullchest = -- Fix for skullchest aka Skull Chest
+{
+    widget =
+    {
+        slotpos = {},
+        animbank = "ui_chest_3x3",
+        animbuild = "ui_chest_3x3",
+        pos = GLOBAL.Vector3(0, 200, 0),
+        side_align_tip = 160,
+    },
+    type = "chest",
+}
+for y = 2, 0, -1 do
+    for x = 0, 2 do
+        table.insert(params.kyno_skullchest.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
+    end
+end
+
+params.kyno_ornatechest = -- Fix for ornatechest aka Ornate Chest
+{
+    widget =
+    {
+        slotpos = {},
+        animbank = "ui_chest_3x3",
+        animbuild = "ui_chest_3x3",
+        pos = GLOBAL.Vector3(0, 200, 0),
+        side_align_tip = 160,
+    },
+    type = "chest",
+}
+for y = 2, 0, -1 do
+    for x = 0, 2 do
+        table.insert(params.kyno_ornatechest.widget.slotpos, GLOBAL.Vector3(80 * x - 80 * 2 + 80, 80 * y - 80 * 2 + 80, 0))
+    end
+end
+
+for k, v in pairs(params) do
+    containers.MAXITEMSLOTS = math.max(containers.MAXITEMSLOTS, v.widget.slotpos ~= nil and #v.widget.slotpos or 0)
 end
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

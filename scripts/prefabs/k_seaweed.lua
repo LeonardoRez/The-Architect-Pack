@@ -43,6 +43,7 @@ local function fn()
 	inst:AddTag("structure")
 	inst:AddTag("seaweed")
 	inst:AddTag("aquatic")
+	inst:AddTag("wet")
 	inst:AddTag("ignorewalkableplatforms")
 	
 	inst.entity:SetPristine()

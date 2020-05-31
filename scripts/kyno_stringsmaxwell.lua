@@ -265,7 +265,24 @@ for i, maxwell in ipairs(kyno_maxwell) do
 					inst.AnimState:PushAnimation("idle_loop", true)
 				elseif math.random() < 0.050 then
 					inst.AnimState:PlayAnimation("dialog_loop")
-					inst.components.talker:Say("Well well, if it isn't %s!")
+					local function find_nearest_player()
+					local x,y,z = inst.Transform:GetWorldPosition()
+					local ents = TheSim:FindEntities(x,y,z, 30)
+					local closest = nil
+					local closeness = nil
+						for k,v in pairs(ents) do
+							if v:HasTag("player") then
+								if closest == nil or inst:GetDistanceSqToInst(v) < closeness then
+									closest = v
+									closeness = inst:GetDistanceSqToInst(v)
+									end
+								end
+							end
+						return closest
+					end
+					local player = find_nearest_player()
+					local name = player and "you" or player.name
+					inst.components.talker:Say(string.format("Well well, if it isn't %s!", name))
 					inst.SoundEmitter:PlaySound("dontstarve/maxwell/talk_LP_world6", "talk_LP")
 					inst:DoTaskInTime(2, function() inst.SoundEmitter:KillSound("talk_LP") end)
 					inst.AnimState:PushAnimation("idle_loop", true)

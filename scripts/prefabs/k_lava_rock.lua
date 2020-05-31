@@ -13,9 +13,9 @@ local prefabs =
 
 local rocc = {"idle", "idle2", "idle3", "idle4", "idle5", "idle6", "idle7"}
 
-local function setpiecetype(inst, piece)
-    if inst.piece == nil or (piece ~= nil and inst.piece ~= piece) then
-        inst.piece = piece or (math.random() or rocc[math.random(#rocc)])
+local function setpiecetype(inst, name)
+    if inst.piece == nil or (name ~= nil and inst.piece ~= name) then
+        inst.piece = name or (math.random() or rocc[math.random(#rocc)])
         inst.AnimState:PlayAnimation(inst.piece)
     end
 end

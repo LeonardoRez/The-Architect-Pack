@@ -558,10 +558,10 @@ local function MakeWall(name, anims, isdoor, klaussackkeyid)
             inst:ListenForEvent("death", onhammered)
 			]]--
 
-            MakeMediumBurnable(inst)
-            MakeMediumPropagator(inst)
-            inst.components.burnable.flammability = .5
-            inst.components.burnable.nocharring = true
+            -- MakeMediumBurnable(inst)
+            -- MakeMediumPropagator(inst)
+            -- inst.components.burnable.flammability = .5
+            -- inst.components.burnable.nocharring = true
 
             MakeHauntableWork(inst)
         end
@@ -708,11 +708,11 @@ local function MakeInvItem(name, placement, animdata, isdoor)
         inst.components.deployable.ondeploy = ondeploywall
         inst.components.deployable:SetDeployMode(DEPLOYMODE.WALL)
 
-        MakeSmallBurnable(inst, TUNING.MED_BURNTIME)
-        MakeSmallPropagator(inst)
+        -- MakeSmallBurnable(inst, TUNING.MED_BURNTIME)
+        -- MakeSmallPropagator(inst)
 
-        inst:AddComponent("fuel")
-        inst.components.fuel.fuelvalue = TUNING.SMALL_FUEL
+        -- inst:AddComponent("fuel")
+        -- inst.components.fuel.fuelvalue = TUNING.SMALL_FUEL
 
         MakeHauntableLaunch(inst)
 

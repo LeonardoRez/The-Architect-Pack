@@ -14,6 +14,9 @@ local assets =
 	
 	Asset("IMAGE", "images/minimapimages/kyno_saltpond.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_saltpond.xml"),
+	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
+	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),
 }
 
 local prefabs =
@@ -23,6 +26,8 @@ local prefabs =
 	"saltrock",
 }
 
+local SALT_REGROW_TIME = 1920
+
 local function onhammered(inst, worker)
 	inst.components.lootdropper:DropLoot()
 	SpawnPrefab("collapse_small").Transform:SetPosition(inst.Transform:GetWorldPosition())
@@ -31,7 +36,7 @@ local function onhammered(inst, worker)
 end
 
 local function onhit(inst, worker)
-    inst.AnimState:PlayAnimation("idle", true)
+    inst.AnimState:PlayAnimation("splash")
     inst.AnimState:PushAnimation("idle", true)
 end
 
@@ -39,14 +44,34 @@ local function onbuilt(inst)
     inst.AnimState:PushAnimation("idle", true)
 end
 
-local function onfar(inst)
-	inst.AnimState:PlayAnimation("picked")
-	inst.AnimState:PushAnimation("placer", true)
+local function onbuilt_rack(inst)
+    inst.AnimState:PushAnimation("place", true)
 end
 
-local function onnear(inst)
-	inst.AnimState:PlayAnimation("grow")
-	inst.AnimState:PushAnimation("idle", true)
+local function onpickedfn(inst)
+    inst.SoundEmitter:PlaySound("dontstarve/wilson/pickup_lichen")
+    inst.AnimState:PlayAnimation("picked", false)
+end
+
+local function onregenfn(inst)
+    inst.AnimState:PlayAnimation("grow")
+    inst.AnimState:PushAnimation("idle", true)
+end
+
+local function makeemptyfn(inst)
+    inst.AnimState:PlayAnimation("picked", true)
+end
+
+local rack_defs = {
+	rack = { { 0, 0, 0 } },
+}
+
+local function DoSplash(inst)
+if inst:HasTag("saltpondrack") then
+	inst:DoTaskInTime(4+math.random()*5, function() DoSplash(inst) end)
+		inst.AnimState:PlayAnimation("splash")
+		inst.AnimState:PushAnimation("idle", true)
+	end
 end
 
 local function pondfn()
@@ -130,7 +155,7 @@ local function saltpondfn()
 	inst:AddTag("watersource")
     inst:AddTag("antlion_sinkhole_blocker")
     inst:AddTag("birdblocker")
-    inst:AddTag("saltpond")
+    inst:AddTag("saltpondrack")
 
     inst.no_wet_prefix = true
 	
@@ -140,10 +165,18 @@ local function saltpondfn()
         return inst
     end
 	
-	local function createRack(inst)
-	inst.saltrackprefab = SpawnPrefab("kyno_salt_rack")
-	inst.saltrackprefab.entity:SetParent(inst.entity)
-	end
+	local decor_items = rack_defs
+		inst.decor = {}
+		for item_name, data in pairs(decor_items) do
+			for l, offset in pairs(data) do
+				local item_inst = SpawnPrefab("kyno_salt_rack")
+				item_inst.AnimState:PlayAnimation("place")
+				item_inst.AnimState:PushAnimation("idle", true)
+				item_inst.entity:SetParent(inst.entity)
+				item_inst.Transform:SetPosition(offset[1], offset[2], offset[3])
+				table.insert(inst.decor, item_inst)
+			end
+		end
 	
 	inst:AddComponent("lootdropper")
     inst:AddComponent("inspectable")
@@ -158,9 +191,8 @@ local function saltpondfn()
 	
 	inst:ListenForEvent("onbuilt", onbuilt)
 	
-	inst:DoTaskInTime(FRAMES * 1, createRack)
-	
 	MakeHauntableWork(inst)
+	DoSplash(inst)
 	
     return inst
 end
@@ -173,13 +205,15 @@ local function rackfn()
     inst.entity:AddSoundEmitter()
 	inst.entity:AddNetwork()
     
+	MakeObstaclePhysics(inst, 1.95)
+	
     inst.AnimState:SetBank("quagmire_salt_rack")
     inst.AnimState:SetBuild("quagmire_salt_rack")
     inst.AnimState:PlayAnimation("idle", true)
 	
     inst.persists = false
 	
-	inst:AddTag("NOCLICK")
+	inst:AddTag("drying_rack_salt")
 	
 	inst.entity:SetPristine()
 
@@ -187,10 +221,18 @@ local function rackfn()
         return inst
     end
 	
-	inst:AddComponent("playerprox")
-    inst.components.playerprox:SetDist(5, 6)
-    inst.components.playerprox:SetOnPlayerNear(onnear)
-    inst.components.playerprox:SetOnPlayerFar(onfar)
+	inst.AnimState:SetTime(math.random() * 2)
+	
+	inst:AddComponent("inspectable")
+	
+	inst:AddComponent("pickable")
+    inst.components.pickable.picksound = "dontstarve_DLC002/common/limpet_harvest"
+    inst.components.pickable:SetUp("saltrock", SALT_REGROW_TIME)
+    inst.components.pickable.onregenfn = onregenfn
+    inst.components.pickable.onpickedfn = onpickedfn
+    inst.components.pickable.makeemptyfn = makeemptyfn
+	
+	inst:ListenForEvent("onbuilt", onbuilt_rack)
 	
     return inst
 end

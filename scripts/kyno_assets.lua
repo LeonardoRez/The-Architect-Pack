@@ -149,6 +149,9 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_buriedtreasure.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_buriedtreasure.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_coffee.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_coffee.xml"),
+	
 	Asset("IMAGE", "images/inventoryimages/kyno_krissure.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_krissure.xml"),
 	
@@ -280,6 +283,9 @@ Assets = {
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_exoticflower.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_exoticflower.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_exoticflower2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_exoticflower2.xml"),
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_eruption.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_eruption.xml"),
@@ -440,6 +446,9 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_vine2.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_vine2.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_vine3.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_vine3.xml"),
+	
 	Asset("IMAGE", "images/inventoryimages/hedge_block_aged_item.tex"),
 	Asset("ATLAS", "images/inventoryimages/hedge_block_aged_item.xml"),
 	
@@ -517,17 +526,6 @@ Assets = {
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_beaststatue2_left.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_beaststatue2_left.xml"),
-	
-	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
-	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),
-	
-	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC003.fev"),
-	Asset("SOUND", "sound/DLC003_AMB_stream.fsb"),
-	Asset("SOUND", "sound/DLC003_music_stream.fsb"),
-	Asset("SOUND", "sound/DLC003_sfx.fsb"),
-	
-	Asset("SOUNDPACKAGE", "sound/dontstarve_wagstaff.fev"),
-	Asset("SOUND", "sound/dontstarve_wagstaff.fsb"),
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_potatohamlet.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_potatohamlet.xml"),
@@ -789,6 +787,9 @@ Assets = {
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_healblossom.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_healblossom.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_healblossom2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_healblossom2.xml"),
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_lavahole.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_lavahole.xml"),
@@ -1399,9 +1400,6 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_shadowportal.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_shadowportal.xml"),
 	
-	Asset("SOUNDPACKAGE", "sound/shadwell_sfx.fev"),
-	Asset("SOUND", "sound/shadwell_sfx.fsb"),
-	
 	Asset("IMAGE", "images/inventoryimages/kyno_meatrack_hermit.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_meatrack_hermit.xml"),
 	
@@ -1753,11 +1751,94 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_inventoryimages_dst.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_inventoryimages_dst.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_salt_lick.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_salt_lick.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_redflies.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_redflies.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_orangeflies.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_orangeflies.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_yellowflies.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_yellowflies.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_greenflies.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_greenflies.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_blueflies.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_blueflies.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_cyanflies.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_cyanflies.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_purpleflies.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_purpleflies.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_seastack.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_seastack.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_saltstack.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_saltstack.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_wobster_den.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_wobster_den.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_wobster_den_moon.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_wobster_den_moon.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_volcano.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_volcano.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_red_clawtree.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_red_clawtree.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_lilypad.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_lilypad.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_lotusplant.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_lotusplant.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_teslapost.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_teslapost.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_appletree.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_appletree.xml"),
+	
+	Asset("IMAGE", "images/minimapimages/kyno_appletree.tex"),
+	Asset("ATLAS", "images/minimapimages/kyno_appletree.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_wigfridge.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_wigfridge.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_batboulder.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_batboulder.xml"),
+	
+	-- Sound Assets --
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
+	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),
+	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC003.fev"),
+	Asset("SOUND", "sound/DLC003_AMB_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_music_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_sfx.fsb"),
+	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_wagstaff.fev"),
+	Asset("SOUND", "sound/dontstarve_wagstaff.fsb"),
+	
+	Asset("SOUNDPACKAGE", "sound/shadwell_sfx.fev"),
+	Asset("SOUND", "sound/shadwell_sfx.fsb"),
+	
 	-- Unlisted Assets --
 	Asset("ANIM", "anim/mod_turfs.zip"),
-	Asset("ANIM", "anim/kyno_catalogues.zip"), -- Unused.
 	Asset("ANIM", "anim/kyno_turfs.zip"),
 	Asset("ANIM", "anim/kyno_turfs2.zip"),
+	Asset("ANIM", "anim/kyno_turfs3.zip"),
+	Asset("ANIM", "anim/kyno_turfs4.zip"),
+	Asset("ANIM", "anim/leaves_canopy.zip"),
+	Asset("ANIM", "anim/leaves_canopy_test.zip"),
+	Asset("ANIM", "anim/leaves_canopy2.zip"),
+	Asset("ANIM", "anim/kyno_canopy_shadow.zip"),
 	-- Volcano Assets --
 	Asset("ANIM", "anim/dragoon_den.zip"),
 	Asset("ANIM", "anim/cactus_volcano.zip"),
@@ -1958,7 +2039,7 @@ Assets = {
 	Asset("ANIM", "anim/claw_tree_short.zip"),
 	Asset("ANIM", "anim/claw_tree_tall.zip"),
 	Asset("ANIM", "anim/clawling.zip"),
-	Asset("ANIM", "anim/clawling2.zip"),
+	Asset("ANIM", "anim/red_clawling.zip"),
 	Asset("ANIM", "anim/aloe.zip"),
 	Asset("ANIM", "anim/asparagus2.zip"),
 	Asset("ANIM", "anim/pillar_tree.zip"),
@@ -1969,6 +2050,7 @@ Assets = {
 	Asset("ANIM", "anim/copycreep_build.zip"),
 	Asset("ANIM", "anim/vine01_build.zip"),
 	Asset("ANIM", "anim/vine02_build.zip"),
+	Asset("ANIM", "anim/vines_rainforest_border.zip"), 
 	Asset("ANIM", "anim/hedge.zip"),
 	Asset("ANIM", "anim/hedge1_build.zip"),
 	Asset("ANIM", "anim/hedge2_build.zip"),
@@ -2054,6 +2136,11 @@ Assets = {
 	Asset("ANIM", "anim/pig_coin.zip"),
 	Asset("ANIM", "anim/pig_coin_silver.zip"),
 	Asset("ANIM", "anim/pig_coin_jade.zip"),
+	Asset("ANIM", "anim/claw_tree_build2.zip"),
+	Asset("ANIM", "anim/claw_tree_normal2.zip"),
+	Asset("ANIM", "anim/claw_tree_short2.zip"),
+	Asset("ANIM", "anim/claw_tree_tall2.zip"),
+	Asset("ANIM", "anim/crabapple_tree_build.zip"),
 	-- The Gorge Content --
 	Asset("ANIM", "anim/quagmire_altar_statue1_left.zip"),
 	Asset("ANIM", "anim/quagmire_altar_statue2_left.zip"),
@@ -2065,14 +2152,12 @@ Assets = {
 	Asset("ANIM", "anim/quagmire_syrup_hanger.zip"),
 	Asset("ANIM", "anim/quagmire_potsmall_hanger.zip"),
 	Asset("ANIM", "anim/kyno_swamphouses.zip"),
-	Asset("ANIM", "anim/kyno_turfs3.zip"),
 	Asset("ANIM", "anim/kyno_lamp_post.zip"),
 	Asset("ANIM", "anim/kyno_lamp_post_short.zip"),
 	-- The Forge Content --
 	Asset("ANIM", "anim/kyno_battlestandard_heal_build.zip"),
 	Asset("ANIM", "anim/kyno_banner.zip"),
 	Asset("ANIM", "anim/kyno_moltenfence.zip"),
-	Asset("ANIM", "anim/kyno_turfs4.zip"),
 	-- Base Game Content --
 	Asset("ANIM", "anim/kyno_cavehole.zip"),
 	Asset("ANIM", "anim/kyno_sculpture_knight.zip"),
@@ -2110,6 +2195,9 @@ Assets = {
 	Asset("ANIM", "anim/maxwell_throne.zip"),
 	Asset("ANIM", "anim/maxwell_endgame.zip"),
 	Asset("ANIM", "anim/shadow_portal.zip"),
+	Asset("ANIM", "anim/kyno_salt_lick.zip"),
+	Asset("ANIM", "anim/tesla_tree_short.zip"),
+	Asset("ANIM", "anim/kyno_wigfridge.zip"),
 	-- Caves Content --
 	Asset("ANIM", "anim/kyno_algae_bush.zip"),
 	Asset("ANIM", "anim/kyno_monkey_barrel.zip"),
@@ -2146,4 +2234,9 @@ Assets = {
 	Asset("ANIM", "anim/graves_water.zip"),
     Asset("ANIM", "anim/graves_water_crate.zip"),
 	Asset("ANIM", "anim/tar_pit.zip"),
+	Asset("ANIM", "anim/grass_inwater.zip"),
+	Asset("ANIM", "anim/reeds_water_build.zip"),
+	Asset("ANIM", "anim/volcano.zip"),
+	Asset("ANIM", "anim/lily_pad.zip"),
+	Asset("ANIM", "anim/lotus.zip"),
 }

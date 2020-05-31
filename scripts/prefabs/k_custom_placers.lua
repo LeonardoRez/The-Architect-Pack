@@ -97,4 +97,7 @@ MakePlacer("kyno_stalagmitetall_med_placer", "rock_stalagmite_tall", "rock_stala
 MakePlacer("kyno_stalagmitetall_low_placer", "rock_stalagmite_tall", "rock_stalagmite_tall", "low_2"),
 MakePlacer("kyno_spiderhole_placer", "spider_mound", "spider_mound", "full"),
 MakePlacer("kyno_slurtlehole_placer", "slurtle_mound", "slurtle_mound", "idle"),
-MakePlacer("kyno_bananatree_placer", "cave_banana_tree", "cave_banana_tree", "idle_loop")
+MakePlacer("kyno_bananatree_placer", "cave_banana_tree", "cave_banana_tree", "idle_loop"),
+MakePlacer("kyno_vine1_placer", "exitrope", "copycreep_build", "idle"),
+MakePlacer("kyno_vine2_placer", "exitrope", "vine01_build", "idle"),
+MakePlacer("kyno_vine3_placer", "vine_rainforest_border", "vine_rainforest_border", "idle_1")

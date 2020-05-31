@@ -76,6 +76,7 @@ local function fn()
 	
 	inst:AddTag("structure")
 	inst:AddTag("explosive")
+	inst:AddTag("wet")
 	
 	inst.entity:SetPristine()
 

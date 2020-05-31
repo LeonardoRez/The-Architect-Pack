@@ -203,6 +203,8 @@ local function fn()
     inst.iscollapsed = net_bool(inst.GUID, "rabbithole.iscollapsed", "iscollapseddirty")
     OnIsCollapsedDirty(inst)
 
+	inst:SetPrefabNameOverride("rabbithole")
+	
     inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then

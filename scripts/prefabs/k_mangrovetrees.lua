@@ -419,6 +419,7 @@ local function makefn(build, stage, data)
 		inst:AddTag("workable")
 		inst:AddTag("shelter")
 		inst:AddTag("ignorewalkableplatforms")
+		inst:AddTag("wet")
 		
 		inst.entity:SetPristine()
 		
@@ -429,14 +430,14 @@ local function makefn(build, stage, data)
 		inst.build = build
 		inst.AnimState:SetBuild(GetBuild(inst).file)
 		inst.AnimState:SetBank("tree_mangrove")
-		-- local color = 0.5 + math.random() * 0.5
-		-- inst.AnimState:SetMultColour(color, color, color, 1)
+		local color = 0.5 + math.random() * 0.5
+		inst.AnimState:SetMultColour(color, color, color, 1)
 
-		MakeLargeBurnable(inst)
-		inst.components.burnable:SetFXLevel(5)
-		inst.components.burnable:SetOnBurntFn(tree_burnt)
+		-- MakeLargeBurnable(inst)
+		-- inst.components.burnable:SetFXLevel(5)
+		-- inst.components.burnable:SetOnBurntFn(tree_burnt)
 
-		MakeLargePropagator(inst)
+		-- MakeLargePropagator(inst)
 
 		inst:AddComponent("inspectable")
 		inst.components.inspectable.getstatus = inspect_tree

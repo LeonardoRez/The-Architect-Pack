@@ -4,8 +4,8 @@ local assets =
     Asset("ANIM", "anim/swap_pirate_booty_bag.zip"),
     Asset("ANIM", "anim/ui_krampusbag_2x5.zip"),
 	
-	Asset("IMAGE", "images/inventoryimages/kyno_inventoryimages_sw.tex"),
-	Asset("ATLAS", "images/inventoryimages/kyno_inventoryimages_sw.xml"),
+	Asset("IMAGE", "images/inventoryimages/kyno_minisign_icons.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_minisign_icons.xml"),
 	
 	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_sw.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_sw.xml"),
@@ -85,8 +85,9 @@ local function fn()
     inst:AddComponent("inspectable")
 
     inst:AddComponent("inventoryitem")
-	-- inst.components.inventoryitem.imagename = "piratepack.tex"
-	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_minisign_icons.xml"
+	inst.components.inventoryitem.imagename = "piratepack"
+	inst.components.inventoryitem:ChangeImageName("piratepack")
     inst.components.inventoryitem.cangoincontainer = false
 
     inst:AddComponent("equippable")

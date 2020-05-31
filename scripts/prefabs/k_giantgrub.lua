@@ -79,6 +79,10 @@ local function onbuilt(inst)
 	inst.AnimState:PushAnimation("idle", true)
 end
 
+local function nodebrisdmg(inst, amount, overtime, cause, ignore_invincible, afflicter, ignore_absorb)
+    return afflicter ~= nil and afflicter:HasTag("quakedebris")
+end
+
 local function fn()
 	local inst = CreateEntity()
     
@@ -122,9 +126,11 @@ local function fn()
 	
 	inst:AddComponent("health")
 	inst.components.health:SetMaxHealth(250)
+	inst.components.health:StartRegen(TUNING.CHESTER_HEALTH_REGEN_AMOUNT, TUNING.CHESTER_HEALTH_REGEN_PERIOD)
 	inst.components.health.ondelta = onhealthchange
 	inst.components.health.nofadeout = true
 	inst.components.health.canheal = false
+	inst.components.health.redirect = nodebrisdmg
 
 	inst:AddComponent("combat")
 	inst.components.combat:SetKeepTargetFunction(keeptargetfn)

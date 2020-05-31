@@ -4,6 +4,9 @@ local assets =
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_exoticflower.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_exoticflower.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_exoticflower2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_exoticflower2.xml"),
 }
 
 local prefabs =
@@ -41,7 +44,6 @@ local function onpickedfn(inst, picker)
         end
     end
     inst:Remove()
-    -- TheWorld:PushEvent("plantkilled", { doer = picker, pos = pos }) -- I think this is why they keep regrowing?
 end
 
 local function testfortransformonload(inst)
@@ -109,8 +111,56 @@ local function fn()
 	MakeSmallPropagator(inst)
     inst.components.burnable:SetOnBurntFn(OnBurnt)
 
-	-- inst:AddComponent("halloweenmoonmutable")
-	-- inst.components.halloweenmoonmutable:SetPrefabMutated("moonbutterfly_sapling")
+    if TheWorld:HasTag("cave") then
+        inst:WatchWorldState("iscaveday", OnIsCaveDay)
+    end
+
+    MakeHauntableChangePrefab(inst, "flower_evil")
+
+	inst.planted = true
+    
+    inst.OnSave = onsave
+    inst.OnLoad = onload
+
+    return inst
+end
+
+local function artificialfn()
+    local inst = CreateEntity()
+
+    inst.entity:AddTransform()
+    inst.entity:AddAnimState()
+    inst.entity:AddNetwork()
+
+	inst.animname = names[math.random(#names)]
+	
+    inst.AnimState:SetBank("flowers_rainforest")
+    inst.AnimState:SetBuild("flowers_rainforest")
+	inst.AnimState:PlayAnimation(inst.animname)
+    inst.AnimState:SetRayTestOnBB(true)
+
+    inst:AddTag("structure")
+	inst:AddTag("exoticflower")
+    inst:AddTag("cattoy")
+
+    inst.entity:SetPristine()
+
+    if not TheWorld.ismastersim then
+        return inst
+    end
+
+    inst:AddComponent("inspectable")
+
+    inst:AddComponent("pickable")
+    inst.components.pickable.picksound = "dontstarve/wilson/pickup_plants"
+    inst.components.pickable:SetUp("petals", 10)
+    inst.components.pickable.onpickedfn = onpickedfn
+    inst.components.pickable.quickpick = true
+    inst.components.pickable.wildfirestarter = true
+
+    MakeSmallBurnable(inst)
+	MakeSmallPropagator(inst)
+    inst.components.burnable:SetOnBurntFn(OnBurnt)
 
     if TheWorld:HasTag("cave") then
         inst:WatchWorldState("iscaveday", OnIsCaveDay)
@@ -118,12 +168,6 @@ local function fn()
 
     MakeHauntableChangePrefab(inst, "flower_evil")
 
-	--[[
-    if not POPULATING then
-        setflowertype(inst)
-    end
-	]]--
-	
 	inst.planted = true
     
     inst.OnSave = onsave
@@ -133,4 +177,6 @@ local function fn()
 end
 
 return Prefab("kyno_exoticflower", fn, assets, prefabs),
-MakePlacer("kyno_exoticflower_placer", "flowers_rainforest", "flowers_rainforest", "f6")
+Prefab("kyno_artificial_exoticflower", artificialfn, assets, prefabs),
+MakePlacer("kyno_exoticflower_placer", "flowers_rainforest", "flowers_rainforest", "f6"),
+MakePlacer("kyno_artificial_exoticflower_placer", "flowers_rainforest", "flowers_rainforest", "f5")

@@ -148,6 +148,9 @@ local function largefn()
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
+		inst.OnEntityReplicated = function(inst)
+			inst.replica.container:WidgetSetup("dragonflychest")
+		end
         return inst
     end
 	

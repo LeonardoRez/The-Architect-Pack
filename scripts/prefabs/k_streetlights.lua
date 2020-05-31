@@ -110,17 +110,38 @@ local function tallfn()
 	
 	MakeHauntableWork(inst)
 	
-	inst:DoTaskInTime(1/30, function()
-	inst:WatchWorldState("isday", LightsOff)
-    LightsOff(inst, TheWorld.state.isday)
-	end)
-	
-	inst:DoTaskInTime(1/30, function()
-	inst:WatchWorldState("isdusk", LightsOn)
-	inst:WatchWorldState("isnight", LightsOn)
-    LightsOn(inst, TheWorld.state.isdusk)
-	LightsOn(inst, TheWorld.state.isnight)
-	end)
+	inst:DoTaskInTime(1, function()
+        if TheWorld.state.isday then
+            inst.AnimState:PlayAnimation("idle_off")
+			inst.AnimState:PushAnimation("idle_off", true)
+            inst.Light:Enable(false)
+			inst.Light:SetIntensity(0)
+			inst.components.fader:Fade(INTENSITY, 0, .75+math.random()*1, function(v) inst.Light:SetIntensity(v) end)
+        else
+			inst.AnimState:PlayAnimation("idle_on")
+			inst.AnimState:PushAnimation("idle_on", true)
+            inst.Light:Enable(true)
+			inst.Light:SetIntensity(INTENSITY)
+			inst.components.fader:Fade(0, INTENSITY, 3+math.random()*2, function(v) inst.Light:SetIntensity(v) end)
+        end
+    end)
+    inst:ListenForEvent("phasechanged", function(src, data)
+        if data ~= "night" and data ~= "dusk" then
+            inst:DoTaskInTime(2, function()
+                inst.AnimState:PlayAnimation("idle_off")
+				inst.AnimState:PushAnimation("idle_off", true)
+				inst.Light:Enable(false)
+				inst.Light:SetIntensity(0)
+            end)
+        else
+            inst:DoTaskInTime(2, function()
+				inst.AnimState:PlayAnimation("idle_on")
+				inst.AnimState:PushAnimation("idle_on", true)
+				inst.Light:Enable(true)
+				inst.Light:SetIntensity(INTENSITY)
+            end)
+        end
+    end,TheWorld)
 	
 	inst.OnSave = function(inst, data)
         if inst.lighton then
@@ -188,17 +209,38 @@ local function shortfn()
 	
 	MakeHauntableWork(inst)
 	
-	inst:DoTaskInTime(1/30, function()
-	inst:WatchWorldState("isday", LightsOff)
-    LightsOff(inst, TheWorld.state.isday)
-	end)
-	
-	inst:DoTaskInTime(1/30, function()
-	inst:WatchWorldState("isdusk", LightsOn)
-	inst:WatchWorldState("isnight", LightsOn)
-    LightsOn(inst, TheWorld.state.isdusk)
-	LightsOn(inst, TheWorld.state.isnight)
-	end)
+	inst:DoTaskInTime(1, function()
+        if TheWorld.state.isday then
+            inst.AnimState:PlayAnimation("idle_off")
+			inst.AnimState:PushAnimation("idle_off", true)
+            inst.Light:Enable(false)
+			inst.Light:SetIntensity(0)
+			inst.components.fader:Fade(INTENSITY, 0, .75+math.random()*1, function(v) inst.Light:SetIntensity(v) end)
+        else
+			inst.AnimState:PlayAnimation("idle_on")
+			inst.AnimState:PushAnimation("idle_on", true)
+            inst.Light:Enable(true)
+			inst.Light:SetIntensity(INTENSITY)
+			inst.components.fader:Fade(0, INTENSITY, 3+math.random()*2, function(v) inst.Light:SetIntensity(v) end)
+        end
+    end)
+    inst:ListenForEvent("phasechanged", function(src, data)
+        if data ~= "night" and data ~= "dusk" then
+            inst:DoTaskInTime(2, function()
+                inst.AnimState:PlayAnimation("idle_off")
+				inst.AnimState:PushAnimation("idle_off", true)
+				inst.Light:Enable(false)
+				inst.Light:SetIntensity(0)
+            end)
+        else
+            inst:DoTaskInTime(2, function()
+				inst.AnimState:PlayAnimation("idle_on")
+				inst.AnimState:PushAnimation("idle_on", true)
+				inst.Light:Enable(true)
+				inst.Light:SetIntensity(INTENSITY)
+            end)
+        end
+    end,TheWorld)
 	
 	inst.OnSave = function(inst, data)
         if inst.lighton then

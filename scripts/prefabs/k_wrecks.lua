@@ -160,6 +160,7 @@ local function mastfn()
 	
 	inst:AddTag("structure")
 	inst:AddTag("ignorewalkableplatforms")
+	inst:AddTag("wet")
 	
 	inst.entity:SetPristine()
 
@@ -179,8 +180,8 @@ local function mastfn()
 	inst.components.workable:SetOnWorkCallback(onhit_mast)
 	inst.components.workable:SetOnFinishCallback(onhammered)
 
-	MakeLargeBurnable(inst)
-    MakeSmallPropagator(inst)
+	-- MakeLargeBurnable(inst)
+    -- MakeSmallPropagator(inst)
 	
 	settype(inst, "mast")
 
@@ -213,6 +214,7 @@ local function bowfn()
 	
 	inst:AddTag("structure")
 	inst:AddTag("ignorewalkableplatforms")
+	inst:AddTag("wet")
 	
 	inst.entity:SetPristine()
 
@@ -232,8 +234,8 @@ local function bowfn()
 	inst.components.workable:SetOnWorkCallback(onhit_bow)
 	inst.components.workable:SetOnFinishCallback(onhammered)
 
-	MakeLargeBurnable(inst)
-    MakeSmallPropagator(inst)
+	-- MakeLargeBurnable(inst)
+    -- MakeSmallPropagator(inst)
 	
 	settype(inst, "bow")
 
@@ -266,6 +268,7 @@ local function midshipfn()
 	
 	inst:AddTag("structure")
 	inst:AddTag("ignorewalkableplatforms")
+	inst:AddTag("wet")
 	
 	inst.entity:SetPristine()
 
@@ -285,8 +288,8 @@ local function midshipfn()
 	inst.components.workable:SetOnWorkCallback(onhit_midship)
 	inst.components.workable:SetOnFinishCallback(onhammered)
 
-	MakeLargeBurnable(inst)
-    MakeSmallPropagator(inst)
+	-- MakeLargeBurnable(inst)
+    -- MakeSmallPropagator(inst)
 	
 	settype(inst, "midship")
 	
@@ -319,6 +322,7 @@ local function sternfn()
 	
 	inst:AddTag("structure")
 	inst:AddTag("ignorewalkableplatforms")
+	inst:AddTag("wet")
 	
 	inst.entity:SetPristine()
 
@@ -338,8 +342,8 @@ local function sternfn()
 	inst.components.workable:SetOnWorkCallback(onhit_stern)
 	inst.components.workable:SetOnFinishCallback(onhammered)
 
-	MakeLargeBurnable(inst)
-    MakeSmallPropagator(inst)
+	-- MakeLargeBurnable(inst)
+    -- MakeSmallPropagator(inst)
 	
 	settype(inst, "stern")
 

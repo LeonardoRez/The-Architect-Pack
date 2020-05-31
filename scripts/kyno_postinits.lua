@@ -335,21 +335,22 @@ AddComponentPostInit(
 packim_chance = GetModConfigData("packim_baggims")
 GLOBAL.SetSharedLootTable("malbatross_packim",
 {
-	{'meat',                                						1.00},
-    {'meat',                                						1.00},
-    {'meat',                                						1.00},
-    {'meat',                                						1.00},
-    {'meat',                                						1.00},
-    {'meat',                                						1.00},
-    {'meat',                                						1.00},
-    {'malbatross_beak',                     					1.00},
-    {'mast_malbatross_item_blueprint',      			1.00},
-    {'malbatross_feathered_weave_blueprint',		1.00},
-    {'bluegem',                             						1},
-    {'bluegem',                             						1},
-    {'bluegem',                                                   0.3},
-    {'yellowgem',                           				    0.05},
-	{'oceanfishingbobber_malbatross_tacklesketch', 1.00},
+	{'meat',                                1.00},
+    {'meat',                                1.00},
+    {'meat',                                1.00},
+    {'meat',                                1.00},
+    {'meat',                                1.00},
+    {'meat',                                1.00},
+    {'meat',                                1.00},
+    {'malbatross_beak',                     1.00},
+    {'mast_malbatross_item_blueprint',      1.00},
+    {'malbatross_feathered_weave_blueprint',1.00},
+    {'bluegem',                             1},
+    {'bluegem',                             1},
+    {'bluegem',                             0.3},
+    {'yellowgem',                           0.05},
+	{'oceanfishingbobber_malbatross_tacklesketch',1.00},
+	{'chesspiece_malbatross_sketch',		1.00},
 	{"packim_fishbone",						  packim_chance},
 })
 
@@ -425,7 +426,7 @@ GLOBAL.SetSharedLootTable("minotaur_robin",
 })
 
 AddPrefabPostInit("minotaur", function(inst)
-	if GLOBAL.TheWorld.ismastersim and not GLOBAL.TheSim:FindFirstEntityWithTag("ro_bin_gizzard_stone") then
+	if GLOBAL.TheWorld.ismastersim and not GLOBAL.TheSim:FindFirstEntityWithTag("ro_bin_gizzard_stone") and not GLOBAL.TheSim:FindFirstEntityWithTag("ro_bin") then
 		inst.components.lootdropper:SetChanceLootTable("minotaur_robin")
 	end
 end)
@@ -795,6 +796,7 @@ GLOBAL.SetSharedLootTable("beequeen_new",
     {'stinger',          1.00},
     {'hivehat',          1.00},
     {'bundlewrap_blueprint', 1.00},
+	{'chesspiece_beequeen_sketch', 1.00},
 	{'kyno_antchest_blueprint', 1.00},
 })
 
@@ -815,6 +817,12 @@ AddPrefabPostInit("leif_sparse", function(inst)
 	inst.components.lootdropper:AddChanceLoot("kyno_treeclump_blueprint", 0.10) -- 10% Drop Chance
 	end
 end)
+
+AddPrefabPostInit("livingtree", function(inst)
+if GLOBAL.TheWorld.ismastersim then
+	inst.components.lootdropper:AddChanceLoot("kyno_truerootchest_blueprint", 0.25) -- 25% Drop Chance
+	end
+end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("spiderqueen", function(inst)
 	if GLOBAL.TheWorld.ismastersim then
@@ -828,9 +836,11 @@ AddPrefabPostInit("deerclops", function(inst)
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--[[
 GLOBAL.SetSharedLootTable("antlion_new",
 {
     {'townportal_blueprint',    1.00},
+	{'chesspiece_antlion_sketch', 1.00},
 
     {'townportaltalisman',  1.00},
     {'townportaltalisman',  1.00},
@@ -850,7 +860,6 @@ GLOBAL.SetSharedLootTable("antlion_new",
     {'rocks',               1.00},
     {'rocks',               0.50},
     {'rocks',               0.50},
-	
 	{"piratepack",		   .01}, -- 1% Drop Chance
 })
 
@@ -859,10 +868,13 @@ AddPrefabPostInit("antlion", function(inst)
 		inst.components.lootdropper:SetChanceLootTable("antlion_new")
 	end
 end)
+]]--
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("piratepack", function(inst)
 	if inst.components.inventoryitem ~= nil then
-	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_minisign_icons.xml"
+	inst.components.inventoryitem.imagename = "piratepack"
+	inst.components.inventoryitem:ChangeImageName("piratepack")
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -885,6 +897,89 @@ KENV.AddPrefabPostInit("armor_bramble", function(inst)
 	
 	_onunequipfn = inst.components.equippable.onunequipfn
 	inst.components.equippable.onunequipfn = onunequipfn	
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_redflies", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_redflies.xml"
+	end
+end)
+
+AddPrefabPostInit("kyno_orangeflies", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_orangeflies.xml"
+	end
+end)
+
+AddPrefabPostInit("kyno_yellowflies", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_yellowflies.xml"
+	end
+end)
+
+AddPrefabPostInit("kyno_greenflies", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_greenflies.xml"
+	end
+end)
+
+AddPrefabPostInit("kyno_blueflies", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_blueflies.xml"
+	end
+end)
+
+AddPrefabPostInit("kyno_cyanflies", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_cyanflies.xml"
+	end
+end)
+
+AddPrefabPostInit("kyno_purpleflies", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_purpleflies.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- THIS IS GOING DOWN THE ROAD YOLOOOOOOOOOOOOOO
+AddPrefabPostInit("forest", function(inst)
+	if GLOBAL.TheWorld.ismastersim then  
+		inst:AddComponent("roottrunkinventory")
+	end
+end)
+
+AddPrefabPostInit("cave", function(inst)
+	if GLOBAL.TheWorld.ismastersim then  
+		inst:AddComponent("roottrunkinventory")
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_lotus_flower", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.imagename = "lotus_flower"
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_ham.xml"
+	end
+end)
+
+AddPrefabPostInit("kyno_lotus_flower_cooked", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.imagename = "lotus_flower_cooked"
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_ham.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Cursed Structure!!!
+local function ondeathnew(inst)
+	if math.random()<0.1 then
+		GLOBAL.SpawnPrefab("kyno_wigfridge_blueprint").Transform:SetPosition(inst.Transform:GetWorldPosition())
+	end
+	inst.battleborn = 0
+end
+
+AddPrefabPostInit("wathgrithr", function(inst)
+	if GLOBAL.TheWorld.ismastersim then
+	inst:ListenForEvent("death", ondeathnew)
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------

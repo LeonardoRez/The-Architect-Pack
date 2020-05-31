@@ -47,6 +47,7 @@ local function fn()
 	minimap:SetIcon("firepit.png")
 	
     MakeObstaclePhysics(inst, .3)
+	MakeSnowCoveredPristine(inst)
 	
     inst.AnimState:SetBank("kyno_bbq")
     inst.AnimState:SetBuild("kyno_bbq")
@@ -78,6 +79,7 @@ local function fn()
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
 	
 	MakeHauntableWork(inst)
+	MakeSnowCovered(inst, .01)
 	
 	FireSound(inst)
 	

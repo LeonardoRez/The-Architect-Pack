@@ -104,6 +104,8 @@ local function c1fn()
 	MakeObstaclePhysics(inst, .3)
 
 	inst:SetPrefabNameOverride("cactus")
+	
+	MakeSnowCoveredPristine(inst)
 
 	inst.entity:SetPristine()
 
@@ -136,6 +138,7 @@ local function c1fn()
 	inst.OnEntityWake = OnEntityWake
 
 	MakeHauntableIgnite(inst)
+	MakeSnowCovered(inst, .01)
 	
     return inst
 end
@@ -162,6 +165,8 @@ local function c2fn()
 	MakeObstaclePhysics(inst, .3)
 
 	inst:SetPrefabNameOverride("cactus")
+	
+	MakeSnowCoveredPristine(inst)
 
 	inst.entity:SetPristine()
 
@@ -194,6 +199,7 @@ local function c2fn()
 	inst.OnEntityWake = OnEntityWake
 
 	MakeHauntableIgnite(inst)
+	MakeSnowCovered(inst, .01)
 	
     return inst
 end

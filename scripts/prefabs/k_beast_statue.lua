@@ -60,6 +60,8 @@ local function beast1fn()
 	inst:AddTag("structure")
 	inst:AddTag("beaststatue")
 	
+	MakeSnowCoveredPristine(inst)
+	
 	inst.entity:SetPristine()
 	
     if not TheWorld.ismastersim then
@@ -78,6 +80,7 @@ local function beast1fn()
 	inst:ListenForEvent("onbuilt", onbuilt)
 	
 	MakeHauntableWork(inst)
+	MakeSnowCovered(inst, .01)
 	
     return inst
 end
@@ -103,6 +106,8 @@ local function beast1_leftfn()
 	inst:AddTag("structure")
 	inst:AddTag("beaststatue")
 	
+	MakeSnowCoveredPristine(inst)
+	
 	inst.entity:SetPristine()
 	
     if not TheWorld.ismastersim then
@@ -121,6 +126,7 @@ local function beast1_leftfn()
 	inst:ListenForEvent("onbuilt", onbuilt)
 	
 	MakeHauntableWork(inst)
+	MakeSnowCovered(inst, .01)
 	
     return inst
 end
@@ -146,6 +152,8 @@ local function beast2fn()
 	inst:AddTag("structure")
 	inst:AddTag("beaststatue")
 	
+	MakeSnowCoveredPristine(inst)
+	
 	inst.entity:SetPristine()
 	
     if not TheWorld.ismastersim then
@@ -164,6 +172,7 @@ local function beast2fn()
 	inst:ListenForEvent("onbuilt", onbuilt)
 	
 	MakeHauntableWork(inst)
+	MakeSnowCovered(inst, .01)
 	
     return inst
 end
@@ -189,6 +198,8 @@ local function beast2_leftfn()
 	inst:AddTag("structure")
 	inst:AddTag("beaststatue")
 	
+	MakeSnowCoveredPristine(inst)
+	
 	inst.entity:SetPristine()
 	
     if not TheWorld.ismastersim then
@@ -207,6 +218,7 @@ local function beast2_leftfn()
 	inst:ListenForEvent("onbuilt", onbuilt)
 	
 	MakeHauntableWork(inst)
+	MakeSnowCovered(inst, .01)
 	
     return inst
 end

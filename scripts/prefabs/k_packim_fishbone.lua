@@ -142,6 +142,7 @@ local function fn()
     inst.entity:AddNetwork()
 
     MakeInventoryPhysics(inst)
+	MakeInventoryFloatable(inst, "small", 0.05)
 
     inst:AddTag("packim_fishbone")
     inst:AddTag("irreplaceable")
@@ -150,8 +151,6 @@ local function fn()
     inst.AnimState:SetBank("fishbone")
     inst.AnimState:SetBuild("packim_fishbone")
     inst.AnimState:PlayAnimation("dead", true)
-
-	MakeInventoryFloatable(inst)
 	
     inst.entity:SetPristine()
 

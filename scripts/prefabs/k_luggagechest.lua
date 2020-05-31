@@ -106,6 +106,7 @@ local function fn()
 
 	inst:AddTag("structure")
     inst:AddTag("chest")
+	inst:AddTag("wet")
 	
     inst.entity:SetPristine()
 

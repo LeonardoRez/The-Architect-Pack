@@ -166,6 +166,8 @@ local function fn()
     else
         MakeObstaclePhysics(inst, .2)
     end
+	
+	MakeSnowCoveredPristine(inst)
 
     inst.entity:SetPristine()
 
@@ -213,6 +215,8 @@ local function fn()
 
 	inst.OnSave = OnSave
 	inst.OnPreLoad = OnPreLoad
+	
+	MakeSnowCovered(inst, .01)
 
     return inst
 end

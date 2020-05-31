@@ -23,6 +23,8 @@ local BIRD_TYPES =
     [GROUND.MARSH] = { "crow" },
 	-- Hamlet Birds --
 	[GROUND.RAINFOREST] = { "kingfisher", "parrot_blue", "toucan_hamlet" },
+	[GROUND.FIELDS] = { "kingfisher", "parrot_blue", "toucan_hamlet" },
+	[GROUND.MOSSY_BLOSSOM] = { "kingfisher", "parrot_blue", "toucan_hamlet" },
 	[GROUND.PLAINS] = { "toucan_hamlet", "parrot_blue" },
 	[GROUND.BOG] = { "toucan_hamlet" },
 	[GROUND.PIGRUINS] = { "parrot_blue" },

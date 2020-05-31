@@ -122,6 +122,8 @@ local function bramble1fn()
 	inst:AddTag("structure")
 	inst:AddTag("brambles")
 	
+	MakeSnowCoveredPristine(inst)
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -150,6 +152,7 @@ local function bramble1fn()
 	inst.components.workable:SetWorkLeft(3)
 	
 	-- inst.OnLoad = onload
+	MakeSnowCovered(inst, .01)
 	
 	return inst
 end
@@ -186,6 +189,8 @@ local function bramble2fn()
 	inst:AddTag("structure")
 	inst:AddTag("brambles")
 	
+	MakeSnowCoveredPristine(inst)
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -214,6 +219,7 @@ local function bramble2fn()
 	inst.components.workable:SetWorkLeft(3)
 	
 	-- inst.OnLoad = onload
+	MakeSnowCovered(inst, .01)
 	
 	return inst
 end
@@ -250,6 +256,8 @@ local function bramble3fn()
 	inst:AddTag("structure")
 	inst:AddTag("brambles")
 	
+	MakeSnowCoveredPristine(inst)
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -278,6 +286,7 @@ local function bramble3fn()
 	inst.components.workable:SetWorkLeft(3)
 	
 	-- inst.OnLoad = onload
+	MakeSnowCovered(inst, .01)
 	
 	return inst
 end
@@ -312,6 +321,8 @@ local function bramblecorefn()
 	inst:AddTag("structure")
 	inst:AddTag("brambles")
 	
+	MakeSnowCoveredPristine(inst)
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -339,6 +350,7 @@ local function bramblecorefn()
 	inst.components.workable:SetWorkLeft(3)
 	
 	-- inst.OnLoad = onload
+	MakeSnowCovered(inst, .01)
 	
 	return inst
 end

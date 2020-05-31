@@ -16,7 +16,7 @@ local function onhammered(inst, worker)
 end
 
 local function onhit(inst, worker)
-    inst.AnimState:PlayAnimation("hit")
+    inst.AnimState:PlayAnimation("cooking_loop")
     inst.AnimState:PushAnimation("cooking_loop", true)
 end
 

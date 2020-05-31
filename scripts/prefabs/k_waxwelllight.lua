@@ -18,7 +18,7 @@ local prefabs =
 
 local function onhammered(inst, worker)
 	inst.components.lootdropper:DropLoot()
-	SpawnPrefab("collapse_metal").Transform:SetPosition(inst.Transform:GetWorldPosition())
+	SpawnPrefab("collapse_small").Transform:SetPosition(inst.Transform:GetWorldPosition())
 	inst.SoundEmitter:PlaySound("dontstarve/common/destroy_stone")
 	inst:Remove()
 end

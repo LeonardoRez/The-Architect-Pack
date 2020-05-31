@@ -1,57 +1,34 @@
 require "tuning"
 
-local function MakeVegStats(seedweight, hunger, health, perish_time, sanity, cooked_hunger, cooked_health, cooked_perish_time, cooked_sanity)
-    return {
-        health = health,
-        hunger = hunger,
-        cooked_health = cooked_health,
-        cooked_hunger = cooked_hunger,
-        seed_weight = seedweight,
-        perishtime = perish_time,
-        cooked_perishtime = cooked_perish_time,
-        sanity = sanity,
-        cooked_sanity = cooked_sanity,
-    }
+local assets = {
+    Asset("ANIM", "anim/kyno_coffeebeans.zip"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_coffee.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_coffee.xml"),
+}
+
+local prefabs = {
+    "kyno_coffeebeans_cooked",
+    "kyno_coffeebuff",
+    "spoiled_food",
+}
+
+local function OnEatBeans(inst, eater)
+    if not eater.components.health or eater.components.health:IsDead() or eater:HasTag("playerghost") then
+        return
+    elseif eater.components.debuffable and eater.components.debuffable:IsEnabled() then
+        eater.speedbuff_duration = 30
+        eater.components.debuffable:AddDebuff("kyno_coffeebuff", "kyno_coffeebuff")
+    else
+        eater.components.locomotor:SetExternalSpeedMultiplier(eater, "kyno_coffeebuff", 1.83)
+        eater:DoTaskInTime(30, function()
+            eater.components.locomotor:RemoveExternalSpeedMultiplier(eater, "kyno_coffeebuff")
+        end)
+    end
 end
 
-local COMMON = 3
-local UNCOMMON = 1
-local RARE = .5
-
-K_VEGGIES =
-{
-    kyno_coffeebeans = MakeVegStats(0,	TUNING.CALORIES_TINY,	0,	TUNING.PERISH_FAST, 0,
-	TUNING.CALORIES_TINY,	0,	TUNING.PERISH_SLOW, -TUNING.SANITY_TINY),
-}
-
-local assets_seeds =
-{
-    Asset("ANIM", "anim/seeds.zip"),
-}
-
-local function MakeVeggie(name, has_seeds)
-
-    local assets =
-    {
-        Asset("ANIM", "anim/"..name..".zip"),
-    }
-
-    local assets_cooked =
-    {
-        Asset("ANIM", "anim/"..name..".zip"),
-    }
-    
-    local prefabs =
-    {
-        name.."_cooked",
-        "spoiled_food",
-    }
-    
-    if has_seeds then
-        table.insert(prefabs, name.."_seeds")
-    end
-
-    local function fn_seeds()
+local function fn(cooked)
+    return function()
         local inst = CreateEntity()
 
         inst.entity:AddTransform()
@@ -59,14 +36,19 @@ local function MakeVeggie(name, has_seeds)
         inst.entity:AddNetwork()
 
         MakeInventoryPhysics(inst)
+        MakeInventoryFloatable(inst)
 
-        inst.AnimState:SetBank("seeds")
-        inst.AnimState:SetBuild("seeds")
-        inst.AnimState:SetRayTestOnBB(true)
+        inst.Transform:SetScale(.9, .9, .9)
+		
+        inst.AnimState:SetBank("coffeebeans")
+        inst.AnimState:SetBuild("coffeebeans")
 
-        inst:AddTag("cookable")
-		inst:AddTag("coffeebeans")
-		inst:AddTag("show_spoilage")
+        if cooked then
+            inst.AnimState:PlayAnimation("cooked")
+        else
+            inst.AnimState:PlayAnimation("idle")
+            inst:AddTag("cookable")
+        end
 
         inst.entity:SetPristine()
 
@@ -75,167 +57,42 @@ local function MakeVeggie(name, has_seeds)
         end
 
         inst:AddComponent("edible")
-        inst.components.edible.foodtype = FOODTYPE.SEEDS
+        inst.components.edible.healthvalue = 0
+        inst.components.edible.hungervalue = TUNING.CALORIES_TINY
+        inst.components.edible.foodtype = FOODTYPE.VEGGIE
+
+        inst:AddComponent("perishable")
+        inst.components.perishable.onperishreplacement = "spoiled_food"
 
         inst:AddComponent("stackable")
         inst.components.stackable.maxsize = TUNING.STACK_SIZE_SMALLITEM
 
-        inst:AddComponent("tradable")
         inst:AddComponent("inspectable")
         inst:AddComponent("inventoryitem")
-
-        inst.AnimState:PlayAnimation("idle")
-        inst.components.edible.healthvalue = TUNING.HEALING_TINY/2
-        inst.components.edible.hungervalue = TUNING.CALORIES_TINY
-
-        inst:AddComponent("perishable")
-        inst.components.perishable:SetPerishTime(TUNING.PERISH_SUPERSLOW)
-        inst.components.perishable:StartPerishing()
-        inst.components.perishable.onperishreplacement = "spoiled_food"
-
-        inst:AddComponent("cookable")
-        inst.components.cookable.product = "seeds_cooked"
+        inst.components.inventoryitem.atlasname = resolvefilepath("images/inventoryimages/kyno_coffee.xml")
 
         inst:AddComponent("bait")
-        inst:AddComponent("plantable")
-        inst.components.plantable.growtime = TUNING.SEEDS_GROW_TIME
-        inst.components.plantable.product = name
+        inst:AddComponent("tradable")
 
-        MakeHauntableLaunchAndPerish(inst)
-
-        return inst
-    end
-
-    local function fn()
-        local inst = CreateEntity()
-
-        inst.entity:AddTransform()
-        inst.entity:AddAnimState()
-        inst.entity:AddNetwork()
-
-        MakeInventoryPhysics(inst)
-
-        inst.AnimState:SetBank("coffeebeans")
-        inst.AnimState:SetBuild("coffeebeans")
-        inst.AnimState:PlayAnimation("idle")
-		
-        inst:AddTag("cookable")
-		inst:AddTag("coffeebeans")
-		inst:AddTag("show_spoilage")
-
-        inst.entity:SetPristine()
-
-        if not TheWorld.ismastersim then
-            return inst
+        if cooked then
+            inst.components.edible.sanityvalue = -TUNING.SANITY_TINY
+            inst.components.edible:SetOnEatenFn(OnEatBeans)
+            inst.components.perishable:SetPerishTime(TUNING.PERISH_SLOW)
+        else
+            inst.components.edible.sanityvalue = 0
+            inst.components.perishable:SetPerishTime(TUNING.PERISH_FAST)
+            inst:AddComponent("cookable")
+            inst.components.cookable.product = "kyno_coffeebeans_cooked"
         end
-
-        inst:AddComponent("edible")
-        inst.components.edible.healthvalue = K_VEGGIES[name].health
-        inst.components.edible.hungervalue = K_VEGGIES[name].hunger
-        inst.components.edible.sanityvalue = K_VEGGIES[name].sanity or 0      
-        inst.components.edible.foodtype = FOODTYPE.SEEDS
-
-        inst:AddComponent("perishable")
-        inst.components.perishable:SetPerishTime(K_VEGGIES[name].perishtime)
         inst.components.perishable:StartPerishing()
-        inst.components.perishable.onperishreplacement = "spoiled_food"
-
-        inst:AddComponent("stackable")
-        if name ~= "pumpkin" and
-            name ~= "eggplant" and
-            name ~= "durian" and 
-            name ~= "watermelon" then
-            inst.components.stackable.maxsize = TUNING.STACK_SIZE_SMALLITEM
-        end
-
-        if name == "watermelon" then
-            inst.components.edible.temperaturedelta = TUNING.COLD_FOOD_BONUS_TEMP
-            inst.components.edible.temperatureduration = TUNING.FOOD_TEMP_BRIEF
-        end
-
-        inst:AddComponent("inspectable")
-        inst:AddComponent("inventoryitem")
-		inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
 
         MakeSmallBurnable(inst)
         MakeSmallPropagator(inst)
-
-        inst:AddComponent("bait")
-        inst:AddComponent("tradable")
-
-        inst:AddComponent("cookable")
-        inst.components.cookable.product = name.."_cooked"
-
-        MakeHauntableLaunchAndPerish(inst)
+        MakeHauntableLaunch(inst)
 
         return inst
     end
-
-    local function fn_cooked()
-        local inst = CreateEntity()
-
-        inst.entity:AddTransform()
-        inst.entity:AddAnimState()
-        inst.entity:AddNetwork()
-
-        MakeInventoryPhysics(inst)
-
-        inst.AnimState:SetBank("coffeebeans")
-        inst.AnimState:SetBuild("coffeebeans")
-        inst.AnimState:PlayAnimation("cooked")
-		
-		inst:AddTag("show_spoilage")
-
-        inst.entity:SetPristine()
-
-        if not TheWorld.ismastersim then
-            return inst
-        end
-
-        inst:AddComponent("perishable")
-        inst.components.perishable:SetPerishTime(K_VEGGIES[name].cooked_perishtime)
-        inst.components.perishable:StartPerishing()
-        inst.components.perishable.onperishreplacement = "spoiled_food"
-
-        inst:AddComponent("edible")
-        inst.components.edible.healthvalue = K_VEGGIES[name].cooked_health
-        inst.components.edible.hungervalue = K_VEGGIES[name].cooked_hunger
-        inst.components.edible.sanityvalue = K_VEGGIES[name].cooked_sanity or 0
-        inst.components.edible.foodtype = FOODTYPE.VEGGIE
-
-        inst:AddComponent("stackable")
-        inst.components.stackable.maxsize = TUNING.STACK_SIZE_SMALLITEM
-
-        inst:AddComponent("inspectable")
-        inst:AddComponent("inventoryitem")
-		inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
-
-        MakeSmallBurnable(inst)
-        MakeSmallPropagator(inst)        
-
-        inst:AddComponent("bait")
-        inst:AddComponent("tradable")
-
-        MakeHauntableLaunchAndPerish(inst)
-
-        return inst
-    end
-
-    local base = Prefab(name, fn, assets, prefabs)
-    local cooked = Prefab(name.."_cooked", fn_cooked, assets_cooked)
-    local seeds = has_seeds and Prefab(name.."_seeds", fn_seeds, assets_seeds) or nil
-
-    return base, cooked, seeds
 end
 
-local prefs = {}
-for veggiename,veggiedata in pairs(K_VEGGIES) do
-    local veg, cooked, seeds = MakeVeggie(veggiename, veggiename ~= "kyno_coffeebeans")
-    table.insert(prefs, veg)
-    table.insert(prefs, cooked)
-    if seeds then
-        table.insert(prefs, seeds)
-    end
-end
-
-return unpack(prefs)
+return Prefab("kyno_coffeebeans", fn(false), assets, prefabs),
+Prefab("kyno_coffeebeans_cooked", fn(true), assets, prefabs)	

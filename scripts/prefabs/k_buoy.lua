@@ -77,6 +77,8 @@ local function fn()
 	inst:AddTag("aquatic")
 	inst:AddTag("ignorewalkableplatforms")
 	
+	MakeSnowCoveredPristine(inst)
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then

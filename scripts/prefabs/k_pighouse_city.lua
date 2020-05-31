@@ -121,7 +121,7 @@ local function onnear(inst)
 end
 
 local function onwere(child)
-    if child.parent ~= nil and not child.parent:HasTag("burnt") then
+    if child.parent and not child.parent:HasTag("burnt") then
         child.parent.SoundEmitter:KillSound("pigsound")
         child.parent.SoundEmitter:PlaySound("dontstarve/pig/werepig_in_hut", "pigsound")
     end
@@ -246,7 +246,6 @@ local function onstartdaylighttask(inst)
 end
 
 local function OnStartDay(inst)
-    --print(inst, "OnStartDay")
     if not inst:HasTag("burnt")
         and inst.components.spawner:IsOccupied() then
 
@@ -307,11 +306,13 @@ end
 
 local function onload(inst, data)
     if data then
+
         if data.build then
             inst.build = data.build
             inst.AnimState:SetBuild(inst.build) 
             setScale(inst,inst.build)
         end
+
         if data.animset then
             inst.animset = data.animset
             inst.AnimState:SetBank( inst.animset )
@@ -319,6 +320,7 @@ local function onload(inst, data)
         if data.colornum then
             inst.colornum = setcolor(inst, data.colornum)
         end
+        
         if data.burnt then
             inst.components.burnable.onburnt(inst)
         end
@@ -373,13 +375,18 @@ local function makefn(animset, setbuild)
     inst.Light:Enable(false)
     inst.Light:SetColour(180/255, 195/255, 50/255)
 	
+	MakeObstaclePhysics(inst, 1)
+	
 	local build = house_builds[math.random(1,#house_builds)]        
         if setbuild then
             build = setbuild
         end
+
         inst.build = build
         inst.AnimState:SetBuild(build) 
+        
         inst.animset = nil
+
         if animset then
             inst.AnimState:SetBank(animset)
             inst.animset = animset
@@ -387,19 +394,17 @@ local function makefn(animset, setbuild)
             inst.AnimState:SetBank(SETBANK[build])            
             inst.animset = SETBANK[build]
         end
+
         setScale(inst,build)
+		
 	inst.AnimState:PlayAnimation("idle", true)
+	inst.AnimState:Hide("snow")
 	
 	inst.colornum = setcolor(inst)
     local color = 0.5 + math.random() * 0.5
     inst.AnimState:SetMultColour(color, color, color, 1)
 	
-	inst.AnimState:Hide("snow")
-	
-	MakeObstaclePhysics(inst, 1)
-	
 	inst:AddTag("structure")
-	inst:AddTag("pighouse")
 	inst:AddTag("pigtownhouse")
 
 	inst.entity:SetPristine()
@@ -447,16 +452,14 @@ local function makefn(animset, setbuild)
             end
 	end)
 	
-    inst.OnSave = onsave 
-    inst.OnLoad = onload
-
-    MakeHauntableWork(inst)
-	
-	-- MakeSnowCovered(inst, .01)
+	inst.OnSave = onsave 
+	inst.OnLoad = onload
 
     inst:ListenForEvent("onbuilt", onbuilt)
     inst.inittask = inst:DoTaskInTime(0, oninit)
-
+	
+	MakeHauntableWork(inst)
+	
 		return inst
 	end
 	return fn

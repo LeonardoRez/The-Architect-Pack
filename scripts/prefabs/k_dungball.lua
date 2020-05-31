@@ -9,6 +9,11 @@ local assets =
 	
 	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_ham.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_ham.xml"),
+	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC003.fev"),
+	Asset("SOUND", "sound/DLC003_AMB_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_music_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_sfx.fsb"),
 }
 
 local prefabs =
@@ -21,11 +26,11 @@ local function dig_up(inst, chopper)
 	inst.components.lootdropper:SpawnLootPrefab("poop")
 	inst.components.lootdropper:SpawnLootPrefab("twigs")
 	inst.components.lootdropper:SpawnLootPrefab("twigs")
-		inst:Remove()
-		inst.SoundEmitter:PlaySound("dontstarve/common/food_rot")
-		if inst.flies ~= nil then
+	inst:Remove()
+	inst.SoundEmitter:PlaySound("dontstarve_DLC003/creatures/dungbeetle/dungball_break")
+	if inst.flies ~= nil then
         inst.flies:Remove()
-	end
+	end 
 end
 
 local function onbuilt(inst)

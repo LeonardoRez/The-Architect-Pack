@@ -84,11 +84,10 @@ local function fullfn()
     end
 
 	inst:AddComponent("inspectable")
+	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
-	
-    inst:AddComponent("lootdropper")
     
 	inst:AddComponent("workable")
 	inst.components.workable:SetWorkAction(ACTIONS.DIG)

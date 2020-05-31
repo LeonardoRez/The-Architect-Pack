@@ -14,31 +14,14 @@ local function KeepTargetFn()
     return false
 end
 
-local function OnAppear(inst)
-    inst:RemoveEventCallback("animover", OnAppear)
-    if not inst.killed then
-        inst.components.health:SetInvincible(false)
-        inst.AnimState:PlayAnimation("idle", true)
-    end
-end
-
-local function OnDeath(inst)
-    if not inst.killed then
-        inst.killed = true
-        inst.persists = false
-
-        inst:RemoveEventCallback("animover", OnAppear)
-        inst:RemoveEventCallback("death", OnDeath)
-
-        inst:ListenForEvent("animover", inst.Remove)
-        inst.AnimState:PlayAnimation("disappear")
-
-        inst:DoTaskInTime(inst.AnimState:GetCurrentAnimationLength() + FRAMES, inst.Remove, inst.components.lootdropper:DropLoot())
-    end
-end
-
 local function nodebrisdmg(inst, amount, overtime, cause, ignore_invincible, afflicter, ignore_absorb)
     return afflicter ~= nil and afflicter:HasTag("quakedebris")
+end
+
+local function onhealthchange(inst)
+	if inst.components.health:IsDead() then
+		inst.components.lootdropper:DropLoot()
+	end
 end
 
 local function onbuilt(inst)
@@ -60,7 +43,7 @@ local function fn()
     inst.AnimState:SetBuild("shadow_channeler")
     inst.AnimState:PlayAnimation("idle", true)
 	
-	inst:AddTag("shadowcreature")
+	-- inst:AddTag("shadowcreature")
 	inst:AddTag("structure")
     inst:AddTag("notraptrigger")
 
@@ -78,15 +61,13 @@ local function fn()
 
     inst:AddComponent("health")
     inst.components.health:SetMaxHealth(100)
-    inst.components.health:SetInvincible(false)
-    inst.components.health.nofadeout = false
     inst.components.health.redirect = nodebrisdmg
+	inst.components.health.ondelta = onhealthchange
 
     inst:AddComponent("combat")
     inst.components.combat:SetKeepTargetFunction(KeepTargetFn)
 
     inst:AddComponent("savedrotation")
-	
 	inst:ListenForEvent("onbuilt", onbuilt)
 
     return inst

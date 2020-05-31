@@ -25,6 +25,7 @@ local function onfinish_artichoke(inst, worker)
 	local pt = Point(inst.Transform:GetWorldPosition())
 	inst.components.lootdropper:DropLoot(pt)
 	inst.SoundEmitter:PlaySound("dontstarve/common/destroy_stone")
+	SpawnPrefab("rock_break_fx").Transform:SetPosition(inst.Transform:GetWorldPosition())
 	inst:Remove()
 end
 

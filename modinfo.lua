@@ -1,7 +1,8 @@
-name = "   The Architect Pack"
-version = "2.3-B-BETA"
+name = "The Architect Pack"
+version = "2.4-B-BETA"
+local myupdate = "Renovate the Base!"
 
-description = "󰀂 This mod contains huge amount of decorative structures for Base Building!\n\Remember: They're just replicas, static structures or not?\n\n󰀅 Also includes some special structures and easter eggs, go find em' all!\n\n󰀏 Includes contents from: Shipwrecked, Hamlet, The Forge, The Gorge and exclusive contents!\n\n󰀖 Credits on the mod page!\n\󰀌 Mod Version: "..version..""
+description = "󰀂 This mod contains huge amount of decorative structures for Base Building!\n\Remember: They're just replicas, static structures or not?\n\n󰀅 Also includes some special structures and easter eggs, go find em' all!\n\n󰀏 Includes contents from: Shipwrecked, Hamlet, The Forge, The Gorge and exclusive contents!\n\n󰀖 Credits on the mod page!\n\󰀌 Mod Version: "..version.."\n\󰀧 Update: "..myupdate..""
 author = "The Builders Society"
 
 api_version = 10
@@ -89,19 +90,22 @@ configuration_options =
 		},
 		default = 1,
 	},
-	--[[ -- We don't need this actually, because she's stationary and peaceful anyway.
+	--[[ Currently disabled, because I need at least 50 iq to do this and I have 3 atm. ]]--
 	{
-		name = "ant_queen",
-		label = "Queen Womant",
-		hover = "Queen Womant will be in her throne.",
+		name = "ocean_structures",
+		label = "Ocean Structures",
+		hover = "Choose if ocean structures can be craftable or not.",
 		options =
 		{
-			{description = "Enabled", data = 0},
-			{description = "Disabled", data = 1},
+			{description = "Enabled",
+			hover = "Ocean structures can be crafted. (WORK IN PROGRESS!)",
+			data = 0},
+			{description = "Disabled",
+			hover = "Ocean structures can't be crafted.",
+			data = 1},
 		},
-		default = 0,
+		default = 1,
 	},
-	]]--
 	Title("End Table", "Options for the End Table."),
 	{
         name = "permanent_light",
@@ -297,7 +301,7 @@ configuration_options =
 	{
 		name = "colourcubes",
 		label = "Colour Cubes",
-		hover = "Enables CC from Hamlet or Shipwrecked.",
+		hover = "Enables Filters for each season.",
 		options =
 		{
 			{description = "Disabled", 		
@@ -315,30 +319,16 @@ configuration_options =
 			{description = "Thalz Edition",
 			hover=  "Colors of Thalz's choices. | Autumn | Humid | Lush | Dry",
 			data = 4},
+			{description = "Soko Edition",
+			hover=  "Colors of Sokoteur's choices. | Mild | Hurricane | Lush | Barren",
+			data = 5},
 			{description = "The Forge", 
 			hover = "Colors from The Forge Event. | Lava Arena",
-			data = 5},
+			data = 6},
 			{description = "The Gorge", 
 			hover = "Colors from The Gorge Event. | Quagmire",
-			data = 6},
+			data = 7},
 		},
 		default = 0,
 	},
-	--[[
-	{
-		name = "ocean_structures",
-		label = "Unimplemented Mode",
-		hover = "Enable structures that are not supported at this moment! Test by your own risk.",
-		options =
-		{
-			{description = "Enabled", 
-			hover = "Enable structures that are not supported. MAY CRASH YOUR GAME!",
-			data = 0},
-			{description = "Disabled", 
-			hover = "Disable structures that are not supported.",
-			data = 1},
-		},
-		default = 1,
-	},
-	]]--
 }

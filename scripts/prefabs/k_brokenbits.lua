@@ -56,6 +56,8 @@ local function fullfn()
 	inst:AddTag("structure")
 	inst:AddTag("brokenrelic")
 	
+	MakeSnowCoveredPristine(inst)
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -72,6 +74,8 @@ local function fullfn()
 	inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
 	inst.components.workable:SetOnFinishCallback(onhammered_full)
 	inst.components.workable:SetWorkLeft(1)
+	
+	MakeSnowCovered(inst, .01)
 
 	return inst
 end
@@ -96,6 +100,8 @@ local function medfn()
 	inst:AddTag("structure")
 	inst:AddTag("brokenrelic")
 	
+	MakeSnowCoveredPristine(inst)
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -112,6 +118,8 @@ local function medfn()
 	inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
 	inst.components.workable:SetOnFinishCallback(onhammered_med)
 	inst.components.workable:SetWorkLeft(1)
+	
+	MakeSnowCovered(inst, .01)
 
 	return inst
 end
@@ -136,6 +144,8 @@ local function lowfn()
 	inst:AddTag("structure")
 	inst:AddTag("brokenrelic")
 	
+	MakeSnowCoveredPristine(inst)
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -152,6 +162,8 @@ local function lowfn()
 	inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
 	inst.components.workable:SetOnFinishCallback(onhammered_low)
 	inst.components.workable:SetWorkLeft(1)
+	
+	MakeSnowCovered(inst, .01)
 
 	return inst
 end

@@ -86,6 +86,8 @@ local function fn()
 	inst:AddTag("structure")
 	inst:AddTag("aquatic")
 	
+	MakeSnowCoveredPristine(inst)
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -106,6 +108,8 @@ local function fn()
 	
 	inst:ListenForEvent("onbuilt", onbuilt)
 	inst:ListenForEvent("on_collide", OnCollide)
+	
+	 MakeSnowCovered(inst, .01)
 
 	return inst
 end

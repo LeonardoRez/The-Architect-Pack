@@ -74,6 +74,7 @@ local function fn()
 
 	inst:AddTag("structure")
 	inst:AddTag("aquatic")
+	inst:AddTag("nowaves")
 	inst:AddTag("ignorewalkableplatforms")
 	
     inst.entity:SetPristine()

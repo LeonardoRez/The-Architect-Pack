@@ -48,6 +48,8 @@ local function fn()
 	inst:AddTag("structure")
 	inst:AddTag("birdfountain")
 	
+	MakeSnowCoveredPristine(inst)
+	
 	inst.entity:SetPristine()
 	
     if not TheWorld.ismastersim then
@@ -66,6 +68,7 @@ local function fn()
 	inst:ListenForEvent("onbuilt", onbuilt)
 	
 	MakeHauntableWork(inst)
+	MakeSnowCovered(inst, .01)
 	
     return inst
 end

@@ -23,7 +23,7 @@ end
 
 local function onfinish_charcoal(inst, worker)
 	local pt = Point(inst.Transform:GetWorldPosition())
-	--SpawnPrefab("collapse_small").Transform:SetPosition(inst.Transform:GetWorldPosition())
+	SpawnPrefab("rock_break_fx").Transform:SetPosition(inst.Transform:GetWorldPosition())
 	inst.SoundEmitter:PlaySound("dontstarve/common/destroy_stone")
 	inst.components.lootdropper:DropLoot(pt)
 	inst:Remove()

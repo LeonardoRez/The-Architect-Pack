@@ -239,8 +239,6 @@ local function fn()
 
     inst.OnLoad = OnLoad
 
-	inst:DoTaskInTime(0, onseasonchange)
-
 	return inst
 end
 
