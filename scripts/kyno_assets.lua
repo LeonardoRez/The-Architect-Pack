@@ -1820,6 +1820,18 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_boat_empty.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_boat_empty.xml"),
 	
+	Asset("IMAGE", "images/tabimages/kyno_housetab.tex"),
+	Asset("ATLAS", "images/tabimages/kyno_housetab.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_plantholder_sadness.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_plantholder_sadness.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_plantholder_bonsai.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_plantholder_bonsai.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_plantholder_terrarium.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_plantholder_terrarium.xml"),
+	
 	-- Sound Assets --
 	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
 	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),
@@ -2249,4 +2261,5 @@ Assets = {
 	-- Interior Content --
 	Asset("ANIM", "anim/room_shelves.zip"),
 	Asset("ANIM", "anim/shelf_slot.zip"),
+	Asset("ANIM", "anim/interior_plant.zip"),
 }

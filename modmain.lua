@@ -89,6 +89,8 @@ Assets = { -- Some Assets don't show correctly if they're not set here.
 	Asset("ATLAS", "images/tabimages/kyno_surfacetab.xml"),
 	Asset("IMAGE", "images/tabimages/kyno_cavetab.tex"),
 	Asset("ATLAS", "images/tabimages/kyno_cavetab.xml"),
+	Asset("IMAGE", "images/tabimages/kyno_housetab.tex"),
+	Asset("ATLAS", "images/tabimages/kyno_housetab.xml"),
 	Asset("IMAGE", "images/inventoryimages/kyno_ruinspillar.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_ruinspillar.xml"),
 	Asset("IMAGE", "images/inventoryimages/kyno_thundernest.tex"),
@@ -679,6 +681,7 @@ PrefabFiles = {
 	-- INTERIOR CONTENT --
 	"k_shelves",
 	"k_shelves_slots",
+	"k_plantholders",
 }
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 local atlas = (src and src.components.inventoryitem and src.components.inventoryitem.atlasname and resolvefilepath(src.components.inventoryitem.atlasname) ) or "images/inventoryimages/kyno_inventoryimages_ham.xml"
@@ -733,6 +736,7 @@ local kyno_gorgetab = AddRecipeTab("The Gorge", 998, "images/tabimages/kyno_gorg
 local kyno_forgetab = AddRecipeTab("The Forge", 998, "images/tabimages/kyno_forgetab.xml", "kyno_forgetab.tex", nil, true)
 local kyno_surfacetab = AddRecipeTab("Surface", 998, "images/tabimages/kyno_surfacetab.xml", "kyno_surfacetab.tex", nil, true)
 local kyno_cavetab = AddRecipeTab("Underground", 998, "images/tabimages/kyno_cavetab.xml", "kyno_cavetab.tex", nil, true)
+local kyno_housetab = AddRecipeTab("Renovate", 998, "images/tabimages/kyno_housetab.xml", "kyno_housetab.tex", nil, true)
 
 local magmaingredient = Ingredient("turf_magmafield", 2)
 magmaingredient.atlas = "images/inventoryimages/kyno_turfs_sw.xml"
@@ -876,9 +880,6 @@ RECIPETABS.FARM, TECH.LOST, "kyno_wigfridge_placer", 0, nil, nil, nil, "images/i
 local wigfridge_sortkey = AllRecipes["icebox"]["sortkey"]
 KynFridge.sortkey = wigfridge_sortkey + 0.1
 
-AddRecipe("kyno_shelves_adjustable", {Ingredient("boards", 4)},
-RECIPETABS.TOWN, TECH.SCIENCE_TWO, "kyno_shelves_adjustable_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_shelves_adjustable.tex")
-
 
 AddRecipe("kyno_sw_prototyper", {Ingredient("boards", 4), Ingredient("pondfish", 4)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_sw_prototyper_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "shipwrecked_entrance.tex")
@@ -890,6 +891,74 @@ kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_ham_prototyper_placer", 0, nil, nil, nil
 
 AddRecipe("kyno_gorge_prototyper", {Ingredient("cutstone", 3), Ingredient("meatballs", 2)},
 kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_gorge_prototyper_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_gnawaltar.xml", "kyno_gnawaltar.tex")
+
+
+AddRecipe("kyno_plantholder_basic", {Ingredient("log", 2), Ingredient("twigs", 4), Ingredient("succulent_picked", 1)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_plantholder_basic_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_plantholder_basic.tex")
+
+
+AddRecipe("kyno_plantholder_wip", {Ingredient("cutstone", 1), Ingredient("succulent_picked", 4)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_plantholder_wip_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_plantholder_wip.tex")
+
+
+AddRecipe("kyno_plantholder_fancy", {Ingredient("marble", 2), Ingredient("feather_crow", 2), Ingredient("succulent_picked", 1)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_plantholder_fancy_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_plantholder_fancy.tex")
+
+
+AddRecipe("kyno_plantholder_bonsai", {Ingredient("cutstone", 1), Ingredient("dug_berrybush_juicy", 1)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_plantholder_bonsai_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_plantholder_bonsai.tex")
+
+
+AddRecipe("kyno_plantholder_bonsai2", {Ingredient("cutstone", 1), Ingredient("dug_berrybush_juicy", 1)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_plantholder_bonsai2_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_plantholder_bonsai.xml", "kyno_plantholder_bonsai.tex")
+
+
+AddRecipe("kyno_plantholder_dishgarden", {Ingredient("cutstone", 1), Ingredient("succulent_picked", 2)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_plantholder_dishgarden_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_plantholder_dishgarden.tex")
+
+
+AddRecipe("kyno_plantholder_philodendron", {Ingredient("marble", 1), Ingredient("succulent_picked", 4)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_plantholder_philodendron_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_plantholder_philodendron.tex")
+
+
+AddRecipe("kyno_plantholder_orchid", {Ingredient("cutstone", 1), Ingredient("succulent_picked", 2), Ingredient("petals", 4)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_plantholder_orchid_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_plantholder_orchid.tex")
+
+
+AddRecipe("kyno_plantholder_draceana", {Ingredient("log", 4), Ingredient("succulent_picked", 4)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_plantholder_draceana_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_plantholder_draceana.tex")
+
+
+AddRecipe("kyno_plantholder_palm", {Ingredient("cutgrass", 4), Ingredient("succulent_picked", 4)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_plantholder_palm_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_plantholder_palm.tex")
+
+
+AddRecipe("kyno_plantholder_zz", {Ingredient("cutgrass", 2), Ingredient("twigs", 4), Ingredient("succulent_picked", 4)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_plantholder_zz_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_plantholder_zz.tex")
+
+
+AddRecipe("kyno_plantholder_fernstand", {Ingredient("goldnugget", 2), Ingredient("foliage", 4)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_plantholder_fernstand_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_plantholder_fernstand.tex")
+
+
+AddRecipe("kyno_plantholder_terrarium", {Ingredient("cutstone", 2), Ingredient("moonglass", 4), Ingredient("succulent_picked", 4)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_plantholder_terrarium_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_plantholder_terrarium.tex")
+
+
+AddRecipe("kyno_plantholder_terrarium2", {Ingredient("cutstone", 2), Ingredient("moonglass", 4), Ingredient("succulent_picked", 4)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_plantholder_terrarium2_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_plantholder_terrarium.xml", "kyno_plantholder_terrarium.tex")
+
+
+AddRecipe("kyno_plantholder_plantpet", {Ingredient("log", 4), Ingredient("rocks", 3), Ingredient("twigs", 3)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_plantholder_plantpet_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_plantholder_plantpet.tex")
+
+
+AddRecipe("kyno_plantholder_traps", {Ingredient("cutstone", 1), Ingredient("houndstooth", 2), Ingredient("succulent_picked", 2)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_plantholder_traps_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_plantholder_traps.tex")
+
+
+AddRecipe("kyno_plantholder_sadness", {Ingredient("boards", 1), Ingredient("dug_sapling", 1), Ingredient("winter_ornament_plain3", 1)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_plantholder_sadness_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_plantholder_sadness.xml", "kyno_plantholder_sadness.tex")
 
 
 AddRecipe("kyno_pugna", {Ingredient("hambat", 1), Ingredient("meat", 10), Ingredient("reviver", 1)},
@@ -3335,6 +3404,10 @@ RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryima
 AddRecipe("kyno_oinc100", {Ingredient("goldnugget", 1)}, 
 RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "oinc100.tex")
 end
+
+AddRecipe("berries_juicy", {Ingredient("berries", 1)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "berries_juicy.tex")
+
 
 AddRecipe("fossil_piece", {Ingredient("boneshard", 3)},
 RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "fossil_piece.tex")
