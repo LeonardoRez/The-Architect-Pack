@@ -67,7 +67,7 @@ end
 local function OnHit(inst)
     if not inst:HasTag("burnt") then
         inst.SoundEmitter:PlaySound("dontstarve/common/salt_lick_hit")
-        inst.AnimState:PlayAnimation("hit")
+        inst.AnimState:PlayAnimation("hit1")
         inst.AnimState:PushAnimation("idle1")
     end
 end

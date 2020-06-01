@@ -22,7 +22,8 @@ modimport("scripts/kyno_lights")
 modimport("scripts/kyno_combat")
 modimport("scripts/kyno_combat_replica")
 modimport("scripts/kyno_fx")
-modimport("scripts/kyno_foods")
+modimport("scripts/kyno_preparedfoods")
+modimport("scripts/kyno_actions")
 modimport("libs/env")
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Assets = { -- Some Assets don't show correctly if they're not set here.
@@ -287,7 +288,7 @@ PrefabFiles = {
 	"k_fakecoffeebush",
 	"k_coffeebeans",
 	"k_coffeebuff",
-	"k_foods",
+	"k_coffee",
 	"k_altar_pillar",
 	"k_volcano_altar",
 	"k_workbench",
@@ -340,6 +341,7 @@ PrefabFiles = {
 	"k_packim_fishbone",
 	"k_teleportato_shipwrecked",
 	"k_bootybag",
+	"k_parrot_boat",
 	-- HAMLET CONTENT --
 	"k_ham_prototyper",
 	"k_cavecleft",
@@ -674,6 +676,9 @@ PrefabFiles = {
 	"k_lilypad",
 	"k_lotusplant",
 	"k_lotusflower",
+	-- INTERIOR CONTENT --
+	"k_shelves",
+	"k_shelves_slots",
 }
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 local atlas = (src and src.components.inventoryitem and src.components.inventoryitem.atlasname and resolvefilepath(src.components.inventoryitem.atlasname) ) or "images/inventoryimages/kyno_inventoryimages_ham.xml"
@@ -870,6 +875,10 @@ local KynFridge = AddRecipe("kyno_wigfridge", {Ingredient("cutstone", 1), Ingred
 RECIPETABS.FARM, TECH.LOST, "kyno_wigfridge_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_wigfridge.xml", "kyno_wigfridge.tex")
 local wigfridge_sortkey = AllRecipes["icebox"]["sortkey"]
 KynFridge.sortkey = wigfridge_sortkey + 0.1
+
+AddRecipe("kyno_shelves_adjustable", {Ingredient("boards", 4)},
+RECIPETABS.TOWN, TECH.SCIENCE_TWO, "kyno_shelves_adjustable_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_shelves_adjustable.tex")
+
 
 AddRecipe("kyno_sw_prototyper", {Ingredient("boards", 4), Ingredient("pondfish", 4)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_sw_prototyper_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "shipwrecked_entrance.tex")
@@ -3399,6 +3408,14 @@ AddRecipe("seashell", {Ingredient("flint", 1), Ingredient("nitre", 1)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "seashell.tex")
 
 
+AddRecipe("kyno_parrot_boat", {Ingredient("boards", 3), Ingredient("robin", 1)},
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_parrot_boat_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_parrot_boat.xml", "kyno_parrot_boat.tex")
+
+
+AddRecipe("kyno_boat_empty", {Ingredient("boards", 3)},
+kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_boat_empty_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_boat_empty.xml", "kyno_boat_empty.tex")
+
+
 AddRecipe("kyno_shipmast", {Ingredient("boards", 2), Ingredient("robin", 1)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_shipmast_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_shipmast.xml", "kyno_shipmast.tex")
 
@@ -3487,7 +3504,7 @@ AddRecipe("kyno_palmleaf_hut", {Ingredient("cutgrass", 5), Ingredient("rope", 3)
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_palmleaf_hut_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "palmleaf_hut.tex")
 
 
-AddRecipe("kyno_doydoy_nest",{Ingredient("twigs", 8), Ingredient("goose_feather", 2), Ingredient("bird_egg", 1)},
+AddRecipe("kyno_doydoy_nest",{Ingredient("twigs", 8), Ingredient("goose_feather", 2), Ingredient("tallbirdegg", 1)},
 kyno_shipwreckedtab, TECH.SCIENCE_TWO, "kyno_doydoy_nest_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_sw.xml", "doydoynest.tex")
 
 

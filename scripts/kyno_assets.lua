@@ -1814,6 +1814,12 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_batboulder.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_batboulder.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_parrot_boat.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_parrot_boat.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_boat_empty.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_boat_empty.xml"),
+	
 	-- Sound Assets --
 	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
 	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),
@@ -1928,6 +1934,7 @@ Assets = {
 	Asset("ANIM", "anim/seagull_build.zip"),
 	Asset("ANIM", "anim/seagull_water.zip"),
 	Asset("ANIM", "anim/swap_pirate_booty_bag.zip"),
+	Asset("ANIM", "anim/kyno_parrot_boat.zip"),
 	-- Hamlet Content --
 	Asset("ANIM", "anim/vamp_bat_entrance.zip"),
 	Asset("ANIM", "anim/portal_hamlet.zip"),
@@ -2239,4 +2246,7 @@ Assets = {
 	Asset("ANIM", "anim/volcano.zip"),
 	Asset("ANIM", "anim/lily_pad.zip"),
 	Asset("ANIM", "anim/lotus.zip"),
+	-- Interior Content --
+	Asset("ANIM", "anim/room_shelves.zip"),
+	Asset("ANIM", "anim/shelf_slot.zip"),
 }

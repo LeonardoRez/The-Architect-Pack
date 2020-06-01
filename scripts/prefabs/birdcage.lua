@@ -9,6 +9,7 @@ local assets =
     Asset("ANIM", "anim/robin_winter_build.zip"),
     Asset("ANIM", "anim/canary_build.zip"),
 	Asset("ANIM", "anim/parrot_pirate.zip"),
+	Asset("ANIM", "anim/parrot_build.zip"),
 	Asset("ANIM", "anim/parrot_pirate_build.zip"),
 }
 
@@ -18,6 +19,7 @@ local prefabs =
     "crow",
     "robin",
     "robin_winter",
+	"parrot_pirate",
     "canary",
     "guano",
 }

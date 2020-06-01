@@ -269,6 +269,11 @@ local function makebird(name, soundname, no_feather, bank, custom_loot_setup, wa
         inst.AnimState:SetBank(bank or "crow")
         inst.AnimState:SetBuild(name.."_build")
         inst.AnimState:PlayAnimation("idle")
+		
+		if name == "parrot_pirate" then
+			inst.AnimState:SetBank("parrot_pirate")
+			inst.AnimState:SetBuild("parrot_pirate_build")
+		end
 
         inst.DynamicShadow:SetSize(1, .75)
         inst.DynamicShadow:Enable(false)

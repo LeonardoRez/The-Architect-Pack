@@ -983,3 +983,13 @@ AddPrefabPostInit("wathgrithr", function(inst)
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_oinc1", function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+    if inst.components.inventoryitem ~= nil and not inst.components.shelfer and not inst:HasTag("SHELFER_ITEM") then 
+	inst:AddComponent("shelfer")
+	inst:AddTag("SHELFER_ITEM")
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
