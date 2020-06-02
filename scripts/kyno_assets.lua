@@ -1823,14 +1823,32 @@ Assets = {
 	Asset("IMAGE", "images/tabimages/kyno_housetab.tex"),
 	Asset("ATLAS", "images/tabimages/kyno_housetab.xml"),
 	
-	Asset("IMAGE", "images/inventoryimages/kyno_plantholder_sadness.tex"),
-	Asset("ATLAS", "images/inventoryimages/kyno_plantholder_sadness.xml"),
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_displaycase1.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_displaycase1.xml"),
 	
-	Asset("IMAGE", "images/inventoryimages/kyno_plantholder_bonsai.tex"),
-	Asset("ATLAS", "images/inventoryimages/kyno_plantholder_bonsai.xml"),
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_displaycase2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_displaycase2.xml"),
 	
-	Asset("IMAGE", "images/inventoryimages/kyno_plantholder_terrarium.tex"),
-	Asset("ATLAS", "images/inventoryimages/kyno_plantholder_terrarium.xml"),
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_ruins.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_ruins.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_metalcrates.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_metalcrates.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_circle.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_circle.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_moth.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_moth.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_throneroom.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_throneroom.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_worn.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_worn.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_leather.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_leather.xml"),
 	
 	-- Sound Assets --
 	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
@@ -2262,4 +2280,6 @@ Assets = {
 	Asset("ANIM", "anim/room_shelves.zip"),
 	Asset("ANIM", "anim/shelf_slot.zip"),
 	Asset("ANIM", "anim/interior_plant.zip"),
+	Asset("ANIM", "anim/interior_chair.zip"),
+	Asset("ANIM", "anim/rugs.zip"),
 }

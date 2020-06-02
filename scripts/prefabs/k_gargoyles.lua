@@ -114,6 +114,8 @@ local function hound1fn()
     inst.entity:AddSoundEmitter()
 	inst.entity:AddNetwork()
 	
+	inst.Transform:SetTwoFaced()
+	
 	inst.AnimState:SetBank("sculpture_hound")
 	inst.AnimState:SetBuild("sculpture_hound_moonrock_build")
 	inst.AnimState:PlayAnimation("atk", true)
@@ -129,6 +131,8 @@ local function hound1fn()
         return inst
     end
 
+	inst:AddComponent("savedrotation")
+	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
 	
@@ -152,6 +156,8 @@ local function hound2fn()
     inst.entity:AddSoundEmitter()
 	inst.entity:AddNetwork()
 	
+	inst.Transform:SetTwoFaced()
+	
 	inst.AnimState:SetBank("sculpture_hound")
 	inst.AnimState:SetBuild("sculpture_hound_moonrock_build")
 	inst.AnimState:PlayAnimation("atk2", true)
@@ -166,6 +172,8 @@ local function hound2fn()
     if not TheWorld.ismastersim then
         return inst
     end
+	
+	inst:AddComponent("savedrotation")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -190,6 +198,8 @@ local function hound3fn()
     inst.entity:AddSoundEmitter()
 	inst.entity:AddNetwork()
 	
+	inst.Transform:SetTwoFaced()
+	
 	inst.AnimState:SetBank("sculpture_hound")
 	inst.AnimState:SetBuild("sculpture_hound_moonrock_build")
 	inst.AnimState:PlayAnimation("death", true)
@@ -205,6 +215,8 @@ local function hound3fn()
         return inst
     end
 
+	inst:AddComponent("savedrotation")
+	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
 	
@@ -228,6 +240,8 @@ local function hound4fn()
     inst.entity:AddSoundEmitter()
 	inst.entity:AddNetwork()
 	
+	inst.Transform:SetTwoFaced()
+	
 	inst.AnimState:SetBank("sculpture_hound")
 	inst.AnimState:SetBuild("sculpture_hound_moonrock_build")
 	inst.AnimState:PlayAnimation("death2", true)
@@ -242,6 +256,8 @@ local function hound4fn()
     if not TheWorld.ismastersim then
         return inst
     end
+	
+	inst:AddComponent("savedrotation")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -266,6 +282,8 @@ local function pig1fn()
     inst.entity:AddSoundEmitter()
 	inst.entity:AddNetwork()
 	
+	inst.Transform:SetTwoFaced()
+	
 	inst.AnimState:SetBank("sculpture_werepig")
 	inst.AnimState:SetBuild("sculpture_werepig_moonrock_build")
 	inst.AnimState:PlayAnimation("atk", true)
@@ -280,6 +298,8 @@ local function pig1fn()
     if not TheWorld.ismastersim then
         return inst
     end
+	
+	inst:AddComponent("savedrotation")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -304,6 +324,8 @@ local function pig2fn()
     inst.entity:AddSoundEmitter()
 	inst.entity:AddNetwork()
 	
+	inst.Transform:SetTwoFaced()
+	
 	inst.AnimState:SetBank("sculpture_werepig")
 	inst.AnimState:SetBuild("sculpture_werepig_moonrock_build")
 	inst.AnimState:PlayAnimation("atk2", true)
@@ -318,6 +340,8 @@ local function pig2fn()
     if not TheWorld.ismastersim then
         return inst
     end
+	
+	inst:AddComponent("savedrotation")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -342,6 +366,8 @@ local function pig3fn()
     inst.entity:AddSoundEmitter()
 	inst.entity:AddNetwork()
 	
+	inst.Transform:SetTwoFaced()
+	
 	inst.AnimState:SetBank("sculpture_werepig")
 	inst.AnimState:SetBuild("sculpture_werepig_moonrock_build")
 	inst.AnimState:PlayAnimation("death", true)
@@ -356,6 +382,8 @@ local function pig3fn()
     if not TheWorld.ismastersim then
         return inst
     end
+	
+	inst:AddComponent("savedrotation")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -380,6 +408,8 @@ local function pig4fn()
     inst.entity:AddSoundEmitter()
 	inst.entity:AddNetwork()
 	
+	inst.Transform:SetTwoFaced()
+	
 	inst.AnimState:SetBank("sculpture_werepig")
 	inst.AnimState:SetBuild("sculpture_werepig_moonrock_build")
 	inst.AnimState:PlayAnimation("death2", true)
@@ -394,6 +424,8 @@ local function pig4fn()
     if not TheWorld.ismastersim then
         return inst
     end
+	
+	inst:AddComponent("savedrotation")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
@@ -418,6 +450,8 @@ local function pig5fn()
     inst.entity:AddSoundEmitter()
 	inst.entity:AddNetwork()
 	
+	inst.Transform:SetTwoFaced()
+	
 	inst.AnimState:SetBank("sculpture_werepig")
 	inst.AnimState:SetBuild("sculpture_werepig_moonrock_build")
 	inst.AnimState:PlayAnimation("howl", true)
@@ -433,6 +467,8 @@ local function pig5fn()
         return inst
     end
 
+	inst:AddComponent("savedrotation")
+	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")
 	
@@ -456,6 +492,8 @@ local function pig6fn()
     inst.entity:AddSoundEmitter()
 	inst.entity:AddNetwork()
 	
+	inst.Transform:SetTwoFaced()
+	
 	inst.AnimState:SetBank("sculpture_werepig")
 	inst.AnimState:SetBuild("sculpture_werepig_moonrock_build")
 	inst.AnimState:PlayAnimation("howl2", true)
@@ -470,6 +508,8 @@ local function pig6fn()
     if not TheWorld.ismastersim then
         return inst
     end
+	
+	inst:AddComponent("savedrotation")
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

@@ -983,13 +983,225 @@ AddPrefabPostInit("wathgrithr", function(inst)
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-AddPrefabPostInit("kyno_oinc1", function(inst)
+local function onhitrug(inst, worker, workleft)
+	local workable = inst.components.workable
+	if inst.lastworktime == nil then
+		inst.lastworktime = _G.GetTime()
+	end
+
+	if _G.GetTime() - inst.lastworktime > 2 then
+		workable:SetWorkLeft(4) 
+		inst.lastworktime = _G.GetTime()
+	end
+	local rotation = inst.Transform:GetRotation()
+    inst.Transform:SetRotation((rotation + 90) % 360)
+end
+
+AddPrefabPostInitAny(function(inst)
 	if not GLOBAL.TheWorld.ismastersim then
 		return inst
 	end
-    if inst.components.inventoryitem ~= nil and not inst.components.shelfer and not inst:HasTag("SHELFER_ITEM") then 
-	inst:AddComponent("shelfer")
-	inst:AddTag("SHELFER_ITEM")
+	if inst:HasTag("rugs") and inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitrug)
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+local function onhitholder(inst, worker, workleft)
+	local workable = inst.components.workable
+	if inst.lastworktime == nil then
+		inst.lastworktime = _G.GetTime()
+	end
+
+	if _G.GetTime() - inst.lastworktime > 2 then
+		workable:SetWorkLeft(4) 
+		inst.lastworktime = _G.GetTime()
+	end
+	local rotation = inst.Transform:GetRotation()
+    inst.Transform:SetRotation((rotation + 180) % 360)
+end
+
+AddPrefabPostInitAny(function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst:HasTag("plantholder") and inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitrug)
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+local function onhitrotate(inst, worker, workleft)
+	local workable = inst.components.workable
+	if inst.lastworktime == nil then
+		inst.lastworktime = _G.GetTime()
+	end
+
+	if _G.GetTime() - inst.lastworktime > 2 then
+		workable:SetWorkLeft(4) 
+		inst.lastworktime = _G.GetTime()
+	end
+	local rotation = inst.Transform:GetRotation()
+    inst.Transform:SetRotation((rotation + 180) % 360)
+end
+
+AddPrefabPostInit("kyno_beaststatue", function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitrotate)
+	end
+end)
+
+AddPrefabPostInit("kyno_beaststatue2", function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitrotate)
+	end
+end)
+
+AddPrefabPostInit("kyno_worshipper2", function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitrotate)
+	end
+end)
+
+AddPrefabPostInit("kyno_topiary_2", function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitrotate)
+	end
+end)
+
+AddPrefabPostInit("kyno_topiary_3", function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitrotate)
+	end
+end)
+
+AddPrefabPostInit("kyno_topiary_4", function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitrotate)
+	end
+end)
+
+AddPrefabPostInit("kyno_lawnornament_2", function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitrotate)
+	end
+end)
+
+AddPrefabPostInit("kyno_lawnornament_4", function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitrotate)
+	end
+end)
+
+AddPrefabPostInit("kyno_hound_gargoyle_1", function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitrotate)
+	end
+end)
+
+AddPrefabPostInit("kyno_hound_gargoyle_2", function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitrotate)
+	end
+end)
+
+AddPrefabPostInit("kyno_hound_gargoyle_3", function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitrotate)
+	end
+end)
+
+AddPrefabPostInit("kyno_hound_gargoyle_4", function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitrotate)
+	end
+end)
+
+AddPrefabPostInit("kyno_werepig_gargoyle_1", function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitrotate)
+	end
+end)
+
+AddPrefabPostInit("kyno_werepig_gargoyle_2", function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitrotate)
+	end
+end)
+
+AddPrefabPostInit("kyno_werepig_gargoyle_3", function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitrotate)
+	end
+end)
+
+AddPrefabPostInit("kyno_werepig_gargoyle_4", function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitrotate)
+	end
+end)
+
+AddPrefabPostInit("kyno_werepig_gargoyle_5", function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitrotate)
+	end
+end)
+
+AddPrefabPostInit("kyno_werepig_gargoyle_6", function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitrotate)
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------

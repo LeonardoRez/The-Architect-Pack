@@ -16,6 +16,10 @@ local assets =
 	Asset("SOUND", "sound/DLC003_sfx.fsb"),
 }
 
+local prefabs = {
+	"honey",
+}
+
 local function testitem_honeychest(inst, item, slot)
 	return item.prefab == "honey"
 end

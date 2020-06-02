@@ -48,6 +48,8 @@ local function beast1fn()
 	inst.entity:AddSoundEmitter()
     inst.entity:AddNetwork()
 	
+	inst.Transform:SetTwoFaced()
+	
 	local minimap = inst.entity:AddMiniMapEntity()
 	minimap:SetIcon("kyno_beaststatue.tex")
 	
@@ -67,6 +69,8 @@ local function beast1fn()
     if not TheWorld.ismastersim then
         return inst
     end
+	
+	inst:AddComponent("savedrotation")
 	
 	inst:AddComponent("lootdropper")
     inst:AddComponent("inspectable")
@@ -140,6 +144,8 @@ local function beast2fn()
 	inst.entity:AddSoundEmitter()
     inst.entity:AddNetwork()
 	
+	inst.Transform:SetTwoFaced()
+	
 	local minimap = inst.entity:AddMiniMapEntity()
 	minimap:SetIcon("kyno_beaststatue.tex")
 	
@@ -159,6 +165,8 @@ local function beast2fn()
     if not TheWorld.ismastersim then
         return inst
     end
+	
+	inst:AddComponent("savedrotation")
 	
 	inst:AddComponent("lootdropper")
     inst:AddComponent("inspectable")

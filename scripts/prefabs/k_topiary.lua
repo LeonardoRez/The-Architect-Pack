@@ -66,6 +66,8 @@ local function makeitem(name, build, frame)
     inst.entity:AddAnimState()
     inst.entity:AddSoundEmitter()
 	inst.entity:AddNetwork()
+	
+	inst.Transform:SetTwoFaced()
 
 	local minimap = inst.entity:AddMiniMapEntity()
 	minimap:SetIcon("topiary_".. frame ..".png")
@@ -86,6 +88,8 @@ local function makeitem(name, build, frame)
     if not TheWorld.ismastersim then
         return inst
     end
+	
+	inst:AddComponent("savedrotation")
 	
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

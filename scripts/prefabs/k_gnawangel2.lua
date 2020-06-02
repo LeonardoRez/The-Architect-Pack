@@ -55,6 +55,8 @@ local function fn()
 	inst.entity:AddSoundEmitter()
     inst.entity:AddNetwork()
 	
+	inst.Transform:SetTwoFaced()
+	
 	local minimap = inst.entity:AddMiniMapEntity()
 	minimap:SetIcon("kyno_worshipper2.tex")
 	
@@ -72,6 +74,8 @@ local function fn()
     if not TheWorld.ismastersim then
         return inst
     end
+	
+	inst:AddComponent("savedrotation")
 	
 	inst:AddComponent("lootdropper")
     inst:AddComponent("inspectable")
