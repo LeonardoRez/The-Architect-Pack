@@ -1102,7 +1102,95 @@ kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_displaycase_metal_placer", 2, nil
 
 
 AddRecipe("kyno_shelves_ruins", {Ingredient("thulecite", 3)},
-kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_ruins_placer", 2, nil, nil, nil, "images/inventoryimages/kyno_shelves_ruins.xml", "kyno_shelves_ruins.tex")
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_ruins_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_ruins.xml", "kyno_shelves_ruins.tex")
+
+
+AddRecipe("kyno_shelves_bank", {Ingredient("moonglass", 2), Ingredient("marble", 2)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_bank_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_bank.xml", "kyno_shelves_bank.tex")
+
+
+AddRecipe("kyno_shelves_woodcrate", {Ingredient("boards", 2), Ingredient("rope", 1)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_woodcrate_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_woodcrate.xml", "kyno_shelves_woodcrate.tex")
+
+
+AddRecipe("kyno_shelves_barrel", {Ingredient("boards", 2)}.
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_barrel_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_barrel.xml", "kyno_shelves_barrel.tex")
+
+
+AddRecipe("kyno_shelves_barreldome", {Ingredient("moonglass", 2), Ingredient("boards", 2)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_barreldome_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_barreldome.xml", "kyno_shelves_barreldome.tex")
+
+
+AddRecipe("kyno_shelves_cablespool", {Ingredient("boards", 2)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_cablespool_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_cablespool.xml", "kyno_shelves_cablespool.tex")
+
+
+AddRecipe("kyno_shelves_cakestand", {Ingredient("marble", 2)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_cakestand_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_cakestand.xml", "kyno_shelves_cakestand.tex")
+
+
+AddRecipe("kyno_shelves_cakestanddome", {Ingredient("moonglass", 2), Ingredient("moonrocknugget", 2)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_cakestanddome_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_cakestanddome.xml", "kyno_shelves_cakestanddome.tex")
+
+
+AddRecipe("kyno_shelves_cart", {Ingredient("boards", 3)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_cart_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_cart.xml", "kyno_shelves_cart.tex")
+
+
+AddRecipe("kyno_shelves_fridge2", {Ingredient("cutstone", 1), Ingredient("gears", 1)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_fridge2_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_fridge2.xml", "kyno_shelves_fridge2.tex")
+
+
+AddRecipe("kyno_shelves_globe", {Ingredient("goldnugget", 4), Ingredient("cutstone", 1)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_globe_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_globe.xml", "kyno_shelves_globe.tex")
+
+
+AddRecipe("kyno_shelves_ice",  {Ingredient("boards", 2), Ingredient("ice", 4)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_ice_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_ice.xml", "kyno_shelves_ice.tex")
+
+
+AddRecipe("kyno_shelves_icebucket", {Ingredient("cutstone", 2), Ingredient("ice", 4)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_icebucket_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_icebucket.xml", "kyno_shelves_icebucket.tex")
+
+
+AddRecipe("kyno_shelves_mahogany", {Ingredient("boards", 2), Ingredient("moonglass", 2)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_mahogany_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_mahogany.xml", "kyno_shelves_mahogany.tex")
+
+
+AddRecipe("kyno_shelves_marble2", {Ingredient("marble", 3)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_marble2_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_marble2.xml", "kyno_shelves_marble2.tex")
+
+
+AddRecipe("kyno_shelves_marblesilk", {Ingredient("marble", 3), Ingredient("silk", 2)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_marblesilk_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_marblesilk.xml", "kyno_shelves_marblesilk.tex")
+
+
+AddRecipe("kyno_shelves_metal", {Ingredient("cutstone", 2)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_metal_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_metal.xml", "kyno_shelves_metal.tex")
+
+
+AddRecipe("kyno_shelves_stoneslab", {Ingredient("cutstone", 2)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_stoneslab_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_stoneslab.xml", "kyno_shelves_stoneslab.tex")
+
+
+AddRecipe("kyno_shelves_traystand", {Ingredient("boards", 2)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_traystand_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_traystand.xml", "kyno_shelves_traystand.tex")
+
+
+AddRecipe("kyno_shelves_wagon", {Ingredient("boards", 3)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_wagon_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_wagon.xml", "kyno_shelves_wagon.tex")
+
+
+AddRecipe("kyno_shelves_yotp", {Ingredient("cutstone", 1), Ingredient("pigskin", 2), Ingredient("moonglass", 2)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_yotp_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_yotp.xml", "kyno_shelves_yotp.tex")
+
+
+AddRecipe("kyno_shelves_yotp2", {Ingredient("cutstone", 1), Ingredient("pigskin", 2)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_yotp2_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_yotp2.xml", "kyno_shelves_yotp2.tex")
+
+
+AddRecipe("kyno_shelves_lock", {Ingredient("moonglass", 2), Ingredient("marble", 2)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_lock_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_lock.xml", "kyno_shelves_lock.tex")
 
 
 AddRecipe("kyno_rugs_round", {Ingredient("silk", 4)},

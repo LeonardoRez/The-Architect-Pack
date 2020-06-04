@@ -3,6 +3,7 @@ require "prefabutil"
 local assets =
 {
     Asset("ANIM", "anim/room_shelves.zip"),
+	Asset("ANIM", "anim/pedestal_crate.zip"),
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_shelves_displaycase1.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_shelves_displaycase1.xml"),
@@ -15,6 +16,72 @@ local assets =
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_shelves_metalcrates.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_shelves_metalcrates.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_bank.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_bank.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_woodcrate.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_woodcrate.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_barrel.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_barrel.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_barreldome.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_barreldome.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_cablespool.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_cablespool.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_cakestand.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_cakestand.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_cakestanddome.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_cakestanddome.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_cart.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_cart.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_fridge2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_fridge2.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_globe.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_globe.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_ice.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_ice.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_icebucket.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_icebucket.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_mahogany.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_mahogany.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_marble2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_marble2.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_marblesilk.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_marblesilk.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_metal.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_metal.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_stoneslab.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_stoneslab.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_traystand.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_traystand.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_wagon.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_wagon.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_yotp.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_yotp.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_yotp2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_yotp2.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_lock.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_lock.xml"),
     
     Asset("IMAGE", "images/inventoryimages/kyno_inventoryimages_ham.tex"),
     Asset("ATLAS", "images/inventoryimages/kyno_inventoryimages_ham.xml"),
@@ -406,6 +473,85 @@ local function common(setsize,swp_img_list, locked, physics_round, save_rotation
     return inst
 end
 
+local function pedestal(setsize,swp_img_list, locked, physics_round, save_rotation)
+
+    local size = setsize or 6
+    local inst = CreateEntity()
+    inst.entity:AddNetwork()
+    inst.entity:AddTransform()
+    local anim = inst.entity:AddAnimState()
+    inst.entity:AddSoundEmitter()
+    inst.entity:AddPhysics()        
+        
+    if physics_round then
+        MakeObstaclePhysics(inst, .5)
+    else
+        MakeInventoryPhysics(inst, 1.6, 1, 0.2)
+    end 
+	
+	if save_rotation then
+		inst.Transform:SetTwoFaced() -- This makes the shelves weird af.
+	end
+
+    -- inst:AddTag("NOCLICK")
+    inst:AddTag("wallsection")
+    inst:AddTag("furniture")    
+
+    anim:SetBuild("pedestal_crate")
+    anim:SetBank("pedestal")
+    anim:PlayAnimation("wood", false)
+
+    inst.imagename = nil 
+
+    inst.SetImage = SetImage
+    inst.SetImageFromName = SetImageFromName
+
+    inst.swp_img_list = swp_img_list
+    inst.size = setsize or 6
+    if swp_img_list then
+        for i=1,size do
+            SetImageFromName(inst, nil, swp_img_list[i])
+        end
+    else
+        for i=1,size do
+            SetImageFromName(inst, nil, "SWAP_img"..i)
+        end
+    end
+	
+	inst.entity:SetPristine()
+	
+    if not TheWorld.ismastersim then
+        return inst
+    end
+   
+    inst:ListenForEvent( "onbuilt", function()
+        onBuilt(inst)
+    end)          
+
+    inst.OnSave = onsave 
+    inst.OnLoad = onload
+    inst.OnLoadPostPass = onloadpostpass
+
+    inst:DoTaskInTime(0, function() 
+        if inst:HasTag("playercrafted") then
+            setPlayerUncraftable(inst)
+        end
+
+        spawnchildren(inst,locked) 
+        if locked and not inst.destrancado then
+                lock(inst)
+            else
+                unlock(inst)
+        end
+    end)
+	
+	if save_rotation then
+		inst:AddComponent("savedrotation")
+	end
+
+    return inst
+end
+
 local function wood()
     local inst = common()
     local anim = inst.AnimState
@@ -653,6 +799,194 @@ local function queen_display4()
     return inst
 end
 
+local function bank()
+    local inst = pedestal(1,nil,nil,true, true)
+    local anim = inst.AnimState
+    anim:PlayAnimation("bank", false) 
+    inst:AddTag("playercrafted")
+    return inst
+end
+
+local function woodcrate()
+    local inst = pedestal(1,nil,nil,true, true)
+    local anim = inst.AnimState
+    anim:PlayAnimation("idle", false) 
+    inst:AddTag("playercrafted")
+    return inst
+end
+
+local function barrel()
+    local inst = pedestal(1,nil,nil,true, true)
+    local anim = inst.AnimState
+    anim:PlayAnimation("idle_barrel", false) 
+    inst:AddTag("playercrafted")
+    return inst
+end
+
+local function barreldome()
+    local inst = pedestal(1,nil,nil,true, true)
+    local anim = inst.AnimState
+    anim:PlayAnimation("idle_barrel_dome", false) 
+    inst:AddTag("playercrafted")
+    return inst
+end
+
+local function cablespool()
+    local inst = pedestal(1,nil,nil,true, true)
+    local anim = inst.AnimState
+    anim:PlayAnimation("idle_cablespool", false)
+	anim:Hide("pedestal_sign")
+    inst:AddTag("playercrafted")
+    return inst
+end
+
+local function cakestand()
+    local inst = pedestal(1,nil,nil,true, true)
+    local anim = inst.AnimState
+    anim:PlayAnimation("idle_cakestand", false)
+	anim:Hide("pedestal_sign")
+    inst:AddTag("playercrafted")
+    return inst
+end
+
+local function cakestanddome()
+    local inst = pedestal(1,nil,nil,true, true)
+    local anim = inst.AnimState
+    anim:PlayAnimation("idle_cakestand_dome", false)
+	anim:Hide("pedestal_sign")
+    inst:AddTag("playercrafted")
+    return inst
+end
+
+local function cart()
+    local inst = pedestal(1,nil,nil,true, true)
+    local anim = inst.AnimState
+    anim:PlayAnimation("idle_cart", false) 
+    inst:AddTag("playercrafted")
+    return inst
+end
+
+local function fridge2()
+    local inst = pedestal(1,nil,nil,true, true)
+    local anim = inst.AnimState
+    anim:PlayAnimation("idle_fridge_display", false) 
+    inst:AddTag("playercrafted")
+	inst:AddTag("shelf_fridge")
+    return inst
+end
+
+local function globe()
+    local inst = pedestal(1,nil,nil,true, true)
+    local anim = inst.AnimState
+    anim:PlayAnimation("idle_globe_bar", false) 
+	anim:Hide("pedestal_sign")
+    inst:AddTag("playercrafted")
+    return inst
+end
+
+local function ice()
+    local inst = pedestal(1,nil,nil,true, true)
+    local anim = inst.AnimState
+    anim:PlayAnimation("idle_ice_box", false) 
+    inst:AddTag("playercrafted")
+	inst:AddTag("shelf_fridge")
+    return inst
+end
+
+local function icebucket()
+    local inst = pedestal(1,nil,nil,true, true)
+    local anim = inst.AnimState
+    anim:PlayAnimation("idle_ice_bucket", false) 
+    inst:AddTag("playercrafted")
+	inst:AddTag("shelf_fridge")
+    return inst
+end
+
+local function mahogany()
+    local inst = pedestal(1,nil,nil,true, true)
+    local anim = inst.AnimState
+    anim:PlayAnimation("idle_mahoganycase", false) 
+    inst:AddTag("playercrafted")
+    return inst
+end
+
+local function marble2()
+    local inst = pedestal(1,nil,nil,true, true)
+    local anim = inst.AnimState
+    anim:PlayAnimation("idle_marble", false) 
+    inst:AddTag("playercrafted")
+    return inst
+end
+
+local function marblesilk()
+    local inst = pedestal(1,nil,nil,true, true)
+    local anim = inst.AnimState
+    anim:PlayAnimation("idle_marblesilk", false) 
+    inst:AddTag("playercrafted")
+    return inst
+end
+
+local function metal()
+    local inst = pedestal(1,nil,nil,true, true)
+    local anim = inst.AnimState
+    anim:PlayAnimation("idle_metal", false) 
+	anim:Hide("pedestal_sign")
+    inst:AddTag("playercrafted")
+    return inst
+end
+
+local function stoneslab()
+    local inst = pedestal(1,nil,nil,true, true)
+    local anim = inst.AnimState
+    anim:PlayAnimation("idle_stoneslab", false) 
+	anim:Hide("pedestal_sign")
+    inst:AddTag("playercrafted")
+    return inst
+end
+
+local function traystand()
+    local inst = pedestal(1,nil,nil,true, true)
+    local anim = inst.AnimState
+    anim:PlayAnimation("idle_traystand", false)
+	anim:Hide("pedestal_sign")	
+    inst:AddTag("playercrafted")
+    return inst
+end
+
+local function wagon()
+    local inst = pedestal(1,nil,nil,true, true)
+    local anim = inst.AnimState
+    anim:PlayAnimation("idle_wagon", false) 
+    inst:AddTag("playercrafted")
+    return inst
+end
+
+local function yotp()
+    local inst = pedestal(1,nil,nil,true, true)
+    local anim = inst.AnimState
+    anim:PlayAnimation("idle_yotp", false) 
+	anim:Hide("pedestal_sign")	
+    inst:AddTag("playercrafted")
+    return inst
+end
+
+local function yotp2()
+    local inst = pedestal(1,nil,nil,true, true)
+    local anim = inst.AnimState
+    anim:PlayAnimation("idle_yotp_2", false) 
+	anim:Hide("pedestal_sign")	
+    inst:AddTag("playercrafted")
+    return inst
+end
+
+local function lockroyal()
+    local inst = pedestal(1,nil,nil,true, true)
+    local anim = inst.AnimState
+    anim:PlayAnimation("lock1_front", false) 
+    inst:AddTag("playercrafted")
+    return inst
+end
+
 return Prefab("kyno_shelves_wood", wood, assets, prefabs),
 Prefab("kyno_shelves_basic", basic, assets, prefabs),
 Prefab("kyno_shelves_marble", marble, assets, prefabs),
@@ -679,6 +1013,28 @@ Prefab("kyno_shelves_queen_display_2", queen_display2, assets, prefabs),
 Prefab("kyno_shelves_queen_display_3", queen_display3, assets, prefabs),
 Prefab("kyno_shelves_queen_display_4", queen_display4, assets, prefabs),
 Prefab("kyno_shelves_ruins", ruins, assets, prefabs),
+Prefab("kyno_shelves_bank", bank, assets, prefabs),
+Prefab("kyno_shelves_woodcrate", woodcrate, assets, prefabs),
+Prefab("kyno_shelves_barrel", barrel, assets, prefabs),
+Prefab("kyno_shelves_barreldome", barreldome, assets, prefabs),
+Prefab("kyno_shelves_cablespool", cablespool, assets, prefabs),
+Prefab("kyno_shelves_cakestand", cakestand, assets, prefabs),
+Prefab("kyno_shelves_cakestanddome", cakestanddome, assets, prefabs),
+Prefab("kyno_shelves_cart", cart, assets, prefabs),
+Prefab("kyno_shelves_fridge2", fridge2, assets, prefabs),
+Prefab("kyno_shelves_globe", globe, assets, prefabs),
+Prefab("kyno_shelves_ice", ice, assets, prefabs),
+Prefab("kyno_shelves_icebucket", icebucket, assets, prefabs),
+Prefab("kyno_shelves_mahogany", mahogany, assets, prefabs),
+Prefab("kyno_shelves_marble2", marble2, assets, prefabs),
+Prefab("kyno_shelves_marblesilk", marblesilk, assets, prefabs),
+Prefab("kyno_shelves_metal", metal, assets, prefabs),
+Prefab("kyno_shelves_stoneslab", stoneslab, assets, prefabs),
+Prefab("kyno_shelves_traystand", traystand, assets, prefabs),
+Prefab("kyno_shelves_wagon", wagon, assets, prefabs),
+Prefab("kyno_shelves_yotp", yotp, assets, prefabs),
+Prefab("kyno_shelves_yotp2", yotp2, assets, prefabs),
+Prefab("kyno_shelves_lock", lockroyal, assets, prefabs),
 MakePlacer("kyno_shelves_wood_placer", "bookcase", "room_shelves", "wood"),
 MakePlacer("kyno_shelves_basic_placer", "bookcase", "room_shelves", "basic"),
 MakePlacer("kyno_shelves_marble_placer", "bookcase", "room_shelves", "marble"),
@@ -697,4 +1053,26 @@ MakePlacer("kyno_shelves_pipe_placer", "bookcase", "room_shelves", "pipe"),
 MakePlacer("kyno_shelves_hattree_placer", "bookcase", "room_shelves", "hattree"),
 MakePlacer("kyno_shelves_displaycase_placer", "bookcase", "room_shelves", "displayshelf_wood"),
 MakePlacer("kyno_shelves_displaycase_metal_placer", "bookcase", "room_shelves", "displayshelf_metal"),
-MakePlacer("kyno_shelves_ruins_placer", "bookcase", "room_shelves", "ruins")
+MakePlacer("kyno_shelves_ruins_placer", "bookcase", "room_shelves", "ruins"),
+MakePlacer("kyno_shelves_bank", "pedestal", "pedestal_crate", "bank", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_woodcrate", "pedestal", "pedestal_crate", "idle", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_barrel", "pedestal", "pedestal_crate", "idle_barrel", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_barreldome", "pedestal", "pedestal_crate", "idle_barrel_dome", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_cablespool", "pedestal", "pedestal_crate", "idle_cablespool", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_cakestand", "pedestal", "pedestal_crate", "idle_cakestand", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_cakestanddome", "pedestal", "pedestal_crate", "idle_cakestand_dome", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_cart", "pedestal", "pedestal_crate", "idle_cart", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_fridge2", "pedestal", "pedestal_crate", "idle_fridge_display", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_globe", "pedestal", "pedestal_crate", "idle_globe_bar", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_ice", "pedestal", "pedestal_crate", "idle_ice_box", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_icebucket", "pedestal", "pedestal_crate", "idle_ice_bucket", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_mahogany", "pedestal", "pedestal_crate", "idle_mahoganycase", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_marble2", "pedestal", "pedestal_crate", "idle_marble", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_marblesilk", "pedestal", "pedestal_crate", "idle_marblesilk", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_metal", "pedestal", "pedestal_crate", "idle_metal", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_stoneslab", "pedestal", "pedestal_crate", "idle_stoneslab", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_traystand", "pedestal", "pedestal_crate", "idle_traystand", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_wagon", "pedestal", "pedestal_crate", "idle_wagon", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_yotp", "pedestal", "pedestal_crate", "idle_yotp", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_yotp2", "pedestal", "pedestal_crate", "idle_yotp_2", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_lock", "pedestal", "pedestal_crate", "lock1_front", nil, true, nil, nil, nil, "two")

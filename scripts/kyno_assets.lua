@@ -2060,6 +2060,72 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_containers_box16.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_containers_box16.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_bank.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_bank.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_woodcrate.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_woodcrate.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_barrel.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_barrel.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_barreldome.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_barreldome.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_cablespool.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_cablespool.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_cakestand.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_cakestand.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_cakestanddome.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_cakestanddome.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_cart.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_cart.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_fridge2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_fridge2.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_globe.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_globe.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_ice.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_ice.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_icebucket.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_icebucket.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_mahogany.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_mahogany.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_marble2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_marble2.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_marblesilk.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_marblesilk.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_metal.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_metal.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_stoneslab.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_stoneslab.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_traystand.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_traystand.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_wagon.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_wagon.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_yotp.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_yotp.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_yotp2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_yotp2.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_shelves_lock.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_shelves_lock.xml"),
+	
 	-- Sound Assets --
 	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
 	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),
@@ -2517,4 +2583,5 @@ Assets = {
 	Asset("ANIM", "anim/interior_wall_decals_palace.zip"),
 	Asset("ANIM", "anim/interior_floor_decor.zip"),
 	Asset("ANIM", "anim/containers.zip"),
+	Asset("ANIM", "anim/pedestal_crate.zip"),
 }
