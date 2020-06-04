@@ -23,7 +23,7 @@ modimport("scripts/kyno_combat")
 modimport("scripts/kyno_combat_replica")
 modimport("scripts/kyno_fx")
 modimport("scripts/kyno_preparedfoods")
-modimport("scripts/kyno_actions")
+-- modimport("scripts/kyno_actions")
 modimport("libs/env")
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Assets = { -- Some Assets don't show correctly if they're not set here.
@@ -682,8 +682,8 @@ PrefabFiles = {
 	"k_lotusflower",
 	"k_fishes",
 	-- INTERIOR CONTENT --
-	"k_shelves",
-	"k_shelves_slots",
+	-- "k_shelves",
+	-- "k_shelves_slots",
 	"k_plantholders",
 	"k_chairs",
 	"k_rugs",
@@ -1029,7 +1029,7 @@ kyno_housetab, TECH.SCIENCE_TWO, "kyno_chair_chaise_placer", 0, nil, nil, nil, "
 AddRecipe("kyno_palace_throne", {Ingredient("goldnugget", 4), Ingredient("silk", 4)},
 kyno_housetab, TECH.SCIENCE_TWO, "kyno_palace_throne_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_palace_throne.xml", "kyno_palace_throne.tex")
 
-
+--[[
 AddRecipe("kyno_shelves_wood", {Ingredient("boards", 4)},
 kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_wood_placer", 2, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_shelves_wood.tex")
 
@@ -1192,7 +1192,7 @@ kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_yotp2_placer", 0, nil, nil, nil, 
 
 -- AddRecipe("kyno_shelves_lock", {Ingredient("moonglass", 2), Ingredient("marble", 2)},
 -- kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_lock_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_lock.xml", "kyno_shelves_lock.tex")
-
+]]--
 
 AddRecipe("kyno_rugs_round", {Ingredient("silk", 4)},
 kyno_housetab, TECH.SCIENCE_TWO, "kyno_rugs_round_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_rug_round.tex")
