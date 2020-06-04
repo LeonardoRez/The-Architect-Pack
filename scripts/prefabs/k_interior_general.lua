@@ -211,5 +211,5 @@ MakePlacer("kyno_interior_rollholder_placer", "interior_floor_decor", "interior_
 MakePlacer("kyno_interior_rollholderfront_placer", "interior_floor_decor", "interior_floor_decor", "rollholder_front"),
 MakePlacer("kyno_interior_vase_placer", "interior_floor_decor", "interior_floor_decor", "snakebasket"),
 MakePlacer("kyno_interior_urn_placer", "interior_floor_decor", "interior_floor_decor", "urn"),
-MakePlacer("kyno_interior_vasemarble_placer", "interior_floor_decor", "interior_floor_decor", "vasemarble"),
+MakePlacer("kyno_interior_vasemarble_placer", "interior_floor_decor", "interior_floor_decor", "vase"),
 MakePlacer("kyno_interior_wired_placer", "interior_floor_decor", "interior_floor_decor", "wired")

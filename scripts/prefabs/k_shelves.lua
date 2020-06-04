@@ -231,6 +231,61 @@ local function SetImage(inst, ent, slot)
     end
 end 
 
+local function SetImage2(inst, ent, slot)
+
+    local src = ent 
+    local image = nil 
+
+    if src ~= nil and src.components.inventoryitem ~= nil then
+        image = #(ent.components.inventoryitem.imagename or "") > 0 and
+            ent.components.inventoryitem.imagename or
+            ent.prefab
+    end 
+
+    if image ~= nil then    
+        local texname = image..".tex"
+
+    local atlas = src.replica.inventoryitem:GetAtlas()
+    if inst:HasTag("shelf_fridge") then
+    if ent.components.perishable then ent.components.perishable:StopPerishing() end 
+    end
+
+    if ent.path then atlas = ent.path
+	elseif atlas and atlas == "images/inventoryimages.xml" then atlas = "images/inventoryimages.xml"
+    elseif atlas and atlas == "images/inventoryimages1.xml" then atlas = "images/inventoryimages1.xml"
+    elseif atlas and atlas == "images/inventoryimages2.xml" then atlas = "images/inventoryimages2.xml"
+    elseif atlas and atlas == "images/inventoryimages/kyno_inventoryimages_ham.xml" then atlas = "images/inventoryimages/kyno_inventoryimages_ham.xml" 
+	elseif atlas and atlas == "images/inventoryimages/kyno_inventoryimages_sw.xml" then atlas = "images/inventoryimages/kyno_inventoryimages_sw.xml"
+	elseif atlas and atlas == "images/inventoryimages/kyno_legacy_inventoryimages.xml" then atlas = "images/inventoryimages/kyno_legacy_inventoryimages.xml"
+	elseif atlas and atlas == "images/inventoryimages/kyno_coffee.xml" then atlas = "images/inventoryimages/kyno_coffee.xml"
+	elseif atlas and atlas == "images/inventoryimages/kyno_turfs_sw.xml" then atlas = "images/inventoryimages/kyno_turfs_sw.xml"
+	elseif atlas and atlas == "images/inventoryimages/kyno_turfs_sw_2.xml" then atlas = "images/inventoryimages/kyno_turfs_sw_2.xml"
+	elseif atlas and atlas == "images/inventoryimages/kyno_turfs_ham.xml" then atlas = "images/inventoryimages/kyno_turfs_ham.xml"
+	elseif atlas and atlas == "images/inventoryimages/kyno_turfs_gorge.xml" then atlas = "images/inventoryimages/kyno_turfs_gorge.xml"
+	elseif atlas and atlas == "images/inventoryimages/kyno_turfs_forge.xml" then atlas = "images/inventoryimages/kyno_turfs_forge.xml"
+	elseif atlas and atlas == "images/inventoryimages/kyno_minisign_icons.xml" then atlas = "images/inventoryimages/kyno_minisign_icons.xml"
+	elseif atlas and atlas == "images/inventoryimages/kyno_minisign_icons_2.xml" then atlas = "images/inventoryimages/kyno_minisign_icons_2.xml"
+	elseif atlas and atlas == "images/inventoryimages/kyno_minisign_icons_3.xml" then atlas = "images/inventoryimages/kyno_minisign_icons_3.xml"
+	elseif atlas and atlas == "images/inventoryimages/kyno_irongate_item.xml" then atlas = "images/inventoryimages/kyno_irongate_item.xml"
+	elseif atlas and atlas == "images/inventoryimages/wall_pig_ruins_item.xml" then atlas = "images/inventoryimages/wall_pig_ruins_item.xml"
+	elseif atlas and atlas == "images/inventoryimages/kyno_moltenfence_item.xml" then atlas = "images/inventoryimages/kyno_moltenfence_item.xml"
+	elseif atlas and atlas == "images/inventoryimages/kyno_redflies.xml" then atlas = "images/inventoryimages/kyno_redflies.xml"
+	elseif atlas and atlas == "images/inventoryimages/kyno_orangeflies.xml" then atlas = "images/inventoryimages/kyno_orangeflies.xml"
+	elseif atlas and atlas == "images/inventoryimages/kyno_yellowflies.xml" then atlas = "images/inventoryimages/kyno_yellowflies.xml"
+	elseif atlas and atlas == "images/inventoryimages/kyno_greenflies.xml" then atlas = "images/inventoryimages/kyno_greenflies.xml"
+	elseif atlas and atlas == "images/inventoryimages/kyno_blueflies.xml" then atlas = "images/inventoryimages/kyno_blueflies.xml"
+	elseif atlas and atlas == "images/inventoryimages/kyno_cyanflies.xml" then atlas = "images/inventoryimages/kyno_cyanflies.xml"
+	else atlas = "images/inventoryimages/kyno_purpleflies.xml" end
+	
+    inst.AnimState:OverrideSymbol("SWAP_SIGN", resolvefilepath(atlas), texname)
+    
+        inst.imagename = src ~=nil or ""
+    else
+        inst.imagename = ""
+        inst.AnimState:ClearOverrideSymbol("SWAP_SIGN")
+    end
+end 
+
 local function SetImageFromName(inst, name, slot)
     local image = name
 
@@ -262,6 +317,40 @@ local function SetImageFromName(inst, name, slot)
     else
         inst.imagename = ""
         inst.AnimState:ClearOverrideSymbol(slot)
+    end
+end 
+
+local function SetImageFromName2(inst, name, slot)
+    local image = name
+
+    if image ~= nil then 
+        local texname = image..".tex"
+        
+        inst.AnimState:OverrideSymbol(slot, resolvefilepath("images/inventoryimages/kyno_inventoryimages_ham.xml"), texname)
+		inst.AnimState:OverrideSymbol(slot, resolvefilepath("images/inventoryimages/kyno_inventoryimages_sw.xml"), texname)
+		inst.AnimState:OverrideSymbol(slot, resolvefilepath("images/inventoryimages/kyno_coffee.xml"), texname)
+		inst.AnimState:OverrideSymbol(slot, resolvefilepath("images/inventoryimages/kyno_turfs_sw.xml"), texname)
+		inst.AnimState:OverrideSymbol(slot, resolvefilepath("images/inventoryimages/kyno_turfs_sw_2.xml"), texname)
+		inst.AnimState:OverrideSymbol(slot, resolvefilepath("images/inventoryimages/kyno_turfs_ham.xml"), texname)
+		inst.AnimState:OverrideSymbol(slot, resolvefilepath("images/inventoryimages/kyno_turfs_gorge.xml"), texname)
+		inst.AnimState:OverrideSymbol(slot, resolvefilepath("images/inventoryimages/kyno_minisign_icons.xml"), texname)
+		inst.AnimState:OverrideSymbol(slot, resolvefilepath("images/inventoryimages/kyno_minisign_icons_2.xml"), texname)
+		inst.AnimState:OverrideSymbol(slot, resolvefilepath("images/inventoryimages/kyno_minisign_icons_3.xml"), texname)
+		inst.AnimState:OverrideSymbol(slot, resolvefilepath("images/inventoryimages/kyno_irongate_item.xml"), texname)
+		inst.AnimState:OverrideSymbol(slot, resolvefilepath("images/inventoryimages/wall_pig_ruins_item.xml"), texname)
+		inst.AnimState:OverrideSymbol(slot, resolvefilepath("images/inventoryimages/kyno_moltenfence_item.xml"), texname)
+		inst.AnimState:OverrideSymbol(slot, resolvefilepath("images/inventoryimages/kyno_redflies.xml"), texname)
+		inst.AnimState:OverrideSymbol(slot, resolvefilepath("images/inventoryimages/kyno_orangeflies.xml"), texname)
+		inst.AnimState:OverrideSymbol(slot, resolvefilepath("images/inventoryimages/kyno_yellowflies.xml"), texname)
+		inst.AnimState:OverrideSymbol(slot, resolvefilepath("images/inventoryimages/kyno_greenflies.xml"), texname)
+		inst.AnimState:OverrideSymbol(slot, resolvefilepath("images/inventoryimages/kyno_blueflies.xml"), texname)
+		inst.AnimState:OverrideSymbol(slot, resolvefilepath("images/inventoryimages/kyno_cyanflies.xml"), texname)
+		inst.AnimState:OverrideSymbol(slot, resolvefilepath("images/inventoryimages/kyno_purpleflies.xml"), texname)
+		
+        inst.imagename = image
+    else
+        inst.imagename = ""
+        inst.AnimState:ClearOverrideSymbol("SWAP_SIGN")
     end
 end 
 
@@ -503,8 +592,8 @@ local function pedestal(setsize,swp_img_list, locked, physics_round, save_rotati
 
     inst.imagename = nil 
 
-    inst.SetImage = SetImage
-    inst.SetImageFromName = SetImageFromName
+    inst.SetImage = SetImage2
+    inst.SetImageFromName = SetImageFromName2
 
     inst.swp_img_list = swp_img_list
     inst.size = setsize or 6
@@ -800,190 +889,235 @@ local function queen_display4()
 end
 
 local function bank()
-    local inst = pedestal(1,nil,nil,true, true)
+    local inst = pedestal(1,{"SWAP_SIGN"})
     local anim = inst.AnimState
     anim:PlayAnimation("bank", false) 
+	anim:Hide("sign_overlay")
     inst:AddTag("playercrafted")
+	MakeObstaclePhysics(inst, 0.5)
     return inst
 end
 
 local function woodcrate()
-    local inst = pedestal(1,nil,nil,true, true)
+    local inst = pedestal(1,{"SWAP_SIGN"})
     local anim = inst.AnimState
     anim:PlayAnimation("idle", false) 
+	-- anim:Hide("sign_overlay")
     inst:AddTag("playercrafted")
+	MakeObstaclePhysics(inst, 0.5)
     return inst
 end
 
 local function barrel()
-    local inst = pedestal(1,nil,nil,true, true)
+    local inst = pedestal(1,{"SWAP_SIGN"})
     local anim = inst.AnimState
     anim:PlayAnimation("idle_barrel", false) 
+	anim:Hide("sign_overlay")
     inst:AddTag("playercrafted")
+	MakeObstaclePhysics(inst, 0.5)
     return inst
 end
 
 local function barreldome()
-    local inst = pedestal(1,nil,nil,true, true)
+    local inst = pedestal(1,{"SWAP_SIGN"})
     local anim = inst.AnimState
     anim:PlayAnimation("idle_barrel_dome", false) 
+	anim:Hide("sign_overlay")
     inst:AddTag("playercrafted")
+	MakeObstaclePhysics(inst, 0.5)
     return inst
 end
 
 local function cablespool()
-    local inst = pedestal(1,nil,nil,true, true)
+    local inst = pedestal(1,{"SWAP_SIGN"})
     local anim = inst.AnimState
     anim:PlayAnimation("idle_cablespool", false)
+	anim:Hide("sign_overlay")
 	anim:Hide("pedestal_sign")
     inst:AddTag("playercrafted")
+	MakeObstaclePhysics(inst, 0.5)
     return inst
 end
 
 local function cakestand()
-    local inst = pedestal(1,nil,nil,true, true)
+    local inst = pedestal(1,{"SWAP_SIGN"})
     local anim = inst.AnimState
     anim:PlayAnimation("idle_cakestand", false)
+	anim:Hide("sign_overlay")
 	anim:Hide("pedestal_sign")
     inst:AddTag("playercrafted")
+	MakeObstaclePhysics(inst, 0.5)
     return inst
 end
 
 local function cakestanddome()
-    local inst = pedestal(1,nil,nil,true, true)
+    local inst = pedestal(1,{"SWAP_SIGN"})
     local anim = inst.AnimState
     anim:PlayAnimation("idle_cakestand_dome", false)
+	anim:Hide("sign_overlay")
 	anim:Hide("pedestal_sign")
     inst:AddTag("playercrafted")
+	MakeObstaclePhysics(inst, 0.5)
     return inst
 end
 
 local function cart()
-    local inst = pedestal(1,nil,nil,true, true)
+    local inst = pedestal(1,{"SWAP_SIGN"})
     local anim = inst.AnimState
     anim:PlayAnimation("idle_cart", false) 
+	anim:Hide("sign_overlay")
     inst:AddTag("playercrafted")
+	MakeObstaclePhysics(inst, 0.5)
     return inst
 end
 
 local function fridge2()
-    local inst = pedestal(1,nil,nil,true, true)
+    local inst = pedestal(1,{"SWAP_SIGN"})
     local anim = inst.AnimState
     anim:PlayAnimation("idle_fridge_display", false) 
+	anim:Hide("sign_overlay")
     inst:AddTag("playercrafted")
 	inst:AddTag("shelf_fridge")
+	MakeObstaclePhysics(inst, 0.5)
     return inst
 end
 
 local function globe()
-    local inst = pedestal(1,nil,nil,true, true)
+    local inst = pedestal(1,{"SWAP_SIGN"})
     local anim = inst.AnimState
     anim:PlayAnimation("idle_globe_bar", false) 
+	anim:Hide("sign_overlay")
 	anim:Hide("pedestal_sign")
     inst:AddTag("playercrafted")
+	MakeObstaclePhysics(inst, 0.5)
     return inst
 end
 
 local function ice()
-    local inst = pedestal(1,nil,nil,true, true)
+    local inst = pedestal(1,{"SWAP_SIGN"})
     local anim = inst.AnimState
     anim:PlayAnimation("idle_ice_box", false) 
+	anim:Hide("sign_overlay")
     inst:AddTag("playercrafted")
 	inst:AddTag("shelf_fridge")
+	MakeObstaclePhysics(inst, 0.5)
     return inst
 end
 
 local function icebucket()
-    local inst = pedestal(1,nil,nil,true, true)
+    local inst = pedestal(1,{"SWAP_SIGN"})
     local anim = inst.AnimState
     anim:PlayAnimation("idle_ice_bucket", false) 
+	anim:Hide("sign_overlay")
     inst:AddTag("playercrafted")
 	inst:AddTag("shelf_fridge")
+	MakeObstaclePhysics(inst, 0.5)
     return inst
 end
 
 local function mahogany()
-    local inst = pedestal(1,nil,nil,true, true)
+    local inst = pedestal(1,{"SWAP_SIGN"})
     local anim = inst.AnimState
     anim:PlayAnimation("idle_mahoganycase", false) 
+	anim:Hide("sign_overlay")
     inst:AddTag("playercrafted")
+	MakeObstaclePhysics(inst, 0.5)
     return inst
 end
 
 local function marble2()
-    local inst = pedestal(1,nil,nil,true, true)
+    local inst = pedestal(1,{"SWAP_SIGN"})
     local anim = inst.AnimState
     anim:PlayAnimation("idle_marble", false) 
+	anim:Hide("sign_overlay")
     inst:AddTag("playercrafted")
+	MakeObstaclePhysics(inst, 0.5)
     return inst
 end
 
 local function marblesilk()
-    local inst = pedestal(1,nil,nil,true, true)
+    local inst = pedestal(1,{"SWAP_SIGN"})
     local anim = inst.AnimState
     anim:PlayAnimation("idle_marblesilk", false) 
+	anim:Hide("sign_overlay")
     inst:AddTag("playercrafted")
+	MakeObstaclePhysics(inst, 0.5)
     return inst
 end
 
 local function metal()
-    local inst = pedestal(1,nil,nil,true, true)
+    local inst = pedestal(1,{"SWAP_SIGN"})
     local anim = inst.AnimState
     anim:PlayAnimation("idle_metal", false) 
+	anim:Hide("sign_overlay")
 	anim:Hide("pedestal_sign")
     inst:AddTag("playercrafted")
+	MakeObstaclePhysics(inst, 0.5)
     return inst
 end
 
 local function stoneslab()
-    local inst = pedestal(1,nil,nil,true, true)
+    local inst = pedestal(1,{"SWAP_SIGN"})
     local anim = inst.AnimState
     anim:PlayAnimation("idle_stoneslab", false) 
+	anim:Hide("sign_overlay")
 	anim:Hide("pedestal_sign")
     inst:AddTag("playercrafted")
+	MakeObstaclePhysics(inst, 0.5)
     return inst
 end
 
 local function traystand()
-    local inst = pedestal(1,nil,nil,true, true)
+    local inst = pedestal(1,{"SWAP_SIGN"})
     local anim = inst.AnimState
     anim:PlayAnimation("idle_traystand", false)
+	anim:Hide("sign_overlay")
 	anim:Hide("pedestal_sign")	
     inst:AddTag("playercrafted")
+	MakeObstaclePhysics(inst, 0.5)
     return inst
 end
 
 local function wagon()
-    local inst = pedestal(1,nil,nil,true, true)
+    local inst = pedestal(1,{"SWAP_SIGN"})
     local anim = inst.AnimState
     anim:PlayAnimation("idle_wagon", false) 
+	anim:Hide("sign_overlay")
     inst:AddTag("playercrafted")
+	MakeObstaclePhysics(inst, 0.5)
     return inst
 end
 
 local function yotp()
-    local inst = pedestal(1,nil,nil,true, true)
+    local inst = pedestal(1,{"SWAP_SIGN"})
     local anim = inst.AnimState
     anim:PlayAnimation("idle_yotp", false) 
+	anim:Hide("sign_overlay")
 	anim:Hide("pedestal_sign")	
     inst:AddTag("playercrafted")
+	MakeObstaclePhysics(inst, 0.5)
     return inst
 end
 
 local function yotp2()
-    local inst = pedestal(1,nil,nil,true, true)
+    local inst = pedestal(1,{"SWAP_SIGN"})
     local anim = inst.AnimState
     anim:PlayAnimation("idle_yotp_2", false) 
+	anim:Hide("sign_overlay")
 	anim:Hide("pedestal_sign")	
     inst:AddTag("playercrafted")
+	MakeObstaclePhysics(inst, 0.5)
     return inst
 end
 
 local function lockroyal()
-    local inst = pedestal(1,nil,nil,true, true)
+    local inst = pedestal(1,{"SWAP_SIGN"})
     local anim = inst.AnimState
-    anim:PlayAnimation("lock1_front", false) 
+    anim:PlayAnimation("lock1_front", true) 
+	anim:Hide("sign_overlay")
+	anim:Show("pedestal_lock")
     inst:AddTag("playercrafted")
+	MakeObstaclePhysics(inst, 0.5)
     return inst
 end
 
@@ -1054,25 +1188,25 @@ MakePlacer("kyno_shelves_hattree_placer", "bookcase", "room_shelves", "hattree")
 MakePlacer("kyno_shelves_displaycase_placer", "bookcase", "room_shelves", "displayshelf_wood"),
 MakePlacer("kyno_shelves_displaycase_metal_placer", "bookcase", "room_shelves", "displayshelf_metal"),
 MakePlacer("kyno_shelves_ruins_placer", "bookcase", "room_shelves", "ruins"),
-MakePlacer("kyno_shelves_bank", "pedestal", "pedestal_crate", "bank", nil, true, nil, nil, nil, "two"),
-MakePlacer("kyno_shelves_woodcrate", "pedestal", "pedestal_crate", "idle", nil, true, nil, nil, nil, "two"),
-MakePlacer("kyno_shelves_barrel", "pedestal", "pedestal_crate", "idle_barrel", nil, true, nil, nil, nil, "two"),
-MakePlacer("kyno_shelves_barreldome", "pedestal", "pedestal_crate", "idle_barrel_dome", nil, true, nil, nil, nil, "two"),
-MakePlacer("kyno_shelves_cablespool", "pedestal", "pedestal_crate", "idle_cablespool", nil, true, nil, nil, nil, "two"),
-MakePlacer("kyno_shelves_cakestand", "pedestal", "pedestal_crate", "idle_cakestand", nil, true, nil, nil, nil, "two"),
-MakePlacer("kyno_shelves_cakestanddome", "pedestal", "pedestal_crate", "idle_cakestand_dome", nil, true, nil, nil, nil, "two"),
-MakePlacer("kyno_shelves_cart", "pedestal", "pedestal_crate", "idle_cart", nil, true, nil, nil, nil, "two"),
-MakePlacer("kyno_shelves_fridge2", "pedestal", "pedestal_crate", "idle_fridge_display", nil, true, nil, nil, nil, "two"),
-MakePlacer("kyno_shelves_globe", "pedestal", "pedestal_crate", "idle_globe_bar", nil, true, nil, nil, nil, "two"),
-MakePlacer("kyno_shelves_ice", "pedestal", "pedestal_crate", "idle_ice_box", nil, true, nil, nil, nil, "two"),
-MakePlacer("kyno_shelves_icebucket", "pedestal", "pedestal_crate", "idle_ice_bucket", nil, true, nil, nil, nil, "two"),
-MakePlacer("kyno_shelves_mahogany", "pedestal", "pedestal_crate", "idle_mahoganycase", nil, true, nil, nil, nil, "two"),
-MakePlacer("kyno_shelves_marble2", "pedestal", "pedestal_crate", "idle_marble", nil, true, nil, nil, nil, "two"),
-MakePlacer("kyno_shelves_marblesilk", "pedestal", "pedestal_crate", "idle_marblesilk", nil, true, nil, nil, nil, "two"),
-MakePlacer("kyno_shelves_metal", "pedestal", "pedestal_crate", "idle_metal", nil, true, nil, nil, nil, "two"),
-MakePlacer("kyno_shelves_stoneslab", "pedestal", "pedestal_crate", "idle_stoneslab", nil, true, nil, nil, nil, "two"),
-MakePlacer("kyno_shelves_traystand", "pedestal", "pedestal_crate", "idle_traystand", nil, true, nil, nil, nil, "two"),
-MakePlacer("kyno_shelves_wagon", "pedestal", "pedestal_crate", "idle_wagon", nil, true, nil, nil, nil, "two"),
-MakePlacer("kyno_shelves_yotp", "pedestal", "pedestal_crate", "idle_yotp", nil, true, nil, nil, nil, "two"),
-MakePlacer("kyno_shelves_yotp2", "pedestal", "pedestal_crate", "idle_yotp_2", nil, true, nil, nil, nil, "two"),
-MakePlacer("kyno_shelves_lock", "pedestal", "pedestal_crate", "lock1_front", nil, true, nil, nil, nil, "two")
+MakePlacer("kyno_shelves_bank_placer", "pedestal", "pedestal_crate", "bank", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_woodcrate_placer", "pedestal", "pedestal_crate", "idle", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_barrel_placer", "pedestal", "pedestal_crate", "idle_barrel", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_barreldome_placer", "pedestal", "pedestal_crate", "idle_barrel_dome", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_cablespool_placer", "pedestal", "pedestal_crate", "idle_cablespool", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_cakestand_placer", "pedestal", "pedestal_crate", "idle_cakestand", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_cakestanddome_placer", "pedestal", "pedestal_crate", "idle_cakestand_dome", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_cart_placer", "pedestal", "pedestal_crate", "idle_cart", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_fridge2_placer", "pedestal", "pedestal_crate", "idle_fridge_display", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_globe_placer", "pedestal", "pedestal_crate", "idle_globe_bar", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_ice_placer", "pedestal", "pedestal_crate", "idle_ice_box", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_icebucket_placer", "pedestal", "pedestal_crate", "idle_ice_bucket", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_mahogany_placer", "pedestal", "pedestal_crate", "idle_mahoganycase", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_marble2_placer", "pedestal", "pedestal_crate", "idle_marble", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_marblesilk_placer", "pedestal", "pedestal_crate", "idle_marblesilk", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_metal_placer", "pedestal", "pedestal_crate", "idle_metal", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_stoneslab_placer", "pedestal", "pedestal_crate", "idle_stoneslab", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_traystand_placer", "pedestal", "pedestal_crate", "idle_traystand", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_wagon_placer", "pedestal", "pedestal_crate", "idle_wagon", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_yotp_placer", "pedestal", "pedestal_crate", "idle_yotp", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_yotp2_placer", "pedestal", "pedestal_crate", "idle_yotp_2", nil, true, nil, nil, nil, "two"),
+MakePlacer("kyno_shelves_lock_placer", "pedestal", "pedestal_crate", "lock1_front", nil, true, nil, nil, nil, "two")

@@ -60,8 +60,8 @@ local function onhammered(inst, worker)
 	inst:Remove()
 end
 
-local function fn()
-	local inst = CreateEntity(burnable, save_rotation)
+local function common(burnable, save_rotation)
+	local inst = CreateEntity()
 	
 	inst.entity:AddTransform()
 	inst.entity:AddAnimState()

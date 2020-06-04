@@ -352,6 +352,7 @@ PrefabFiles = {
 	"k_pigshops",
 	"k_pigtower",
 	"k_pigpalace",
+	"k_pigpalace2",
 	"k_pighouse_city",
 	"k_playerhouse",
 	"k_smashingpot",
@@ -1189,8 +1190,8 @@ AddRecipe("kyno_shelves_yotp2", {Ingredient("cutstone", 1), Ingredient("pigskin"
 kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_yotp2_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_yotp2.xml", "kyno_shelves_yotp2.tex")
 
 
-AddRecipe("kyno_shelves_lock", {Ingredient("moonglass", 2), Ingredient("marble", 2)},
-kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_lock_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_lock.xml", "kyno_shelves_lock.tex")
+-- AddRecipe("kyno_shelves_lock", {Ingredient("moonglass", 2), Ingredient("marble", 2)},
+-- kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_lock_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_lock.xml", "kyno_shelves_lock.tex")
 
 
 AddRecipe("kyno_rugs_round", {Ingredient("silk", 4)},
@@ -1409,8 +1410,8 @@ AddRecipe("kyno_lamps_adjustable", {Ingredient("lantern", 1), Ingredient("cutsto
 kyno_housetab, TECH.SCIENCE_TWO, "kyno_lamps_adjustable_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_lamp_adjustable.tex")
 
 
-AddRecipe("kyno_lamps_rightangle", {Ingredient("lantern", 1), Ingredient("goldnugget", 4)},
-kyno_housetab, TECH.SCIENCE_TWO, "kyno_lamps_rightangle_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_lamp_rightangles.tex")
+AddRecipe("kyno_lamps_rightangles", {Ingredient("lantern", 1), Ingredient("goldnugget", 4)},
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_lamps_rightangles_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_lamp_rightangles.tex")
 
 
 AddRecipe("kyno_lamps_fancy", {Ingredient("lantern", 1), Ingredient("marble", 2), Ingredient("petals", 2)},
@@ -1438,7 +1439,7 @@ kyno_housetab, TECH.SCIENCE_TWO, "kyno_tables_raw_placer", 0, nil, nil, nil, "im
 
 
 AddRecipe("kyno_tables_crate", {Ingredient("boards", 2)},
-kyno_housetab, TECH.SCIENCE_TWO, "kyno_tables_crates_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_table_crate.tex")
+kyno_housetab, TECH.SCIENCE_TWO, "kyno_tables_crate_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "reno_table_crate.tex")
 
 
 AddRecipe("kyno_tables_chess", {Ingredient("boards", 2), Ingredient("trinket_28", 1), Ingredient("trinket_16", 1)},
