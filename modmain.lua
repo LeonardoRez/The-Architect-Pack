@@ -1113,7 +1113,7 @@ AddRecipe("kyno_shelves_woodcrate", {Ingredient("boards", 2), Ingredient("rope",
 kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_woodcrate_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_woodcrate.xml", "kyno_shelves_woodcrate.tex")
 
 
-AddRecipe("kyno_shelves_barrel", {Ingredient("boards", 2)}.
+AddRecipe("kyno_shelves_barrel", {Ingredient("boards", 2)},
 kyno_housetab, TECH.SCIENCE_TWO, "kyno_shelves_barrel_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_shelves_barrel.xml", "kyno_shelves_barrel.tex")
 
 
