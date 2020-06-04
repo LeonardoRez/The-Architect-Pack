@@ -1076,6 +1076,78 @@ AddPrefabPostInitAny(function(inst)
 		inst.components.workable:SetOnWorkCallback(onhitaccademia)
 	end
 end)
+
+AddPrefabPostInitAny(function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst:HasTag("arcane_decor") and inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitaccademia)
+	end
+end)
+
+AddPrefabPostInitAny(function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst:HasTag("containers_decor") and inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitaccademia)
+	end
+end)
+
+AddPrefabPostInitAny(function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst:HasTag("deli_decor") and inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitaccademia)
+	end
+end)
+
+AddPrefabPostInitAny(function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst:HasTag("florist_decor") and inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitaccademia)
+	end
+end)
+
+AddPrefabPostInitAny(function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst:HasTag("interior_floor_decor") and inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitaccademia)
+	end
+end)
+
+AddPrefabPostInitAny(function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst:HasTag("mayoroffice_decor") and inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitaccademia)
+	end
+end)
+
+AddPrefabPostInitAny(function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst:HasTag("millinery_decor") and inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitaccademia)
+	end
+end)
+
+AddPrefabPostInitAny(function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst:HasTag("palace_decor") and inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitaccademia)
+	end
+end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 local function onhitrotate(inst, worker, workleft)
 	local workable = inst.components.workable

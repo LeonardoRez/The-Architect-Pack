@@ -32,8 +32,15 @@ local function onhit(inst, worker)
     inst.Transform:SetRotation((rotation + 180) % 360)
 end
 
-local function onsewn(inst, target, doer)
-    doer:PushEvent("repair")
+local function OnGetItemFromPlayer(inst, giver, item)
+    if item.components.fueled then
+        item.components.fueled:DoDelta(TUNING.SEWINGKIT_REPAIR_VALUE)
+        giver.components.inventory:GiveItem(item)
+    end
+end
+
+local function AcceptTest(inst, item, giver)
+    return item:HasTag("needssewing")
 end
 
 local function common(burnable, save_rotation, radius_long, shadow, sewing_machine)
@@ -50,7 +57,7 @@ local function common(burnable, save_rotation, radius_long, shadow, sewing_machi
 	end
 
 	if radius_long then
-		MakeObstaclePhysics(inst, 2)
+		MakeObstaclePhysics(inst, 1.5)
 	else
 		MakeObstaclePhysics(inst, .6)
 	end
@@ -60,6 +67,10 @@ local function common(burnable, save_rotation, radius_long, shadow, sewing_machi
     
 	inst:AddTag("structure")
 	inst:AddTag("millinery_decor")
+	
+	if sewing_machine then
+		inst:AddTag("trader")
+	end
 	
 	if save_rotation then
 		inst.Transform:SetTwoFaced()
@@ -84,9 +95,10 @@ local function common(burnable, save_rotation, radius_long, shadow, sewing_machi
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
 	
 	if sewing_machine then
-		inst:AddComponent("sewing")
-		inst.components.sewing.repair_value = TUNING.SEWINGKIT_REPAIR_VALUE
-		inst.components.sewing.onsewn = onsewn
+		inst:AddComponent("trader")
+		inst.components.trader.deleteitemonaccept = false
+		inst.components.trader:SetAcceptTest(AcceptTest)
+		inst.components.trader.onaccept = OnGetItemFromPlayer
 	end
 	
 	if save_rotation then

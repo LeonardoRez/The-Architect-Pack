@@ -3,8 +3,8 @@ require "prefabutil"
 local assets =
 {
 	Asset("ANIM", "anim/palace.zip"),
-    Asset("ANIM", "anim/pig_shop_doormats.zip"),
-    Asset("ANIM", "anim/palace_door.zip"),
+    -- Asset("ANIM", "anim/pig_shop_doormats.zip"),
+    -- Asset("ANIM", "anim/palace_door.zip"),
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_pigpalace.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_pigpalace.xml"),

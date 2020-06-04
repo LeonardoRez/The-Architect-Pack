@@ -3,6 +3,7 @@ require "prefabutil"
 local assets =
 {
 	Asset("ANIM", "anim/rugs.zip"),
+	Asset("ANIM", "anim/pig_shop_doormats.zip"),
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_rugs_circle.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_rugs_circle.xml"),
@@ -18,6 +19,39 @@ local assets =
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_rugs_leather.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_rugs_leather.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_antiquities.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_antiquities.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_bank.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_bank.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_deli.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_deli.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_flag.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_flag.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_florist.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_florist.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_general.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_general.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_gift.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_gift.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_hoofspa.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_hoofspa.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_old.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_old.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_produce.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_produce.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_tinker.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_tinker.xml"),
 	
 	Asset("IMAGE", "images/inventoryimages/kyno_inventoryimages_ham.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_inventoryimages_ham.xml"),
@@ -55,6 +89,62 @@ local function common(burnable, save_rotation)
 	
 	if save_rotation then
 		inst.Transform:SetTwoFaced()
+	end
+	
+	inst.entity:SetPristine()
+	
+    if not TheWorld.ismastersim then
+        return inst
+    end
+	
+	inst:AddComponent("lootdropper")
+    inst:AddComponent("inspectable")
+	
+	inst:AddComponent("workable")
+    inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
+    inst.components.workable:SetWorkLeft(4)
+	inst.components.workable:SetOnFinishCallback(onhammered)
+	inst.components.workable:SetOnWorkCallback(onhit)
+	
+	inst:AddComponent("hauntable")
+    inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
+	
+	if save_rotation then
+		inst:AddComponent("savedrotation")
+	end
+	
+	MakeHauntableWork(inst)
+	
+	if burnable then
+		MakeSmallBurnable(inst)
+		MakeSmallPropagator(inst)
+	end
+	
+    return inst
+end
+
+local function common2(burnable, save_rotation)
+	local inst = CreateEntity()
+	
+	inst.entity:AddTransform()
+	inst.entity:AddAnimState()
+	inst.entity:AddSoundEmitter()
+    inst.entity:AddNetwork()
+	
+	inst.AnimState:SetScale(1.4, 1.4, 1.4)
+	
+    inst.AnimState:SetBank("pig_shop_doormats")
+    inst.AnimState:SetBuild("pig_shop_doormats")
+	inst.AnimState:SetOrientation(ANIM_ORIENTATION.OnGround)
+	inst.AnimState:SetLayer(LAYER_BACKGROUND)
+	inst.AnimState:SetSortOrder(3)
+    
+	inst:AddTag("structure")
+	inst:AddTag("rugs")
+	inst:AddTag("NOBLOCK")
+	
+	if save_rotation then
+		inst.Transform:SetFourFaced()
 	end
 	
 	inst.entity:SetPristine()
@@ -239,6 +329,76 @@ local function worn()
     return inst
 end
 
+local function antiquities()
+    local inst = common2(true, true)
+    inst.AnimState:PlayAnimation("idle_antiquities")
+    return inst
+end
+
+local function bank()
+    local inst = common2(true, true)
+    inst.AnimState:PlayAnimation("idle_bank")
+    return inst
+end
+
+local function deli()
+    local inst = common2(true, true)
+    inst.AnimState:PlayAnimation("idle_deli")
+    return inst
+end
+
+local function flag()
+    local inst = common2(true, true)
+    inst.AnimState:PlayAnimation("idle_flag")
+    return inst
+end
+
+local function florist()
+    local inst = common2(true, true)
+    inst.AnimState:PlayAnimation("idle_florist")
+    return inst
+end
+
+local function general()
+    local inst = common2(true, true)
+    inst.AnimState:PlayAnimation("idle_general")
+    return inst
+end
+
+local function gift()
+    local inst = common2(true, true)
+    inst.AnimState:PlayAnimation("idle_giftshop")
+    return inst
+end
+
+local function hoofspa()
+    local inst = common2(true, true)
+    inst.AnimState:PlayAnimation("idle_hoofspa")
+    return inst
+end
+
+local function old()
+    local inst = common2(true, true)
+    inst.AnimState:PlayAnimation("idle_old")
+    return inst
+end
+
+local function produce()
+    local inst = common2(true, true)
+    inst.AnimState:PlayAnimation("idle_produce")
+    return inst
+end
+
+local function tinker()
+    local inst = common2(true, true)
+    inst.AnimState:PlayAnimation("idle_tinker")
+    return inst
+end
+
+local function rugplacefn(inst)
+	inst.AnimState:SetScale(1.2, 1.2, 1.2)
+end
+
 return Prefab("kyno_rugs_circle", circle, assets),
 Prefab("kyno_rugs_beard", beard, assets),
 Prefab("kyno_rugs_braid", braid, assets),
@@ -264,6 +424,17 @@ Prefab("kyno_rugs_tiles", tiles, assets),
 Prefab("kyno_rugs_web", web, assets),
 Prefab("kyno_rugs_wormhole", wormhole, assets),
 Prefab("kyno_rugs_worn", worn, assets),
+Prefab("kyno_rugs_antiquities", antiquities, assets),
+Prefab("kyno_rugs_bank", bank, assets),
+Prefab("kyno_rugs_deli", deli, assets),
+Prefab("kyno_rugs_flag", flag, assets),
+Prefab("kyno_rugs_florist", florist, assets),
+Prefab("kyno_rugs_general", general, assets),
+Prefab("kyno_rugs_gift", gift, assets),
+Prefab("kyno_rugs_hoofspa", hoofspa, assets),
+Prefab("kyno_rugs_old", old, assets),
+Prefab("kyno_rugs_produce", produce, assets),
+Prefab("kyno_rugs_tinker", tinker, assets),
 MakePlacer("kyno_rugs_circle_placer", "rugs", "rugs", "half_circle", true, true, nil, nil, nil, 90),
 MakePlacer("kyno_rugs_beard_placer", "rugs", "rugs", "rug_beard", true, true, nil, nil, nil, 90),
 MakePlacer("kyno_rugs_braid_placer", "rugs", "rugs", "rug_braid", true, true, nil, nil, nil, 90),
@@ -288,4 +459,15 @@ MakePlacer("kyno_rugs_throneroom_placer", "rugs", "rugs", "rug_throneroom", true
 MakePlacer("kyno_rugs_tiles_placer", "rugs", "rugs", "rug_tiles", true, true, nil, nil, nil, 90),
 MakePlacer("kyno_rugs_web_placer", "rugs", "rugs", "rug_web", true, true, nil, nil, nil, 90),
 MakePlacer("kyno_rugs_wormhole_placer", "rugs", "rugs", "rug_wormhole", true, true, nil, nil, nil, 90),
-MakePlacer("kyno_rugs_worn_placer", "rugs", "rugs", "rug_worn", true, true, nil, nil, nil, 90)
+MakePlacer("kyno_rugs_worn_placer", "rugs", "rugs", "rug_worn", true, true, nil, nil, nil, 90),
+MakePlacer("kyno_rugs_antiquities_placer", "pig_shop_doormats", "pig_shop_doormats", "idle_antiquities", true, true, nil, nil, nil, 90, rugplacefn),
+MakePlacer("kyno_rugs_bank_placer", "pig_shop_doormats", "pig_shop_doormats", "idle_bank", true, true, nil, nil, nil, 90, rugplacefn),
+MakePlacer("kyno_rugs_deli_placer", "pig_shop_doormats", "pig_shop_doormats", "idle_deli", true, true, nil, nil, nil, 90, rugplacefn),
+MakePlacer("kyno_rugs_flag_placer", "pig_shop_doormats", "pig_shop_doormats", "idle_flag", true, true, nil, nil, nil, 90, rugplacefn),
+MakePlacer("kyno_rugs_florist_placer", "pig_shop_doormats", "pig_shop_doormats", "idle_florist", true, true, nil, nil, nil, 90, rugplacefn),
+MakePlacer("kyno_rugs_general_placer", "pig_shop_doormats", "pig_shop_doormats", "idle_general", true, true, nil, nil, nil, 90, rugplacefn),
+MakePlacer("kyno_rugs_gift_placer", "pig_shop_doormats", "pig_shop_doormats", "idle_giftshop", true, true, nil, nil, nil, 90, rugplacefn),
+MakePlacer("kyno_rugs_hoofspa_placer", "pig_shop_doormats", "pig_shop_doormats", "idle_hoofspa", true, true, nil, nil, nil, 90, rugplacefn),
+MakePlacer("kyno_rugs_old_placer", "pig_shop_doormats", "pig_shop_doormats", "idle_old", true, true, nil, nil, nil, 90, rugplacefn),
+MakePlacer("kyno_rugs_produce_placer", "pig_shop_doormats", "pig_shop_doormats", "idle_produce", true, true, nil, nil, nil, 90, rugplacefn),
+MakePlacer("kyno_rugs_tinker_placer", "pig_shop_doormats", "pig_shop_doormats", "idle_tinker", true, true, nil, nil, nil, 90, rugplacefn)

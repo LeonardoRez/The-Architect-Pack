@@ -1979,6 +1979,87 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_interior_wired.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_interior_wired.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_antiquities.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_antiquities.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_bank.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_bank.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_deli.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_deli.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_flag.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_flag.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_florist.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_florist.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_general.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_general.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_gift.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_gift.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_hoofspa.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_hoofspa.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_old.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_old.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_produce.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_produce.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_rugs_tinker.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_rugs_tinker.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_containers_box1.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_containers_box1.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_containers_box2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_containers_box2.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_containers_box3.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_containers_box3.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_containers_box4.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_containers_box4.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_containers_box5.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_containers_box5.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_containers_box6.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_containers_box6.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_containers_box7.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_containers_box7.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_containers_box8.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_containers_box8.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_containers_box9.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_containers_box9.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_containers_box10.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_containers_box10.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_containers_box11.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_containers_box11.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_containers_box12.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_containers_box12.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_containers_box13.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_containers_box13.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_containers_box14.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_containers_box14.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_containers_box15.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_containers_box15.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_containers_box16.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_containers_box16.xml"),
+	
 	-- Sound Assets --
 	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
 	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),
@@ -2126,8 +2207,8 @@ Assets = {
 	Asset("ANIM", "anim/pig_tower_build.zip"),
 	Asset("ANIM", "anim/pig_tower_royal_build.zip"),
 	Asset("ANIM", "anim/palace.zip"),
+	Asset("ANIM", "anim/palace2.zip"),
     Asset("ANIM", "anim/pig_shop_doormats.zip"),
-    Asset("ANIM", "anim/palace_door.zip"),
 	Asset("ANIM", "anim/pig_farmhouse_build.zip"),
 	Asset("ANIM", "anim/pig_townhouse1.zip"),
     Asset("ANIM", "anim/pig_townhouse5.zip"),
@@ -2435,4 +2516,5 @@ Assets = {
 	Asset("ANIM", "anim/interior_wall_decals_millinery.zip"),
 	Asset("ANIM", "anim/interior_wall_decals_palace.zip"),
 	Asset("ANIM", "anim/interior_floor_decor.zip"),
+	Asset("ANIM", "anim/containers.zip"),
 }
