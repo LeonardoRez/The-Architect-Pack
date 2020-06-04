@@ -21,7 +21,7 @@ local assets =
 
 local prefabs =
 {
-	"pondfish",
+	"kyno_salmonfish",
 	"kyno_salt_rack",
 	"saltrock",
 }
@@ -120,7 +120,7 @@ local function pondfn()
 	inst:AddComponent("fishable")
     inst.components.fishable.maxfish = TUNING.OASISLAKE_MAX_FISH
     inst.components.fishable:SetRespawnTime(TUNING.OASISLAKE_FISH_RESPAWN_TIME)
-    inst.components.fishable:AddFish("pondfish")
+    inst.components.fishable:AddFish("kyno_salmonfish")
 	
 	inst:AddComponent("savedrotation")
 	

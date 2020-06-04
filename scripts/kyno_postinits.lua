@@ -494,6 +494,8 @@ AddPrefabPostInit("parrot", function(inst)
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("parrot_pirate", function(inst)
+	inst.AnimState:SetBank("crow_pirate") 
+	inst.AnimState:SetBuild("parrot_pirate_build")
 	if inst.components.inventoryitem ~= nil then
 	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
 	end
@@ -1025,7 +1027,53 @@ AddPrefabPostInitAny(function(inst)
 		return inst
 	end
 	if inst:HasTag("plantholder") and inst.components.workable then
-		inst.components.workable:SetOnWorkCallback(onhitrug)
+		inst.components.workable:SetOnWorkCallback(onhitholder)
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+local function onhitlamp(inst, worker, workleft)
+	local workable = inst.components.workable
+	if inst.lastworktime == nil then
+		inst.lastworktime = _G.GetTime()
+	end
+
+	if _G.GetTime() - inst.lastworktime > 2 then
+		workable:SetWorkLeft(4) 
+		inst.lastworktime = _G.GetTime()
+	end
+	local rotation = inst.Transform:GetRotation()
+    inst.Transform:SetRotation((rotation + 180) % 360)
+end
+
+AddPrefabPostInitAny(function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst:HasTag("groundlamp") and inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitlamp)
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+local function onhitaccademia(inst, worker, workleft)
+	local workable = inst.components.workable
+	if inst.lastworktime == nil then
+		inst.lastworktime = _G.GetTime()
+	end
+
+	if _G.GetTime() - inst.lastworktime > 2 then
+		workable:SetWorkLeft(4) 
+		inst.lastworktime = _G.GetTime()
+	end
+	local rotation = inst.Transform:GetRotation()
+    inst.Transform:SetRotation((rotation + 180) % 360)
+end
+
+AddPrefabPostInitAny(function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+	if inst:HasTag("accademia_decor") and inst.components.workable then
+		inst.components.workable:SetOnWorkCallback(onhitaccademia)
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1202,6 +1250,48 @@ AddPrefabPostInit("kyno_werepig_gargoyle_6", function(inst)
 	end
 	if inst.components.workable then
 		inst.components.workable:SetOnWorkCallback(onhitrotate)
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_koi", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.imagename = "coi"
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_ham.xml"
+	end
+end)
+
+AddPrefabPostInit("kyno_tropicalfish", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.imagename = "tropical_fish"
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
+	end
+end)
+
+AddPrefabPostInit("kyno_grouper", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.imagename = "fish3"
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
+	end
+end)
+
+AddPrefabPostInit("kyno_pierrotfish", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.imagename = "fish4"
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
+	end
+end)
+
+AddPrefabPostInit("kyno_neonfish", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.imagename = "fish5"
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
+	end
+end)
+
+AddPrefabPostInit("kyno_salmonfish", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.imagename = "quagmire_salmon"
+	inst.components.inventoryitem.atlasname = "images/inventoryimages.xml"
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------

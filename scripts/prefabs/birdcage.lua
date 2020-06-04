@@ -4,6 +4,7 @@ local assets =
 {
     Asset("ANIM", "anim/bird_cage.zip"),
 
+	Asset("ANIM", "anim/crow_pirate.zip"),
     Asset("ANIM", "anim/crow_build.zip"),
     Asset("ANIM", "anim/robin_build.zip"),
     Asset("ANIM", "anim/robin_winter_build.zip"),
@@ -45,6 +46,7 @@ local CAGE_STATES =
 local function SetBirdType(inst, bird)
     inst.bird_type = bird
     inst.AnimState:AddOverrideBuild(inst.bird_type.."_build")
+	inst.AnimState:Show("hat") -- This is for Parrot Pirate.
 end
 
 local function SetCageState(inst, state)

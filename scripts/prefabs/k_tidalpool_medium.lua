@@ -15,7 +15,7 @@ local assets =
 local prefabs =
 {
 	"kyno_marsh_plant_tropical",
-	"pondeel",
+	"kyno_tropicalfish",
 }
 
 local function SpawnPlants(inst, plantname, count, maxradius)
@@ -120,7 +120,7 @@ local function fn()
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
 	
 	inst:AddComponent("fishable")
-	inst.components.fishable:AddFish("pondeel")
+	inst.components.fishable:AddFish("kyno_tropicalfish")
 	inst.components.fishable:SetRespawnTime(TUNING.FISH_RESPAWN_TIME)
 	
     inst:AddComponent("lootdropper")
@@ -166,5 +166,5 @@ local function plantfn()
 end
 
 return Prefab("kyno_tidalpool_medium", fn, assets, prefabs),
-Prefab("kyno_marsh_plant_tropical", plantfn, assets, prefabs),
+-- Prefab("kyno_marsh_plant_tropical", plantfn, assets, prefabs),
 MakePlacer("kyno_tidalpool_medium_placer", "tidal_pool", "tidal_pool", "med_idle", true)

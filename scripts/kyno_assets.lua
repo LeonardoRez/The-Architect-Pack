@@ -1850,6 +1850,135 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_rugs_leather.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_rugs_leather.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_accademia_anvil.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_accademia_anvil.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_accademia_pottingwheel.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_accademia_pottingwheel.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_accademia_pottingwheel_urn.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_accademia_pottingwheel_urn.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_accademia_pottingwheel_clay.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_accademia_pottingwheel_clay.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_accademia_pottingwheel_wip.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_accademia_pottingwheel_wip.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_accademia_vase.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_accademia_vase.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_accademia_stoneblock.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_accademia_stoneblock.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_accademia_table.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_accademia_table.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_accademia_table_books.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_accademia_table_books.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_accademia_table_wip.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_accademia_table_wip.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_accademia_velvetback.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_accademia_velvetback.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_accademia_velvetside.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_accademia_velvetside.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_arcane_bookcase.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_arcane_bookcase.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_arcane_chestclosed.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_arcane_chestclosed.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_arcane_chestopen.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_arcane_chestopen.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_arcane_containers.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_arcane_containers.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_arcane_tablemagic.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_arcane_tablemagic.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_arcane_tabledistillery.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_arcane_tabledistillery.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_deli_stackside.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_deli_stackside.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_deli_stackfront.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_deli_stackfront.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_florist_latticefront.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_florist_latticefront.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_florist_latticeside.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_florist_latticeside.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_florist_pillarfront.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_florist_pillarfront.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_florist_pillarside.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_florist_pillarside.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_florist_tiered.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_florist_tiered.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_mayoroffice_bookcase.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_mayoroffice_bookcase.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_mayoroffice_desk.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_mayoroffice_desk.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_millinery_hatbox1.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_millinery_hatbox1.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_millinery_hatbox2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_millinery_hatbox2.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_millinery_sewingmachine.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_millinery_sewingmachine.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_millinery_worktable.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_millinery_worktable.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_interior_baskets.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_interior_baskets.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_interior_bin.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_interior_bin.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_interior_cans.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_interior_cans.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_interior_display.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_interior_display.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_interior_endtable.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_interior_endtable.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_interior_tableparts.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_interior_tableparts.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_interior_rollholder.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_interior_rollholder.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_interior_rollholderfront.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_interior_rollholderfront.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_interior_vase.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_interior_vase.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_interior_urn.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_interior_urn.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_interior_vasemarble.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_interior_vasemarble.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_interior_wired.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_interior_wired.xml"),
+	
 	-- Sound Assets --
 	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
 	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),
@@ -1957,6 +2086,7 @@ Assets = {
 	Asset("ANIM", "anim/dragoon_actions.zip"),
 	Asset("ANIM", "anim/dragoon_basic.zip"),
 	Asset("ANIM", "anim/toucan_build.zip"),
+	Asset("ANIM", "anim/crow_pirate.zip"),
 	Asset("ANIM", "anim/parrot_build.zip"),
 	Asset("ANIM", "anim/parrot_pirate.zip"),
 	Asset("ANIM", "anim/parrot_pirate_build.zip"),
@@ -2276,10 +2406,33 @@ Assets = {
 	Asset("ANIM", "anim/volcano.zip"),
 	Asset("ANIM", "anim/lily_pad.zip"),
 	Asset("ANIM", "anim/lotus.zip"),
+	Asset("ANIM", "anim/koi.zip"),
+	Asset("ANIM", "anim/koi02.zip"),
+	Asset("ANIM", "anim/tropicalfish.zip"),
+	Asset("ANIM", "anim/tropicalfish02.zip"),
+	Asset("ANIM", "anim/neonfish.zip"),
+	Asset("ANIM", "anim/neonfish02.zip"),
+	Asset("ANIM", "anim/grouper.zip"),
+	Asset("ANIM", "anim/grouper02.zip"),
+	Asset("ANIM", "anim/pierrotfish.zip"),
+	Asset("ANIM", "anim/pierrotfish02.zip"),
+	Asset("ANIM", "anim/salmonfish.zip"),
+	Asset("ANIM", "anim/salmonfish02.zip"),
 	-- Interior Content --
 	Asset("ANIM", "anim/room_shelves.zip"),
 	Asset("ANIM", "anim/shelf_slot.zip"),
 	Asset("ANIM", "anim/interior_plant.zip"),
 	Asset("ANIM", "anim/interior_chair.zip"),
 	Asset("ANIM", "anim/rugs.zip"),
+	Asset("ANIM", "anim/interior_floorlamp.zip"),
+	Asset("ANIM", "anim/interior_floor_decor.zip"),
+	Asset("ANIM", "anim/interior_table.zip"),
+	Asset("ANIM", "anim/interior_wall_decals_accademia.zip"),
+	Asset("ANIM", "anim/interior_wall_decals_arcane.zip"),
+	Asset("ANIM", "anim/interior_wall_decals_deli.zip"),
+	Asset("ANIM", "anim/interior_wall_decals_florist.zip"),
+	Asset("ANIM", "anim/interior_wall_decals_mayorsoffice.zip"),
+	Asset("ANIM", "anim/interior_wall_decals_millinery.zip"),
+	Asset("ANIM", "anim/interior_wall_decals_palace.zip"),
+	Asset("ANIM", "anim/interior_floor_decor.zip"),
 }

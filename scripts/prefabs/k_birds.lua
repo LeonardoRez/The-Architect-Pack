@@ -178,6 +178,7 @@ local function makebird(name, soundname, no_feather, bank, custom_loot_setup, wa
     local assets =
     {
         Asset("ANIM", "anim/crow.zip"),
+		Asset("ANIM", "anim/crow_pirate.zip"),
 		Asset("ANIM", "anim/parrot_pirate.zip"),
         Asset("ANIM", "anim/"..name.."_build.zip"),
 		Asset("IMAGE", "images/inventoryimages/toucan_hamlet.tex"),
@@ -270,8 +271,8 @@ local function makebird(name, soundname, no_feather, bank, custom_loot_setup, wa
         inst.AnimState:SetBuild(name.."_build")
         inst.AnimState:PlayAnimation("idle")
 		
-		if name == "parrot_pirate" then
-			inst.AnimState:SetBank("parrot_pirate")
+		if name == "parrot_pirate" then 
+			inst.AnimState:SetBank("crow_pirate") -- This helps fix the missing hat for him inside the birdcage. Must be called on the return makebird() too!
 			inst.AnimState:SetBuild("parrot_pirate_build")
 		end
 
@@ -538,4 +539,4 @@ makebird("seagull", "seagull", nil, nil, kingfisher_loot_setup, "seagull_water",
 makebird("cormorant", "cormorant", nil, nil, puffin_loot_setup, "cormorant_water", true),
 makebird("toucan", "toucan", nil, nil, puffin_loot_setup, nil, true),
 makebird("parrot", "parrot", nil, nil, parrot_loot_setup, nil, true),
-makebird("parrot_pirate", "parrot_pirate", nil, "parrot_pirate", parrot_loot_setup, nil, true)
+makebird("parrot_pirate", "parrot_pirate", nil, "crow_pirate", parrot_loot_setup, nil, true)

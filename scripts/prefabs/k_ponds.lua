@@ -270,7 +270,7 @@ local function pondfrog()
     end
 
     inst.components.childspawner.childname = "frog"
-    inst.components.fishable:AddFish("pondfish")
+    inst.components.fishable:AddFish("kyno_koi")
 
     inst.planttype = "marsh_plant"
     inst.dayspawn = true

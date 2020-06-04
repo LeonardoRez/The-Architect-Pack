@@ -28,3 +28,46 @@ Version 2.2-B-BETA
 - Adjusted Sandbag placement grid.
 - Elephant Cactus will not attack players wearing Bramble Husk.
 - Reduced Coffee Speed a bit.
+
+Version 2.3-B-BETA
+- Fixed birds crashing on Painted Sand Turf.
+
+Version 2.4-B
+- Added New interior structures.
+- Added New colourcubes option: Soko Edition.
+- Added A new tab called: Interior Tab.
+- Added Legacy Palace.
+- Added New fishes.
+- Added True Salt Lick.
+- Added Root Trunk (Original).
+- Added Artificial Flowers.
+- Added Ocean structures (Need depth testing).
+- Added Colorful Fireflies.
+- Added New crafts for refine tab.
+- Added Pomegranate Tree.
+- Added Tesla Post.
+- Added Bat Boulder.
+- Added Jungle Vines.
+- Added Wally's Sunken Boat.
+- Added Empty Boat.
+- Added New secret structure.
+- Added Shadows for Great Leafy Stalk.
+- Added Shadows for Jungle Vines.
+- Fixed Maxwell's Light crash.
+- Fixed Root Trunk Replica wrong container display.
+- Fixed Players and mobs being able to ignite Iron Gate.
+- Fixed Town Houses not saving animation (Need depth testing).
+- Fixed Shadow Channeler not dropping loot.
+- Fixed Ruins turfs inventory icons.
+- Fixed Invisible Large/Small/Syrup Pot.
+- Fixed Bosses loot tables (They should drop the new sketches now).
+- Fixed Streetlights and Lamp Post weird light glitch.
+- Fixed Coffee animation on Seasoning Station.
+- Fixed Elephant Cactus Replica transmutating itself to Elephant Cactus (lol).
+- Changed Obsidian Fire Pit recipe.
+- Changed Post recipe.
+- Decorative Mobs now have the ability their health overtime.
+- Salt Rack produces Salt Crystals every 4 days.
+- Salt Pond now have Salmon instead of Freshwater Fish.
+- Tidal Pool now have Tropical Fish instead of Eel.
+- Players can rotate certain structures by hammering them.
