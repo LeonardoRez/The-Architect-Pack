@@ -3337,6 +3337,10 @@ AddRecipe("kyno_pigpalace", {Ingredient("marble", 4), Ingredient("goldnugget", 4
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_pigpalace_placer", 2, nil, nil, nil, "images/inventoryimages/kyno_pigpalace.xml", "kyno_pigpalace.tex")
 
 
+AddRecipe("kyno_pigpalace2", {Ingredient("cutstone", 4), Ingredient("goldnugget", 4), Ingredient("pigskin", 4)},
+kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_pigpalace2_placer", 2, nil, nil, nil, "images/inventoryimages/kyno_pigpalace.xml", "kyno_pigpalace.tex")
+
+
 AddRecipe("kyno_playerhouse", {Ingredient("boards", 4), Ingredient("cutstone", 3), Ingredient("goldnugget", 10)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_playerhouse_placer", 2, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "playerhouse_city.tex")
 
