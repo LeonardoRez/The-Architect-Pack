@@ -2126,6 +2126,24 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_shelves_lock.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_shelves_lock.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_gingerbreadhouse1.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_gingerbreadhouse1.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_gingerbreadhouse2.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_gingerbreadhouse2.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_gingerbreadhouse3.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_gingerbreadhouse3.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_gingerbreadhouse4.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_gingerbreadhouse4.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_claywarg.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_claywarg.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_clayhound.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_clayhound.xml"),
+	
 	-- Sound Assets --
 	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
 	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),

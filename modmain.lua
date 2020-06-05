@@ -484,6 +484,7 @@ PrefabFiles = {
 	"k_planted_wheat",
 	"k_planted_garlic",
 	"k_planted_tomato",
+	"k_gorgecoins",
 	-- THE FORGE CONTENT --
 	"k_pugna",
 	"k_magmagolem",
@@ -601,6 +602,8 @@ PrefabFiles = {
 	"k_fireflies",
 	"k_teslapost",
 	"k_wigfridge",
+	"k_gingerbreadhouse",
+	"k_claystatues",
 	"plant_normal",
 	"stalker",
 	"shadowchesspieces",
@@ -2926,6 +2929,30 @@ AddRecipe("kyno_propsign_structure", {Ingredient("boards", 1)},
 kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_propsign_structure_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_propsign.xml", "kyno_propsign.tex")
 
 
+AddRecipe("kyno_gingerbreadhouse1", {Ingredient("crumbs", 5), Ingredient("wintersfeastfuel", 1)},
+kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_gingerbreadhouse1_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_gingerbreadhouse1.xml", "kyno_gingerbreadhouse1.tex")
+
+
+AddRecipe("kyno_gingerbreadhouse2", {Ingredient("crumbs", 5), Ingredient("wintersfeastfuel", 1)},
+kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_gingerbreadhouse2_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_gingerbreadhouse2.xml", "kyno_gingerbreadhouse2.tex")
+
+
+AddRecipe("kyno_gingerbreadhouse3", {Ingredient("crumbs", 5), Ingredient("wintersfeastfuel", 1)},
+kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_gingerbreadhouse3_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_gingerbreadhouse3.xml", "kyno_gingerbreadhouse3.tex")
+
+
+AddRecipe("kyno_gingerbreadhouse4", {Ingredient("crumbs", 5), Ingredient("wintersfeastfuel", 1)},
+kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_gingerbreadhouse4_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_gingerbreadhouse4.xml", "kyno_gingerbreadhouse4.tex")
+
+
+AddRecipe("kyno_clayhound", {Ingredient("cutstone", 2)},
+kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_clayhound_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_clayhound.xml", "kyno_clayhound.tex")
+
+
+AddRecipe("kyno_claywarg", {Ingredient("cutstone", 4)},
+kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_claywarg_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_claywarg.xml", "kyno_claywarg.tex")
+
+
 AddRecipe("kyno_friendomatic", {Ingredient("boards", 4), Ingredient("nightmarefuel", 4), Ingredient("rocks", 4)},
 kyno_surfacetab, TECH.SCIENCE_TWO, "kyno_friendomatic_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_friendomatic.xml", "kyno_friendomatic.tex")
 
@@ -4184,7 +4211,27 @@ RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryima
 
 AddRecipe("kyno_oinc100", {Ingredient("goldnugget", 1)}, 
 RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "oinc100.tex")
+
+
+AddRecipe("kyno_gorgecoin1", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "quagmire_coin1.tex")
+
+
+AddRecipe("kyno_gorgecoin2", {Ingredient("goldnugget", 2), Ingredient("bluegem", 1)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "quagmire_coin2.tex")
+
+
+AddRecipe("kyno_gorgecoin3", {Ingredient("goldnugget", 2), Ingredient("redgem", 1)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "quagmire_coin3.tex")
+
+
+AddRecipe("kyno_gorgecoin4", {Ingredient("goldnugget", 2), Ingredient("opalpreciousgem", 1)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "quagmire_coin4.tex")
 end
+
+AddRecipe("berries", {Ingredient("berries_juicy", 1)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "berries.tex")
+
 
 AddRecipe("berries_juicy", {Ingredient("berries", 1)},
 RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "berries_juicy.tex")
@@ -4228,6 +4275,298 @@ RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryima
 
 AddRecipe("kyno_purpleflies", {Ingredient("fireflies", 1), Ingredient("purplegem", 1)},
 RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages/kyno_purpleflies.xml", "kyno_purpleflies.tex")
+
+
+AddRecipe("trinket_1", {Ingredient("goldnugget", 4)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_1.tex")
+
+
+AddRecipe("trinket_2", {Ingredient("goldnugget", 6)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_2.tex")
+
+
+AddRecipe("trinket_3", {Ingredient("goldnugget", 4)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_3.tex")
+
+
+AddRecipe("trinket_4", {Ingredient("goldnugget", 4)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_4.tex")
+
+
+AddRecipe("trinket_5", {Ingredient("goldnugget", 4)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_5.tex")
+
+
+AddRecipe("trinket_6", {Ingredient("goldnugget", 5)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_6.tex")
+
+
+AddRecipe("trinket_7", {Ingredient("goldnugget", 4)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_7.tex")
+
+
+AddRecipe("trinket_8", {Ingredient("goldnugget", 8)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_8.tex")
+
+
+AddRecipe("trinket_9", {Ingredient("goldnugget", 7)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_9.tex")
+
+
+AddRecipe("trinket_10", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_10.tex")
+
+
+AddRecipe("trinket_11", {Ingredient("goldnugget", 5)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_11.tex")
+
+
+AddRecipe("trinket_12", {Ingredient("goldnugget", 8)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_12.tex")
+
+
+AddRecipe("trinket_13", {Ingredient("goldnugget", 5)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_13.tex")
+
+
+AddRecipe("trinket_14", {Ingredient("goldnugget", 3)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_14.tex")
+
+-- 15 and 16 are Shadow Pices Trinket.
+AddRecipe("trinket_17", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_17.tex")
+
+
+AddRecipe("trinket_18", {Ingredient("goldnugget", 6)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_18.tex")
+
+
+AddRecipe("trinket_19", {Ingredient("goldnugget", 6)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_19.tex")
+
+
+AddRecipe("trinket_20", {Ingredient("goldnugget", 7)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_20.tex")
+
+
+AddRecipe("trinket_21", {Ingredient("goldnugget", 5)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_21.tex")
+
+
+AddRecipe("trinket_22", {Ingredient("goldnugget", 4)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_22.tex")
+
+
+AddRecipe("trinket_23", {Ingredient("goldnugget", 3)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_23.tex")
+
+
+AddRecipe("trinket_24", {Ingredient("goldnugget", 8)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_24.tex")
+
+
+AddRecipe("trinket_25", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_25.tex")
+
+
+AddRecipe("trinket_26", {Ingredient("goldnugget", 9)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_26.tex")
+
+
+AddRecipe("trinket_27", {Ingredient("goldnugget", 4)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_27.tex")
+
+
+AddRecipe("antliontrinket", {Ingredient("goldnugget", 1)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "antliontrinket.tex")
+
+
+AddRecipe("trinket_32", {Ingredient("goldnugget", 4)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_32.tex")
+
+
+AddRecipe("trinket_33", {Ingredient("goldnugget", 4)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_33.tex")
+
+
+AddRecipe("trinket_34", {Ingredient("goldnugget", 4)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_34.tex")
+
+
+AddRecipe("trinket_35", {Ingredient("goldnugget", 4)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_35.tex")
+
+
+AddRecipe("trinket_36", {Ingredient("goldnugget", 4)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_36.tex")
+
+
+AddRecipe("trinket_37", {Ingredient("goldnugget", 4)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_37.tex")
+
+
+AddRecipe("trinket_38", {Ingredient("goldnugget", 4)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_38.tex")
+
+
+AddRecipe("trinket_39", {Ingredient("goldnugget", 4)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_39.tex")
+
+
+AddRecipe("trinket_40", {Ingredient("goldnugget", 4)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_40.tex")
+
+
+AddRecipe("trinket_41", {Ingredient("goldnugget", 4)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_41.tex")
+
+
+AddRecipe("trinket_42", {Ingredient("goldnugget", 4)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_42.tex")
+
+
+AddRecipe("trinket_43", {Ingredient("goldnugget", 4)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_43.tex")
+
+
+AddRecipe("trinket_44", {Ingredient("goldnugget", 4)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_44.tex")
+
+
+AddRecipe("trinket_45", {Ingredient("goldnugget", 4)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_45.tex")
+
+
+AddRecipe("trinket_46", {Ingredient("goldnugget", 4)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "trinket_46.tex")
+
+
+AddRecipe("halloween_ornament_1", {Ingredient("nightmarefuel", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "halloween_ornament_1.tex")
+
+
+AddRecipe("halloween_ornament_2", {Ingredient("nightmarefuel", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "halloween_ornament_2.tex")
+
+
+AddRecipe("halloween_ornament_3", {Ingredient("nightmarefuel", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "halloween_ornament_3.tex")
+
+
+AddRecipe("halloween_ornament_4", {Ingredient("nightmarefuel", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "halloween_ornament_4.tex")
+
+
+AddRecipe("halloween_ornament_5", {Ingredient("nightmarefuel", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "halloween_ornament_5.tex")
+
+
+AddRecipe("halloween_ornament_6", {Ingredient("nightmarefuel", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "halloween_ornament_6.tex")
+
+
+AddRecipe("winter_ornament_plain1", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_plain1.tex")
+
+
+AddRecipe("winter_ornament_plain1", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_plain1.tex")
+
+
+AddRecipe("winter_ornament_plain2", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_plain2.tex")
+
+
+AddRecipe("winter_ornament_plain3", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_plain3.tex")
+
+
+AddRecipe("winter_ornament_plain4", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_plain4.tex")
+
+
+AddRecipe("winter_ornament_plain5", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_plain5.tex")
+
+
+AddRecipe("winter_ornament_plain6", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_plain6.tex")
+
+
+AddRecipe("winter_ornament_plain7", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_plain7.tex")
+
+
+AddRecipe("winter_ornament_plain8", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_plain8.tex")
+
+
+AddRecipe("winter_ornament_plain9", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_plain9.tex")
+
+
+AddRecipe("winter_ornament_plain10", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_plain10.tex")
+
+
+AddRecipe("winter_ornament_plain11", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_plain11.tex")
+
+
+AddRecipe("winter_ornament_plain12", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_plain12.tex")
+
+
+AddRecipe("winter_ornament_fancy1", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_fancy1.tex")
+
+
+AddRecipe("winter_ornament_fancy2", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_fancy2.tex")
+
+
+AddRecipe("winter_ornament_fancy3", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_fancy3.tex")
+
+
+AddRecipe("winter_ornament_fancy4", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_fancy4.tex")
+
+
+AddRecipe("winter_ornament_fancy5", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_fancy5.tex")
+
+
+AddRecipe("winter_ornament_fancy6", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_fancy6.tex")
+
+
+AddRecipe("winter_ornament_fancy7", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_fancy7.tex")
+
+
+AddRecipe("winter_ornament_fancy8", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_fancy8.tex")
+
+
+AddRecipe("winter_ornament_festivalevents1", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_festivalevents1.tex")
+
+
+AddRecipe("winter_ornament_festivalevents2", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_festivalevents2.tex")
+
+
+AddRecipe("winter_ornament_festivalevents3", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_festivalevents3.tex")
+
+
+AddRecipe("winter_ornament_festivalevents4", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_festivalevents4.tex")
+
+
+AddRecipe("winter_ornament_festivalevents5", {Ingredient("goldnugget", 2)},
+RECIPETABS.REFINE, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages.xml", "winter_ornament_festivalevents5.tex")
 
 
 AddRecipe("kyno_rock_limpet", {Ingredient("rocks", 4), Ingredient("nitre", 2)},

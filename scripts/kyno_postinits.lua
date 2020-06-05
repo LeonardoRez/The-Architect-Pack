@@ -1399,3 +1399,35 @@ AddPrefabPostInit("kyno_salmonfish", function(inst)
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_gorgecoin1", function(inst)
+	inst:SetPrefabNameOverride("quagmire_coin1")
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.imagename = "quagmire_coin1"
+	inst.components.inventoryitem.atlasname = "images/inventoryimages.xml"
+	end
+end)
+
+AddPrefabPostInit("kyno_gorgecoin2", function(inst)
+	inst:SetPrefabNameOverride("quagmire_coin2")
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.imagename = "quagmire_coin2"
+	inst.components.inventoryitem.atlasname = "images/inventoryimages.xml"
+	end
+end)
+
+AddPrefabPostInit("kyno_gorgecoin3", function(inst)
+	inst:SetPrefabNameOverride("quagmire_coin3")
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.imagename = "quagmire_coin3"
+	inst.components.inventoryitem.atlasname = "images/inventoryimages.xml"
+	end
+end)
+
+AddPrefabPostInit("kyno_gorgecoin4", function(inst)
+	inst:SetPrefabNameOverride("quagmire_coin4")
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.imagename = "quagmire_coin4"
+	inst.components.inventoryitem.atlasname = "images/inventoryimages.xml"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
