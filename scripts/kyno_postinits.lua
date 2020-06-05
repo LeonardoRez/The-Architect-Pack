@@ -331,6 +331,38 @@ AddComponentPostInit(
         end
     end
 )
+
+AddComponentPostInit(
+    "locomotor",
+    function(inst)
+        local old5 = inst.UpdateGroundSpeedMultiplier
+        inst.UpdateGroundSpeedMultiplier = function(self)
+            old5(self)
+            if
+                self.wasoncreep == false and self:FasterOnRoad() and
+                    GLOBAL.TheWorld.Map:GetTileAtPoint(self.inst.Transform:GetWorldPosition()) == GROUND.HERRING
+             then
+                self.groundspeedmultiplier = self.fastmultiplier
+            end
+        end
+    end
+)
+
+AddComponentPostInit(
+    "locomotor",
+    function(inst)
+        local old6 = inst.UpdateGroundSpeedMultiplier
+        inst.UpdateGroundSpeedMultiplier = function(self)
+            old6(self)
+            if
+                self.wasoncreep == false and self:FasterOnRoad() and
+                    GLOBAL.TheWorld.Map:GetTileAtPoint(self.inst.Transform:GetWorldPosition()) == GROUND.CHESS
+             then
+                self.groundspeedmultiplier = self.fastmultiplier
+            end
+        end
+    end
+)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 packim_chance = GetModConfigData("packim_baggims")
 GLOBAL.SetSharedLootTable("malbatross_packim",

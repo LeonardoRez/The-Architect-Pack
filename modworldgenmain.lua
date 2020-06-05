@@ -429,6 +429,162 @@ AddTile(103, "ruinstrim", "kyno_turfs4", nil,
 	}
 , true)
 
+AddTile(104, "woodpanel", "kyno_turfs5", nil,
+	{
+	name = "blocky",
+	noise_texture = "levels/textures/interior/shop_floor_woodpanel.tex",
+	runsound = "dontstarve/movement/run_woods",
+	walksound = "dontstarve/movement/walk_woods",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/interior/mini_shop_floor_woodpanel",
+	}
+, true)
+
+AddTile(105, "marbletile", "kyno_turfs5", nil,
+	{
+	name = "blocky",
+	noise_texture = "levels/textures/interior/shop_floor_marble.tex",
+	runsound = "dontstarve/movement/run_marble",
+	walksound = "dontstarve/movement/walk_marble",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/interior/mini_shop_floor_marble",
+	}
+, true)
+
+AddTile(106, "chess", "kyno_turfs5", nil,
+	{
+	name = "blocky",
+	noise_texture = "levels/textures/interior/shop_floor_checker.tex",
+	runsound = "dontstarve/movement/run_marble",
+	walksound = "dontstarve/movement/walk_marble",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/interior/mini_shop_floor_checker",
+	}
+, true)
+
+AddTile(107, "slate", "kyno_turfs5", nil,
+	{
+	name = "blocky",
+	noise_texture = "levels/textures/interior/shop_floor_slate.tex",
+	runsound = "dontstarve/movement/run_marble",
+	walksound = "dontstarve/movement/walk_marble",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/interior/mini_shop_floor_slate",
+	}
+, true)
+
+AddTile(108, "metalsheet", "kyno_turfs5", nil,
+	{
+	name = "blocky",
+	noise_texture = "levels/textures/interior/shop_floor_sheetmetal.tex",
+	runsound = "dontstarve/movement/run_marble",
+	walksound = "dontstarve/movement/walk_marble",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/interior/mini_shop_floor_sheetmetal",
+	}
+, true)
+
+AddTile(109, "garden", "kyno_turfs5", nil,
+	{
+	name = "blocky",
+	noise_texture = "levels/textures/interior/shop_floor_gardenstone.tex",
+	runsound = "dontstarve/movement/run_marble",
+	walksound = "dontstarve/movement/walk_marble",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/interior/mini_shop_floor_gardenstone",
+	}
+, true)
+
+AddTile(110, "geometric", "kyno_turfs5", nil,
+	{
+	name = "blocky",
+	noise_texture = "levels/textures/interior/shop_floor_geometric.tex",
+	runsound = "dontstarve/movement/run_marble",
+	walksound = "dontstarve/movement/walk_marble",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/interior/mini_shop_floor_geometric",
+	}
+, true)
+
+AddTile(111, "shagcarpet", "kyno_turfs5", nil,
+	{
+	name = "carpet",
+	noise_texture = "levels/textures/interior/shop_floor_carpet.tex",
+	runsound = "dontstarve/movement/run_carpet",
+	walksound = "dontstarve/movement/walk_carpet",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/interior/mini_shop_floor_carpet",
+	}
+, true)
+
+AddTile(112, "transitional", "kyno_turfs5", nil,
+	{
+	name = "blocky",
+	noise_texture = "levels/textures/interior/shop_floor_transitional.tex",
+	runsound = "dontstarve/movement/run_woods",
+	walksound = "dontstarve/movement/walk_woods",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/interior/mini_shop_floor_transitional",
+	}
+, true)
+
+AddTile(113, "herring", "kyno_turfs5", nil,
+	{
+	name = "blocky",
+	noise_texture = "levels/textures/interior/shop_floor_herringbone.tex",
+	runsound = "dontstarve/movement/run_marble",
+	walksound = "dontstarve/movement/walk_marble",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/interior/mini_shop_floor_herringbone",
+	}
+, true)
+
+AddTile(114, "hexagon", "kyno_turfs5", nil,
+	{
+	name = "blocky",
+	noise_texture = "levels/textures/interior/shop_floor_hexagon.tex",
+	runsound = "dontstarve/movement/run_marble",
+	walksound = "dontstarve/movement/walk_marble",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/interior/mini_shop_floor_hexagon",
+	}
+, true)
+
+AddTile(115, "hoof", "kyno_turfs5", nil,
+	{
+	name = "blocky",
+	noise_texture = "levels/textures/interior/shop_floor_hoof_curvy.tex",
+	runsound = "dontstarve/movement/run_marble",
+	walksound = "dontstarve/movement/walk_marble",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/interior/mini_shop_floor_hoof_curvy",
+	}
+, true)
+
+AddTile(116, "octagon", "kyno_turfs5", nil,
+	{
+	name = "blocky",
+	noise_texture = "levels/textures/interior/shop_floor_octagon.tex",
+	runsound = "dontstarve/movement/run_marble",
+	walksound = "dontstarve/movement/walk_marble",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/interior/mini_shop_floor_octagon",
+	}
+, true)
+
 ChangeTileTypeRenderOrder(GROUND.PINKSTONE, GROUND.ROAD, true)
 ChangeTileTypeRenderOrder(GROUND.STONECITY, GROUND.PINKSTONE, true)
 ChangeTileTypeRenderOrder(GROUND.BEACH, GROUND.PINKSTONE, true)
@@ -453,6 +609,19 @@ ChangeTileTypeRenderOrder(GROUND.MOSSY_BLOSSOM, GROUND.GREYFOREST, true)
 ChangeTileTypeRenderOrder(GROUND.DEEPJUNGLE, GROUND.MOSSY_BLOSSOM, true)
 ChangeTileTypeRenderOrder(GROUND.GASJUNGLE, GROUND.DEEPJUNGLE, true)
 ChangeTileTypeRenderOrder(GROUND.FOUNDATION, GROUND.GASJUNGLE, true)
+ChangeTileTypeRenderOrder(GROUND.WOODPANEL, GROUND.FOUNDATION, true)
+ChangeTileTypeRenderOrder(GROUND.MARBLETILE, GROUND.WOODPANEL, true)
+ChangeTileTypeRenderOrder(GROUND.CHESS, GROUND.MARBLETILE, true)
+ChangeTileTypeRenderOrder(GROUND.SLATE, GROUND.CHESS, true)
+ChangeTileTypeRenderOrder(GROUND.METALSHEET, GROUND.SLATE, true)
+ChangeTileTypeRenderOrder(GROUND.GARDEN, GROUND.METALSHEET, true)
+ChangeTileTypeRenderOrder(GROUND.GEOMETRIC, GROUND.GARDEN, true)
+ChangeTileTypeRenderOrder(GROUND.TRANSITIONAL, GROUND.GEOMETRIC, true)
+ChangeTileTypeRenderOrder(GROUND.HERRING, GROUND.TRANSITIONAL, true)
+ChangeTileTypeRenderOrder(GROUND.HEXAGON, GROUND.TRANSITIONAL, true)
+ChangeTileTypeRenderOrder(GROUND.HOOF, GROUND.HEXAGON, true)
+ChangeTileTypeRenderOrder(GROUND.OCTAGON, GROUND.HOOF, true)
+ChangeTileTypeRenderOrder(GROUND.SHAGCARPET, GROUND.OCTAGON, true)
 ChangeTileTypeRenderOrder(GROUND.BEARD_HAIR, GROUND.SNAKESKINFLOOR, true)
 ChangeTileTypeRenderOrder(GROUND.BROWNCARPET, GROUND.BEARD_HAIR, true)
 ChangeTileTypeRenderOrder(GROUND.LAWN, GROUND.CARPET, true)

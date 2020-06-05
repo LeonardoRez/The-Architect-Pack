@@ -1566,7 +1566,7 @@ AddRecipe("kyno_millinery_hatbox2", {Ingredient("boards", 2), Ingredient("winter
 kyno_housetab, TECH.SCIENCE_TWO, "kyno_millinery_hatbox2_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_millinery_hatbox2.xml", "kyno_millinery_hatbox2.tex")
 
 
-AddRecipe("kyno_millinery_sewingmachine", {Ingredient("cutstone", 3), Ingredient("sewing_kit", 6), Ingredient("gears", 2)},
+AddRecipe("kyno_millinery_sewingmachine", {Ingredient("cutstone", 3), Ingredient("sewing_kit", 6), Ingredient("gears", 3)},
 kyno_housetab, TECH.SCIENCE_TWO, "kyno_millinery_sewingmachine_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_millinery_sewingmachine.xml", "kyno_millinery_sewingmachine.tex")
 
 
@@ -1684,6 +1684,58 @@ kyno_housetab, TECH.SCIENCE_TWO, "kyno_containers_box15_placer", 0, nil, nil, ni
 
 AddRecipe("kyno_containers_box16", {Ingredient("boards", 2)},
 kyno_housetab, TECH.SCIENCE_TWO, "kyno_containers_box16_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_containers_box16.xml", "kyno_containers_box16.tex")
+
+
+AddRecipe("turf_marbletile", {Ingredient("marble", 2)},
+kyno_housetab, TECH.SCIENCE_TWO, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "turf_marbletile.tex")
+
+
+AddRecipe("turf_chess", {Ingredient("turf_checkerfloor", 1), Ingredient("turf_road", 1)},
+kyno_housetab, TECH.SCIENCE_TWO, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "turf_chess.tex")
+
+
+AddRecipe("turf_slate", {Ingredient("rocks", 1), Ingredient("marble", 1)},
+kyno_housetab, TECH.SCIENCE_TWO, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "turf_slate.tex")
+
+
+AddRecipe("turf_metalsheet", {Ingredient("cutstone", 2)},
+kyno_housetab, TECH.SCIENCE_TWO, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "turf_metalsheet.tex")
+
+
+AddRecipe("turf_garden", {Ingredient("cutstone", 1), Ingredient("turf_grass", 1)},
+kyno_housetab, TECH.SCIENCE_TWO, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "turf_garden.tex")
+
+
+AddRecipe("turf_geometric", {Ingredient("turf_checkerfloor", 1), Ingredient("bluegem", 1)},
+kyno_housetab, TECH.SCIENCE_TWO, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "turf_geometric.tex")
+
+
+AddRecipe("turf_shagcarpet", {Ingredient("turf_carpetfloor", 2)},
+kyno_housetab, TECH.SCIENCE_TWO, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "turf_shagcarpet.tex")
+
+
+AddRecipe("turf_transitional", {Ingredient("turf_checkerfloor", 1), Ingredient("turf_woodfloor", 1)},
+kyno_housetab, TECH.SCIENCE_TWO, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "turf_transitional.tex")
+
+
+AddRecipe("turf_woodpanel", {Ingredient("turf_woodfloor", 2)},
+kyno_housetab, TECH.SCIENCE_TWO, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "turf_woodpanel.tex")
+
+
+AddRecipe("turf_herring", {Ingredient("boneshard", 1), Ingredient("turf_road", 1)},
+kyno_housetab, TECH.SCIENCE_TWO, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "turf_herring.tex")
+
+
+AddRecipe("turf_hexagon", {Ingredient("turf_checkerfloor", 1), Ingredient("cutstone", 1)},
+kyno_housetab, TECH.SCIENCE_TWO, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "turf_hexagon.tex")
+
+
+AddRecipe("turf_hoof", {Ingredient("cutstone", 1), Ingredient("pigskin", 1)},
+kyno_housetab, TECH.SCIENCE_TWO, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "turf_hoof.tex")
+
+
+AddRecipe("turf_octagon", {Ingredient("turf_checkerfloor", 1), Ingredient("marble", 1)},
+kyno_housetab, TECH.SCIENCE_TWO, nil, nil, nil, 4, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "turf_octagon.tex")
 
 
 AddRecipe("kyno_pugna", {Ingredient("hambat", 1), Ingredient("meat", 10), Ingredient("reviver", 1)},
@@ -3126,7 +3178,7 @@ kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_beaststatue2_placer", 0, nil, nil, nil, "
 -- kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_beaststatue2_left_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_beaststatue2_left.xml", "kyno_beaststatue2_left.tex")
 
 
-AddRecipe("kyno_bollard", {Ingredient("cutstone", 1)},
+AddRecipe("kyno_bollard", {Ingredient("rocks", 2)},
 kyno_gorgetab, TECH.SCIENCE_TWO, "kyno_bollard_placer", 0, nil, nil, nil, "images/inventoryimages/kyno_bollard.xml", "kyno_bollard.tex")
 
 
@@ -5027,6 +5079,17 @@ if GLOBAL.TheNet:GetIsMasterSimulation() then
         AddPrefabPostInit(kyno_turf_forge_name, function(inst)
             inst.components.inventoryitem.imagename = kyno_turf_forge_name
             inst.components.inventoryitem.atlasname = kyno_turf_forge_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local kyno_turf_interior_atlas = MODROOT.."images/inventoryimages/kyno_inventoryimages_ham.xml"
+    for _, turf in pairs({"chess", "hoof", "herring", "octagon", "shagcarpet", "marbletile", "hexagon", "garden", "geometric", "woodpanel", "transitional", "slate", "metalsheet"}) do
+        local kyno_turf_interior_name = "turf_"..turf
+        AddPrefabPostInit(kyno_turf_interior_name, function(inst)
+            inst.components.inventoryitem.imagename = kyno_turf_interior_name
+            inst.components.inventoryitem.atlasname = kyno_turf_interior_atlas
         end)
     end
 end

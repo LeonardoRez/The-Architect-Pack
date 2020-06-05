@@ -2147,6 +2147,7 @@ Assets = {
 	Asset("ANIM", "anim/kyno_turfs2.zip"),
 	Asset("ANIM", "anim/kyno_turfs3.zip"),
 	Asset("ANIM", "anim/kyno_turfs4.zip"),
+	Asset("ANIM", "anim/kyno_turfs5.zip"),
 	Asset("ANIM", "anim/leaves_canopy.zip"),
 	Asset("ANIM", "anim/leaves_canopy_test.zip"),
 	Asset("ANIM", "anim/leaves_canopy2.zip"),
