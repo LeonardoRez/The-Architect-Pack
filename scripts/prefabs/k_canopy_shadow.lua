@@ -12,11 +12,11 @@ local function fn()
     inst.entity:AddSoundEmitter()
 	inst.entity:AddNetwork()
 	
-	inst.Transform:SetScale(1.2, 1.2, 1.2)
+	inst.Transform:SetScale(2.5, 2.5, 2.5)
 	
 	inst.AnimState:SetBank("kyno_canopy_shadow")
 	inst.AnimState:SetBuild("kyno_canopy_shadow")
-	inst.AnimState:PlayAnimation("idle")
+	inst.AnimState:PlayAnimation("idle", true)
 	inst.AnimState:SetOrientation(ANIM_ORIENTATION.OnGround)
 	-- inst.AnimState:SetLayer(LAYER_BACKGROUND)
 	inst.AnimState:SetFinalOffset(3)

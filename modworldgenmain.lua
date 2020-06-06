@@ -455,7 +455,7 @@ AddTile(105, "marbletile", "kyno_turfs5", nil,
 
 AddTile(106, "chess", "kyno_turfs5", nil,
 	{
-	name = "blocky",
+	name = "pebble",
 	noise_texture = "levels/textures/interior/shop_floor_checker.tex",
 	runsound = "dontstarve/movement/run_marble",
 	walksound = "dontstarve/movement/walk_marble",

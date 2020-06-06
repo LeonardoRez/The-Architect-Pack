@@ -39,7 +39,7 @@ Version 2.4-B
 - Added Legacy Palace.
 - Added New fishes.
 - Added True Salt Lick.
-- Added Root Trunk (Original).
+- Added Root Trunk (Original, also don't work between shards).
 - Added Artificial Flowers.
 - Added Ocean structures (Need depth testing).
 - Added Colorful Fireflies.
@@ -48,11 +48,15 @@ Version 2.4-B
 - Added Tesla Post.
 - Added Bat Boulder.
 - Added Jungle Vines.
+- Added Legacy Claw Palm Tree.
 - Added Wally's Sunken Boat.
 - Added Empty Boat.
 - Added New secret structure.
 - Added Shadows for Great Leafy Stalk.
 - Added Shadows for Jungle Vines.
+- Added Clay Hound and Varg replicas.
+- Added Gingerbread Pig House.
+- Added More vanity items.
 - Fixed Maxwell's Light crash.
 - Fixed Root Trunk Replica wrong container display.
 - Fixed Players and mobs being able to ignite Iron Gate.
@@ -69,5 +73,5 @@ Version 2.4-B
 - Decorative Mobs now have the ability of regenerate their health overtime.
 - Salt Rack produces Salt Crystals every 4 days.
 - Salt Pond now have Salmon instead of Freshwater Fish.
-- Tidal Pool now have Tropical Fish instead of Eel.
+- Tidal Pool now have Tropical Fish instead of Live Eel.
 - Players can rotate certain structures by hammering them.

@@ -1431,3 +1431,13 @@ AddPrefabPostInit("kyno_gorgecoin4", function(inst)
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("parrot_pirate", function(inst)
+	inst:AddTag("_named")
+	if GLOBAL.TheWorld.ismastersim then
+		inst:RemoveTag("_named")
+		inst:AddComponent("named")
+		inst.components.named.possiblenames = { "reD", "Sokoteur", "Glermz", "Kiss-Shot Acerola-Orion Heart-Under-Blade", "Nicky", "Orfeu", "Thalz", "Kyno", "Jazzy", "Ogait", "Harry", "Murdoc", "John", "Jack Sparrow", "Davy Jones", "Cornelius", "Frida", "Dan Van 3000", "Sammy", "Jahzus", "Lakhish", "Pollygon", "Loro", "Vegetable", "Dr Hook", "Donny Jepp", "Octoparrot", "Pequi", "Oilo", "Freddo", "James Bucket", "Gabriel", "Glommer Slayer", "The Destroyer", "Lunatic Parrot" }
+		inst.components.named:PickNewName()
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------

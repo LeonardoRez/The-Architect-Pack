@@ -93,7 +93,7 @@ local function vinefn()
 		for item_name, data in pairs(decor_items) do
 			for l, offset in pairs(data) do
 				local item_inst = SpawnPrefab("kyno_canopy_shadow")
-				item_inst.AnimState:PushAnimation("idle")
+				item_inst.AnimState:PushAnimation("idle", true)
 				item_inst.AnimState:SetScale(.50, .50, .50)
 				item_inst.entity:SetParent(inst.entity)
 				item_inst.Transform:SetPosition(offset[1], offset[2], offset[3])
@@ -154,7 +154,7 @@ local function hangingfn()
 		for item_name, data in pairs(decor_items) do
 			for l, offset in pairs(data) do
 				local item_inst = SpawnPrefab("kyno_canopy_shadow")
-				item_inst.AnimState:PushAnimation("idle")
+				item_inst.AnimState:PushAnimation("idle", true)
 				item_inst.AnimState:SetScale(.50, .50, .50)
 				item_inst.entity:SetParent(inst.entity)
 				item_inst.Transform:SetPosition(offset[1], offset[2], offset[3])
@@ -214,7 +214,7 @@ local function borderfn()
 		for item_name, data in pairs(decor_items) do
 			for l, offset in pairs(data) do
 				local item_inst = SpawnPrefab("kyno_canopy_shadow")
-				item_inst.AnimState:PushAnimation("idle")
+				item_inst.AnimState:PushAnimation("idle", true)
 				item_inst.AnimState:SetScale(.50, .50, .50)
 				item_inst.entity:SetParent(inst.entity)
 				item_inst.Transform:SetPosition(offset[1], offset[2], offset[3])
