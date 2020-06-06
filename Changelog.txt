@@ -75,3 +75,4 @@ Version 2.4-B
 - Salt Pond now have Salmon instead of Freshwater Fish.
 - Tidal Pool now have Tropical Fish instead of Live Eel.
 - Players can rotate certain structures by hammering them.
+- Parrot Pirate now have names (Picked randomly).
