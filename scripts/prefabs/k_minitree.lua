@@ -36,6 +36,7 @@ local function onworkfinish(inst, chopper)
         inst.AnimState:PlayAnimation("fallright")
         inst.components.lootdropper:DropLoot(pt + TheCamera:GetRightVec())
     end
+	inst:Remove()
 end
 
 local function fn()

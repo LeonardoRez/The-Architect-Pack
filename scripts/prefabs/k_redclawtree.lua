@@ -401,7 +401,7 @@ local function makefn(build, stage, data)
 		inst.Transform:SetScale(.75, .75, .75)
 
 		local minimap = inst.entity:AddMiniMapEntity()
-		minimap:SetIcon("claw_tree2.png")
+		minimap:SetIcon("claw_tree.png")
 		minimap:SetPriority(1)
 		
 		inst:AddTag("tree")
@@ -416,7 +416,7 @@ local function makefn(build, stage, data)
 
 		inst.build = build
 		inst.AnimState:SetBuild(GetBuild(inst).file)
-		inst.AnimState:SetBank("clawtree.png")
+		inst.AnimState:SetBank("clawtree")
 		local color = 0.5 + math.random() * 0.5
 		inst.AnimState:SetMultColour(color, color, color, 1)
 

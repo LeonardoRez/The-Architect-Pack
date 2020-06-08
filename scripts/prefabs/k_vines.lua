@@ -26,6 +26,7 @@ local function onhealthchange(inst)
 	if inst.components.health:IsDead() then
 		inst.AnimState:PlayAnimation("death")
 		inst:ListenForEvent("animover", function(inst) inst:Remove() end)
+		inst.components.lootdropper:DropLoot()
 	end
 end
 
@@ -41,6 +42,7 @@ local function onload(inst, data)
     if inst.components.health:IsDead() then
 		inst.AnimState:PlayAnimation("death")
         inst:ListenForEvent("animover", function(inst) inst:Remove() end)
+		inst.components.lootdropper:DropLoot()
     end
 	if data and data.animchoice then
 		inst.animchoice = data.animchoice
