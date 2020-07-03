@@ -100,6 +100,7 @@ local function make_plantable(data)
         inst.AnimState:PlayAnimation("dropped")
 		
 		inst:AddTag("coffeebush")
+		inst:AddTag("coffeeplant")
 
         inst.entity:SetPristine()
 

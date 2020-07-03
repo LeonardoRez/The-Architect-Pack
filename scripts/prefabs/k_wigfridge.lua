@@ -46,6 +46,22 @@ local function onbuilt(inst)
     inst.SoundEmitter:PlaySound("dontstarve/common/icebox_craft")
 end
 
+local function RefreshMeat(inst)
+    local containsMeat = inst.components.container:Has("batwing", 1 or "batwing_cooked", 1 or "drumstick", 1 or "drumstick_cooked", 1
+	or "pondeel", 1 or "pondfish", 1 or "froglegs", 1 or "froglegs_cooked", 1 or "trunk_summer", 1 or "trunk_winter", 1 or "trunk_cooked", 1
+	or "plantmeat", 1 or "plantmeat_cooked", 1 or "meat", 1 or "cookedmeat", 1 or "monstermeat", 1 or "cookedmonstermeat", 1 or "smallmeat", 1
+	or "cookedsmallmeat", 1 or "fishmeat_small", 1 or "fishmeat_small_cooked", 1 or "fishmeat", 1 or "fishmeat_cooked", 1 or "meat_dried", 1 or "smallmeat_dried", 1)
+    if containsMeat then
+        local items = inst.components.container:FindItems(function(v) return v.prefab=="batwing" or "batwing_cooked" or "drumstick" or "drumstick_cooked" or
+		"pondeel" or "pondfish" or "froglegs" or "froglegs_cooked" or "trunk_summer" or "trunk_winter" or "trunk_cooked" or "plantmeat" or "plantmeat_cooked" or
+		"meat" or "cookedmeat" or "monstermeat" or "cookedmonstermeat" or "smallmeat" or "cookedsmallmeat" or "fishmeat_small" or "fishmeat_small_cooked" or
+		"fishmeat" or "fishmeat_cooked" or "meat_dried" or "smallmeat_dried" end)
+        for k, v in pairs(items) do
+			v.components.perishable:StopPerishing()
+        end
+    end
+end
+
 local function fn()
     local inst = CreateEntity()
 
@@ -57,7 +73,7 @@ local function fn()
 	local minimap = inst.entity:AddMiniMapEntity()
     minimap:SetIcon("icebox.png")
 
-    inst:AddTag("saltbox")
+    inst:AddTag("icebox")
     inst:AddTag("structure")
 
     inst.AnimState:SetBank("wigfridge")
@@ -96,6 +112,9 @@ local function fn()
     MakeSnowCovered(inst)
 
     AddHauntableDropItemOrWork(inst)
+	
+	-- inst:ListenForEvent("itemget", function() RefreshMeat(inst) end)
+	-- inst:ListenForEvent("itemlose", function() RefreshMeat(inst) end)
 
     return inst
 end

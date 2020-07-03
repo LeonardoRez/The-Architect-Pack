@@ -272,8 +272,13 @@ local function makebird(name, soundname, no_feather, bank, custom_loot_setup, wa
         inst.AnimState:PlayAnimation("idle")
 		
 		if name == "parrot_pirate" then 
-			inst.AnimState:SetBank("crow_pirate") -- This helps fix the missing hat for him inside the birdcage. Must be called on the return makebird() too!
+			inst.AnimState:SetBank("crow_pirate") 
 			inst.AnimState:SetBuild("parrot_pirate_build")
+		end
+		
+		if name == "cormorant" then
+			inst.AnimState:SetBank("crow")
+			inst.AnimState:SetBuild("cormorant_build")
 		end
 
         inst.DynamicShadow:SetSize(1, .75)
@@ -536,7 +541,7 @@ makebird("parrot_blue", "parrot_blue", nil, nil, kingfisher_loot_setup, nil, tru
 makebird("pigeon", "pigeon", nil, nil, kingfisher_loot_setup, nil, true),
 makebird("toucan_hamlet", "toucan_hamlet", nil, nil, parrot_loot_setup, nil, true),
 makebird("seagull", "seagull", nil, nil, kingfisher_loot_setup, "seagull_water", true),
-makebird("cormorant", "cormorant", nil, nil, puffin_loot_setup, "cormorant_water", true),
+makebird("cormorant", "cormorant", nil, "crow", puffin_loot_setup, "cormorant_water", true),
 makebird("toucan", "toucan", nil, nil, puffin_loot_setup, nil, true),
 makebird("parrot", "parrot", nil, nil, parrot_loot_setup, nil, true),
 makebird("parrot_pirate", "parrot_pirate", nil, "crow_pirate", parrot_loot_setup, nil, true)

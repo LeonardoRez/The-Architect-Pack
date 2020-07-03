@@ -76,3 +76,41 @@ Version 2.4-B
 - Tidal Pool now have Tropical Fish instead of Live Eel.
 - Players can rotate certain structures by hammering them.
 - Parrot Pirate now have names (Picked randomly).
+
+Version 2.5-B
+- Added New boss statues.
+- Added New letter statues.
+- Added Characters monuments.
+- Added New legacy structures.
+- Added Antlion Sinkhole.
+- Added Klaus' Ice Geyser.
+- Added Klaus' Magma Field.
+- Added Poison Birchnut Tree.
+- Added Friendly Antlion.
+- Added Seal.
+- Added Thulecite Sinkhole.
+- Added Malfunctioning Novelty Ride.
+- Added Dragoon Saliva.
+- Added Volcano Stairs.
+- Added Suspicious Bubbles.
+- Added Frozen Furnace (Dropped only during winter).
+- Added Surfboard.
+- Added Snow Pile.
+- Added Potted Plants.
+- Added New Trinkets.
+- Added Reeds Wall.
+- Added New Turfs.
+- Added New Sails.
+- Added Custom strings to all structures.
+- Added Many new secrets.
+- Fixed Maxwell on Nightmare Throne.
+- Fixed Loot Stash not dropping its loot.
+- Fixed Canopy Vines invisible when hit.
+- Fixed Gnaw's Favor FX.
+- Fixed Root Trunk blueprint not dropping from Hallowed Nights trees.
+- Fixed a secret structure spoiling items inside.
+- Mini Glacier (Crafted one) is now permanent.
+- Tar Trap now slowdown the player.
+- Light Posts (Lamp Post, Streetlights etc) don't turn off in caves.
+- Changed some recipe costs.
+

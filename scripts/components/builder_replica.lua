@@ -296,6 +296,7 @@ if recipe.product == "kyno_sea_reeds" and (posicao0 == GROUND.OCEAN_BRINEPOOL_SH
 if recipe.product == "kyno_volcano" and (posicao0 == GROUND.OCEAN_BRINEPOOL_SHORE or posicao0 == GROUND.OCEAN_BRINEPOOL or posicao0 == GROUND.OCEAN_ROUGH or posicao0 == GROUND.OCEAN_SWELL or posicao0 == GROUND.OCEAN_COASTAL or posicao0 == GROUND.OCEAN_HAZARDOUS) then return true end 
 if recipe.product == "kyno_lilypad" and (posicao0 == GROUND.OCEAN_BRINEPOOL_SHORE or posicao0 == GROUND.OCEAN_BRINEPOOL or posicao0 == GROUND.OCEAN_ROUGH or posicao0 == GROUND.OCEAN_SWELL or posicao0 == GROUND.OCEAN_COASTAL or posicao0 == GROUND.OCEAN_HAZARDOUS) then return true end 
 if recipe.product == "kyno_lotusplant" and (posicao0 == GROUND.OCEAN_BRINEPOOL_SHORE or posicao0 == GROUND.OCEAN_BRINEPOOL or posicao0 == GROUND.OCEAN_ROUGH or posicao0 == GROUND.OCEAN_SWELL or posicao0 == GROUND.OCEAN_COASTAL or posicao0 == GROUND.OCEAN_HAZARDOUS) then return true end 
+if recipe.product == "kyno_whalebubbles" and (posicao0 == GROUND.OCEAN_BRINEPOOL_SHORE or posicao0 == GROUND.OCEAN_BRINEPOOL or posicao0 == GROUND.OCEAN_ROUGH or posicao0 == GROUND.OCEAN_SWELL or posicao0 == GROUND.OCEAN_COASTAL or posicao0 == GROUND.OCEAN_HAZARDOUS) then return true end 
 
 if recipe.product == "mangrovetree_short" then return false end
 if recipe.product == "kyno_wreck_1" then return false end
@@ -333,6 +334,7 @@ if recipe.product == "kyno_sea_reeds" then return false end
 if recipe.product == "kyno_volcano" then return false end
 if recipe.product == "kyno_lilypad" then return false end
 if recipe.product == "kyno_lotusplant" then return false end
+if recipe.product == "kyno_whalebubbles" then return false end
 
     return TheWorld.Map:CanDeployRecipeAtPoint(pt, recipe, rot)
 end

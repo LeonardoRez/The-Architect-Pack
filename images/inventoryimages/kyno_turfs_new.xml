@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Atlas>
+    <Texture filename="kyno_turfs_new.tex" />
+    <Elements>
+        <Element name="turf_redcarpet.tex"            u1="0.001" u2="0.249" v2="0.999" v1="0.751" />
+        <Element name="turf_pinkcarpet.tex"          u1="0.251" u2="0.499" v2="0.999" v1="0.751" />
+        <Element name="turf_orangecarpet.tex"     u1="0.501" u2="0.749" v2="0.999" v1="0.751" />
+        <Element name="turf_cyancarpet.tex"         u1="0.751" u2="0.999" v2="0.999" v1="0.751" />
+        <Element name="turf_whitecarpet.tex"         u1="0.001" u2="0.249" v2="0.749" v1="0.501" />
+        <Element name="turf_snowfall.tex"          u1="0.251" u2="0.499" v2="0.749" v1="0.501" />
+        <Element name="turf_modern_cobblestones.tex"     u1="0.501" u2="0.749" v2="0.749" v1="0.501" />
+        <Element name="turf_pigruins.tex"       u1="0.751" u2="0.999" v2="0.749" v1="0.501" />
+        <Element name="turf_jungle.tex"         u1="0.001" u2="0.249" v2="0.499" v1="0.251" />
+        <Element name="turf_lawn.tex"           u1="0.251" u2="0.499" v2="0.499" v1="0.251" />
+        <Element name="turf_magmafield.tex"     u1="0.501" u2="0.749" v2="0.499" v1="0.251" />
+        <Element name="turf_quagmire_soil.tex"  u1="0.751" u2="0.999" v2="0.499" v1="0.251" />
+        <Element name="turf_snakeskinfloor.tex" u1="0.001" u2="0.249" v2="0.251" v1="0.001" />
+        <Element name="turf_volcano.tex"        u1="0.251" u2="0.499" v2="0.251" v1="0.001" />
+        <Element name="turf_volcano_rock.tex"   u1="0.501" u2="0.749" v2="0.251" v1="0.001" />
+    </Elements>
+</Atlas>

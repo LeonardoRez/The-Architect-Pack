@@ -1,6 +1,7 @@
 local rock_ice_assets =
 {
     Asset("ANIM", "anim/ice_boulder.zip"),
+    Asset("MINIMAP_IMAGE", "iceboulder"),
 }
 
 local prefabs =
@@ -99,11 +100,7 @@ local function SerializeStage(inst, stageindex, source)
     OnStageDirty(inst)
 end
 
-local function dig_up(inst, chopper)
-	inst.components.lootdropper:SpawnLootPrefab("ice")
-	inst:Remove()
-end
-
+local DRYUP_CANT_FLAGS = {"locomotor", "FX"}
 local function SetStage(inst, stage, source, snap_to_stage)
     if stage == inst.stage then
         return
@@ -130,7 +127,7 @@ local function SetStage(inst, stage, source, snap_to_stage)
         
 		if inst.stage == "dryup" then
 			local x, y, z = inst.Transform:GetWorldPosition()
-			if #(TheSim:FindEntities(x, y, z, 1.1, nil, {"locomotor", "FX"})) > 0 then
+			if #(TheSim:FindEntities(x, y, z, 1.1, nil, DRYUP_CANT_FLAGS)) > 0 then
 				return
 			end
 		end        
@@ -181,10 +178,7 @@ local function SetStage(inst, stage, source, snap_to_stage)
 			end
         end
         if STAGES[targetstage].work < 0 then
-            inst.components.workable:SetWorkable(true)
-			inst.components.workable:SetWorkAction(ACTIONS.DIG)
-			inst.components.workable:SetOnFinishCallback(dig_up)
-			inst.components.workable:SetWorkLeft(1)
+            inst.components.workable:SetWorkable(false)
         else
             inst.components.workable:SetWorkLeft(STAGES[targetstage].work)
         end
@@ -230,7 +224,7 @@ local function TryStageChange(inst)
         )
     elseif TheWorld.state.issummer then
         --if pct > .1 then
-            SetStage(inst, "dryup", "melt")
+            SetStage(inst, "tall", "grow")
         --end
     elseif TheWorld.state.isautumn then
         SetStage(
@@ -324,9 +318,9 @@ local function rock_ice_fn()
     inst._ismelt = net_bool(inst.GUID, "rock_ice.ismelt", "stagedirty")
     inst._stage = net_tinybyte(inst.GUID, "rock_ice.stage", "stagedirty")
     inst._stage:set(STAGE_INDICES["tall"])
-	
-	inst:SetPrefabNameOverride("rock_ice")
 
+	inst:SetPrefabNameOverride("rock_ice")
+	
     inst.entity:SetPristine()
 
     if not TheNet:IsDedicated() then
@@ -366,9 +360,9 @@ local function rock_ice_fn()
         elseif TheWorld.state.isspring or TheWorld.state.iswinter then
             SetStage(inst, "tall")
         elseif TheWorld.state.issummer then
-            SetStage(inst, "dryup")
+            SetStage(inst, "tall")
         else
-            SetStage(inst, "empty")
+            SetStage(inst, "tall")
         end
     end)
 

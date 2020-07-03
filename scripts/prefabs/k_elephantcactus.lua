@@ -227,6 +227,7 @@ local function fn()
     AddHauntableCustomReaction(inst, OnHaunt, false, false, true)
 
     inst:AddComponent("lootdropper")
+	inst:AddComponent("inspectable")
 
     if not GetGameModeProperty("disable_transplanting") then
         inst:AddComponent("workable")
@@ -234,10 +235,6 @@ local function fn()
         inst.components.workable:SetOnFinishCallback(dig_up_replica)
         inst.components.workable:SetWorkLeft(1)
     end
-	
-	inst:AddComponent("inspectable")
-
-    inst.OnLoad = OnLoad
 
 	return inst
 end

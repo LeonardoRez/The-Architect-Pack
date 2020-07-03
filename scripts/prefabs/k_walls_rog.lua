@@ -97,6 +97,9 @@ function MakeWallType(data)
 		
 		Asset("IMAGE", "images/inventoryimages/kyno_legacy_inventoryimages.tex"),
 		Asset("ATLAS", "images/inventoryimages/kyno_legacy_inventoryimages.xml"),
+		
+		Asset("IMAGE", "images/inventoryimages/kyno_wall_reed.tex"),
+		Asset("ATLAS", "images/inventoryimages/kyno_wall_reed.xml"),
     }
 
     local prefabs =
@@ -176,7 +179,7 @@ function MakeWallType(data)
 
         inst:AddComponent("repairer")
 
-        inst.components.repairer.repairmaterial = data.name == "legacy_moonrock" and MATERIALS.MOONROCK or data.name == "legacyruins" and MATERIALS.THULECITE or data.name
+        inst.components.repairer.repairmaterial = data.name == "legacy_moonrock" and MATERIALS.MOONROCK or data.name == "legacyruins" and MATERIALS.THULECITE or data.name == "reed" and MATERIALS.HAY or data.name
         inst.components.repairer.healthrepairvalue = data.maxhealth / 6
 
         if data.flammable then
@@ -269,7 +272,7 @@ function MakeWallType(data)
         inst:AddComponent("lootdropper")
 
         inst:AddComponent("repairable")
-        inst.components.repairable.repairmaterial = data.name == "legacy_moonrock" and MATERIALS.MOONROCK or data.name == "legacyruins" and MATERIALS.THULECITE or data.name
+        inst.components.repairable.repairmaterial = data.name == "legacy_moonrock" and MATERIALS.MOONROCK or data.name == "legacyruins" and MATERIALS.THULECITE or data.name == "reed" and MATERIALS.HAY or data.name 
         inst.components.repairable.onrepaired = onrepaired
 
         inst:AddComponent("combat")
@@ -329,6 +332,7 @@ local walldata =
 {
     { name = "legacy_moonrock", material = "stone", tags = { "stone", "moonrock" }, loot = "moonrocknugget",   maxloots = 2, maxhealth = TUNING.MOONROCKWALL_HEALTH, buildsound = "dontstarve/common/place_structure_stone" },
 	{ name = "legacyruins", material = "stone", tags = { "stone", "ruins" }, loot = "thulecite_pieces", maxloots = 2, maxhealth = TUNING.RUINSWALL_HEALTH, buildsound = "dontstarve/common/place_structure_stone" },
+	{ name = "reed", material = "straw", tags = { "grass", "reed" }, loot = "cutreeds", maxloots = 2, maxhealth = TUNING.HAYWALL_HEALTH, flammable = true, buildsound = "dontstarve/common/place_structure_straw" },
 }
 
 for i, v in ipairs(walldata) do

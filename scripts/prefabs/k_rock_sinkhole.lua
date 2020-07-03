@@ -21,7 +21,7 @@ end
 local function onfinish(inst, worker)
 	local pt = Point(inst.Transform:GetWorldPosition())
 	inst.components.lootdropper:DropLoot(pt)
-	inst.SoundEmitter:PlaySound("dontstarve/common/destroy_stone")
+	SpawnPrefab("rock_break_fx").Transform:SetPosition(inst.Transform:GetWorldPosition())
 	inst:Remove()
 end
 
@@ -56,7 +56,9 @@ local function fn()
     end
 
 	inst:AddComponent("inspectable")
+	
 	inst:AddComponent("lootdropper")
+	inst.components.inspectable.nameoverride = "CAVE_ENTRANCE"
 	
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)

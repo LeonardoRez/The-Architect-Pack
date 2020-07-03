@@ -16,8 +16,52 @@ local walk_sand = "dontstarve/movement/walk_sand"
 local walk_tallgrass = "dontstarve/movement/walk_tallgrass"
 local walk_woods = "dontstarve/movement/walk_woods"
 local walk_marsh = "dontstarve/movement/walk_marsh"
-
 local run_snow = "dontstarve/movement/run_snow"
+
+AddTile(64, "sticky", "stickyturf", nil,
+	{
+	name = "snowfall",
+	noise_texture = "levels/textures/noise_sticky.tex",
+	runsound = "dontstarve/movement/run_marsh",
+	walksound = "dontstarve/movement/walk_marsh",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/mini_noise_sticky",
+	}
+, true)
+
+AddTile(65, "whitecarpet", "kyno_turfs6", nil,
+	{
+	name = "carpet",
+	noise_texture = "levels/textures/noise_whitecarpet.tex",
+	runsound = "dontstarve/movement/run_carpet",
+	walksound = "dontstarve/movement/walk_carpet",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/mini_noise_whitecarpet",
+	}
+, true)
+
+AddTile(66, "snowfall", "kyno_turfs6", nil,
+    {
+        name = "snowfall",
+        noise_texture = "levels/textures/noise_snowfall.tex",
+        runsound = run_sand,
+        walksound = walk_sand,
+        snowsound = run_snow,
+    },{
+        noise_texture = "levels/textures/mini_noise_snowfall.tex"
+    }
+, true)
+
+AddTile(67, "modern_cobblestones", "kyno_turfs6", nil,
+	{
+	name = "moderncobblestones",
+	-- noise_texture = "levels/textures/noise_moderncobblestones.tex", -- Actually using the "forge_floor_ms" texture itself.
+	},{
+		noise_texture = "levels/textures/mini_noise_moderncobblestones",
+	}
+, true)
 
 AddTile(68, "pinkstone", "kyno_turfs3", nil,
 	{
@@ -585,6 +629,56 @@ AddTile(116, "octagon", "kyno_turfs5", nil,
 	}
 , true)
 
+AddTile(117, "redcarpet", "kyno_turfs6", nil,
+	{
+	name = "carpet",
+	noise_texture = "levels/textures/noise_redcarpet.tex",
+	runsound = "dontstarve/movement/run_carpet",
+	walksound = "dontstarve/movement/walk_carpet",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/mini_noise_redcarpet",
+	}
+, true)
+
+AddTile(118, "pinkcarpet", "kyno_turfs6", nil,
+	{
+	name = "carpet",
+	noise_texture = "levels/textures/noise_pinkcarpet.tex",
+	runsound = "dontstarve/movement/run_carpet",
+	walksound = "dontstarve/movement/walk_carpet",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/mini_noise_pinkcarpet",
+	}
+, true)
+
+AddTile(119, "orangecarpet", "kyno_turfs6", nil,
+	{
+	name = "carpet",
+	noise_texture = "levels/textures/noise_orangecarpet.tex",
+	runsound = "dontstarve/movement/run_carpet",
+	walksound = "dontstarve/movement/walk_carpet",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/mini_noise_orangecarpet",
+	}
+, true)
+
+AddTile(120, "cyancarpet", "kyno_turfs6", nil,
+	{
+	name = "carpet",
+	noise_texture = "levels/textures/noise_cyancarpet.tex",
+	runsound = "dontstarve/movement/run_carpet",
+	walksound = "dontstarve/movement/walk_carpet",
+	snowsound = run_snow,
+	},{
+		noise_texture = "levels/textures/mini_noise_cyancarpet",
+	}
+, true)
+
+-- NOTE: ID 120 Is the limit!!! 121 and higher IDs already in use by the game. --
+
 ChangeTileTypeRenderOrder(GROUND.PINKSTONE, GROUND.ROAD, true)
 ChangeTileTypeRenderOrder(GROUND.STONECITY, GROUND.PINKSTONE, true)
 ChangeTileTypeRenderOrder(GROUND.BEACH, GROUND.PINKSTONE, true)
@@ -622,11 +716,19 @@ ChangeTileTypeRenderOrder(GROUND.HEXAGON, GROUND.TRANSITIONAL, true)
 ChangeTileTypeRenderOrder(GROUND.HOOF, GROUND.HEXAGON, true)
 ChangeTileTypeRenderOrder(GROUND.OCTAGON, GROUND.HOOF, true)
 ChangeTileTypeRenderOrder(GROUND.SHAGCARPET, GROUND.OCTAGON, true)
+ChangeTileTypeRenderOrder(GROUND.STICKY, GROUND.OCTAGON, true)
 ChangeTileTypeRenderOrder(GROUND.BEARD_HAIR, GROUND.SNAKESKINFLOOR, true)
 ChangeTileTypeRenderOrder(GROUND.BROWNCARPET, GROUND.BEARD_HAIR, true)
 ChangeTileTypeRenderOrder(GROUND.LAWN, GROUND.CARPET, true)
+ChangeTileTypeRenderOrder(GROUND.REDCARPET, GROUND.LAWN, true)
+ChangeTileTypeRenderOrder(GROUND.PINKCARPET, GROUND.REDCARPET, true)
+ChangeTileTypeRenderOrder(GROUND.ORANGECARPET, GROUND.PINKCARPET, true)
+ChangeTileTypeRenderOrder(GROUND.CYANCARPET, GROUND.ORANGECARPET, true)
+ChangeTileTypeRenderOrder(GROUND.WHITECARPET, GROUND.CYANCARPET, true)
 ChangeTileTypeRenderOrder(GROUND.FORGEROAD, GROUND.BROWNCARPET, true)
 ChangeTileTypeRenderOrder(GROUND.COBBLEROAD, GROUND.FORGEROAD, true)
+ChangeTileTypeRenderOrder(GROUND.MODERN_COBBLESTONES, GROUND.COBBLEROAD, true)
+ChangeTileTypeRenderOrder(GROUND.SNOWFALL, GROUND.WHITECARPET, true)
 ChangeTileTypeRenderOrder(GROUND.FORGEROCK, GROUND.UNDERROCK, true)
 ChangeTileTypeRenderOrder(GROUND.RUINSBRICK, GROUND.FORGEROCK, true)
 ChangeTileTypeRenderOrder(GROUND.RUINSBRICKTRIM, GROUND.RUINSBRICK, true)

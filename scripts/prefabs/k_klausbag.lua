@@ -16,6 +16,7 @@ local function OnActivate(inst)
 	inst.SoundEmitter:PlaySound("dontstarve/creatures/together/klaus/chain_foley")
 	inst.SoundEmitter:PlaySound("dontstarve/creatures/together/klaus/lock_break")
 	inst:DoPeriodicTask(0.6, function()
+	inst.components.lootdropper:DropLoot()
 	inst:Remove()
 	end)
 end

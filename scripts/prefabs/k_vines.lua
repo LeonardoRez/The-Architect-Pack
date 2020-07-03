@@ -57,6 +57,13 @@ local function onhit(inst)
 	end
 end
 
+local function onhit2(inst)
+	local healthpercent = inst.components.health:GetPercent()
+        if healthpercent > 0 then
+		inst.AnimState:PlayAnimation("idle_"..inst.animchoice)
+	end
+end
+
 local shadow1_front = 1
 
 local shadow1_defs = {
@@ -236,7 +243,7 @@ local function borderfn()
 
 	inst:AddComponent("combat")
 	inst.components.combat:SetKeepTargetFunction(keeptargetfn)
-	inst.components.combat.onhitfn = onhit
+	inst.components.combat.onhitfn = onhit2
 	
 	inst.OnLoad = onload
 	inst.OnSave = onsave

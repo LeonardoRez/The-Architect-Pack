@@ -7,6 +7,12 @@ local prefabs =
 {
     "kyno_gorgecoin_fx",
 }
+
+local fx_front = 1
+
+local fx_defs = {
+	light = { { 0, 0, 0 } },
+}
 	
 local function MakeCoin(id, hasfx)
 	local function fn()
@@ -35,6 +41,20 @@ local function MakeCoin(id, hasfx)
 
 	if not TheWorld.ismastersim then
 		return inst
+	end
+	
+	if id == 4 then
+	local decor_items = fx_defs
+		inst.decor = {}
+		for item_name, data in pairs(decor_items) do
+			for l, offset in pairs(data) do
+				local item_inst = SpawnPrefab("kyno_gorgecoin_fx")
+				item_inst.AnimState:PushAnimation("opal_loop", true)
+				item_inst.entity:SetParent(inst.entity)
+				item_inst.Transform:SetPosition(offset[1], offset[2], offset[3])
+				table.insert(inst.decor, item_inst)
+			end
+		end
 	end
 	
 	inst:AddComponent("edible")
@@ -83,4 +103,4 @@ return MakeCoin(1),
 MakeCoin(2),
 MakeCoin(3),
 MakeCoin(4, true),
-Prefab("kyno_gorgecoin_fx", fxfn, assets)
+Prefab("kyno_gorgecoin_fx", fxfn, assets, prefabs)

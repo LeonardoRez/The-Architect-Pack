@@ -58,6 +58,48 @@ end
 
 --------------------------------------------------------------------------
 
+local function GiveTrinkets(inst, item, giver)
+    AwardPlayerAchievement("pigking_trader", giver)
+
+    local x, y, z = inst.Transform:GetWorldPosition()
+    y = 4.5
+
+    local angle
+    if giver ~= nil and giver:IsValid() then
+        angle = 180 - giver:GetAngleToPoint(x, 0, z)
+    else
+        local down = TheCamera:GetDownVec()
+        angle = math.atan2(down.z, down.x) / DEGREES
+        giver = nil
+    end
+
+    for k = 1, item.components.tradable do
+        local nug1 = SpawnPrefab("trinket15")
+		local nug2 = SpawnPrefab("trinket16")
+		local nug3 = SpawnPrefab("trinket28")
+		local nug4 = SpawnPrefab("trinket29")
+		local nug5 = SpawnPrefab("trinket30")
+		local nug6 = SpawnPrefab("trinket31")
+        nug1.Transform:SetPosition(x, y, z)
+		nug2.Transform:SetPosition(x, y, z)
+		nug3.Transform:SetPosition(x, y, z)
+		nug4.Transform:SetPosition(x, y, z)
+		nug5.Transform:SetPosition(x, y, z)
+		nug6.Transform:SetPosition(x, y, z)
+        launchitem(nug1, nug2, nug3, nug4, nug5, nug6, angle)
+    end
+
+    if item.components.tradable.tradefor ~= nil then
+        for _, v in pairs(item.components.tradable.tradefor) do
+            local item = SpawnPrefab(v)
+            if item ~= nil then
+                item.Transform:SetPosition(x, y, z)
+                launchitem(item, angle)
+            end
+        end
+    end
+end
+
 local function launchitem(item, angle)
     local speed = math.random() * 4 + 2
     angle = (angle + math.random() * 60 - 30) * DEGREES
@@ -554,7 +596,7 @@ local function OnGetItemFromPlayer(inst, giver, item)
         inst:DoTaskInTime(2 / 3, ontradeforgold, item, giver)
     elseif item.prefab == "pig_token" then
         StartMinigame(inst)
-    end
+	end
 end
 
 local function OnRefuseItem(inst, giver, item)

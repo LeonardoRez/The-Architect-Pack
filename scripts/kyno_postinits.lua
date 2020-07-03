@@ -363,6 +363,45 @@ AddComponentPostInit(
         end
     end
 )
+
+AddComponentPostInit(
+    "locomotor",
+    function(inst)
+        local old7 = inst.UpdateGroundSpeedMultiplier
+        inst.UpdateGroundSpeedMultiplier = function(self)
+            old7(self)
+            if
+                self.wasoncreep == false and self:FasterOnRoad() and
+                    GLOBAL.TheWorld.Map:GetTileAtPoint(self.inst.Transform:GetWorldPosition()) == GROUND.MODERN_COBBLESTONES
+             then
+                self.groundspeedmultiplier = self.fastmultiplier
+            end
+        end
+    end
+)
+
+AddComponentPostInit(
+	"locomotor", 
+	function(self)
+	if not self.inst:HasTag("flying") then
+		local _UGSM = self.UpdateGroundSpeedMultiplier
+		self.UpdateGroundSpeedMultiplier = function(self)
+			_UGSM(self)
+			local tile, data = self.inst:GetCurrentTileType()
+			if tile == GLOBAL.GROUND.STICKY then
+				if self.carpetfast == nil then
+					self:SetExternalSpeedMultiplier(self.inst, "CarpetSpeed", GetModConfigData("honeyed"))
+					self.carpetfast = true
+				end
+			else
+				if self.carpetfast == true then
+					self:RemoveExternalSpeedMultiplier(self.inst, "CarpetSpeed")
+					self.carpetfast = nil
+				end
+			end
+		end
+	end
+end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 packim_chance = GetModConfigData("packim_baggims")
 GLOBAL.SetSharedLootTable("malbatross_packim",
@@ -559,10 +598,10 @@ end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 local COFFEE = GetModConfigData("coffee_hack")
 if COFFEE == 0 then
-GLOBAL.SetSharedLootTable("dragonfly_coffee",
+GLOBAL.SetSharedLootTable("dragonfly_coffee_winter",
 {
     {"dragon_scales",             1.00},
-    {"dragonflyfurnace_blueprint",1.00},
+    {"kyno_frozenfurnace_blueprint", 1.00},
     {"chesspiece_dragonfly_sketch", 1.00},
     {"lavae_egg",                 0.33},
 
@@ -611,9 +650,154 @@ GLOBAL.SetSharedLootTable("dragonfly_coffee",
 	{"dug_coffeebush", 1.00},
 })
 
+GLOBAL.SetSharedLootTable("dragonfly_coffee",
+{
+    {"dragon_scales",             1.00},
+    {"dragonflyfurnace_blueprint", 1.00},
+    {"chesspiece_dragonfly_sketch", 1.00},
+    {"lavae_egg",                 0.33},
+
+    {"meat",             1.00},
+    {"meat",             1.00},
+    {"meat",             1.00},
+    {"meat",             1.00},
+    {"meat",             1.00},
+    {"meat",             1.00},
+
+    {"goldnugget",       1.00},
+    {"goldnugget",       1.00},
+    {"goldnugget",       1.00},
+    {"goldnugget",       1.00},
+
+    {"goldnugget",       0.50},
+    {"goldnugget",       0.50},
+    {"goldnugget",       0.50},
+    {"goldnugget",       0.50},
+
+    {"redgem",           1.00},
+    {"bluegem",          1.00},
+    {"purplegem",        1.00},
+    {"orangegem",        1.00},
+    {"yellowgem",        1.00},
+    {"greengem",         1.00},
+
+    {"redgem",           1.00},
+    {"bluegem",          1.00},
+    {"purplegem",        0.50},
+    {"orangegem",        0.50},
+    {"yellowgem",        0.50},
+    {"greengem",         0.50},
+	
+	{"dug_coffeebush", 1.00},
+	{"dug_coffeebush", 1.00},
+	{"dug_coffeebush", 1.00},
+	{"dug_coffeebush", 1.00},
+	{"dug_coffeebush", 1.00},
+	{"dug_coffeebush", 1.00},
+	{"dug_coffeebush", 1.00},
+	{"dug_coffeebush", 1.00},
+	{"dug_coffeebush", 1.00},
+	{"dug_coffeebush", 1.00},
+	{"dug_coffeebush", 1.00},
+	{"dug_coffeebush", 1.00},
+})
 	AddPrefabPostInit("dragonfly", function(inst)
 		if GLOBAL.TheWorld.ismastersim then
-			inst.components.lootdropper:SetChanceLootTable("dragonfly_coffee")
+			if GLOBAL.TheWorld.state.iswinter then
+				inst.components.lootdropper:SetChanceLootTable("dragonfly_coffee_winter")
+			else
+				inst.components.lootdropper:SetChanceLootTable("dragonfly_coffee")
+			end
+		end
+	end)
+end
+
+if COFFEE == 1 then
+GLOBAL.SetSharedLootTable("dragonfly_winter",
+{
+    {"dragon_scales",             1.00},
+    {"kyno_frozenfurnace_blueprint", 1.00},
+    {"chesspiece_dragonfly_sketch", 1.00},
+    {"lavae_egg",                 0.33},
+
+    {"meat",             1.00},
+    {"meat",             1.00},
+    {"meat",             1.00},
+    {"meat",             1.00},
+    {"meat",             1.00},
+    {"meat",             1.00},
+
+    {"goldnugget",       1.00},
+    {"goldnugget",       1.00},
+    {"goldnugget",       1.00},
+    {"goldnugget",       1.00},
+
+    {"goldnugget",       0.50},
+    {"goldnugget",       0.50},
+    {"goldnugget",       0.50},
+    {"goldnugget",       0.50},
+
+    {"redgem",           1.00},
+    {"bluegem",          1.00},
+    {"purplegem",        1.00},
+    {"orangegem",        1.00},
+    {"yellowgem",        1.00},
+    {"greengem",         1.00},
+
+    {"redgem",           1.00},
+    {"bluegem",          1.00},
+    {"purplegem",        0.50},
+    {"orangegem",        0.50},
+    {"yellowgem",        0.50},
+    {"greengem",         0.50},
+})
+
+GLOBAL.SetSharedLootTable("dragonfly",
+{
+    {"dragon_scales",             1.00},
+    {"dragonflyfurnace_blueprint", 1.00},
+    {"chesspiece_dragonfly_sketch", 1.00},
+    {"lavae_egg",                 0.33},
+
+    {"meat",             1.00},
+    {"meat",             1.00},
+    {"meat",             1.00},
+    {"meat",             1.00},
+    {"meat",             1.00},
+    {"meat",             1.00},
+
+    {"goldnugget",       1.00},
+    {"goldnugget",       1.00},
+    {"goldnugget",       1.00},
+    {"goldnugget",       1.00},
+
+    {"goldnugget",       0.50},
+    {"goldnugget",       0.50},
+    {"goldnugget",       0.50},
+    {"goldnugget",       0.50},
+
+    {"redgem",           1.00},
+    {"bluegem",          1.00},
+    {"purplegem",        1.00},
+    {"orangegem",        1.00},
+    {"yellowgem",        1.00},
+    {"greengem",         1.00},
+
+    {"redgem",           1.00},
+    {"bluegem",          1.00},
+    {"purplegem",        0.50},
+    {"orangegem",        0.50},
+    {"yellowgem",        0.50},
+    {"greengem",         0.50},
+})
+
+	AddPrefabPostInit("dragonfly", function(inst)
+		if GLOBAL.TheWorld.ismastersim then
+			if GLOBAL.TheWorld.state.iswinter then
+				inst.components.lootdropper:SetChanceLootTable("dragonfly_winter")
+			else
+				inst.components.lootdropper:SetChanceLootTable("dragonfly")
+			end
 		end
 	end)
 end
@@ -1439,5 +1623,102 @@ AddPrefabPostInit("parrot_pirate", function(inst)
 		inst.components.named.possiblenames = { "reD", "Sokoteur", "Glermz", "Kiss-Shot Acerola-Orion Heart-Under-Blade", "Nicky", "Orfeu", "Thalz", "Kyno", "Jazzy", "Ogait", "Harry", "Murdoc", "John", "Jack Sparrow", "Davy Jones", "Cornelius", "Frida", "Dan Van 3000", "Sammy", "Jahzus", "Lakhish", "Pollygon", "Loro", "Vegetable", "Dr Hook", "Donny Jepp", "Octoparrot", "Pequi", "Oilo", "Freddo", "James Bucket", "Gabriel", "Glommer Slayer", "The Destroyer", "Lunatic Parrot" }
 		inst.components.named:PickNewName()
 	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("dragonfly", function(inst)
+	if GLOBAL.TheWorld.ismastersim then
+	inst.components.lootdropper:AddChanceLoot("saladfurnace_blueprint", 0.01) -- 1% Drop Chance
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_earring", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
+	inst.components.inventoryitem.imagename = "kyno_earring"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("turf_redcarpet", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_CARPETFLOOR"
+	end 
+end)
+
+AddPrefabPostInit("turf_pinkcarpet", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_CARPETFLOOR"
+	end 
+end)
+
+AddPrefabPostInit("turf_orangecarpet", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_CARPETFLOOR"
+	end 
+end)
+
+AddPrefabPostInit("turf_cyancarpet", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_CARPETFLOOR"
+	end 
+end)
+
+AddPrefabPostInit("turf_whitecarpet", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_CARPETFLOOR"
+	end 
+end)
+
+AddPrefabPostInit("turf_modern_cobblestones", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_ROAD"
+	end 
+end)
+
+AddPrefabPostInit("turf_magma", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_ROCKY"
+	end 
+end)
+
+AddPrefabPostInit("turf_volcano", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_ROCKY"
+	end 
+end)
+
+AddPrefabPostInit("turf_ash", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_ROCKY"
+	end 
+end)
+
+AddPrefabPostInit("turf_beach", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_DESERTDIRT"
+	end 
+end)
+
+AddPrefabPostInit("turf_meadow", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_GRASS"
+	end 
+end)
+
+AddPrefabPostInit("turf_jungle", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_FOREST"
+	end 
+end)
+
+AddPrefabPostInit("turf_tidalmarsh", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_MARSH"
+	end 
+end)
+
+AddPrefabPostInit("turf_snakeskinfloor", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_CARPETFLOOR"
+	end 
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------

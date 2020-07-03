@@ -652,6 +652,7 @@ if recipe.product == "kyno_sea_reeds" and recipe.placer ~= nil and self:IsBuildB
 if recipe.product == "kyno_volcano" and recipe.placer ~= nil and self:IsBuildBuffered(recipe.name) then self:MakeRecipe(recipe, pt, rot, skin) end
 if recipe.product == "kyno_lilypad" and recipe.placer ~= nil and self:IsBuildBuffered(recipe.name) then self:MakeRecipe(recipe, pt, rot, skin) end
 if recipe.product == "kyno_lotusplant" and recipe.placer ~= nil and self:IsBuildBuffered(recipe.name) then self:MakeRecipe(recipe, pt, rot, skin) end
+if recipe.product == "kyno_whalebubbles" and recipe.placer ~= nil and self:IsBuildBuffered(recipe.name) then self:MakeRecipe(recipe, pt, rot, skin) end
 
     if recipe.placer ~= nil and
 --        self:KnowsRecipe(recipe.name) and

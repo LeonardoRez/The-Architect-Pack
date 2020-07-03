@@ -93,6 +93,8 @@ local function fn1()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "ROCK"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -138,6 +140,8 @@ local function fn2()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "ROCK"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -183,6 +187,8 @@ local function fn3()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "ROCK"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")

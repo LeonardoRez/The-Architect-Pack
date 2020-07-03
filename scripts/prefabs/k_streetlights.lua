@@ -111,7 +111,7 @@ local function tallfn()
 	MakeHauntableWork(inst)
 	
 	inst:DoTaskInTime(1, function()
-        if TheWorld.state.isday then
+        if TheWorld.state.isday and not TheWorld:HasTag("cave") then
             inst.AnimState:PlayAnimation("idle_off")
 			inst.AnimState:PushAnimation("idle_off", true)
             inst.Light:Enable(false)
@@ -126,7 +126,7 @@ local function tallfn()
         end
     end)
     inst:ListenForEvent("phasechanged", function(src, data)
-        if data ~= "night" and data ~= "dusk" then
+        if data ~= "night" and data ~= "dusk" and not TheWorld:HasTag("cave") then
             inst:DoTaskInTime(2, function()
                 inst.AnimState:PlayAnimation("idle_off")
 				inst.AnimState:PushAnimation("idle_off", true)
@@ -210,7 +210,7 @@ local function shortfn()
 	MakeHauntableWork(inst)
 	
 	inst:DoTaskInTime(1, function()
-        if TheWorld.state.isday then
+        if TheWorld.state.isday and not TheWorld:HasTag("cave") then
             inst.AnimState:PlayAnimation("idle_off")
 			inst.AnimState:PushAnimation("idle_off", true)
             inst.Light:Enable(false)
@@ -225,7 +225,7 @@ local function shortfn()
         end
     end)
     inst:ListenForEvent("phasechanged", function(src, data)
-        if data ~= "night" and data ~= "dusk" then
+        if data ~= "night" and data ~= "dusk" and not TheWorld:HasTag("cave") then
             inst:DoTaskInTime(2, function()
                 inst.AnimState:PlayAnimation("idle_off")
 				inst.AnimState:PushAnimation("idle_off", true)

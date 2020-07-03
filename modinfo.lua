@@ -215,6 +215,20 @@ configuration_options =
 		default = 1,
 	},
 	{
+		name = "honeyed",
+		label = "Honey Turf Slowdown",
+		hover = "How much it will slow you?",
+		options =	
+		{
+			{description = "Normal (100%)", data = 1},
+			{description = "A Bit (50%)", data = 0.5},
+			{description = "Classic (30%)", data = 0.30},
+			{description = "Sticky (20%)", data = 0.2},
+			{description = "Super Sticky (10%)", data = 0.1},
+		},
+		default = 0.30,
+	},
+	{
 		name = "packim_baggims",
 		label = "Packim Baggims",
 		hover = "Enables Packim Baggims as special drop of Malbatross.",

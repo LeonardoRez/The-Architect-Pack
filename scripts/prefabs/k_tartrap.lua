@@ -58,6 +58,9 @@ local function fn()
 	inst.components.workable:SetWorkAction(ACTIONS.DIG)
 	inst.components.workable:SetOnFinishCallback(dig_up)
 	inst.components.workable:SetWorkLeft(1)
+	
+	inst:AddComponent("unevenground")
+    inst.components.unevenground.radius = 1
 
 	inst:ListenForEvent("onbuilt", onbuilt)
 	

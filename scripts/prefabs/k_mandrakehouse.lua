@@ -190,7 +190,7 @@ local function mandrakefn()
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
 	
-	-- inst:AddComponent("savedrotation")
+	inst:AddComponent("savedrotation")
 	
 	Happy(inst)
 

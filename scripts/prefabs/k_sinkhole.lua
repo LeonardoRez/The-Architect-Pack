@@ -21,7 +21,24 @@ local assets =
 local function onhammered(inst, worker)
 	inst.components.lootdropper:DropLoot()
 	SpawnPrefab("collapse_small").Transform:SetPosition(inst.Transform:GetWorldPosition())
+	inst:Remove()
+end
+
+local function onwork(inst, worker, workleft)
+	if workleft < TUNING.ROCKS_MINE*(1/3) then
+		inst.AnimState:PlayAnimation("low", true)
+	elseif workleft < TUNING.ROCKS_MINE*(2/3) then
+		inst.AnimState:PlayAnimation("med", true)
+	else
+		inst.AnimState:PlayAnimation("idle_closed", true)
+	end
+end
+
+local function onfinish(inst, worker)
+	local pt = Point(inst.Transform:GetWorldPosition())
+	inst.components.lootdropper:DropLoot(pt)
 	inst.SoundEmitter:PlaySound("dontstarve/common/destroy_stone")
+	SpawnPrefab("rock_break_fx").Transform:SetPosition(inst.Transform:GetWorldPosition())
 	inst:Remove()
 end
 
@@ -73,7 +90,9 @@ local function fn()
     end
 	
 	inst:AddComponent("lootdropper")
+	
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "CAVE_ENTRANCE"
 	
 	inst:AddComponent("workable")
     inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
@@ -114,13 +133,15 @@ local function closedfn()
     end
 	
 	inst:AddComponent("lootdropper")
+	
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "CAVE_ENTRANCE"
 	
 	inst:AddComponent("workable")
     inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
     inst.components.workable:SetWorkLeft(3)
 	inst.components.workable:SetOnFinishCallback(onhammered)
-	inst.components.workable:SetOnWorkCallback(onhit_closed)
+	inst.components.workable:SetOnWorkCallback(onhit)
 	
 	MakeHauntableWork(inst)
 	
@@ -155,7 +176,9 @@ local function vipfn()
     end
 	
 	inst:AddComponent("lootdropper")
+	
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "CAVE_ENTRANCE"
 	
 	inst:AddComponent("workable")
     inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
@@ -196,7 +219,9 @@ local function holefn()
     end
 	
 	inst:AddComponent("lootdropper")
+	
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "CAVE_ENTRANCE"
 	
 	inst:AddComponent("workable")
     inst.components.workable:SetWorkAction(ACTIONS.HAMMER)

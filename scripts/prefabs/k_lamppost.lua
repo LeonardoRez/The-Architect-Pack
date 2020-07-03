@@ -120,7 +120,7 @@ local function fn()
 	inst:ListenForEvent("onbuilt", onbuilt)
 	
 	inst:DoTaskInTime(1, function()
-        if TheWorld.state.isday then
+        if TheWorld.state.isday and not TheWorld:HasTag("cave") then
             inst.AnimState:PlayAnimation("off")
 			inst.AnimState:PushAnimation("idle", true)
 			inst.AnimState:Hide("FIRE")
@@ -139,7 +139,7 @@ local function fn()
         end
     end)
     inst:ListenForEvent("phasechanged", function(src, data)
-        if data ~= "night" and data ~= "dusk" then
+        if data ~= "night" and data ~= "dusk" and not TheWorld:HasTag("cave") then
             inst:DoTaskInTime(2, function()
                 inst.AnimState:PlayAnimation("off")
 				inst.AnimState:PushAnimation("idle", true)
