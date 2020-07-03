@@ -96,6 +96,7 @@ Version 2.5-B
 - Added Frozen Furnace (Dropped only during winter).
 - Added Surfboard.
 - Added Snow Pile.
+- Added Active Desert Stone.
 - Added Potted Plants.
 - Added New Trinkets.
 - Added Reeds Wall.
