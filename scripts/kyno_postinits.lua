@@ -1721,4 +1721,58 @@ AddPrefabPostInit("turf_snakeskinfloor", function(inst)
 	inst.components.inspectable.nameoverride = "TURF_CARPETFLOOR"
 	end 
 end)
+
+AddPrefabPostInit("turf_cultivated", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_GRASS"
+	end 
+end)
+
+AddPrefabPostInit("turf_rainforest", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_FOREST"
+	end 
+end)
+
+AddPrefabPostInit("turf_plains", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_SAVANNA"
+	end 
+end)
+
+AddPrefabPostInit("turf_deepjungle", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_FOREST"
+	end 
+end)
+
+AddPrefabPostInit("turf_bog", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_DESERTDIRT"
+	end 
+end)
+
+AddPrefabPostInit("turf_mossy_blossom", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_GRASS"
+	end 
+end)
+
+AddPrefabPostInit("turf_gasjungle", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_FOREST"
+	end 
+end)
+
+AddPrefabPostInit("turf_cultivated", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_GRASS"
+	end 
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_telebrella", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_minisign_icons_2.xml"
+	end
+end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------

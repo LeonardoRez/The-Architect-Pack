@@ -126,6 +126,8 @@ local function headfn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "ROCK"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -176,6 +178,8 @@ local function pigfn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "ROCK"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -228,6 +232,8 @@ local function antfn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "ROCK"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -279,6 +285,8 @@ local function idolfn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "ROCK"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -328,6 +336,8 @@ local function plaquefn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "ROCK"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -378,6 +388,8 @@ local function trufflefn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "ROCK"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -429,6 +441,8 @@ local function sowfn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "ROCK"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")

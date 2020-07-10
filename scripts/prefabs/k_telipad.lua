@@ -10,6 +10,13 @@ local assets =
 	
 	Asset("IMAGE", "images/minimapimages/kyno_minimap_atlas_ham.tex"),
 	Asset("ATLAS", "images/minimapimages/kyno_minimap_atlas_ham.xml"),
+	
+	Asset("SOUNDPACKAGE", "sound/dontstarve_wagstaff.fev"),
+	Asset("SOUND", "sound/dontstarve_wagstaff.fsb"),
+	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC003.fev"),
+	Asset("SOUND", "sound/DLC003_AMB_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_music_stream.fsb"),
+	Asset("SOUND", "sound/DLC003_sfx.fsb"),
 }
 
 local prefabs = {
@@ -31,6 +38,38 @@ end
 local function onbuilt(inst)
 	inst.AnimState:PlayAnimation("place")
 	inst.AnimState:PushAnimation("idle", true)
+	inst.SoundEmitter:PlaySound("dontstarve_wagstaff/characters/wagstaff/telepad_1")
+end
+
+local function onremove(inst)
+	if GetWorld().telipads then
+		for i,pad in ipairs(GetWorld().telipads) do
+			if pad == inst then
+				table.remove(GetWorld().telipads,i)
+				break
+			end
+		end
+	end
+end
+
+local function turnoff(inst)
+	if inst.decor then
+		for i,deco in ipairs(inst.decor) do
+			if not deco.AnimState:IsCurrentAnimation("place") then
+				deco.AnimState:PlayAnimation("off")
+			end
+		end	
+	end
+end
+
+local function turnon(inst)
+	if inst.decor then
+		for i,deco in ipairs(inst.decor) do
+			if not deco.AnimState:IsCurrentAnimation("place") then
+				deco.AnimState:PlayAnimation("on")
+			end
+		end	
+	end	
 end
 
 local rock_front = 1
@@ -68,12 +107,13 @@ local function fn()
         return inst
     end
 	
-	--[[
-	local function createBeacon(inst)
-	inst.telipadbeacon =  SpawnPrefab("kyno_telipad_beacon")
-	inst.telipadbeacon.entity:SetParent(inst.entity)
-	end
-	]]--
+	inst.turnoff = turnoff
+	inst.turnon = turnon
+	
+	local sound_name = "dontstarve_wagstaff/characters/wagstaff/telepad_1"
+
+	inst:ListenForEvent("onbuilt", function () onbuilt(inst, sound_name) end)
+	inst:ListenForEvent("onremove", function () onremove(inst) end)
 	
 	local decor_items = decor_defs
 		inst.decor = {}
@@ -81,7 +121,8 @@ local function fn()
 			for l, offset in pairs(data) do
 				local item_inst = SpawnPrefab("kyno_telipad_beacon")
 				item_inst.AnimState:PlayAnimation("place")
-				item_inst.AnimState:PushAnimation("on")
+				item_inst.AnimState:PushAnimation("off")
+				item_inst.SoundEmitter:PlaySound("dontstarve_wagstaff/characters/wagstaff/telepad_2")
 				item_inst.entity:SetParent(inst.entity)
 				item_inst.Transform:SetPosition(offset[1], offset[2], offset[3])
 				table.insert(inst.decor, item_inst)
@@ -100,9 +141,10 @@ local function fn()
     inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
 	
-	inst:ListenForEvent("onbuilt", onbuilt)
-	
-	-- inst:DoTaskInTime(FRAMES * 1, createBeacon)
+	if not GetWorld().telipads then
+			GetWorld().telipads = {}
+		end
+	table.insert(GetWorld().telipads,inst)
 	
     return inst
 end
@@ -129,6 +171,8 @@ local function beaconfn()
     if not TheWorld.ismastersim then
         return inst
     end
+	
+	inst.placesound = "dontstarve_wagstaff/characters/wagstaff/telepad_2"
 	
 	return inst
 end

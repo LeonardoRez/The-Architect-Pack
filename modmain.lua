@@ -435,6 +435,7 @@ PrefabFiles = {
 	"k_oscillating_fan",
 	"k_thumper",
 	"k_telipad",
+	"k_telebrella",
 	"k_tubertree",
 	"k_tubertree_bloom",
 	"k_rainforesttree_rot",
@@ -635,6 +636,7 @@ PrefabFiles = {
 	"stalker",
 	"shadowchesspieces",
 	"oasislake",
+	"livingtree_halloween",
 	-- CAVES CONTENT --
 	"k_flowerlight",
 	"k_batiliskden",
@@ -4030,8 +4032,12 @@ AddRecipe("kyno_thumper", {Ingredient("gears", 3), Ingredient("flint", 10), Ingr
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_thumper_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "thumper.tex")
 
 
-AddRecipe("kyno_telipad", {Ingredient("gears", 1), Ingredient("transistor", 1), Ingredient("cutstone", 1)},
+AddRecipe("kyno_telipad", {Ingredient("gears", 3), Ingredient("transistor", 2), Ingredient("cutstone", 2)},
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_telipad_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "telipad.tex")
+
+
+AddRecipe("kyno_telebrella", {Ingredient("gears", 2), Ingredient("transistor", 2), Ingredient("umbrella", 1)},
+kyno_hamlettab, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages/kyno_minisign_icons_2.xml", "kyno_telebrella.tex")
 
 
 AddRecipe("kyno_lawnornament_1", {Ingredient("cutgrass", 5), Ingredient("log", 2)},
@@ -5489,7 +5495,7 @@ end
 
 if GLOBAL.TheNet:GetIsMasterSimulation() then
     local item2_atlas = MODROOT.."images/inventoryimages/kyno_minisign_icons_2.xml"
-    for _, item2 in pairs({"teatree_nut", "burr", "hedge_block_item", "hedge_cone_item", "hedge_layered_item", "ro_bin_gizzard_stone", "kyno_relic_1", "kyno_relic_2", "kyno_relic_3", "kyno_relic_4", "kyno_relic_5", "kyno_pherostone", "kyno_oinc1", "kyno_oinc10", "kyno_oinc100"}) do
+    for _, item2 in pairs({"teatree_nut", "burr", "hedge_block_item", "hedge_cone_item", "hedge_layered_item", "ro_bin_gizzard_stone", "kyno_relic_1", "kyno_relic_2", "kyno_relic_3", "kyno_relic_4", "kyno_relic_5", "kyno_pherostone", "kyno_oinc1", "kyno_oinc10", "kyno_oinc100", "kyno_telebrella"}) do
         local item2_name = item2
         AddPrefabPostInit(item2_name, function(inst)
             inst.components.inventoryitem.imagename = item2_name

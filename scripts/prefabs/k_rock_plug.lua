@@ -63,9 +63,7 @@ local function fn()
         return inst
     end
 
-	inst:AddComponent("inspectable")
-	inst.components.inspectable.nameoverride = "ROCK"
-	
+	inst:AddComponent("inspectable")	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -109,6 +107,8 @@ local function antfn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "ROCK"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
