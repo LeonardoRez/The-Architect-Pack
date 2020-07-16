@@ -47,9 +47,10 @@ local function fn()
     
 	inst:AddTag("structure")
 	inst:AddTag("contrarregra")
-	
-	DoPeek(inst)
+
 	MakeSnowCoveredPristine(inst)
+	
+	inst:SetPrefabNameOverride("stagehand")
 	
 	inst.entity:SetPristine()
 	
@@ -70,6 +71,8 @@ local function fn()
 	
 	MakeHauntableWork(inst)
     MakeSnowCovered(inst)
+	
+	DoPeek(inst)
 	
     return inst
 end

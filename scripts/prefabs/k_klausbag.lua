@@ -65,6 +65,8 @@ local function fn()
 	inst:RemoveTag("_named")
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "KLAUS_SACK"
+	
     inst:AddComponent("lootdropper")
 	
     inst:AddComponent("activatable")
@@ -118,6 +120,8 @@ local function winterfn()
 	inst:RemoveTag("_named")
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "KLAUS_SACK"
+	
     inst:AddComponent("lootdropper")
 	
     inst:AddComponent("activatable")

@@ -75,6 +75,8 @@ local function type1fn()
     end
 
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "STATUE_MARBLE"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -119,6 +121,8 @@ local function type2fn()
     end
 
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "STATUE_MARBLE"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -163,6 +167,8 @@ local function type3fn()
     end
 
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "STATUE_MARBLE"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -207,6 +213,8 @@ local function type4fn()
     end
 
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "STATUE_MARBLE"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")

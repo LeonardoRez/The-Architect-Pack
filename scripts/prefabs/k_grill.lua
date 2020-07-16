@@ -64,6 +64,8 @@ local function smallfn()
     end
 	
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "QUAGMIRE_GRILL_SMALL"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")

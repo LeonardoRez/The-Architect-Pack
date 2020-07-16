@@ -67,7 +67,9 @@ local function fn()
 	]]--
 	
 	inst:AddComponent("lootdropper")
+	
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "QUAGMIRE_OVEN"
 	
 	inst:AddComponent("workable")
     inst.components.workable:SetWorkAction(ACTIONS.HAMMER)

@@ -78,9 +78,6 @@ Version 2.4-B
 - Parrot Pirate now have names (Picked randomly).
 
 Version 2.5-B
-- Added New boss statues.
-- Added New letter statues.
-- Added Characters monuments.
 - Added New legacy structures.
 - Added Antlion Sinkhole.
 - Added Klaus' Ice Geyser.
@@ -101,8 +98,8 @@ Version 2.5-B
 - Added New Trinkets.
 - Added Reeds Wall.
 - Added New Turfs.
-- Added New Sails.
-- Added Custom strings to all structures.
+- Added New Sails.  -------------------------------
+- Added Custom strings to (almost) all structures.
 - Added Many new secrets.
 - Fixed Maxwell on Nightmare Throne.
 - Fixed Loot Stash not dropping its loot.
@@ -110,8 +107,10 @@ Version 2.5-B
 - Fixed Gnaw's Favor FX.
 - Fixed Root Trunk blueprint not dropping from Hallowed Nights trees.
 - Fixed a secret structure spoiling items inside.
-- Mini Glacier (Crafted one) is now permanent.
+- Mini Glacier (Crafted) is now permanent.
 - Tar Trap now slowdown the player.
 - Light Posts (Lamp Post, Streetlights etc) don't turn off in caves.
+- Seaworthy, Skyworhy and Gateways can be used as entrance/exit for Multi-Shard worlds.
+- Players can now plant Seaweed Sprout on Sea Stack (Crafted).
 - Changed some recipe costs.
 

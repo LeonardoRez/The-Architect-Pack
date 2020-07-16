@@ -49,6 +49,8 @@ local function fn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "QUAGMIRE_ALTAR_BOLLARD"
+	
     inst:AddComponent("lootdropper")
 	
     inst:AddComponent("workable")

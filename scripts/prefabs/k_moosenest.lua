@@ -79,7 +79,9 @@ local function fn()
 	inst:RemoveTag("_named")
 	
 	inst:AddComponent("lootdropper")
+	
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "MOOSEEGG"
 	
 	inst:AddComponent("named")
     inst.components.named.possiblenames = { "Moose Nest", "Goose Nest" }
@@ -125,7 +127,9 @@ local function eggfn()
 	inst:RemoveTag("_named")
 	
 	inst:AddComponent("lootdropper")
+	
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "MOOSEEGG"
 	
 	inst:AddComponent("named")
     inst.components.named.possiblenames = { "Moose Egg", "Goose Egg", "BFB Egg" }

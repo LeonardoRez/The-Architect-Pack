@@ -80,6 +80,8 @@ local function honeypatchfn()
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
 	
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "BEEQUEENHIVE"
+	
     inst:AddComponent("lootdropper")
     
 	inst:AddComponent("workable")
@@ -123,6 +125,8 @@ local function largefn()
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
 	
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "BEEQUEENHIVEGROWN"
+	
     inst:AddComponent("lootdropper")
     
 	inst:AddComponent("workable")
@@ -174,6 +178,8 @@ local function mediumfn()
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
 	
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "BEEQUEENHIVEGROWN"
+	
     inst:AddComponent("lootdropper")
     
 	inst:AddComponent("workable")
@@ -225,6 +231,8 @@ local function smallfn()
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
 	
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "BEEQUEENHIVEGROWN"
+	
     inst:AddComponent("lootdropper")
     
 	inst:AddComponent("workable")

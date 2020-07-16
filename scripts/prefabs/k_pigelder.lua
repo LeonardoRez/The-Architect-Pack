@@ -241,6 +241,8 @@ local function fn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "QUAGMIRE_SWAMPIGELDER"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("health")

@@ -197,6 +197,8 @@ local function fn()
 	inst.components.workable:SetOnFinishCallback(onhammered)
 
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "TALLBIRDNEST"
+	
     inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
 

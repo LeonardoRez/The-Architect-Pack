@@ -418,6 +418,8 @@ local function create()
 
     --inst:AddTag("tent")
     inst:AddTag("antlion_sinkhole_blocker")
+	
+	inst:SetPrefabNameOverride("walrus_camp")
 
     inst.entity:SetPristine()
 

@@ -91,7 +91,10 @@ local function fn()
     end
 	
 	inst:AddComponent("lootdropper")
-    inst:AddComponent("inspectable")
+    
+	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "CAMPFIRE"
+	
 	inst:AddComponent("cooker")
 	
 	inst:AddComponent("heater")

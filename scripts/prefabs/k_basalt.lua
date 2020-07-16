@@ -85,6 +85,8 @@ local function fn1()
 	inst:AddTag("structure")
 	inst:AddTag("boulder_basalt")
 	
+	inst:SetPrefabNameOverride("basalt")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -128,6 +130,8 @@ local function fn2()
 	
 	inst:AddTag("structure")
 	inst:AddTag("boulder_basalt")
+	
+	inst:SetPrefabNameOverride("basalt")
 	
 	inst.entity:SetPristine()
 
@@ -173,6 +177,8 @@ local function fn3()
 	inst:AddTag("structure")
 	inst:AddTag("boulder_basalt")
 	
+	inst:SetPrefabNameOverride("basalt")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -216,6 +222,8 @@ local function fn4()
 	
 	inst:AddTag("structure")
 	inst:AddTag("boulder_basalt")
+	
+	inst:SetPrefabNameOverride("basalt")
 	
 	inst.entity:SetPristine()
 

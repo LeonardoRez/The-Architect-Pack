@@ -134,6 +134,8 @@ local function hound1fn()
 	inst:AddComponent("savedrotation")
 	
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "MOONROCK_PIECES"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -176,6 +178,8 @@ local function hound2fn()
 	inst:AddComponent("savedrotation")
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "MOONROCK_PIECES"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -218,6 +222,8 @@ local function hound3fn()
 	inst:AddComponent("savedrotation")
 	
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "MOONROCK_PIECES"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -260,6 +266,8 @@ local function hound4fn()
 	inst:AddComponent("savedrotation")
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "MOONROCK_PIECES"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -302,6 +310,8 @@ local function pig1fn()
 	inst:AddComponent("savedrotation")
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "MOONROCK_PIECES"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -344,6 +354,8 @@ local function pig2fn()
 	inst:AddComponent("savedrotation")
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "MOONROCK_PIECES"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -386,6 +398,8 @@ local function pig3fn()
 	inst:AddComponent("savedrotation")
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "MOONROCK_PIECES"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -428,6 +442,8 @@ local function pig4fn()
 	inst:AddComponent("savedrotation")
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "MOONROCK_PIECES"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -470,6 +486,8 @@ local function pig5fn()
 	inst:AddComponent("savedrotation")
 	
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "MOONROCK_PIECES"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -512,6 +530,8 @@ local function pig6fn()
 	inst:AddComponent("savedrotation")
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "MOONROCK_PIECES"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")

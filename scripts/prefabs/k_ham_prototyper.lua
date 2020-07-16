@@ -65,6 +65,8 @@ local function Porkfn()
 	inst.components.workable:SetOnFinishCallback(onhammered)
 	inst.components.workable:SetOnWorkCallback(onhit)
 	
+	inst:AddComponent("worldmigrator")
+	
 	inst:ListenForEvent("onbuilt", onbuilt)
 	
 	MakeHauntableWork(inst)

@@ -369,6 +369,7 @@ local function fn(tree_def)
 
     inst:AddComponent("inspectable")
     inst.components.inspectable.getstatus = GetStatus
+	inst.components.inspectable.nameoverride = "QUAGMIRE_SUGARWOODTREE"
 
     inst:AddComponent("workable")
     inst.components.workable:SetWorkAction(ACTIONS.CHOP)

@@ -44,6 +44,8 @@ local function fn()
     end
 	
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "RED_CAP"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")

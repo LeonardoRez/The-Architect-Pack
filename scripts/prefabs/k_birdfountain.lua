@@ -57,7 +57,9 @@ local function fn()
     end
 	
 	inst:AddComponent("lootdropper")
+	
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "QUAGMIRE_PARK_FOUNTAIN"
 	
 	inst:AddComponent("workable")
     inst.components.workable:SetWorkAction(ACTIONS.HAMMER)

@@ -141,6 +141,8 @@ local function tallfn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "SANDSPIKE"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -179,6 +181,8 @@ local function medfn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "SANDSPIKE"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -217,6 +221,8 @@ local function smallfn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "SANDSPIKE"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -255,6 +261,8 @@ local function blockfn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "SANDBLOCK"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")

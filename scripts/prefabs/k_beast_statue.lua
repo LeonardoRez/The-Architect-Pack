@@ -71,9 +71,10 @@ local function beast1fn()
     end
 	
 	inst:AddComponent("savedrotation")
-	
 	inst:AddComponent("lootdropper")
+	
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "QUAGMIRE_ALTAR_STATUE1"
 	
 	inst:AddComponent("workable")
     inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
@@ -119,7 +120,9 @@ local function beast1_leftfn()
     end
 	
 	inst:AddComponent("lootdropper")
+	
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "QUAGMIRE_ALTAR_STATUE1"
 	
 	inst:AddComponent("workable")
     inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
@@ -167,9 +170,10 @@ local function beast2fn()
     end
 	
 	inst:AddComponent("savedrotation")
-	
 	inst:AddComponent("lootdropper")
+	
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "QUAGMIRE_ALTAR_STATUE2"
 	
 	inst:AddComponent("workable")
     inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
@@ -215,7 +219,9 @@ local function beast2_leftfn()
     end
 	
 	inst:AddComponent("lootdropper")
+	
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "QUAGMIRE_ALTAR_STATUE2"
 	
 	inst:AddComponent("workable")
     inst.components.workable:SetWorkAction(ACTIONS.HAMMER)

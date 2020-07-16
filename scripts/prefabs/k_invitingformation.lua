@@ -119,6 +119,8 @@ local function glassfn()
     end
 
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "MOON_ALTAR_ROCK_GLASS"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -168,6 +170,8 @@ local function idolfn()
     end
 
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "MOON_ALTAR_ROCK_IDOL"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -217,6 +221,8 @@ local function seedfn()
     end
 
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "MOON_ALTAR_ROCK_SEED"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")

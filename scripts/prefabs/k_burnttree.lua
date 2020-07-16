@@ -113,6 +113,8 @@ local function shortfn()
 	inst:AddTag("tree")
 	inst:AddTag("workable")
 	
+	inst:SetPrefabNameOverride("evergreen")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -152,6 +154,8 @@ local function normalfn()
 	inst:AddTag("burnt_tree")
 	inst:AddTag("tree")
 	inst:AddTag("workable")
+	
+	inst:SetPrefabNameOverride("evergreen")
 	
 	inst.entity:SetPristine()
 
@@ -196,6 +200,8 @@ local function tallfn()
 	inst:AddTag("tree")
 	inst:AddTag("workable")
 	
+	inst:SetPrefabNameOverride("evergreen")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -239,6 +245,8 @@ local function short_deciduousfn()
 	inst:AddTag("tree")
 	inst:AddTag("workable")
 	
+	inst:SetPrefabNameOverride("deciduoustree")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -279,6 +287,8 @@ local function normal_deciduousfn()
 	inst:AddTag("tree")
 	inst:AddTag("workable")
 	
+	inst:SetPrefabNameOverride("deciduoustree")
+	
 	inst.entity:SetPristine()
 
     if not TheWorld.ismastersim then
@@ -318,6 +328,8 @@ local function tall_deciduousfn()
 	inst:AddTag("burnt_tree")
 	inst:AddTag("tree")
 	inst:AddTag("workable")
+	
+	inst:SetPrefabNameOverride("deciduoustree")
 	
 	inst.entity:SetPristine()
 
@@ -366,6 +378,8 @@ local function short_twiggyfn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "TWIGGY_SHORT"
+	
 	inst:AddComponent("lootdropper")
 
 	inst:AddComponent("workable")
@@ -406,6 +420,8 @@ local function normal_twiggyfn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "TWIGGY_NORMAL"
+	
 	inst:AddComponent("lootdropper")
 
 	inst:AddComponent("workable")
@@ -446,6 +462,8 @@ local function tall_twiggyfn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "TWIGGY_TALL"
+	
 	inst:AddComponent("lootdropper")
 
 	inst:AddComponent("workable")
@@ -486,6 +504,8 @@ local function short_moonfn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "MOON_TREE_SHORT"
+	
 	inst:AddComponent("lootdropper")
 
 	inst:AddComponent("workable")
@@ -526,6 +546,8 @@ local function normal_moonfn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "MOON_TREE_NORMAL"
+	
 	inst:AddComponent("lootdropper")
 
 	inst:AddComponent("workable")
@@ -566,6 +588,8 @@ local function tall_moonfn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "MOON_TREE_TALL"
+	
 	inst:AddComponent("lootdropper")
 
 	inst:AddComponent("workable")
@@ -606,6 +630,8 @@ local function tall_marshfn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "MARSH_TREE"
+	
 	inst:AddComponent("lootdropper")
 
 	inst:AddComponent("workable")

@@ -189,6 +189,8 @@ local function fn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "QUAGMIRE_SWAMPIG_HOUSE"
+	
     inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("childspawner")
@@ -247,6 +249,8 @@ local function rubblefn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "QUAGMIRE_SWAMPIG_HOUSE_RUBBLE"
+	
     inst:AddComponent("lootdropper")
 	
     inst:AddComponent("workable")
@@ -289,6 +293,8 @@ local function rubble2fn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "QUAGMIRE_SWAMPIG_HOUSE_RUBBLE"
+	
     inst:AddComponent("lootdropper")
 	
     inst:AddComponent("workable")
@@ -335,20 +341,10 @@ local function wornfn()
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	local decor_items = pig_defs
-		inst.decor = {}
-		for item_name, data in pairs(decor_items) do
-			for l, offset in pairs(data) do
-				local item_inst = SpawnPrefab("kyno_pigworn")
-				item_inst.AnimState:PushAnimation("idle_loop", true)
-				item_inst.entity:SetParent(inst.entity)
-				item_inst.Transform:SetPosition(offset[1], offset[2], offset[3])
-				table.insert(inst.decor, item_inst)
-			end
-		end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "QUAGMIRE_SWAMPIG_HOUSE"
+	
     inst:AddComponent("lootdropper")
 	
     inst:AddComponent("workable")
@@ -397,6 +393,8 @@ local function pigfn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "QUAGMIRE_SWAMPIG"
+	
     inst:AddComponent("lootdropper")
 
     return inst

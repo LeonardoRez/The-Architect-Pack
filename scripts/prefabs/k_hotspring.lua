@@ -292,6 +292,8 @@ local function hotspring()
     inst.no_wet_prefix = true
 
     inst:SetDeployExtraSpacing(2)
+	
+	inst:SetPrefabNameOverride("hotspring")
 
     inst.entity:SetPristine()
 

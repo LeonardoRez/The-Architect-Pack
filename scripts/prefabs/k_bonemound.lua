@@ -54,7 +54,9 @@ local function fn()
 	-- inst.SoundEmitter:PlaySound("dontstarve/creatures/hound/mound_LP", "loop")
 	
 	inst:AddComponent("lootdropper")
+	
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "HOUNDMOUND"
 	
 	inst:AddComponent("workable")
     inst.components.workable:SetWorkAction(ACTIONS.HAMMER)

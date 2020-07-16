@@ -8,6 +8,9 @@ local assets =
 
 local prefabs =
 {
+    "rock_break_fx",
+    "waterplant_baby",
+    "waterplant_destroy",
 }
 
 SetSharedLootTable( 'seastack',
@@ -63,6 +66,25 @@ local function onload(inst, data)
     updateart(inst)
 end
 
+local function on_upgraded(inst, upgrade_doer)
+    local sx, sy, sz = inst.Transform:GetWorldPosition()
+
+    local baby = SpawnPrefab("waterplant_baby")
+    baby.Transform:SetPosition(sx, sy, sz)
+    if baby.WaitForRebirth ~= nil then
+        baby:WaitForRebirth()
+    end
+
+    local fx = SpawnPrefab("waterplant_destroy")
+    fx.Transform:SetPosition(sx, sy, sz)
+
+    if upgrade_doer ~= nil then
+        TheWorld:PushEvent("itemplanted", {doer = upgrade_doer, pos = Vector3(sx, sy, sz)})
+    end
+
+    inst:Remove()
+end
+
 local function fn()
     local inst = CreateEntity()
 
@@ -92,6 +114,11 @@ local function fn()
         inst.components.floater:OnLandedServer()
     end)
 	
+	local land_time = (POPULATING and math.random()*5*FRAMES) or 0
+    inst:DoTaskInTime(land_time, function(inst)
+        inst.components.floater:OnLandedServer()
+    end)
+	
 	inst:SetPrefabNameOverride("seastack")
 
     inst.entity:SetPristine()
@@ -113,6 +140,10 @@ local function fn()
     inst.components.workable:SetWorkLeft(TUNING.SEASTACK_MINE)
     inst.components.workable:SetOnWorkCallback(OnWork)
     inst.components.workable.savestate = true
+	
+	inst:AddComponent("upgradeable")
+    inst.components.upgradeable.upgradetype = UPGRADETYPES.WATERPLANT
+    inst.components.upgradeable.onupgradefn = on_upgraded
 
     inst:AddComponent("inspectable")
 

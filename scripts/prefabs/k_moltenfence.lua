@@ -518,6 +518,7 @@ local function MakeWall(name, anims, isdoor, klaussackkeyid)
         end
 
         inst:AddComponent("inspectable")
+		inst.components.inspectable.nameoverride = "FENCE"
 
         if isdoor then
             inst.dooranim = SpawnPrefab(name.."_anim")
@@ -702,6 +703,8 @@ local function MakeInvItem(name, placement, animdata, isdoor)
         inst.components.stackable.maxsize = TUNING.STACK_SIZE_MEDITEM
 
         inst:AddComponent("inspectable")
+		inst.components.inspectable.nameoverride = "FENCE_ITEM"
+		
         inst:AddComponent("inventoryitem")
 
         inst:AddComponent("deployable")

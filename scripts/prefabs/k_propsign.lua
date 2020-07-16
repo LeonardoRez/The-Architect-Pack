@@ -223,6 +223,8 @@ local function signfn()
     inst:AddTag("sign")
 	inst:AddTag("sign_elite")
     inst:AddTag("_writeable")
+	
+	inst:SetPrefabNameOverride("homesign")
 
     inst.entity:SetPristine()
 

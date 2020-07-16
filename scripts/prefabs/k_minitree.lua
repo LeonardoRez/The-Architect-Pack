@@ -67,6 +67,8 @@ local function fn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "EVERGREEN"
+	
 	inst:AddComponent("lootdropper")
 
 	inst:AddComponent("workable")

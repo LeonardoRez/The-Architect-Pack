@@ -132,6 +132,8 @@ local function fn()
     end
 
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "LAVAARENA_ELEMENTAL"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("health")

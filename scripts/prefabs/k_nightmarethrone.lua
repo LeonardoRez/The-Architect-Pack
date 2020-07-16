@@ -114,6 +114,7 @@ local function fn2()
     inst.AnimState:SetBank("throne")
     inst.AnimState:SetBuild("maxwell_throne")
     inst.AnimState:PlayAnimation("idle")
+	inst.AnimState:SetFinalOffset(2)
     
 	inst:AddTag("structure")
 	inst:AddTag("nightmarethrone")
@@ -166,6 +167,7 @@ local function maxwellfn(Sim)
     inst.AnimState:SetBank("maxwellthrone")
     inst.AnimState:SetBuild("maxwell_endgame")
     inst.AnimState:PlayAnimation("idle_loop", true)
+	inst.AnimState:SetFinalOffset(3)
 	
 	inst:AddTag("locked_maxwell")
 	

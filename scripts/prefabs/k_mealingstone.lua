@@ -68,7 +68,9 @@ local function fn()
     inst.components.playerprox:SetOnPlayerFar(onfar)
 	
 	inst:AddComponent("lootdropper")
+	
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "QUAGMIRE_MEALINGSTONE"
 	
 	inst:AddComponent("workable")
     inst.components.workable:SetWorkAction(ACTIONS.HAMMER)

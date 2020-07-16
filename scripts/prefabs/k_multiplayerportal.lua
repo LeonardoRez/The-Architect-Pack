@@ -119,6 +119,8 @@ local function charliefn()
 	inst:AddTag("dstmultiplayerportal")
 	inst:AddTag("resurrector")
 	
+	inst:SetPrefabNameOverride("multiplayer_portal")
+	
 	inst.entity:SetPristine()
 	
     if not TheWorld.ismastersim then
@@ -182,6 +184,8 @@ local function buildfn()
 	inst:AddTag("portal_building")
 	inst:AddTag("resurrector")
 	
+	inst:SetPrefabNameOverride("multiplayer_portal")
+	
 	inst.entity:SetPristine()
 	
     if not TheWorld.ismastersim then
@@ -230,6 +234,8 @@ local function celestialfn()
 	inst:AddTag("structure")
 	inst:AddTag("dstmultiplayerportal")
 	inst:AddTag("resurrector")
+	
+	inst:SetPrefabNameOverride("multiplayer_portal_moonrock")
 	
 	inst.entity:SetPristine()
 	

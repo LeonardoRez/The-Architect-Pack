@@ -109,6 +109,8 @@ local function fn()
 	inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
 	
+	inst:AddComponent("worldmigrator")
+	
 	MakeHauntableWork(inst)
 	
     return inst

@@ -90,6 +90,8 @@ local function fn()
     inst:AddTag("watersource")
     inst:AddTag("birdblocker")
     inst:AddTag("antlion_sinkhole_blocker")
+	
+	inst:SetPrefabNameOverride("oasislake")
 
     inst.no_wet_prefix = true
     inst:SetDeployExtraSpacing(NO_DEPLOY_RADIUS)

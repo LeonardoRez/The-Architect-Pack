@@ -376,6 +376,8 @@ local function fn()
     inst._enablelights = net_bool(inst.GUID, "resurrectionstone._enablelights", "enablelightsdirty")
     inst._enablelights:set(true)
     inst.GetTouchStoneID = GetTouchStoneID
+	
+	inst:SetPrefabNameOverride("resurrectionstone")
 
     inst.entity:SetPristine()
 

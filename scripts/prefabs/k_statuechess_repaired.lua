@@ -116,6 +116,8 @@ local function rookfn()
     end
 
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "STATUE_MARBLE"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -167,6 +169,8 @@ local function knightfn()
     end
 
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "STATUE_MARBLE"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -218,6 +222,8 @@ local function bishopfn()
     end
 
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "STATUE_MARBLE"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")

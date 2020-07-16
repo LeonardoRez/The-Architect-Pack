@@ -2933,7 +2933,7 @@ kyno_surfacetab, TECH.SCIENCE_TWO, nil, nil, nil, 8, nil, "images/inventoryimage
 
 
 AddRecipe("wall_reed_item", {Ingredient("cutreeds", 4), Ingredient("twigs", 2)},
-kyno_surfacetab, TECH.SCIENCE_TWO, nil, nil, nil, 8, nil, "images/inventoryimages/kyno_wall_reed.xml", "wall_reed.tex")
+kyno_surfacetab, TECH.SCIENCE_TWO, nil, nil, nil, 8, nil, "images/inventoryimages/kyno_wall_reed.xml", "wall_reed_item.tex")
 
 
 AddRecipe("kyno_juryriggedportal", {Ingredient("cutstone", 3), Ingredient("boards", 3), Ingredient("nightmarefuel", 5)},
@@ -4036,8 +4036,8 @@ AddRecipe("kyno_telipad", {Ingredient("gears", 3), Ingredient("transistor", 2), 
 kyno_hamlettab, TECH.SCIENCE_TWO, "kyno_telipad_placer", 1, nil, nil, nil, "images/inventoryimages/kyno_inventoryimages_ham.xml", "telipad.tex")
 
 
-AddRecipe("kyno_telebrella", {Ingredient("gears", 2), Ingredient("transistor", 2), Ingredient("umbrella", 1)},
-kyno_hamlettab, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages/kyno_minisign_icons_2.xml", "kyno_telebrella.tex")
+-- AddRecipe("kyno_telebrella", {Ingredient("gears", 2), Ingredient("transistor", 2), Ingredient("umbrella", 1)},
+-- kyno_hamlettab, TECH.SCIENCE_TWO, nil, nil, nil, 1, nil, "images/inventoryimages/kyno_minisign_icons_2.xml", "kyno_telebrella.tex")
 
 
 AddRecipe("kyno_lawnornament_1", {Ingredient("cutgrass", 5), Ingredient("log", 2)},

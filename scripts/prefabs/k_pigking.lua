@@ -753,6 +753,8 @@ local function fn()
 	inst:DoTaskInTime(0, InitializePathFinding)
 
 	-- inst.OnRemoveEntity = onremove
+	
+	inst:SetPrefabNameOverride("pigking")
 
     inst.entity:SetPristine()
 
@@ -871,6 +873,8 @@ local function elitefn()
 	inst:DoTaskInTime(0, InitializePathFinding)
 
 	-- inst.OnRemoveEntity = onremove
+	
+	inst:SetPrefabNameOverride("pigking")
 
     inst.entity:SetPristine()
 

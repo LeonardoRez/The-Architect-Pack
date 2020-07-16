@@ -1769,10 +1769,232 @@ AddPrefabPostInit("turf_cultivated", function(inst)
 	inst.components.inspectable.nameoverride = "TURF_GRASS"
 	end 
 end)
+
+AddPrefabPostInit("turf_stonecity", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_ROCKY"
+	end 
+end)
+
+AddPrefabPostInit("turf_forgeroad", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_ROAD"
+	end 
+end)
+
+AddPrefabPostInit("turf_forgerock", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_ROCKY"
+	end 
+end)
+
+AddPrefabPostInit("turf_batcave", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_CAVE"
+	end 
+end)
+
+AddPrefabPostInit("turf_antcave", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TURF_UNDERROCK"
+	end 
+end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("kyno_telebrella", function(inst)
 	if inst.components.inventoryitem ~= nil then
 	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_minisign_icons_2.xml"
 	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_rubble_bike", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "QUAGMIRE_RUBBLE_BIKE"
+	end 
+end)
+
+AddPrefabPostInit("kyno_rubble_carriage", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "QUAGMIRE_RUBBLE_CARRIAGE"
+	end 
+end)
+
+AddPrefabPostInit("kyno_rubble_clock", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "QUAGMIRE_RUBBLE_CLOCK"
+	end 
+end)
+
+AddPrefabPostInit("kyno_rubble_cathedral", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "QUAGMIRE_RUBBLE_CATHEDRAL"
+	end 
+end)
+
+AddPrefabPostInit("kyno_rubble_pubdoor", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "QUAGMIRE_RUBBLE_PUBDOOR"
+	end 
+end)
+
+AddPrefabPostInit("kyno_rubble_door", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "QUAGMIRE_RUBBLE_PUBDOOR"
+	end 
+end)
+
+AddPrefabPostInit("kyno_rubble_roof", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "QUAGMIRE_RUBBLE_ROOF"
+	end 
+end)
+
+AddPrefabPostInit("kyno_rubble_clocktower", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "QUAGMIRE_RUBBLE_CLOCKTOWER"
+	end 
+end)
+
+AddPrefabPostInit("kyno_rubble_house", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "QUAGMIRE_RUBBLE_HOUSE"
+	end 
+end)
+
+AddPrefabPostInit("kyno_rubble_chimney", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "QUAGMIRE_RUBBLE_CHIMNEY"
+	end 
+end)
+
+AddPrefabPostInit("kyno_rubble_chimney2", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "QUAGMIRE_RUBBLE_CHIMNEY2"
+	end 
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_carrot_planted", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "CARROT"
+	end 
+end)
+
+AddPrefabPostInit("kyno_potato_planted", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "POTATO"
+	end 
+end)
+
+AddPrefabPostInit("kyno_turnip_planted", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "QUAGMIRE_TURNIP"
+	end 
+end)
+
+AddPrefabPostInit("kyno_onion_planted", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "ONION"
+	end 
+end)
+
+AddPrefabPostInit("kyno_wheat_planted", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "QUAGMIRE_WHEAT"
+	end 
+end)
+
+AddPrefabPostInit("kyno_garlic_planted", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "GARLIC"
+	end 
+end)
+
+AddPrefabPostInit("kyno_tomato_planted", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TOMATO"
+	end 
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_sculpture_knighthead", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "SCULPTURE_KNIGHTHEAD"
+	end 
+end)
+
+AddPrefabPostInit("kyno_sculpture_bishophead", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "SCULPTURE_BISHOPHEAD"
+	end 
+end)
+
+AddPrefabPostInit("kyno_sculpture_rooknose", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "SCULPTURE_ROOKNOSE"
+	end 
+end)
+
+AddPrefabPostInit("kyno_altar_glass", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MOON_ALTAR_GLASS"
+	end 
+end)
+
+AddPrefabPostInit("kyno_altar_seed", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MOON_ALTAR_SEED"
+	end 
+end)
+
+AddPrefabPostInit("kyno_altar_crown", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MOON_ALTAR_CROWN"
+	end 
+end)
+
+AddPrefabPostInit("kyno_altar_idol", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MOON_ALTAR_IDOL"
+	end 
+end)
+
+AddPrefabPostInit("kyno_pighead", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "PIGHEAD"
+	end 
+end)
+
+AddPrefabPostInit("kyno_mermhead", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MERMHEAD"
+	end 
+end)
+
+AddPrefabPostInit("kyno_pond", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "POND"
+	end 
+end)
+
+AddPrefabPostInit("kyno_pondmarsh", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "POND"
+	end 
+end)
+
+AddPrefabPostInit("kyno_pondlava", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "LAVA_POND"
+	end 
+end)
+
+AddPrefabPostInit("kyno_pondrock", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "ROCK"
+	end 
+end)
+
+AddPrefabPostInit("kyno_pond_rock", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "ROCK"
+	end 
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------

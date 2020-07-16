@@ -109,7 +109,9 @@ local function pondfn()
     end
 	
 	inst:AddComponent("lootdropper")
+	
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "QUAGMIRE_POND_SALT"
 	
 	inst:AddComponent("workable")
     inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
@@ -179,7 +181,9 @@ local function saltpondfn()
 		end
 	
 	inst:AddComponent("lootdropper")
+	
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "QUAGMIRE_POND_SALT"
 	
 	inst:AddComponent("workable")
     inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
@@ -224,6 +228,7 @@ local function rackfn()
 	inst.AnimState:SetTime(math.random() * 2)
 	
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "QUAGMIRE_SALT_RACK"
 	
 	inst:AddComponent("pickable")
     inst.components.pickable.picksound = "dontstarve_DLC002/common/limpet_harvest"

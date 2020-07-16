@@ -90,7 +90,10 @@ local function fn()
     end
 		
 	inst:AddComponent("lootdropper")
+	inst:AddComponent("worldmigrator")
+	
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "LAVAARENA_PORTAL"
 	
 	inst:AddComponent("workable")
     inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
@@ -135,6 +138,8 @@ local function keyholefn()
     end
 
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "LAVAARENA_KEYHOLE"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("workable")

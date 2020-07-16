@@ -43,6 +43,8 @@ local function fn()
 
     inst.AnimState:SetBank("moonrock_pieces")
     inst.AnimState:SetBuild("moonrock_pieces")
+	
+	inst:SetPrefabNameOverride("moonrock_pieces")
 
     inst.entity:SetPristine()
 

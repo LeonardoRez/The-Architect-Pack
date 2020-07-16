@@ -42,6 +42,8 @@ local function fn()
     end
 
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "MOUND"
+	
     inst:AddComponent("lootdropper")
 
     inst:AddComponent("workable")
@@ -76,6 +78,8 @@ local function dugfn()
     end
 
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "MOUND"
+	
     inst:AddComponent("lootdropper")
 
     inst:AddComponent("workable")

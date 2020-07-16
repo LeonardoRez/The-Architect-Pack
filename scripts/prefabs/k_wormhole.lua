@@ -107,6 +107,8 @@ local function fn()
     end
 	
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "WORMHOLE"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")
@@ -158,6 +160,8 @@ local function sickfn()
     end
 	
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "WORMHOLE"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")

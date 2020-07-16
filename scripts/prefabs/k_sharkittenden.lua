@@ -86,30 +86,6 @@ local function activefn()
     if not TheWorld.ismastersim then
         return inst
     end
-	
-	local decor_items = shark_defs
-		inst.decor = {}
-		for item_name, data in pairs(decor_items) do
-			for l, offset in pairs(data) do
-				local item_inst = SpawnPrefab("kyno_sharkitten")
-				item_inst.AnimState:PlayAnimation("idle", true)
-				item_inst.entity:SetParent(inst.entity)
-				item_inst.Transform:SetPosition(offset[1], offset[2], offset[3])
-				table.insert(inst.decor, item_inst)
-			end
-		end
-		
-	local decor_items_2 = shark_defs_2
-		inst.decor = {}
-		for item_name, data in pairs(decor_items_2) do
-			for l, offset in pairs(data) do
-				local item_inst = SpawnPrefab("kyno_sharkitten2")
-				item_inst.AnimState:PlayAnimation("idle", true)
-				item_inst.entity:SetParent(inst.entity)
-				item_inst.Transform:SetPosition(offset[1], offset[2], offset[3])
-				table.insert(inst.decor, item_inst)
-			end
-		end
 
 	inst:AddComponent("inspectable")
 	inst:AddComponent("lootdropper")

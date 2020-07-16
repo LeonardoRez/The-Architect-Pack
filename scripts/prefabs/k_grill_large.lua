@@ -64,6 +64,8 @@ local function largefn()
     end
 	
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "QUAGMIRE_GRILL"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")

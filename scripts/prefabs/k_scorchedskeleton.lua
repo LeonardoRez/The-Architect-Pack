@@ -53,6 +53,7 @@ local function fn()
 
     inst:AddComponent("inspectable")
     inst.components.inspectable:RecordViews()
+	inst.components.inspectable.nameoverride = "SCORCHED_SKELETON"
 	
 	inst:AddComponent("lootdropper")
 	

@@ -68,6 +68,8 @@ local function potfn()
     end
 	
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "QUAGMIRE_POT_SYRUP"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")

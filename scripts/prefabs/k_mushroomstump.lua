@@ -46,6 +46,8 @@ local function fn()
     end
 	
 	inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "QUAGMIRE_MUSHROOMSTUMP"
+	
 	inst:AddComponent("lootdropper")
 	
 	inst:AddComponent("hauntable")

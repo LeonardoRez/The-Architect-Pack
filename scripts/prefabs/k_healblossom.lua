@@ -107,6 +107,7 @@ local function fn()
     end
 
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "FLOWER"
 
     inst:AddComponent("pickable")
     inst.components.pickable.picksound = "dontstarve/wilson/pickup_plants"
@@ -160,6 +161,7 @@ local function artificialfn()
     end
 
     inst:AddComponent("inspectable")
+	inst.components.inspectable.nameoverride = "FLOWER"
 
     inst:AddComponent("pickable")
     inst.components.pickable.picksound = "dontstarve/wilson/pickup_plants"
