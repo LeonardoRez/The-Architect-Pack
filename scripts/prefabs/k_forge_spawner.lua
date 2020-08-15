@@ -126,6 +126,11 @@ local function fn()
     if not TheWorld.ismastersim then
         return inst
     end
+	
+	local SHARD = GetModConfigData("SHARD", KnownModIndex:GetModActualName("The Architect Pack"))
+	if SHARD == 1 then
+	inst:AddComponent("worldmigrator")
+	end
 		
 	inst:AddComponent("lootdropper")
 	

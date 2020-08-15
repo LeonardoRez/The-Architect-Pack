@@ -22,17 +22,17 @@ local function onfinished(inst)
     inst:Remove()
 end
 
-local function findclosestpad(inst, sourcepad, target)    
-    local target = ThePlayer
+local function findclosestpad(inst, sourcepad)    
+    local target = inst.components.inventoryitem.owner
     if sourcepad then
         target = sourcepad
     end
     local pad = nil
-    if GetWorld().telipads then
+    if TheWorld.telipads then
         local dist = TELEDIST * TELEDIST
-        for i,testpad in ipairs(GetWorld().telipads) do
+        for i,testpad in ipairs(TheWorld.telipads) do
             local x,y,z = testpad.Transform:GetWorldPosition()
-            local ground = GetWorld()            
+            local ground = TheWorld            
             local tile = ground.Map:GetTileAtPoint(x,y,z)
             if tile ~= GROUND.INTERIOR then
                 local testdist = target:GetDistanceSqToInst(testpad)
@@ -47,7 +47,7 @@ local function findclosestpad(inst, sourcepad, target)
 end
 
 local function checkconnection(inst) 
-    local player = ThePlayer
+    local player = inst.components.inventoryitem.owner
     local pad = findclosestpad(inst)    
     if inst.lastpad then
         inst.lastpad.turnoff(inst.lastpad)        
@@ -65,18 +65,51 @@ local function checkconnection(inst)
     end
 end
 
+local function canteleport(inst, staff, caster, target, pos)
+    if checkconnection(inst, staff) and not TheCamera.interior then
+        return true
+    end    
+end
+
+local function teleport(inst, staff)
+    local player = inst.components.inventoryitem.owner 
+    local pad = nil
+    if canteleport(inst, staff) then
+        pad = checkconnection(inst, staff)
+    end
+    if pad then
+        local pos = pad:GetPosition()
+		player.Transform:SetPosition(pos.x, pos.y, pos.z)
+        player:SnapCamera()
+        player.components.locomotor:Clear()
+
+        local light = SpawnPrefab("kyno_telebrella_glow")
+        if light then
+            local x,y,z = player.Transform:GetWorldPosition()
+            light.Transform:SetPosition(x,y,z)
+        end
+    end
+    inst.components.finiteuses:Use(1)
+	inst.SoundEmitter:PlaySound("dontstarve_wagstaff/characters/wagstaff/telebrella/telebrella_end")
+end
+
 local function onequip(inst, owner) 
     owner.AnimState:OverrideSymbol("swap_object", "swap_telebrella", "swap_telebrella")
     owner.AnimState:Show("ARM_carry")
     owner.AnimState:Hide("ARM_normal")
+
     local INTERVAL = 0.1
     inst.task = inst:DoPeriodicTask(INTERVAL, function() 
-            local player = ThePlayer 
+            local player = owner   
+            
             local pad = checkconnection(inst) 
-            if pad then
+            if pad and not TheCamera.interior then
+
                 inst.flashtime = inst.flashtime + INTERVAL
                 local switch = false
+
                 local dist = player:GetDistanceSqToInst(pad)
+
                 local period = INTERVAL
                 if not inst.red then
                     local max = TELEDIST*TELEDIST
@@ -90,6 +123,7 @@ local function onequip(inst, owner)
                         period = 9999999
                     end
                 end
+
                 if inst.flashtime > period then
                     switch = true            
                     inst.flashtime = 0
@@ -103,12 +137,25 @@ local function onequip(inst, owner)
                     end                
                 end
                 if inst.red then
-                    owner.AnimState:OverrideSymbol("swap_object", "swap_telebrella_red", "swap_telebrella")
+                    player.AnimState:OverrideSymbol("swap_object", "swap_telebrella_red", "swap_telebrella")
                 else
-                    owner.AnimState:OverrideSymbol("swap_object", "swap_telebrella_green", "swap_telebrella")
+                    player.AnimState:OverrideSymbol("swap_object", "swap_telebrella_green", "swap_telebrella")
+
+					if inst.components.spellcaster == nil then
+						inst:AddComponent("spellcaster")
+					end
+					
+					if inst.components.spellcaster ~= nil then
+						inst.components.spellcaster:SetSpellFn(teleport)
+						inst.components.spellcaster.canuseonpoint = true
+						inst.components.spellcaster.canuseonpoint_water = true
+						inst.components.spellcaster.canusefrominventory = true
+						inst.components.spellcaster.quickcast = true
+					end
                 end                
             else
-                owner.AnimState:OverrideSymbol("swap_object", "swap_telebrella", "swap_telebrella")            
+                player.AnimState:OverrideSymbol("swap_object", "swap_telebrella", "swap_telebrella")
+				inst:RemoveComponent("spellcaster")
             end
         end)
 end
@@ -120,33 +167,6 @@ local function onunequip(inst, owner)
         inst.task:Cancel()
         inst.task = nil
     end
-end
-
-local function canteleport(staff, caster, target, pos)
-    if checkconnection(staff) then
-        return true
-    end    
-end
-
-local function teleport(staff)
-    local player = ThePlayer
-    local pad = nil
-    if canteleport(staff) then
-        pad = checkconnection(staff)
-    end
-    if pad then
-        local pos = pad:GetPosition()
-        player.Transform:SetPosition(pos.x, pos.y, pos.z)
-        TheCamera:Snap()
-        player.components.locomotor:Clear()
-
-        local light = SpawnPrefab("kyno_telebrella_glow")
-        if light then
-            local x,y,z = player.Transform:GetWorldPosition()
-            light.Transform:SetPosition(x,y,z)
-        end
-    end
-    staff.components.finiteuses:Use(1)
 end
 
 local function fn(Sim)
@@ -165,8 +185,6 @@ local function fn(Sim)
     inst.AnimState:PlayAnimation("idle")  
 
     inst:AddTag("telebrella")
-    inst:AddTag("waterproofer")
-	inst:AddTag("veryquickcast")
 	
 	inst.spelltype = "SCIENCE"
 
@@ -182,9 +200,6 @@ local function fn(Sim)
 	inst:AddComponent("weapon")
     inst.components.weapon:SetDamage(17)
 	
-	inst:AddComponent("waterproofer")
-	inst.components.waterproofer:SetEffectiveness(TUNING.WATERPROOFNESS_SMALLMED)
-	
 	inst:AddComponent("inventoryitem")
 	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_minisign_icons_2.xml"
 	
@@ -193,8 +208,7 @@ local function fn(Sim)
     inst.components.finiteuses:SetUses(10)
     inst.components.finiteuses:SetOnFinished(onfinished) 
 
-    inst:AddComponent("insulator")
-    inst.components.insulator:SetSummer()
+    inst.teleport = teleport
 	
 	inst:AddComponent("equippable")
     inst.components.equippable:SetOnEquip(onequip)
@@ -206,10 +220,9 @@ local function fn(Sim)
     inst.components.spellcaster.canuseonpoint = true
     inst.components.spellcaster.canuseonpoint_water = true
     inst.components.spellcaster.canusefrominventory = true
-    -- inst.components.spellcaster.castingstate = "telebrella"
+    inst.components.spellcaster.quickcast = true
 
     MakeHauntableLaunch(inst)
-	inst.teleport = teleport
 	inst.flashtime = 0
 
     return inst

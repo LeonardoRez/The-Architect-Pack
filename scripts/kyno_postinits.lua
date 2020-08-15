@@ -601,6 +601,7 @@ if COFFEE == 0 then
 GLOBAL.SetSharedLootTable("dragonfly_coffee_winter",
 {
     {"dragon_scales",             1.00},
+	{"dragonflyfurnace_blueprint", 1.00},
     {"kyno_frozenfurnace_blueprint", 1.00},
     {"chesspiece_dragonfly_sketch", 1.00},
     {"lavae_egg",                 0.33},
@@ -716,6 +717,7 @@ if COFFEE == 1 then
 GLOBAL.SetSharedLootTable("dragonfly_winter",
 {
     {"dragon_scales",             1.00},
+	{"dragonflyfurnace_blueprint", 1.00},
     {"kyno_frozenfurnace_blueprint", 1.00},
     {"chesspiece_dragonfly_sketch", 1.00},
     {"lavae_egg",                 0.33},
@@ -937,90 +939,15 @@ AddPrefabPostInit("cavein_boulder", function(inst)
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
---[[ -- Moved to Shadow Pieces!
-GLOBAL.SetSharedLootTable("shadow_creature_new",
-{
-    { "nightmarefuel",  1.0 },
-    { "nightmarefuel",  0.5 },
-	{ "kyno_shadowportal_blueprint", .01 }, -- 1% Drop Chance
-})
-
-AddPrefabPostInit("crawlinghorror", function(inst)
-	if GLOBAL.TheWorld.ismastersim then
-		inst.components.lootdropper:SetChanceLootTable("shadow_creature_new")
-	end
-end)
-
-AddPrefabPostInit("terrorbeak", function(inst)
-	if GLOBAL.TheWorld.ismastersim then
-		inst.components.lootdropper:SetChanceLootTable("shadow_creature_new")
-	end
-end)
-
-AddPrefabPostInit("crawlingnightmare", function(inst)
-	if GLOBAL.TheWorld.ismastersim then
-		inst.components.lootdropper:SetChanceLootTable("shadow_creature_new")
-	end
-end)
-
-AddPrefabPostInit("nightmarebeak", function(inst)
-	if GLOBAL.TheWorld.ismastersim then
-		inst.components.lootdropper:SetChanceLootTable("shadow_creature_new")
-	end
-end)
-]]--
--------------------------------------------------------------------------------------------------------------------------------------------------------------------
-GLOBAL.SetSharedLootTable("moose_new",
-{
-    {'meat',             1.00},
-    {'meat',             1.00},
-    {'meat',             1.00},
-    {'meat',             1.00},
-    {'meat',             1.00},
-    {'meat',             1.00},
-    {'drumstick',        1.00},
-    {'drumstick',        1.00},
-    {'goose_feather',    1.00},
-    {'goose_feather',    1.00},
-    {'goose_feather',    1.00},
-    {'goose_feather',    0.33},
-    {'goose_feather',    0.33},
-    {'chesspiece_moosegoose_sketch', 1.00},
-	{'oceanfishingbobber_goose_tacklesketch', 1.00},
-	{'kyno_goosenestegg_blueprint', 1.00},
-})
-
 AddPrefabPostInit("moose", function(inst)
 	if GLOBAL.TheWorld.ismastersim then
-		inst.components.lootdropper:SetChanceLootTable("moose_new")
+	inst.components.lootdropper:AddChanceLoot("kyno_goosenestegg_blueprint", 1.00)
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-GLOBAL.SetSharedLootTable("beequeen_new",
-{
-    {'royal_jelly',      1.00},
-    {'royal_jelly',      1.00},
-    {'royal_jelly',      1.00},
-    {'royal_jelly',      1.00},
-    {'royal_jelly',      1.00},
-    {'royal_jelly',      1.00},
-    {'royal_jelly',      0.50},
-    {'honeycomb',        1.00},
-    {'honeycomb',        0.50},
-    {'honey',            1.00},
-    {'honey',            1.00},
-    {'honey',            1.00},
-    {'honey',            0.50},
-    {'stinger',          1.00},
-    {'hivehat',          1.00},
-    {'bundlewrap_blueprint', 1.00},
-	{'chesspiece_beequeen_sketch', 1.00},
-	{'kyno_antchest_blueprint', 1.00},
-})
-
 AddPrefabPostInit("beequeen", function(inst)
 	if GLOBAL.TheWorld.ismastersim then
-		inst.components.lootdropper:SetChanceLootTable("beequeen_new")
+	inst.components.lootdropper:AddChanceLoot("kyno_antchest_blueprint", 1.00)
 	end
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1053,40 +980,6 @@ AddPrefabPostInit("deerclops", function(inst)
 	inst.components.lootdropper:AddChanceLoot("kyno_snowman_blueprint", 1.00)
 	end
 end)
--------------------------------------------------------------------------------------------------------------------------------------------------------------------
---[[
-GLOBAL.SetSharedLootTable("antlion_new",
-{
-    {'townportal_blueprint',    1.00},
-	{'chesspiece_antlion_sketch', 1.00},
-
-    {'townportaltalisman',  1.00},
-    {'townportaltalisman',  1.00},
-    {'townportaltalisman',  1.00},
-    {'townportaltalisman',  1.00},
-    {'townportaltalisman',  1.00},
-    {'townportaltalisman',  1.00},
-    {'townportaltalisman',  0.50},
-    {'townportaltalisman',  0.50},
-
-    {'meat',                1.00},
-    {'meat',                1.00},
-    {'meat',                1.00},
-    {'meat',                1.00},
-
-    {'rocks',               1.00},
-    {'rocks',               1.00},
-    {'rocks',               0.50},
-    {'rocks',               0.50},
-	{"piratepack",		   .01}, -- 1% Drop Chance
-})
-
-AddPrefabPostInit("antlion", function(inst)
-	if GLOBAL.TheWorld.ismastersim then
-		inst.components.lootdropper:SetChanceLootTable("antlion_new")
-	end
-end)
-]]--
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("piratepack", function(inst)
 	if inst.components.inventoryitem ~= nil then
@@ -1996,5 +1889,373 @@ AddPrefabPostInit("kyno_pond_rock", function(inst)
 	if inst.components.inspectable ~= nil then
 	inst.components.inspectable.nameoverride = "ROCK"
 	end 
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_mast_01", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MAST"
+	end 
+end)
+
+AddPrefabPostInit("kyno_mast_item_01", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MAST_ITEM"
+	end 
+end)
+
+AddPrefabPostInit("kyno_mast_item_01", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_mast_01.xml"
+	inst.components.inventoryitem.imagename = "kyno_mast_01"
+	end
+end)
+
+AddPrefabPostInit("kyno_mast_02", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MAST"
+	end 
+end)
+
+AddPrefabPostInit("kyno_mast_item_02", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MAST_ITEM"
+	end 
+end)
+
+AddPrefabPostInit("kyno_mast_item_02", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_mast_02.xml"
+	inst.components.inventoryitem.imagename = "kyno_mast_02"
+	end
+end)
+
+AddPrefabPostInit("kyno_mast_03", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MAST"
+	end 
+end)
+
+AddPrefabPostInit("kyno_mast_item_03", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MAST_ITEM"
+	end 
+end)
+
+AddPrefabPostInit("kyno_mast_item_03", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_mast_03.xml"
+	inst.components.inventoryitem.imagename = "kyno_mast_03"
+	end
+end)
+
+AddPrefabPostInit("kyno_mast_04", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MAST"
+	end 
+end)
+
+AddPrefabPostInit("kyno_mast_item_04", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MAST_ITEM"
+	end 
+end)
+
+AddPrefabPostInit("kyno_mast_item_04", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_mast_04.xml"
+	inst.components.inventoryitem.imagename = "kyno_mast_04"
+	end
+end)
+
+AddPrefabPostInit("kyno_mast_05", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MAST"
+	end 
+end)
+
+AddPrefabPostInit("kyno_mast_item_05", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MAST_ITEM"
+	end 
+end)
+
+AddPrefabPostInit("kyno_mast_item_05", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_mast_05.xml"
+	inst.components.inventoryitem.imagename = "kyno_mast_05"
+	end
+end)
+
+AddPrefabPostInit("kyno_mast_06", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MAST"
+	end 
+end)
+
+AddPrefabPostInit("kyno_mast_item_06", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MAST_ITEM"
+	end 
+end)
+
+AddPrefabPostInit("kyno_mast_item_06", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_mast_06.xml"
+	inst.components.inventoryitem.imagename = "kyno_mast_06"
+	end
+end)
+
+AddPrefabPostInit("kyno_mast_07", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MAST"
+	end 
+end)
+
+AddPrefabPostInit("kyno_mast_item_07", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MAST_ITEM"
+	end 
+end)
+
+AddPrefabPostInit("kyno_mast_item_07", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_mast_07.xml"
+	inst.components.inventoryitem.imagename = "kyno_mast_07"
+	end
+end)
+
+AddPrefabPostInit("kyno_mast_08", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MAST"
+	end 
+end)
+
+AddPrefabPostInit("kyno_mast_item_08", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MAST_ITEM"
+	end 
+end)
+
+AddPrefabPostInit("kyno_mast_item_08", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_mast_08.xml"
+	inst.components.inventoryitem.imagename = "kyno_mast_08"
+	end
+end)
+
+AddPrefabPostInit("kyno_mast_09", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MAST"
+	end 
+end)
+
+AddPrefabPostInit("kyno_mast_item_09", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "MAST_ITEM"
+	end 
+end)
+
+AddPrefabPostInit("kyno_mast_item_09", function(inst)
+	if inst.components.inventoryitem ~= nil then
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_mast_09.xml"
+	inst.components.inventoryitem.imagename = "kyno_mast_09"
+	end
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- I Took the turfs code from eXiGe's mod. I hope he doesn't get mad at me xd
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local turf_atlas = MODROOT.."images/inventoryimages/kyno_turfs_sw.xml"
+    for _, turf in pairs({"ash", "magmafield", "volcano", "volcano_rock", "jungle", "meadow", "snakeskinfloor", "beach", "foundation", "fields", "cobbleroad", "pigruins", "lawn"}) do
+        local turf_name = "turf_"..turf
+        AddPrefabPostInit(turf_name, function(inst)
+            inst.components.inventoryitem.imagename = turf_name
+            inst.components.inventoryitem.atlasname = turf_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local kyno_turf_atlas = MODROOT.."images/inventoryimages/kyno_turfs_sw_2.xml"
+    for _, turf in pairs({"tidalmarsh"}) do
+        local kyno_turf_name = "turf_"..turf
+        AddPrefabPostInit(kyno_turf_name, function(inst)
+            inst.components.inventoryitem.imagename = kyno_turf_name
+            inst.components.inventoryitem.atlasname = kyno_turf_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local kyno_turf_ham_atlas = MODROOT.."images/inventoryimages/kyno_turfs_ham.xml"
+    for _, turf in pairs({"rainforest", "plains", "deepjungle", "bog", "mossy_blossom", "gasjungle", "beard_hair", "antcave", "batcave"}) do
+        local kyno_turf_ham_name = "turf_"..turf
+        AddPrefabPostInit(kyno_turf_ham_name, function(inst)
+            inst.components.inventoryitem.imagename = kyno_turf_ham_name
+            inst.components.inventoryitem.atlasname = kyno_turf_ham_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local kyno_turf_gorge_atlas = MODROOT.."images/inventoryimages/kyno_turfs_gorge.xml"
+    for _, turf in pairs({"pinkpark", "pinkstone", "greyforest", "stonecity", "browncarpet"}) do
+        local kyno_turf_gorge_name = "turf_"..turf
+        AddPrefabPostInit(kyno_turf_gorge_name, function(inst)
+            inst.components.inventoryitem.imagename = kyno_turf_gorge_name
+            inst.components.inventoryitem.atlasname = kyno_turf_gorge_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local kyno_turf_forge_atlas = MODROOT.."images/inventoryimages/kyno_turfs_forge.xml"
+    for _, turf in pairs({"forgeroad", "forgerock", "ruinsbrick", "ruinsbricktrim", "ruinstile", "ruinstiletrim", "ruinstrim", "ruinstrimtrim"}) do
+        local kyno_turf_forge_name = "turf_"..turf
+        AddPrefabPostInit(kyno_turf_forge_name, function(inst)
+            inst.components.inventoryitem.imagename = kyno_turf_forge_name
+            inst.components.inventoryitem.atlasname = kyno_turf_forge_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local kyno_turf_interior_atlas = MODROOT.."images/inventoryimages/kyno_inventoryimages_ham.xml"
+    for _, turf in pairs({"chess", "hoof", "herring", "octagon", "shagcarpet", "marbletile", "hexagon", "garden", "geometric", "woodpanel", "transitional", "slate", "metalsheet", "trinket_ham_1", "trinket_ham_3"}) do
+        local kyno_turf_interior_name = "turf_"..turf
+        AddPrefabPostInit(kyno_turf_interior_name, function(inst)
+            inst.components.inventoryitem.imagename = kyno_turf_interior_name
+            inst.components.inventoryitem.atlasname = kyno_turf_interior_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local item_atlas = MODROOT.."images/inventoryimages/kyno_minisign_icons.xml"
+    for _, item in pairs({"coconut", "wall_enforcedlimestone_item", "wall_limestone_item", "jungletreeseed", "seashell", "kyno_sandbagsmall_item", "dug_coffeebush", "coffee", "kyno_coffeebeans", "kyno_coffeebeans_cooked", "packim_fishbone", "piratepack", 
+	"trinket_sw_13", "trinket_sw_14", "trinket_sw_15", "trinket_sw_16", "trinket_sw_17", "trinket_sw_18", "trinket_sw_19", "trinket_sw_20", "trinket_sw_21", "trinket_sw_22", "trinket_sw_23", "kyno_earring"}) do
+        local item_name = item
+        AddPrefabPostInit(item_name, function(inst)
+            inst.components.inventoryitem.imagename = item_name
+            inst.components.inventoryitem.atlasname = item_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local item2_atlas = MODROOT.."images/inventoryimages/kyno_minisign_icons_2.xml"
+    for _, item2 in pairs({"teatree_nut", "burr", "hedge_block_item", "hedge_cone_item", "hedge_layered_item", "ro_bin_gizzard_stone", "kyno_relic_1", "kyno_relic_2", "kyno_relic_3", "kyno_relic_4", "kyno_relic_5", "kyno_pherostone", "kyno_oinc1", "kyno_oinc10", "kyno_oinc100", "kyno_telebrella"}) do
+        local item2_name = item2
+        AddPrefabPostInit(item2_name, function(inst)
+            inst.components.inventoryitem.imagename = item2_name
+            inst.components.inventoryitem.atlasname = item2_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local item3_atlas = MODROOT.."images/inventoryimages/wall_pig_ruins_item.xml"
+    for _, item3 in pairs({"wall_pig_ruins_item"}) do
+        local item3_name = item3
+        AddPrefabPostInit(item3_name, function(inst)
+            inst.components.inventoryitem.imagename = item3_name
+            inst.components.inventoryitem.atlasname = item3_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local item4_atlas = MODROOT.."images/inventoryimages/kyno_minisign_icons_3.xml"
+    for _, item4 in pairs({"hedge_block_aged_item", "hedge_cone_aged_item", "hedge_layered_aged_item"}) do
+        local item4_name = item4
+        AddPrefabPostInit(item4_name, function(inst)
+            inst.components.inventoryitem.imagename = item4_name
+            inst.components.inventoryitem.atlasname = item4_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local item5_atlas = MODROOT.."images/inventoryimages/kyno_irongate_item.xml"
+    for _, item5 in pairs({"kyno_irongate_item"}) do
+        local item5_name = item5
+        AddPrefabPostInit(item5_name, function(inst)
+            inst.components.inventoryitem.imagename = item5_name
+            inst.components.inventoryitem.atlasname = item5_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local item6_atlas = MODROOT.."images/inventoryimages/kyno_turfs_sw_2.xml"
+    for _, item6 in pairs({"wall_enforcedlimestone_land_item"}) do
+        local item6_name = item6
+        AddPrefabPostInit(item6_name, function(inst)
+            inst.components.inventoryitem.imagename = item6_name
+            inst.components.inventoryitem.atlasname = item6_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local item7_atlas = MODROOT.."images/inventoryimages/kyno_moltenfence_item.xml"
+    for _, item7 in pairs({"kyno_moltenfence_item"}) do
+        local item7_name = item7
+        AddPrefabPostInit(item7_name, function(inst)
+            inst.components.inventoryitem.imagename = item7_name
+            inst.components.inventoryitem.atlasname = item7_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local item8_atlas = MODROOT.."images/inventoryimages/kyno_legacy_inventoryimages.xml"
+    for _, item8 in pairs({"wall_legacy_moonrock_item", "wall_legacyruins_item"}) do
+        local item8_name = item8
+        AddPrefabPostInit(item8_name, function(inst)
+            inst.components.inventoryitem.imagename = item8_name
+            inst.components.inventoryitem.atlasname = item8_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local kyno_turf_new_atlas = MODROOT.."images/inventoryimages/kyno_turfs_new.xml"
+    for _, turf in pairs({"redcarpet", "pinkcarpet", "orangecarpet", "cyancarpet", "whitecarpet", "snowfall", "modern_cobblestones"}) do
+        local kyno_turf_new_name = "turf_"..turf
+        AddPrefabPostInit(kyno_turf_new_name, function(inst)
+            inst.components.inventoryitem.imagename = kyno_turf_new_name
+            inst.components.inventoryitem.atlasname = kyno_turf_new_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local kyno_turf_honey_atlas = MODROOT.."images/inventoryimages/turf_sticky.xml"
+    for _, turf in pairs({"sticky"}) do
+        local kyno_turf_honey_name = "turf_"..turf
+        AddPrefabPostInit(kyno_turf_honey_name, function(inst)
+            inst.components.inventoryitem.imagename = kyno_turf_honey_name
+            inst.components.inventoryitem.atlasname = kyno_turf_honey_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local kyno_wall_reed_atlas = MODROOT.."images/inventoryimages/kyno_wall_reed.xml"
+    for _, wall_reed in pairs({"wall_reed_item"}) do
+        local kyno_wall_reed_name = wall_reed
+        AddPrefabPostInit(kyno_wall_reed_name, function(inst)
+            inst.components.inventoryitem.imagename = kyno_wall_reed_name
+            inst.components.inventoryitem.atlasname = kyno_wall_reed_atlas
+        end)
+    end
+end
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("ash", function(inst)
+	if not GLOBAL.TheWorld.ismastersim then
+		return inst
+	end
+    inst:AddTag("coffeefertilizer")
+    inst:AddComponent("fertilizer")
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------

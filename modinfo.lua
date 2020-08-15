@@ -1,6 +1,6 @@
 name = "The Architect Pack"
-version = "2.5-B"
-local myupdate = "The End of the Beginning"
+version = "3.0-B"
+local myupdate = "We Need to Patch Deeper"
 
 description = "󰀂 This mod contains huge amount of decorative structures for Base Building!\n\Remember: They're just replicas, static structures or not?\n\n󰀅 Also includes some special structures and easter eggs, go find em' all!\n\n󰀏 Includes contents from: Shipwrecked, Hamlet, The Forge, The Gorge and exclusive contents!\n\n󰀖 Credits on the mod page!\n\󰀌 Mod Version: "..version.."\n\󰀧 Update: "..myupdate..""
 author = "The Builders Society"
@@ -29,6 +29,52 @@ end
 
 configuration_options =
 {
+	Title("Modes", "Choose the mode the mod will work."),
+	{
+        name = "SWEAT",
+        label = "Recipe Mode",
+        hover = "Choose the recipe mode for the structures of The Architect Pack.",
+        options =
+        {
+            {description = "Classic", 
+			hover = "The original recipes, nothing changed.",
+			data = 1},
+            {description = "No Sweat", 
+			hover = "Easier recipes, no more resources grinding!",
+			data = 0},
+        },
+        default = 1,
+    },
+	{
+        name = "SHARD",
+        label = "Multi-Shard Mode",
+        hover = "Choose if the mod can use Multi-Shard links.",
+        options =
+        {
+            {description = "Enabled", 
+			hover = "Some structures WILL have support for Multi-Shard.",
+			data = 1},
+            {description = "Disabled", 
+			hover = "Some structures WILL NOT have support for Multi-Shard.",
+			data = 0},
+        },
+        default = 0,
+    },
+	{
+        name = "PLACING_METHOD",
+        label = "Placer Mode",
+        hover = "Choose the placer method for structures.",
+        options =
+        {
+            {description = "Classic", 
+			hover = "The original placer method, nothing changed.",
+			data = 1},
+            {description = "Closer", 
+			hover = "Structures can be placed super close.",
+			data = 0},
+        },
+        default = 1,
+    },
 	Title("Tweaks", "Note: Some options below may affect your gameplay if enabled."),
     {
         name = "keep_food_on_cookpot",

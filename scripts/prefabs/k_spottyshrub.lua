@@ -9,8 +9,7 @@ local assets =
 }
 
 local function dig_up(inst, chopper)
-	inst.components.lootdropper:SpawnLootPrefab("poop")
-	inst.components.lootdropper:SpawnLootPrefab("dug_berrybush")
+	inst.components.lootdropper:SpawnLootPrefab("dug_berrybush2")
 	inst:Remove()
 end
 

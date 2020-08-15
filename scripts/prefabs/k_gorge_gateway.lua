@@ -70,7 +70,11 @@ local function fn()
 	end
 	
 	inst:AddComponent("lootdropper")
+	
+	local SHARD = GetModConfigData("SHARD", KnownModIndex:GetModActualName("The Architect Pack"))
+	if SHARD == 1 then
 	inst:AddComponent("worldmigrator")
+	end
 	
     inst:AddComponent("inspectable")
 	inst.components.inspectable.nameoverride = "QUAGMIRE_PORTAL"

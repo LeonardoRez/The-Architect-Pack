@@ -65,7 +65,10 @@ local function Porkfn()
 	inst.components.workable:SetOnFinishCallback(onhammered)
 	inst.components.workable:SetOnWorkCallback(onhit)
 	
+	local SHARD = GetModConfigData("SHARD", KnownModIndex:GetModActualName("The Architect Pack"))
+	if SHARD == 1 then
 	inst:AddComponent("worldmigrator")
+	end
 	
 	inst:ListenForEvent("onbuilt", onbuilt)
 	

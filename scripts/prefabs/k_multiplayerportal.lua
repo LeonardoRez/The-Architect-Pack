@@ -127,7 +127,10 @@ local function charliefn()
         return inst
     end
 	
-	-- inst:SetStateGraph("SGmultiplayerportal")
+	local SHARD = GetModConfigData("SHARD", KnownModIndex:GetModActualName("The Architect Pack"))
+	if SHARD == 1 then
+	inst:AddComponent("worldmigrator")
+	end
 	
 	inst:AddComponent("lootdropper")
     inst:AddComponent("inspectable")
@@ -192,7 +195,10 @@ local function buildfn()
         return inst
     end
 	
-	-- inst:SetStateGraph("SGmultiplayerportal")
+	local SHARD = GetModConfigData("SHARD", KnownModIndex:GetModActualName("The Architect Pack"))
+	if SHARD == 1 then
+	inst:AddComponent("worldmigrator")
+	end
 	
 	inst:AddComponent("lootdropper")
     inst:AddComponent("inspectable")
@@ -243,7 +249,10 @@ local function celestialfn()
         return inst
     end
 	
-	-- inst:SetStateGraph("SGmultiplayerportal")
+	local SHARD = GetModConfigData("SHARD", KnownModIndex:GetModActualName("The Architect Pack"))
+	if SHARD == 1 then
+	inst:AddComponent("worldmigrator")
+	end
 	
 	inst:AddComponent("lootdropper")
     inst:AddComponent("inspectable")
@@ -300,7 +309,10 @@ local function legacyfn()
         return inst
     end
 	
-	-- inst:SetStateGraph("SGmultiplayerportal")
+	local SHARD = GetModConfigData("SHARD", KnownModIndex:GetModActualName("The Architect Pack"))
+	if SHARD == 1 then
+	inst:AddComponent("worldmigrator")
+	end
 	
 	inst:AddComponent("lootdropper")
     inst:AddComponent("inspectable")

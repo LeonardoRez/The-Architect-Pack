@@ -1,3 +1,4 @@
+--[[
 local GIVESHELF = GLOBAL.Action({priority = 10, distance = 1, mount_valid = true})
 GIVESHELF.str = ("Place")
 GIVESHELF.id = "GIVESHELF"
@@ -76,3 +77,135 @@ AddAction(PICKUP)
 
 AddStategraphActionHandler("wilson", GLOBAL.ActionHandler(GLOBAL.ACTIONS.GIVESHELF, "give"))
 AddStategraphActionHandler("wilson_client", GLOBAL.ActionHandler(GLOBAL.ACTIONS.GIVESHELF, "give"))
+
+local State = GLOBAL.State
+local FRAMES = GLOBAL.FRAMES
+local EventHandler = GLOBAL.EventHandler
+local EQUIPSLOTS = GLOBAL.EQUIPSLOTS
+local TimeEvent = GLOBAL.TimeEvent
+local ActionHandler = GLOBAL.ActionHandler
+local ACTIONS = GLOBAL.ACTIONS
+local TheNet = GLOBAL.TheNet
+local SpawnPrefab = GLOBAL.SpawnPrefab
+local PlayFootstep = GLOBAL.PlayFootstep
+local Vector3 = GLOBAL.Vector3
+local STRINGS = GLOBAL.STRINGS
+
+AddStategraphState("wilson",
+	State{
+        name = "telebrella",
+        tags = { "busy", "pausepredict", "transform", "nomorph" },
+
+        onenter = function(inst)
+            inst.telbrellalight = GLOBAL.SpawnPrefab("kyno_telebrella_glow")
+            if inst.telbrellalight then
+                local x,y,z = inst.Transform:GetWorldPosition()
+                inst.telbrellalight.Transform:SetPosition(x,y,z)
+            end         
+            inst.components.playercontroller:Enable(false)
+            inst.AnimState:PlayAnimation("teleport_out") 
+        end,
+
+        onexit = function(inst)
+            inst.components.playercontroller:Enable(true)
+        end,
+
+        timeline = 
+        {
+            TimeEvent(13*FRAMES, function(inst)     
+                inst.SoundEmitter:PlaySound("dontstarve/rain/thunder_close")
+            end),
+        },
+
+        events = {
+            EventHandler("animover", function(inst)
+				if inst.AnimState:AnimDone() then
+					inst.sg:GoToState("telebrella_finish") 
+				end
+            end ),
+        },
+    }
+)
+
+AddStategraphState("wilson",
+	State{
+        name = "telebrella_finish",
+        tags = { "busy", "pausepredict", "transform", "nomorph" },
+
+        onenter = function(inst)
+            if not inst.telbrellalight then
+                inst.telbrellalight = SpawnPrefab("kyno_telebrella_glow")
+                if inst.telbrellalight then
+                    local x,y,z = inst.Transform:GetWorldPosition()
+                    inst.telbrellalight.Transform:SetPosition(x,y,z)
+                end
+            end           
+            inst.components.playercontroller:Enable(false)
+            inst.AnimState:PlayAnimation("teleport_finish") 
+        end,
+
+        onexit = function(inst)
+            inst.components.playercontroller:Enable(true)
+        end,
+
+        timeline = 
+        {
+        },
+
+        events = {
+            EventHandler("animover", function(inst)
+			    inst:SnapCamera()
+		        inst:PerformBufferedAction()
+				inst.sg:GoToState("telebrella_pst") 
+            end ),
+        },
+    }
+)
+
+AddStategraphState("wilson",
+	State{
+        name = "telebrella_pst",
+        tags = { "busy", "pausepredict", "transform", "nomorph" },
+        
+		onenter = function(inst)
+		    inst:SnapCamera()
+		    inst:PerformBufferedAction()
+            inst.AnimState:PlayAnimation("teleport_in") 
+        end,
+		
+        timeline=
+        {
+            TimeEvent(10*FRAMES, function(inst) inst.SoundEmitter:PlaySound("dontstarve_wagstaff/characters/wagstaff/telebrella/telebrella_end") end),
+        },
+
+        events=
+        {
+            EventHandler("animover", function(inst)
+                if inst.AnimState:AnimDone() then
+                    inst.sg:GoToState("idle")
+                end
+            end),
+        },        
+		
+		onexit = function(inst)
+			inst.components.playercontroller:Enable(true)
+        end,
+    }
+)
+
+AddStategraphPostInit("wilson", function(inst)
+local _castspell_actionhandler = inst.actionhandlers[ACTIONS.CASTSPELL].deststate
+	inst.actionhandlers[ACTIONS.CASTSPELL].deststate = function(inst, action, ...)
+		return action.invobject ~= nil
+            and ( (action.invobject:HasTag("telebrella") and "telebrella")
+				or _castspell_actionhandler(inst, action, ...)
+				)
+	end
+end)
+]]--
+
+AddComponentAction("USEITEM", "fertilizer", function(inst, doer, target, actions)
+    if actions[1] == ACTIONS.FERTILIZE and inst:HasTag("coffeefertilizer") ~= target:HasTag("coffeebush") then
+        actions[1] = nil
+    end
+end)

@@ -2,8 +2,8 @@ local assets =
 {
     Asset("ANIM", "anim/trinkets_sw.zip"),
 	
-	Asset("IMAGE", "images/inventoryimages/kyno_inventoryimages_sw.tex"),
-	Asset("ATLAS", "images/inventoryimages/kyno_inventoryimages_sw.xml"),
+	Asset("IMAGE", "images/inventoryimages/kyno_minisign_icons.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_minisign_icons.xml"),
 }
 
 local SMALLFLOATS =
@@ -52,7 +52,7 @@ local function MakeTrinket(num)
         inst.components.stackable.maxsize = TUNING.STACK_SIZE_SMALLITEM
 
         inst:AddComponent("inventoryitem")
-		inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_inventoryimages_sw.xml"
+		inst.components.inventoryitem.atlasname = "images/inventoryimages/kyno_minisign_icons.xml"
 
         if SMALLFLOATS[num] ~= nil then
             inst.components.floater:SetScale(SMALLFLOATS[num][1])

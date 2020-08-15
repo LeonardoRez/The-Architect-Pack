@@ -96,7 +96,6 @@ local function fn()
 
     inst:AddTag("structure")
     inst:AddTag("wildfireprotected")
-    inst:AddTag("cooker")
     inst:AddTag("HASHEATER")
 
     inst.SoundEmitter:PlaySound("dontstarve/common/together/dragonfly_furnace/fire_LP", "loop")
@@ -106,15 +105,14 @@ local function fn()
     if not TheWorld.ismastersim then
         return inst
     end
-	
-    inst:AddComponent("cooker")
+
     inst:AddComponent("lootdropper")
 	
     inst:AddComponent("inspectable")
     inst.components.inspectable.getstatus = getstatus
 
     inst:AddComponent("heater")
-    inst.components.heater.heat = -40
+    inst.components.heater.heat = -115
 	inst.components.heater:SetThermics(false, true)
 
     inst:AddComponent("workable")

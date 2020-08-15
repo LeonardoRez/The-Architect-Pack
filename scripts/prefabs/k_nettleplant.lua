@@ -14,7 +14,6 @@ local assets =
 }
 
 local function dig_up(inst, chopper)
-	inst.components.lootdropper:SpawnLootPrefab("poop")
 	inst.components.lootdropper:SpawnLootPrefab("cutlichen")
 	inst.components.lootdropper:SpawnLootPrefab("cutlichen")
 	inst:Remove()

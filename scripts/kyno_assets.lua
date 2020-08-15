@@ -2222,6 +2222,33 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_pottedcactus.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_pottedcactus.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_mast_01.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_mast_01.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_mast_02.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_mast_02.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_mast_03.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_mast_03.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_mast_04.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_mast_04.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_mast_05.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_mast_05.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_mast_06.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_mast_06.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_mast_07.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_mast_07.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_mast_08.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_mast_08.xml"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_mast_09.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_mast_09.xml"),
+	
 	-- Sound Assets --
 	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
 	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),
@@ -2685,6 +2712,24 @@ Assets = {
 	Asset("ANIM", "anim/pierrotfish02.zip"),
 	Asset("ANIM", "anim/salmonfish.zip"),
 	Asset("ANIM", "anim/salmonfish02.zip"),
+	Asset("ANIM", "anim/kyno_mast_01.zip"),
+    Asset("ANIM", "anim/kyno_seafarer_mast_01.zip"),
+	Asset("ANIM", "anim/kyno_mast_02.zip"),
+    Asset("ANIM", "anim/kyno_seafarer_mast_02.zip"),
+	Asset("ANIM", "anim/kyno_mast_03.zip"),
+    Asset("ANIM", "anim/kyno_seafarer_mast_03.zip"),
+	Asset("ANIM", "anim/kyno_mast_04.zip"),
+    Asset("ANIM", "anim/kyno_seafarer_mast_04.zip"),
+	Asset("ANIM", "anim/kyno_mast_05.zip"),
+    Asset("ANIM", "anim/kyno_seafarer_mast_05.zip"),
+	Asset("ANIM", "anim/kyno_mast_06.zip"),
+    Asset("ANIM", "anim/kyno_seafarer_mast_06.zip"),
+	Asset("ANIM", "anim/kyno_mast_07.zip"),
+    Asset("ANIM", "anim/kyno_seafarer_mast_07.zip"),
+	Asset("ANIM", "anim/kyno_mast_08.zip"),
+    Asset("ANIM", "anim/kyno_seafarer_mast_08.zip"),
+	Asset("ANIM", "anim/kyno_mast_09.zip"),
+    Asset("ANIM", "anim/kyno_seafarer_mast_09.zip"),
 	-- Interior Assets --
 	Asset("ANIM", "anim/room_shelves.zip"),
 	Asset("ANIM", "anim/shelf_slot.zip"),

@@ -42,10 +42,10 @@ local function onbuilt(inst)
 end
 
 local function onremove(inst)
-	if GetWorld().telipads then
-		for i,pad in ipairs(GetWorld().telipads) do
+	if TheWorld.telipads then
+		for i,pad in ipairs(TheWorld.telipads) do
 			if pad == inst then
-				table.remove(GetWorld().telipads,i)
+				table.remove(TheWorld.telipads,i)
 				break
 			end
 		end
@@ -141,10 +141,10 @@ local function fn()
     inst:AddComponent("hauntable")
     inst.components.hauntable:SetHauntValue(TUNING.HAUNT_TINY)
 	
-	if not GetWorld().telipads then
-			GetWorld().telipads = {}
+	if not TheWorld.telipads then
+			TheWorld.telipads = {}
 		end
-	table.insert(GetWorld().telipads,inst)
+	table.insert(TheWorld.telipads,inst)
 	
     return inst
 end

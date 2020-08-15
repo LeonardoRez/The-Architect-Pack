@@ -178,7 +178,8 @@ local function createbush(name, inspectname, berryname, master_postinit)
         inst.entity:AddNetwork()
 
         MakeSmallObstaclePhysics(inst, .1)
-
+		
+		inst:AddTag("coffeebush")
         inst:AddTag("bush")
         inst:AddTag("renewable")
         inst:AddTag("witherable")
