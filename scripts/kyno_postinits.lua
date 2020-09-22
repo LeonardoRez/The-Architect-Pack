@@ -494,6 +494,7 @@ GLOBAL.SetSharedLootTable("minotaur_robin",
     {"minotaurhorn",1.00},
 	{"kyno_ornatechest_large_blueprint", 1.00},
 	{"ro_bin_gizzard_stone", robin_chance},
+	{"chesspiece_minotaur_sketch", 1.00},
 })
 
 AddPrefabPostInit("minotaur", function(inst)
@@ -2247,6 +2248,17 @@ if GLOBAL.TheNet:GetIsMasterSimulation() then
         AddPrefabPostInit(kyno_wall_reed_name, function(inst)
             inst.components.inventoryitem.imagename = kyno_wall_reed_name
             inst.components.inventoryitem.atlasname = kyno_wall_reed_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local kyno_fork_atlas = MODROOT.."images/inventoryimages/kyno_glass_pitchfork.xml"
+    for _, fork in pairs({"kyno_glass_pitchfork"}) do
+        local fork_name = fork
+        AddPrefabPostInit(fork_name, function(inst)
+            inst.components.inventoryitem.imagename = fork_name
+            inst.components.inventoryitem.atlasname = kyno_fork_atlas
         end)
     end
 end

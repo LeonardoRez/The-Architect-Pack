@@ -28,7 +28,7 @@ local builds =
 {
 	normal = {
 		file="tuber_bloom_build",
-		prefab_name="tubertree",
+		prefab_name="tubertreebloom",
 		short_loot = {"log", "acorn"},
 		tall_loot = {"log", "log", "log", "acorn", "acorn"},		
 	}	

@@ -51,6 +51,7 @@ Assets = { -- Some Assets don't show correctly if they're not set here.
 	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_cyanflies.xml", 256),
 	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_purpleflies.xml", 256),
 	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_wall_reed.xml", 256),
+	Asset("ATLAS_BUILD", "images/inventoryimages/kyno_glass_pitchfork.xml", 256),
 	-- Common Assets.
     Asset("IMAGE", "images/inventoryimages/kyno_turfs_sw.tex"),
     Asset("ATLAS", "images/inventoryimages/kyno_turfs_sw.xml"),
@@ -286,6 +287,8 @@ Assets = { -- Some Assets don't show correctly if they're not set here.
 	Asset("ATLAS", "images/inventoryimages/kyno_legacyruins_wall.xml"),
 	Asset("IMAGE", "images/kyno_saladfurnace.tex"),
 	Asset("ATLAS", "images/kyno_saladfurnace.xml"),
+	Asset("IMAGE", "images/inventoryimages/kyno_glass_pitchfork.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_glass_pitchfork.xml"),
 }
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 PrefabFiles = {
@@ -734,6 +737,8 @@ PrefabFiles = {
 	"k_interior_palace",
 	"k_interior_general",
 	"k_interior_containers",
+	-- NEW CONTENT --
+	"k_glass_pitchfork",
 }
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 local atlas = (src and src.components.inventoryitem and src.components.inventoryitem.atlasname and resolvefilepath(src.components.inventoryitem.atlasname) ) or "images/inventoryimages/kyno_inventoryimages_ham.xml"
@@ -1002,6 +1007,11 @@ local KynMast9 = AddRecipe("kyno_mast_item_09", {Ingredient("boards", 3), Ingred
 RECIPETABS.SEAFARING, TECH.SEAFARING_TWO, nil, nil, nil, 1, nil, "images/inventoryimages/kyno_mast_09.xml", "kyno_mast_09.tex")
 local mast9_sortkey = AllRecipes["kyno_mast_item_08"]["sortkey"]
 KynMast9.sortkey = mast9_sortkey + 0.1
+
+local KynFork = AddRecipe("kyno_glass_pitchfork", {Ingredient("pitchfork", 1), Ingredient("moonglass", 3)},
+RECIPETABS.MOON_ALTAR, TECH.MOON_ALTAR_TWO, nil, nil, nil, 1, nil, "images/inventoryimages/kyno_glass_pitchfork.xml", "kyno_glass_pitchfork.tex")
+local fork_sortkey = AllRecipes["moonglassaxe"]["sortkey"]
+KynFork.sortkey = fork_sortkey + 0.1
 
 local SWEAT = GetModConfigData("SWEAT")
 if SWEET == 1 then
@@ -9830,4 +9840,62 @@ if PLACING_METHOD == 0 then
 		v.min_spacing = 0
 	end
 end
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Table For Display Mod
+local TheNet = _G.TheNet
+local IsServer = TheNet:GetIsServer() or TheNet:IsDedicated()
+
+	_G.AllRecipes["table_winters_feast"].level = TechTree.Create(_G.TECH.NONE)
+	local food_fx = "wintersfeast2019/winters_feast/table/fx"
+	local function SetFoodSymbol(inst, foodname, override_build)
+		if foodname == nil then
+			inst.AnimState:ClearOverrideSymbol("swap_cooked")
+		else
+			inst.AnimState:OverrideSymbol("swap_cooked", override_build or "food_winters_feast_2019", foodname)
+		end
+	end
+	
+	local function change(inst)
+		if inst and inst.components and inst.components.shelf then
+			local old_onshelfitemfn = inst.components.shelf.onshelfitemfn
+			inst.components.shelf.onshelfitemfn = function(inst, item)
+				if item ~= nil then
+					inst.components.trader:Disable()
+					if item.prefab ~= "spoiled_food" and not item:HasTag("wintersfeastcookedfood") then 
+						if item:HasTag("spicedfood") then
+							local spice_start, spice_end = string.find(item.prefab, "_spice_")
+							local baseprefab = string.sub(item.prefab, 1, spice_start - 1)
+							local spicesymbol = string.sub(item.prefab, spice_start + 1)
+
+							SetFoodSymbol(inst, baseprefab, item.food_symbol_build or item.AnimState:GetBuild())
+							inst.AnimState:OverrideSymbol("swap_garnish", "spices", spicesymbol)
+							inst.AnimState:OverrideSymbol("swap_plate", "plate_food", "plate")
+						else
+							SetFoodSymbol(inst, item.prefab, item.AnimState:GetBuild())
+						end
+						if item.components.perishable then
+							item.components.perishable:StopPerishing()
+						end
+						inst.components.wintersfeasttable.canfeast = false
+						inst.components.shelf.cantakeitem = true
+
+						inst.AnimState:PlayAnimation("food")
+						inst.AnimState:PushAnimation("idle")
+
+						inst.SoundEmitter:PlaySound(food_fx)
+					else
+						old_onshelfitemfn(inst, item)
+					end
+				end
+			end
+			local old_ontakeitemfn = inst.components.shelf.ontakeitemfn
+			inst.components.shelf.ontakeitemfn = function(inst, taker, item)
+				if item and item.components and item.components.perishable then
+					item.components.perishable:StartPerishing()
+				end
+				old_ontakeitemfn(inst, taker, item)
+			end
+		end
+	end
+AddPrefabPostInit("table_winters_feast", change)
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

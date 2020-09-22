@@ -1,6 +1,6 @@
 name = "The Architect Pack"
-version = "3.0-B"
-local myupdate = "We Need to Patch Deeper"
+version = "4.0-A"
+local myupdate = "Overwhelming Update"
 
 description = "󰀂 This mod contains huge amount of decorative structures for Base Building!\n\Remember: They're just replicas, static structures or not?\n\n󰀅 Also includes some special structures and easter eggs, go find em' all!\n\n󰀏 Includes contents from: Shipwrecked, Hamlet, The Forge, The Gorge and exclusive contents!\n\n󰀖 Credits on the mod page!\n\󰀌 Mod Version: "..version.."\n\󰀧 Update: "..myupdate..""
 author = "The Builders Society"

@@ -2249,6 +2249,9 @@ Assets = {
 	Asset("IMAGE", "images/inventoryimages/kyno_mast_09.tex"),
 	Asset("ATLAS", "images/inventoryimages/kyno_mast_09.xml"),
 	
+	Asset("IMAGE", "images/inventoryimages/kyno_glass_pitchfork.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_glass_pitchfork.xml"),
+	
 	-- Sound Assets --
 	Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),
 	Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),
@@ -2749,4 +2752,7 @@ Assets = {
 	Asset("ANIM", "anim/interior_floor_decor.zip"),
 	Asset("ANIM", "anim/containers.zip"),
 	Asset("ANIM", "anim/pedestal_crate.zip"),
+	-- New Assets --
+	Asset("ANIM", "anim/kyno_glass_pitchfork.zip"),
+    Asset("ANIM", "anim/kyno_swap_glass_pitchfork.zip"),
 }
