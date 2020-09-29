@@ -22,6 +22,14 @@ local bunny_assets =
 	Asset("ATLAS", "images/inventoryimages/kyno_bunnyhead.xml"),
 }
 
+local wigfrid_assets = 
+{
+	Asset("ANIM", "anim/wigfrid_head.zip"),
+	
+	Asset("IMAGE", "images/inventoryimages/kyno_wigfridhead.tex"),
+	Asset("ATLAS", "images/inventoryimages/kyno_wigfridhead.xml"),
+}
+
 local pig_prefabs =
 {
     "flies",
@@ -42,6 +50,14 @@ local bunny_prefabs =
 {
 	"flies",
 	"manrabbit_tail",
+	"twigs",
+	"collapse_small",
+}
+
+local wigfrid_prefabs =
+{
+	"flies",
+	"meat",
 	"twigs",
 	"collapse_small",
 }
@@ -194,9 +210,21 @@ local function create_bunnyhead()
     return inst
 end
 
+local function create_wigfridhead()
+	local inst = create_common("wigfrid_head")
+	
+	 if not TheWorld.ismastersim then
+        return inst
+    end
+
+    return inst
+end
+
 return Prefab("kyno_pighead", create_pighead, pig_assets, pig_prefabs),
 Prefab("kyno_mermhead", create_mermhead, merm_assets, merm_prefabs),
 Prefab("kyno_bunnyhead", create_bunnyhead, bunny_assets, bunny_prefabs),
+Prefab("kyno_wigfridhead", create_wigfridhead, wigfrid_assets, wigfrid_prefabs),
 MakePlacer("kyno_pighead_placer", "pig_head", "pig_head", "idle_asleep"),
 MakePlacer("kyno_mermhead_placer", "merm_head", "merm_head", "idle_asleep"),
-MakePlacer("kyno_bunnyhead_placer", "bunny_head", "bunny_head", "idle_asleep")
+MakePlacer("kyno_bunnyhead_placer", "bunny_head", "bunny_head", "idle_asleep"),
+MakePlacer("kyno_wigfridhead_placer", "wigfrid_head", "wigfrid_head", "idle_asleep")

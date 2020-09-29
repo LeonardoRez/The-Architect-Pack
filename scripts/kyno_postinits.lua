@@ -10,6 +10,7 @@ local ACTIONS = GLOBAL.ACTIONS
 local ActionHandler = GLOBAL.ActionHandler
 local SpawnPrefab = GLOBAL.SpawnPrefab
 local KENV = env
+local TheSim = GLOBAL.TheSim
 
 TUNING.BIRD_PERISH_TIME = 999999
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -2262,6 +2263,50 @@ if GLOBAL.TheNet:GetIsMasterSimulation() then
         end)
     end
 end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local kyno_claw_atlas = MODROOT.."images/inventoryimages/lobster_claw.xml"
+    for _, claw in pairs({"lobster_claw"}) do
+        local claw_name = claw
+        AddPrefabPostInit(claw_name, function(inst)
+            inst.components.inventoryitem.imagename = claw_name
+            inst.components.inventoryitem.atlasname = kyno_claw_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local wall_bone_atlas = MODROOT.."images/inventoryimages/wall_bone_item.xml"
+    for _, wall_bone in pairs({"wall_bone_item"}) do
+        local wall_bone_name = wall_bone
+        AddPrefabPostInit(wall_bone_name, function(inst)
+            inst.components.inventoryitem.imagename = wall_bone_name
+            inst.components.inventoryitem.atlasname = wall_bone_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local wall_living_atlas = MODROOT.."images/inventoryimages/wall_living_item.xml"
+    for _, wall_living in pairs({"wall_living_item"}) do
+        local wall_living_name = wall_living
+        AddPrefabPostInit(wall_living_name, function(inst)
+            inst.components.inventoryitem.imagename = wall_living_name
+            inst.components.inventoryitem.atlasname = wall_living_atlas
+        end)
+    end
+end
+
+if GLOBAL.TheNet:GetIsMasterSimulation() then
+    local wall_mud_atlas = MODROOT.."images/inventoryimages/wall_mud_item.xml"
+    for _, wall_mud in pairs({"wall_mud_item"}) do
+        local wall_mud_name = wall_mud
+        AddPrefabPostInit(wall_mud_name, function(inst)
+            inst.components.inventoryitem.imagename = wall_mud_name
+            inst.components.inventoryitem.atlasname = wall_mud_atlas
+        end)
+    end
+end
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 AddPrefabPostInit("ash", function(inst)
 	if not GLOBAL.TheWorld.ismastersim then
@@ -2269,5 +2314,95 @@ AddPrefabPostInit("ash", function(inst)
 	end
     inst:AddTag("coffeefertilizer")
     inst:AddComponent("fertilizer")
+end)
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+AddPrefabPostInit("kyno_p_farmrock", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "ROCKS"
+	end 
+end)
+
+AddPrefabPostInit("kyno_p_farmrocktall", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "ROCKS"
+	end 
+end)
+
+AddPrefabPostInit("kyno_p_farmrockflat", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "ROCKS"
+	end 
+end)
+
+AddPrefabPostInit("kyno_p_stick", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TWIGS"
+	end 
+end)
+
+AddPrefabPostInit("kyno_p_stickright", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TWIGS"
+	end 
+end)
+
+AddPrefabPostInit("kyno_p_stickleft", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TWIGS"
+	end 
+end)
+
+AddPrefabPostInit("kyno_p_signleft", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "HOMESIGN"
+	end 
+end)
+
+AddPrefabPostInit("kyno_p_signright", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "HOMESIGN"
+	end 
+end)
+
+AddPrefabPostInit("kyno_p_fencepost", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "FENCE"
+	end 
+end)
+
+AddPrefabPostInit("kyno_p_fencepostright", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "FENCE"
+	end 
+end)
+
+AddPrefabPostInit("kyno_p_burntstickright", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TWIGS"
+	end 
+end)
+
+AddPrefabPostInit("kyno_p_burntstickleft", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TWIGS"
+	end 
+end)
+
+AddPrefabPostInit("kyno_p_burntstick", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "TWIGS"
+	end 
+end)
+
+AddPrefabPostInit("kyno_p_burntfencepost", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "FENCE"
+	end 
+end)
+
+AddPrefabPostInit("kyno_p_burntfencepostright", function(inst)	
+	if inst.components.inspectable ~= nil then
+	inst.components.inspectable.nameoverride = "FENCE"
+	end 
 end)
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------

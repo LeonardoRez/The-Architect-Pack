@@ -100,6 +100,15 @@ function MakeWallType(data)
 		
 		Asset("IMAGE", "images/inventoryimages/kyno_wall_reed.tex"),
 		Asset("ATLAS", "images/inventoryimages/kyno_wall_reed.xml"),
+		
+		Asset("IMAGE", "images/inventoryimages/wall_bone_item.tex"),
+		Asset("ATLAS", "images/inventoryimages/wall_bone_item.xml"),
+		
+		Asset("IMAGE", "images/inventoryimages/wall_living_item.tex"),
+		Asset("ATLAS", "images/inventoryimages/wall_living_item.xml"),
+		
+		Asset("IMAGE", "images/inventoryimages/wall_mud_item.tex"),
+		Asset("ATLAS", "images/inventoryimages/wall_mud_item.xml"),
     }
 
     local prefabs =
@@ -179,7 +188,8 @@ function MakeWallType(data)
 
         inst:AddComponent("repairer")
 
-        inst.components.repairer.repairmaterial = data.name == "legacy_moonrock" and MATERIALS.MOONROCK or data.name == "legacyruins" and MATERIALS.THULECITE or data.name == "reed" and MATERIALS.HAY or data.name
+        inst.components.repairer.repairmaterial = data.name == "legacy_moonrock" and MATERIALS.MOONROCK or data.name == "legacyruins" and MATERIALS.THULECITE 
+		or data.name == "reed" and MATERIALS.HAY or data.name == "bone" and MATERIALS.STONE or data.name == "living" and MATERIALS.STONE or data.name == "mud" and MATERIALS.HAY or data.name
         inst.components.repairer.healthrepairvalue = data.maxhealth / 6
 
         if data.flammable then
@@ -272,7 +282,8 @@ function MakeWallType(data)
         inst:AddComponent("lootdropper")
 
         inst:AddComponent("repairable")
-        inst.components.repairable.repairmaterial = data.name == "legacy_moonrock" and MATERIALS.MOONROCK or data.name == "legacyruins" and MATERIALS.THULECITE or data.name == "reed" and MATERIALS.HAY or data.name 
+        inst.components.repairable.repairmaterial = data.name == "legacy_moonrock" and MATERIALS.MOONROCK or data.name == "legacyruins" and MATERIALS.THULECITE 
+		or data.name == "reed" and MATERIALS.HAY or data.name == "bone" and MATERIALS.STONE or data.name == "living" and MATERIALS.STONE or data.name == "mud" and MATERIALS.HAY or data.name
         inst.components.repairable.onrepaired = onrepaired
 
         inst:AddComponent("combat")
@@ -332,7 +343,10 @@ local walldata =
 {
     { name = "legacy_moonrock", material = "stone", tags = { "stone", "moonrock" }, loot = "moonrocknugget",   maxloots = 2, maxhealth = TUNING.MOONROCKWALL_HEALTH, buildsound = "dontstarve/common/place_structure_stone" },
 	{ name = "legacyruins", material = "stone", tags = { "stone", "ruins" }, loot = "thulecite_pieces", maxloots = 2, maxhealth = TUNING.RUINSWALL_HEALTH, buildsound = "dontstarve/common/place_structure_stone" },
-	{ name = "reed", material = "straw", tags = { "grass", "reed" }, loot = "cutreeds", maxloots = 2, maxhealth = TUNING.HAYWALL_HEALTH, flammable = true, buildsound = "dontstarve/common/place_structure_straw" },
+	{ name = "reed", material = "straw", tags = { "grass", "cutreeds" }, loot = "cutreeds", maxloots = 2, maxhealth = TUNING.HAYWALL_HEALTH, flammable = true, buildsound = "dontstarve/common/place_structure_straw" },
+	{ name = "bone", material = "stone", tags = { "stone", "boneshard"}, loot = "boneshard", maxloots = 2, maxhealth = 650, buildsound = "dontstarve/common/place_structure_stone" },
+	{ name = "living", material = "stone", tags = { "ruins", "tentacle" }, loot = "tentaclespots", maxloots = 2, maxhealth = 750, buildsound = "dontstarve/common/place_structure_stone" },
+	{ name = "mud", material = "straw", tags = { "grass", "poop" }, loot = "poop", maxloots = 2, maxhealth = 250, buildsound = "dontstarve/creatures/spider/spider_egg_sack" },
 }
 
 for i, v in ipairs(walldata) do

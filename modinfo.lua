@@ -16,12 +16,11 @@ server_filter_tags = {"TBS", "TAP", "Decorations", "Base Building", "Mega Base"}
 icon_atlas = "ModiconTAP.xml"
 icon = "ModiconTAP.tex"
 
--- From The Gorge Extender --
 local emptyoptions = {{description="", data=false}}
 local function Title(title, hover)
 	return {
 		name=title,
-		hover=hover, --hover does not work, as this item cannot be hovered
+		hover=hover,
 		options={{description = "", data = 0}},
 		default=0,
 	}

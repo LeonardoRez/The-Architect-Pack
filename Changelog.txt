@@ -124,3 +124,22 @@ Version 3.0-B
 - Fixed Wrong loot of some structures.
 - Removed Placer limit to all TAP structures.
 - Coffee Bush can only be fertilized with Ashes now.
+
+Version 3.5-B
+- Fixed Blooming Tuber Tree not saving animations.
+- Fixed Ancient Guardian Not dropping its sketch.
+
+Version 4.0-A
+- Added Moon Glass Pitchfork.
+- Added Strange Bird Stand. (Birdcage)
+- Added Pet Statues.
+- Added New Tents.
+- Added New Walls.
+- Added Wigfrid Head.
+- Added Pastoral Decorations.
+- Added Paintings Tab.
+- Added Characters Statues.
+- Added Letter and Number Statues.
+- Added Rock Lobster House.
+- Removed Aporkalypse Calendar Sounds.
+- Winter's Feast Table can now display crock pot foods.

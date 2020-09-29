@@ -135,10 +135,10 @@ local function fn(Sim)
 	inst.components.workable:SetOnWorkCallback(onhit)
 	inst.components.workable:SetWorkLeft(3)
 	
-	inst:AddComponent("playerprox")
-    inst.components.playerprox:SetDist(8, 16)
-    inst.components.playerprox:SetOnPlayerNear(onnear)
-    inst.components.playerprox:SetOnPlayerFar(onfar)
+	-- inst:AddComponent("playerprox")
+    -- inst.components.playerprox:SetDist(8, 16)
+    -- inst.components.playerprox:SetOnPlayerNear(onnear)
+    -- inst.components.playerprox:SetOnPlayerFar(onfar)
 	
 	inst:AddComponent("savedrotation")
 	
